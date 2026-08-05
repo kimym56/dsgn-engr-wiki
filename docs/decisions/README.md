@@ -13,7 +13,8 @@ This directory records durable product and technical choices so future contribut
 
 | ID | Decision | Status |
 | --- | --- | --- |
-| [0001](0001-recommended-tech-stack.md) | Recommended technology stack | Proposed |
+| [0001](0001-recommended-tech-stack.md) | Recommended technology stack | Accepted |
+| [0002](0002-reference-records-and-external-sources.md) | Reference records and external-source handling | Accepted |
 
 ## Adding a decision
 

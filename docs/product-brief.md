@@ -2,53 +2,48 @@
 
 ## Product
 
-**DSGN ENGR Wiki** is an educational reference for people learning how design intent becomes robust, accessible, maintainable software.
+**DSGN ENGR Wiki** is a curated reference library for design engineering. It collects useful resources published across the web, adds concise editorial context, and organizes them so designers and developers can discover relevant material in one place.
 
-It is not a general design encyclopedia or a general programming tutorial. Its focus is the overlap between design and engineering: the concepts, decisions, and practical abilities needed to work confidently across both disciplines.
+It is not a search engine, a mirror of third-party content, or a complete design-engineering course. The product helps people decide what is worth opening and then sends them to the original publisher.
 
 ## Primary audience
 
 The first version serves:
 
 - product and interaction designers developing implementation literacy
-- frontend developers developing stronger visual, interaction, and design-system judgment
-- early-career design engineers looking for an organized learning reference
+- frontend developers strengthening their visual, interaction, and design-system judgment
+- design engineers looking for reliable references across both disciplines
 
-Experienced practitioners may still find the reference useful, but their advanced needs do not drive the first release.
+Experienced practitioners may also use the library, but specialist research workflows do not drive the first release.
 
 ## User problem
 
-Design-engineering knowledge is fragmented across design-system documentation, frontend references, accessibility standards, tool tutorials, conference talks, and individual practitioners’ notes. Learners often encounter unfamiliar terms without knowing how they relate or which practical skill to learn next.
+Useful design-engineering material is fragmented across standards, product documentation, articles, videos, conference talks, tools, repositories, and individual practitioners’ sites. General web search often removes editorial context, mixes introductory and advanced material, and makes it difficult to judge whether a resource is relevant before opening it.
 
 ## Product promise
 
-A learner should be able to:
+A visitor should be able to:
 
-1. understand a design-engineering term in plain language
-2. see why it matters in real product work
-3. follow related concepts without losing context
-4. identify a practical skill that applies the concept
-5. verify important claims through cited sources
+1. browse a reviewed set of design-engineering references in one place
+2. understand why a resource may be useful before opening it
+3. narrow resources by area and format
+4. discover purposeful editorial collections
+5. identify the original publisher and follow the canonical source
+6. see when the project last reviewed a resource
 
-## Initial content scope
+## Core content model
 
-The product has three primary entry types:
+### References
 
-### Terms
+A reference is a project-owned metadata record pointing to an external resource. It includes a title, canonical URL, publisher, concise summary, resource format, relevant areas, review status, and dates. Optional fields may include author, original publication date, collection relationships, and an approved preview image.
 
-Concise definitions for vocabulary used across design and engineering. A term explains meaning, context, common confusion, and related entries.
+The reference record does not reproduce the external resource’s substantive content.
 
-### Knowledge
+### Areas
 
-Conceptual explanations that connect principles, trade-offs, and patterns. Knowledge entries answer “why,” “when,” and “how ideas relate.”
+Areas are stable subject classifications used to browse the library. A reference may belong to more than one area.
 
-### Skills
-
-Practical learning units with prerequisites, outcomes, a guided procedure, and a way for the learner to check their result.
-
-Learning paths may organize existing entries into sequences, but they are a navigation layer rather than a fourth content type.
-
-## Initial topic families
+Initial areas are:
 
 - design-engineering foundations
 - interface implementation
@@ -59,39 +54,46 @@ Learning paths may organize existing entries into sequences, but they are a navi
 - collaboration, handoff, and workflow
 - frontend quality and performance as they affect user experience
 
-These families are starting navigation aids. Entries may belong to more than one family.
+### Collections
+
+Collections are smaller editorial selections organized around a purpose, question, or learning outcome. Unlike areas, collections are intentionally curated and may change as stronger references are found.
+
+Examples might include “Starting Design Engineering,” “Essential Accessibility References,” or “Understanding Interface Motion.”
 
 ## Product principles
 
-1. **Teach the connection.** Explain how design and engineering decisions affect each other.
-2. **Prefer clarity over jargon.** Introduce technical language without assuming prior fluency.
-3. **Connect, do not duplicate.** Link related entries and maintain one canonical explanation for each concept.
-4. **Distinguish evidence from judgment.** Cite factual claims and label recommendations or practitioner opinions.
-5. **Make learning actionable.** Knowledge should lead naturally to an applicable skill or example when one exists.
-6. **Design for accessibility from the start.** Accessibility is a product requirement, not a later content category alone.
-7. **Prepare for translation without weakening the English source.** English entries remain canonical; Korean translations preserve meaning and link back to their source entry.
+1. **Curate instead of copying.** Add useful context and link to the original publisher rather than reproducing third-party work.
+2. **Quality over volume.** A smaller reviewed library is more valuable than a large unexamined link directory.
+3. **Explain the selection.** Every published reference should make clear why it belongs in the library.
+4. **Preserve source identity.** Show the publisher, canonical destination, and relevant attribution clearly.
+5. **Keep discovery understandable.** Areas and collections should help visitors browse without requiring search.
+6. **Design for accessibility from the start.** Accessibility applies to the product interface as well as the resources being curated.
+7. **Make freshness visible.** Record review dates and maintain a clear process for redirects, unavailable sources, and stale metadata.
+8. **Prepare for translation without weakening the English source.** English project-owned metadata remains canonical; Korean translations preserve meaning and link to the same external resource.
 
 ## Non-goals for the first public version
 
-- community accounts or open editing
-- comments, reactions, or social features
+- hosting or mirroring complete third-party articles, videos, or courses
+- automatically publishing scraped or AI-generated resource records without editorial review
+- community accounts, comments, reactions, or open editing
+- personalized recommendations or saved progress
 - a headless CMS or database
-- AI-generated publishing without editorial review
-- personalized recommendations or progress tracking
+- exhaustive coverage of every design or frontend resource
+- original long-form courses or a live coding environment
 - native mobile applications
-- exhaustive coverage of design or software engineering as separate fields
 
 ## Success criteria for the first public version
 
 The first public version is ready when:
 
-- every published entry follows the appropriate content template
-- navigation supports browsing by content type and topic
-- related entries create useful paths between terms, knowledge, and skills
-- all factual or standards-based claims have traceable sources
+- every published reference follows the approved metadata schema
+- every reference has a working canonical destination, clear publisher attribution, and a project-owned summary
+- visitors can browse all references and narrow them by area and format
+- Areas and Collections provide useful discovery paths without duplicating source content
+- missing preview images degrade to an accessible neutral fallback
 - core pages work with keyboard navigation and assistive technology
 - the site remains understandable on mobile and desktop
-- content validation, automated tests, and a production build pass consistently
-- the repository explains how to add, review, translate, test, and publish content
+- content validation, automated tests, and the production build pass consistently
+- the repository explains how to propose, review, translate, maintain, archive, and publish references
 
-Numeric traffic or content-volume targets should be set only after the first implementation plan defines a realistic launch scope.
+Numeric traffic or library-size targets should be set only after the first implementation plan defines a realistic launch collection.

@@ -47,7 +47,7 @@ This plan implements Roadmap Phase 1 only. It deliberately leaves these approved
 - `eslint.config.mjs` — Next.js Core Web Vitals and TypeScript lint rules.
 - `.prettierrc.json` and `.prettierignore` — formatting policy and generated-output exclusions.
 - `.gitignore` — retain existing ignores and add TypeScript build metadata.
-- `vitest.config.ts` and `src/test/setup.ts` — jsdom component-test environment and DOM matchers.
+- `vitest.config.mts` and `src/test/setup.ts` — ESM-explicit jsdom component-test environment and DOM matchers.
 - `src/app/.gitkeep` — persists the App Router source directory until Task 3 adds its first route files, preventing the Next.js lint plugin from searching for a legacy Pages Router directory.
 - `playwright.config.ts` — Chromium desktop/mobile projects and local development server.
 - `.github/workflows/ci.yml` — deterministic install, static checks, tests, build, and browser checks.
@@ -56,6 +56,7 @@ This plan implements Roadmap Phase 1 only. It deliberately leaves these approved
 
 - `src/i18n/config.ts` — known/published locale constants, guards, and locale-aware path construction.
 - `src/i18n/config.test.ts` — protects English publication, Korean reservation, and URL behavior.
+- `src/i18n/load-dictionary.test.ts` — protects the published English mapping and rejection of unpublished locales.
 - `src/i18n/dictionaries/types.ts` — copy contract shared by every locale dictionary.
 - `src/i18n/dictionaries/en.ts` — all Phase 1 visitor-facing English copy.
 - `src/i18n/load-dictionary.ts` — server-only dictionary loader that rejects unpublished locales.
@@ -94,7 +95,7 @@ This plan implements Roadmap Phase 1 only. It deliberately leaves these approved
 - Create: `eslint.config.mjs`
 - Create: `.prettierrc.json`
 - Create: `.prettierignore`
-- Create: `vitest.config.ts`
+- Create: `vitest.config.mts`
 - Create: `src/test/setup.ts`
 - Create: `src/app/.gitkeep`
 - Modify: `.gitignore`
@@ -292,7 +293,7 @@ Append to `.gitignore`:
 
 - [ ] **Step 6: Configure the component-test environment**
 
-Create `vitest.config.ts`:
+Create `vitest.config.mts`:
 
 ```ts
 import path from "node:path";
@@ -340,7 +341,7 @@ Expected: all four commands pass. `npm test` is intentionally first run in Task 
 - [ ] **Step 8: Commit the scaffold**
 
 ```bash
-git add .gitignore .nvmrc .prettierignore .prettierrc.json eslint.config.mjs next-env.d.ts next.config.ts package.json package-lock.json src/app/.gitkeep src/test/setup.ts tsconfig.json vitest.config.ts
+git add .gitignore .nvmrc .prettierignore .prettierrc.json eslint.config.mjs next-env.d.ts next.config.ts package.json package-lock.json src/app/.gitkeep src/test/setup.ts tsconfig.json vitest.config.mts
 git commit -m "build: scaffold phase one toolchain"
 ```
 
@@ -351,6 +352,7 @@ git commit -m "build: scaffold phase one toolchain"
 **Files:**
 
 - Create: `src/i18n/config.test.ts`
+- Create: `src/i18n/load-dictionary.test.ts`
 - Create: `src/i18n/config.ts`
 - Create: `src/i18n/dictionaries/types.ts`
 - Create: `src/i18n/dictionaries/en.ts`
@@ -444,7 +446,45 @@ npm test -- src/i18n/config.test.ts
 
 Expected: two tests PASS.
 
-- [ ] **Step 5: Add the dictionary contract and complete English shell copy**
+- [ ] **Step 5: Write the failing dictionary-loader test**
+
+Create `src/i18n/load-dictionary.test.ts`:
+
+```ts
+import { describe, expect, it } from "vitest";
+import { loadDictionary } from "@/i18n/load-dictionary";
+
+describe("loadDictionary", () => {
+  it("loads the published English dictionary", async () => {
+    const dictionary = await loadDictionary("en");
+
+    expect(dictionary.navigation).toEqual({
+      home: "Home",
+      explore: "Explore",
+      references: "References",
+      about: "About",
+    });
+  });
+
+  it("rejects an unpublished locale", async () => {
+    await expect(loadDictionary("ko")).rejects.toMatchObject({
+      digest: "NEXT_HTTP_ERROR_FALLBACK;404",
+    });
+  });
+});
+```
+
+- [ ] **Step 6: Run the loader test and verify the missing module fails**
+
+Run:
+
+```bash
+npm test -- src/i18n/load-dictionary.test.ts
+```
+
+Expected: FAIL because `@/i18n/load-dictionary` does not exist.
+
+- [ ] **Step 7: Add the dictionary contract and complete English shell copy**
 
 Create `src/i18n/dictionaries/types.ts`:
 
@@ -583,19 +623,19 @@ export async function loadDictionary(locale: string): Promise<Dictionary> {
 }
 ```
 
-- [ ] **Step 6: Run the focused and static checks**
+- [ ] **Step 8: Run the focused and static checks**
 
 Run:
 
 ```bash
-npm test -- src/i18n/config.test.ts
+npm test
 npm run lint
 npm run typecheck
 ```
 
 Expected: all commands PASS with no warnings.
 
-- [ ] **Step 7: Commit the locale foundation**
+- [ ] **Step 9: Commit the locale foundation**
 
 ```bash
 git add src/i18n

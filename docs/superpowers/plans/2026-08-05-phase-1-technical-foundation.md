@@ -43,7 +43,8 @@ This plan implements Roadmap Phase 1 only. It deliberately leaves these approved
 - `.nvmrc` — exact local Node version.
 - `next.config.ts` — root-to-English redirect and no other application behavior.
 - `tsconfig.json` — strict TypeScript and the `@/*` source alias.
-- `next-env.d.ts` — Next.js-generated TypeScript declarations; do not edit after creation.
+- `next-env.d.ts` — generated and ignored according to the installed Next.js 16 TypeScript guide.
+- `AGENTS.md` and `CLAUDE.md` — generated Next.js 16 guidance that directs coding agents to the versioned documentation bundled with the installed framework.
 - `eslint.config.mjs` — Next.js Core Web Vitals and TypeScript lint rules.
 - `.prettierrc.json` and `.prettierignore` — formatting policy and generated-output exclusions.
 - `.gitignore` — retain existing ignores and add TypeScript build metadata.
@@ -68,6 +69,7 @@ This plan implements Roadmap Phase 1 only. It deliberately leaves these approved
 - `src/components/site-header.tsx` — four stable locale-aware navigation links with no client JavaScript.
 - `src/components/site-header.test.tsx` — accessible navigation names and destinations.
 - `src/components/site-footer.tsx` — project identity and scope statement.
+- `src/app/[lang]/page-shells.test.tsx` — protects the honest English copy and primary links across all four Phase 1 pages.
 - `src/app/[lang]/page.tsx` — English Home shell and two discovery entry points.
 - `src/app/[lang]/references/page.tsx` — honest empty-state shell for the future complete index.
 - `src/app/[lang]/explore/page.tsx` — honest empty-state shell for future Areas and Collections.
@@ -91,7 +93,6 @@ This plan implements Roadmap Phase 1 only. It deliberately leaves these approved
 - Create: `.nvmrc`
 - Create: `next.config.ts`
 - Create: `tsconfig.json`
-- Create: `next-env.d.ts`
 - Create: `eslint.config.mjs`
 - Create: `.prettierrc.json`
 - Create: `.prettierignore`
@@ -212,7 +213,7 @@ Create `tsconfig.json`:
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [{ "name": "next" }],
     "paths": {
@@ -230,15 +231,7 @@ Create `tsconfig.json`:
 }
 ```
 
-Create `next-env.d.ts`:
-
-```ts
-/// <reference types="next" />
-/// <reference types="next/image-types/global" />
-
-// NOTE: This file should not be edited
-// see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
-```
+Next.js generates `next-env.d.ts` when `next dev`, `next build`, or `next typegen` runs. Do not create or edit it manually; ignore it because its contents are an implementation detail.
 
 Create `eslint.config.mjs`:
 
@@ -341,7 +334,7 @@ Expected: all four commands pass. `npm test` is intentionally first run in Task 
 - [ ] **Step 8: Commit the scaffold**
 
 ```bash
-git add .gitignore .nvmrc .prettierignore .prettierrc.json eslint.config.mjs next-env.d.ts next.config.ts package.json package-lock.json src/app/.gitkeep src/test/setup.ts tsconfig.json vitest.config.mts
+git add .gitignore .nvmrc .prettierignore .prettierrc.json eslint.config.mjs next.config.ts package.json package-lock.json src/app/.gitkeep src/test/setup.ts tsconfig.json vitest.config.mts
 git commit -m "build: scaffold phase one toolchain"
 ```
 
@@ -648,11 +641,14 @@ git commit -m "feat: establish locale route contract"
 
 **Files:**
 
+- Create: `AGENTS.md`
+- Create: `CLAUDE.md`
 - Create: `src/components/site-header.test.tsx`
 - Create: `src/components/site-header.tsx`
 - Create: `src/components/site-footer.tsx`
 - Create: `src/app/globals.css`
 - Delete: `src/app/.gitkeep`
+- Create: `src/app/[lang]/page-shells.test.tsx`
 - Create: `src/app/[lang]/layout.tsx`
 - Create: `src/app/[lang]/page.tsx`
 - Create: `src/app/[lang]/references/page.tsx`
@@ -815,7 +811,19 @@ npm test -- src/components/site-header.test.tsx
 
 Expected: one test PASS.
 
-- [ ] **Step 5: Implement the locale layout and semantic document shell**
+- [ ] **Step 5: Write and run failing page-shell contract tests**
+
+Create `src/app/[lang]/page-shells.test.tsx`. Render each async English page component and assert the Home heading and two discovery links, the References and Explore honest empty states, and the About principles heading and three statements.
+
+Run:
+
+```bash
+npm test -- 'src/app/[lang]/page-shells.test.tsx'
+```
+
+Expected: FAIL because the four page modules do not exist.
+
+- [ ] **Step 6: Implement the locale layout and semantic document shell**
 
 Delete `src/app/.gitkeep`; the real App Router files created in this task now keep `src/app` present.
 
@@ -894,7 +902,7 @@ export default async function LocaleLayout({
 }
 ```
 
-- [ ] **Step 6: Implement all four honest Phase 1 page shells**
+- [ ] **Step 7: Implement all four honest Phase 1 page shells**
 
 Create `src/app/[lang]/page.tsx`:
 
@@ -1030,7 +1038,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
 }
 ```
 
-- [ ] **Step 7: Add useful unknown-route recovery**
+- [ ] **Step 8: Add useful unknown-route recovery**
 
 Create `src/app/[lang]/not-found.tsx`:
 
@@ -1064,7 +1072,7 @@ export default function UnknownLocaleRoute() {
 }
 ```
 
-- [ ] **Step 8: Add the project-owned responsive visual foundation**
+- [ ] **Step 9: Add the project-owned responsive visual foundation**
 
 Create `src/app/globals.css`:
 
@@ -1309,7 +1317,7 @@ h2 {
 }
 ```
 
-- [ ] **Step 9: Run component, static, and production-build checks**
+- [ ] **Step 10: Run component, static, and production-build checks**
 
 Run:
 
@@ -1323,7 +1331,7 @@ npm run build
 
 Expected: all commands PASS; build output includes static routes for `/en`, `/en/explore`, `/en/references`, and `/en/about`; no missing-key, hydration, or metadata warnings appear.
 
-- [ ] **Step 10: Manually inspect the shell before browser automation**
+- [ ] **Step 11: Manually inspect the shell before browser automation**
 
 Run:
 
@@ -1333,7 +1341,7 @@ npm run dev
 
 Inspect `http://localhost:3000/`, `/en`, `/en/references`, `/en/explore`, `/en/about`, and `/en/unknown` at approximately 390 px and 1440 px widths. Verify the root redirects to `/en`, text remains readable without horizontal scrolling, all four navigation links work, the heading hierarchy is logical, keyboard focus is visible, the first Tab reaches “Skip to content,” and no language switcher or fake reference content appears.
 
-- [ ] **Step 11: Commit the application shell**
+- [ ] **Step 12: Commit the application shell**
 
 ```bash
 git add src/app src/components

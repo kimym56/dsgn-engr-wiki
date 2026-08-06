@@ -21,3 +21,4 @@ playwright-report/
 
 # TypeScript incremental state
 *.tsbuildinfo
+next-env.d.ts

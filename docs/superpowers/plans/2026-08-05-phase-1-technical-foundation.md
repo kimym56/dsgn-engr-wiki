@@ -1579,10 +1579,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Check out repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Use Node.js 22.17.0
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 22.17.0
           cache: npm
@@ -1644,11 +1644,13 @@ Open `http://localhost:3000`; the root redirects to `/en`.
 - `npm run lint` — run ESLint with zero warnings
 - `npm run typecheck` — run strict TypeScript checking
 - `npm test` — run unit and component tests
-- `npm run test:e2e` — run Chromium browser and automated accessibility checks
+- `npm run test:e2e` — run Chromium browser and automated accessibility checks against an existing production build
 - `npm run build` — create the production build
 - `npm run check` — run the deterministic non-browser quality gate
 
 External link-health checks are intentionally separate from these commands and will be introduced with the reference system.
+
+Run `npm run build` before `npm run test:e2e`.
 
 ## Application routes
 

@@ -4,17 +4,16 @@
 
 ## Project status
 
-This repository is in the **readiness stage**. It contains product, content, information-architecture, and development-process documents only.
+Phase 1, the **technical foundation**, is implemented. The repository contains a deployable Next.js shell with locale-prefixed English routes, project-owned design tokens, automated checks, and continuous integration.
 
 It intentionally does not contain:
 
-- application source code
-- a framework scaffold or `package.json`
-- installed dependencies
-- production reference records
-- deployment configuration
+- production reference records or content schemas
+- populated Areas or Collections
+- filters, search, or a language switcher
+- a database, authentication, CMS, or hosted search service
 
-Website development begins only after these documents are reviewed and an implementation plan is approved.
+Those capabilities begin with separately approved Phase 2 and Phase 3 plans.
 
 ## Naming
 
@@ -44,6 +43,44 @@ Korean review translations live in [`docs/ko/`](docs/ko/). English remains the c
 
 Reusable reference-authoring and decision templates live in [`templates/`](templates/).
 
+## Local development
+
+Requirements:
+
+- Node.js 22.17.0 (`nvm use` reads `.nvmrc`)
+- npm 10
+
+Install and run:
+
+```bash
+npm ci
+npm run dev
+```
+
+Open `http://localhost:3000`; the root redirects to `/en`.
+
+## Quality commands
+
+- `npm run format:check` — verify formatting
+- `npm run lint` — run ESLint with zero warnings
+- `npm run typecheck` — run strict TypeScript checking
+- `npm test` — run unit and component tests
+- `npm run test:e2e` — run Chromium browser and automated accessibility checks against an existing production build
+- `npm run build` — create the production build
+- `npm run check` — run the deterministic non-browser quality gate
+
+Run `npm run build` before `npm run test:e2e`. External link-health checks are intentionally separate from these commands and will be introduced with the reference system.
+
+## Application routes
+
+- `/` redirects to `/en`
+- `/en` — Home
+- `/en/references` — References shell
+- `/en/explore` — Explore shell
+- `/en/about` — About
+
+Korean uses the reserved locale code `ko`, but no `/ko` pages or language control are published until reviewed translations exist.
+
 ## Next gate
 
-The readiness documents and decisions were reviewed and approved on 2026-08-05. The next artifact is the Phase 1 implementation plan. Phase 0 remains open until that plan is approved; creating the application scaffold is a later, separately approved step.
+The next artifact is the Phase 2 Reference Foundation implementation plan. It will define the local record format, schemas, validation, sample references, preview fallback, generated browse index, and non-blocking link-health workflow before those features are implemented.

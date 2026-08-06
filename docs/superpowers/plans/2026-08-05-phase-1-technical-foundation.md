@@ -6,7 +6,7 @@
 
 **Architecture:** Use a statically renderable Next.js App Router application under `src/app/[lang]`, with English as the only published locale and Korean reserved in a typed locale contract. Keep navigation, copy, and styling project-owned and server-rendered; use a simple root redirect to `/en` and do not add content schemas, reference records, filtering, search, a language control, or external services in this phase.
 
-**Tech Stack:** Node.js 22, npm, Next.js 16.3.0, React 19.2.8, TypeScript 6.0.2, project-owned CSS, ESLint 10.8.0, Prettier 3.9.6, Vitest 4.1.10, Testing Library, Playwright Test 1.62.1, axe-core, GitHub Actions, and Vercel.
+**Tech Stack:** Node.js 22, npm, Next.js 16.3.0, React 19.2.8, TypeScript 6.0.2, project-owned CSS, ESLint 9.39.5, Prettier 3.9.6, Vitest 4.1.10, Testing Library, Playwright Test 1.62.1, axe-core, GitHub Actions, and Vercel.
 
 ## Global Constraints
 
@@ -48,6 +48,7 @@ This plan implements Roadmap Phase 1 only. It deliberately leaves these approved
 - `.prettierrc.json` and `.prettierignore` — formatting policy and generated-output exclusions.
 - `.gitignore` — retain existing ignores and add TypeScript build metadata.
 - `vitest.config.ts` and `src/test/setup.ts` — jsdom component-test environment and DOM matchers.
+- `src/app/.gitkeep` — persists the App Router source directory until Task 3 adds its first route files, preventing the Next.js lint plugin from searching for a legacy Pages Router directory.
 - `playwright.config.ts` — Chromium desktop/mobile projects and local development server.
 - `.github/workflows/ci.yml` — deterministic install, static checks, tests, build, and browser checks.
 
@@ -83,6 +84,7 @@ This plan implements Roadmap Phase 1 only. It deliberately leaves these approved
 ### Task 1: Reproducible Next.js and Quality-Tool Scaffold
 
 **Files:**
+
 - Create: `package.json`
 - Create: `package-lock.json`
 - Create: `.nvmrc`
@@ -94,9 +96,11 @@ This plan implements Roadmap Phase 1 only. It deliberately leaves these approved
 - Create: `.prettierignore`
 - Create: `vitest.config.ts`
 - Create: `src/test/setup.ts`
+- Create: `src/app/.gitkeep`
 - Modify: `.gitignore`
 
 **Interfaces:**
+
 - Consumes: The accepted stack in `docs/decisions/0001-recommended-tech-stack.md` and the Phase 1 quality-gate requirements in `docs/development-process.md`.
 - Produces: `npm run dev`, `build`, `start`, `format`, `format:check`, `lint`, `typecheck`, `test`, `test:watch`, `test:e2e`, and `check`; the `@/*` alias; and a jsdom Vitest environment used by later tasks.
 
@@ -164,7 +168,7 @@ Run:
 
 ```bash
 npm install --save-exact next@16.3.0 react@19.2.8 react-dom@19.2.8
-npm install --save-dev --save-exact typescript@6.0.2 @types/node@22.20.1 @types/react@19.2.17 @types/react-dom@19.2.3 eslint@10.8.0 eslint-config-next@16.3.0 prettier@3.9.6 vitest@4.1.10 jsdom@30.0.1 @testing-library/react@16.3.2 @testing-library/dom@10.4.1 @testing-library/jest-dom@7.0.0 @playwright/test@1.62.1 @axe-core/playwright@4.12.1
+npm install --save-dev --save-exact typescript@6.0.2 @types/node@22.20.1 @types/react@19.2.17 @types/react-dom@19.2.3 eslint@9.39.5 eslint-config-next@16.3.0 prettier@3.9.6 vitest@4.1.10 jsdom@29.1.1 @testing-library/react@16.3.2 @testing-library/dom@10.4.1 @testing-library/jest-dom@7.0.0 @playwright/test@1.62.1 @axe-core/playwright@4.12.1
 ```
 
 Expected: `package-lock.json` is created, `package.json` contains exact versions without `^` or `~`, and npm reports no peer-dependency conflict. Stop and revise the selected version pair if npm reports a peer conflict; do not use `--force` or `--legacy-peer-deps`.
@@ -318,6 +322,8 @@ Create `src/test/setup.ts`:
 import "@testing-library/jest-dom/vitest";
 ```
 
+Create an empty `src/app/.gitkeep` file. The Next.js lint plugin checks for an App Router or Pages Router directory; keeping the intended `src/app` directory present makes the scaffold's lint output deterministic before route files are added.
+
 - [ ] **Step 7: Format and verify the scaffold configuration**
 
 Run:
@@ -334,7 +340,7 @@ Expected: all four commands pass. `npm test` is intentionally first run in Task 
 - [ ] **Step 8: Commit the scaffold**
 
 ```bash
-git add .gitignore .nvmrc .prettierignore .prettierrc.json eslint.config.mjs next-env.d.ts next.config.ts package.json package-lock.json src/test/setup.ts tsconfig.json vitest.config.ts
+git add .gitignore .nvmrc .prettierignore .prettierrc.json eslint.config.mjs next-env.d.ts next.config.ts package.json package-lock.json src/app/.gitkeep src/test/setup.ts tsconfig.json vitest.config.ts
 git commit -m "build: scaffold phase one toolchain"
 ```
 
@@ -343,6 +349,7 @@ git commit -m "build: scaffold phase one toolchain"
 ### Task 2: Published-Locale and URL Contract
 
 **Files:**
+
 - Create: `src/i18n/config.test.ts`
 - Create: `src/i18n/config.ts`
 - Create: `src/i18n/dictionaries/types.ts`
@@ -350,6 +357,7 @@ git commit -m "build: scaffold phase one toolchain"
 - Create: `src/i18n/load-dictionary.ts`
 
 **Interfaces:**
+
 - Consumes: Next.js `notFound()` and the `@/*` alias from Task 1.
 - Produces: `KnownLocale`, `PublishedLocale`, `RouteSegment`, `KNOWN_LOCALES`, `PUBLISHED_LOCALES`, `DEFAULT_LOCALE`, `isKnownLocale(value: string)`, `isPublishedLocale(value: string)`, `localePath(locale, segment)`, `Dictionary`, and `loadDictionary(locale: string)` for Tasks 3 and 4.
 
@@ -533,7 +541,8 @@ export const englishDictionary = {
   },
   emptyState: {
     references: "The first reviewed reference set is being prepared.",
-    explore: "Areas and collections will appear with the first reviewed references.",
+    explore:
+      "Areas and collections will appear with the first reviewed references.",
   },
   about: {
     heading: "How the library works",
@@ -546,7 +555,8 @@ export const englishDictionary = {
   notFound: {
     eyebrow: "404",
     title: "Page not found",
-    description: "This page does not exist or is not published in this language.",
+    description:
+      "This page does not exist or is not published in this language.",
     action: "Return home",
   },
 } satisfies Dictionary;
@@ -561,9 +571,7 @@ import type { Dictionary } from "@/i18n/dictionaries/types";
 
 const dictionaries = {
   en: async () =>
-    import("@/i18n/dictionaries/en").then(
-      (module) => module.englishDictionary,
-    ),
+    import("@/i18n/dictionaries/en").then((module) => module.englishDictionary),
 } satisfies Record<"en", () => Promise<Dictionary>>;
 
 export async function loadDictionary(locale: string): Promise<Dictionary> {
@@ -599,10 +607,12 @@ git commit -m "feat: establish locale route contract"
 ### Task 3: Accessible Four-Route Application Shell
 
 **Files:**
+
 - Create: `src/components/site-header.test.tsx`
 - Create: `src/components/site-header.tsx`
 - Create: `src/components/site-footer.tsx`
 - Create: `src/app/globals.css`
+- Delete: `src/app/.gitkeep`
 - Create: `src/app/[lang]/layout.tsx`
 - Create: `src/app/[lang]/page.tsx`
 - Create: `src/app/[lang]/references/page.tsx`
@@ -612,6 +622,7 @@ git commit -m "feat: establish locale route contract"
 - Create: `src/app/[lang]/[...rest]/page.tsx`
 
 **Interfaces:**
+
 - Consumes: `PublishedLocale`, `PUBLISHED_LOCALES`, `isPublishedLocale()`, `localePath()`, `Dictionary`, and `loadDictionary()` from Task 2.
 - Produces: `SiteHeader({ locale, navigationLabel, labels })`, `SiteFooter({ description })`, `/en`, `/en/references`, `/en/explore`, `/en/about`, and locale-aware recovery UI for Task 4 browser verification.
 
@@ -766,6 +777,8 @@ Expected: one test PASS.
 
 - [ ] **Step 5: Implement the locale layout and semantic document shell**
 
+Delete `src/app/.gitkeep`; the real App Router files created in this task now keep `src/app` present.
+
 Create `src/app/[lang]/layout.tsx`:
 
 ```tsx
@@ -774,10 +787,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import {
-  PUBLISHED_LOCALES,
-  isPublishedLocale,
-} from "@/i18n/config";
+import { PUBLISHED_LOCALES, isPublishedLocale } from "@/i18n/config";
 import { loadDictionary } from "@/i18n/load-dictionary";
 import "../globals.css";
 
@@ -1295,10 +1305,12 @@ git commit -m "feat: add accessible locale-aware app shell"
 ### Task 4: Browser Journeys and Automated Accessibility
 
 **Files:**
+
 - Create: `playwright.config.ts`
 - Create: `e2e/foundation.spec.ts`
 
 **Interfaces:**
+
 - Consumes: the redirect, four routes, skip link, main landmark, navigation labels, and not-found UI from Task 3.
 - Produces: `npm run test:e2e`, Chromium desktop/mobile coverage, and axe reports suitable for the CI task.
 
@@ -1410,7 +1422,9 @@ test("an unknown English route offers recovery", async ({ page }) => {
 });
 
 for (const route of ["/en", "/en/references", "/en/explore", "/en/about"]) {
-  test(`${route} has no detectable accessibility violations`, async ({ page }) => {
+  test(`${route} has no detectable accessibility violations`, async ({
+    page,
+  }) => {
     await page.goto(route);
 
     const results = await new AxeBuilder({ page }).analyze();
@@ -1474,10 +1488,12 @@ git commit -m "test: cover foundation browser journeys"
 ### Task 5: Continuous Integration, Setup Documentation, and Preview Deployment
 
 **Files:**
+
 - Create: `.github/workflows/ci.yml`
 - Modify: `README.md`
 
 **Interfaces:**
+
 - Consumes: every command and test from Tasks 1–4.
 - Produces: a pull-request/push quality gate, documented setup, and a Vercel preview URL ready for Phase 1 acceptance.
 
@@ -1549,7 +1565,7 @@ Those capabilities begin with separately approved Phase 2 and Phase 3 plans.
 
 Replace the `## Next gate` section with:
 
-~~~~markdown
+````markdown
 ## Local development
 
 Requirements:
@@ -1591,7 +1607,7 @@ Korean uses the reserved locale code `ko`, but no `/ko` pages or language contro
 ## Next gate
 
 The next artifact is the Phase 2 Reference Foundation implementation plan. It will define the local record format, schemas, validation, sample references, preview fallback, generated browse index, and non-blocking link-health workflow before those features are implemented.
-~~~~
+````
 
 - [ ] **Step 3: Verify documentation, local links, and every project command**
 
@@ -1677,4 +1693,4 @@ Expected:
 
 ## Version Selection Notes
 
-The key versions were checked against their official npm registry metadata on 2026-08-05. Next.js 16.3.0 requires Node.js 20.9 or newer; Node 22.17.0 is selected because it is already available in the workspace and satisfies Next.js, ESLint, Vitest, and Playwright. TypeScript 6.0.2 is selected instead of the newer 7.0 line to stay on the version exercised by the selected Next.js lint toolchain while the native TypeScript 7 ecosystem settles. Exact transitive dependencies remain captured by `package-lock.json`.
+The key versions were checked against their official npm registry metadata on 2026-08-05 and revalidated during implementation on 2026-08-06. Next.js 16.3.0 requires Node.js 20.9 or newer; Node 22.17.0 is selected because it is already available in the workspace and satisfies Next.js, ESLint 9, Vitest, Playwright, and jsdom 29. ESLint 9.39.5 is the newest major supported by the plugins bundled with `eslint-config-next@16.3.0`; jsdom 29.1.1 is the newest jsdom line compatible with Node 22.17.0. TypeScript 6.0.2 is selected instead of the newer 7.0 line to stay on the version exercised by the selected Next.js lint toolchain while the native TypeScript 7 ecosystem settles. Exact transitive dependencies remain captured by `package-lock.json`.

@@ -76,6 +76,7 @@ This plan implements Roadmap Phase 1 only. It deliberately leaves these approved
 - `src/app/[lang]/about/page.tsx` — concise scope, curation, and source-identity explanation.
 - `src/app/[lang]/not-found.tsx` — recovery UI for unknown English routes.
 - `src/app/[lang]/[...rest]/page.tsx` — explicit catch-all that invokes the locale recovery UI.
+- `src/app/global-not-found.tsx` — full-document English recovery UI required when the root layout is a top-level dynamic segment.
 
 ### Verification and documentation
 
@@ -183,6 +184,9 @@ Create `next.config.ts`:
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    globalNotFound: true,
+  },
   async redirects() {
     return [
       {
@@ -656,6 +660,7 @@ git commit -m "feat: establish locale route contract"
 - Create: `src/app/[lang]/about/page.tsx`
 - Create: `src/app/[lang]/not-found.tsx`
 - Create: `src/app/[lang]/[...rest]/page.tsx`
+- Create: `src/app/global-not-found.tsx`
 
 **Interfaces:**
 
@@ -1072,6 +1077,8 @@ export default function UnknownLocaleRoute() {
 }
 ```
 
+Because the root layout is defined by the top-level dynamic `[lang]` segment, enable Next.js 16's experimental `globalNotFound` option in `next.config.ts` and create `src/app/global-not-found.tsx`. The global recovery file imports `globals.css`, returns a complete English HTML document, and uses the same project-owned 404 copy and `/en` recovery link. This follows the installed Next.js convention for top-level dynamic root layouts.
+
 - [ ] **Step 9: Add the project-owned responsive visual foundation**
 
 Create `src/app/globals.css`:
@@ -1380,7 +1387,7 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: "npm run dev",
+    command: "npm run start",
     url: "http://127.0.0.1:3000/en",
     reuseExistingServer: !process.env.CI,
   },
@@ -1507,10 +1514,11 @@ Expected: Playwright confirms that the Chromium binary matching `@playwright/tes
 Run:
 
 ```bash
+npm run build
 npm run test:e2e
 ```
 
-Expected: all tests PASS in both desktop and mobile Chromium projects. The suite makes no requests to external publishers.
+Expected: all tests PASS against the production build in both desktop and mobile Chromium projects. The suite makes no requests to external publishers.
 
 - [ ] **Step 5: Run the full local quality gate**
 

@@ -18,3 +18,7 @@ test-results/
 playwright-report/
 .vercel/
 *.log
+
+# TypeScript incremental state
+*.tsbuildinfo
+next-env.d.ts

@@ -44,26 +44,26 @@ Home, About, selection-policy, and collection-introduction content may use Markd
 
 Every reference should carry the following fields when the content system is implemented:
 
-| Field | Purpose |
-| --- | --- |
-| `id` | Stable project-owned identifier |
-| `title` | Resource title as published or editorially normalized without changing its meaning |
-| `url` | Canonical external destination |
-| `publisher` | Organization or site responsible for the resource |
-| `author` | Individual author when available and useful |
-| `summary` | Concise project-owned description for cards and search |
-| `relevance` | Why the resource matters to design engineering |
-| `format` | Controlled value such as `article`, `documentation`, `video`, `talk`, `tool`, `course`, `book`, or `repository` |
-| `areas` | One or more stable area identifiers |
-| `collections` | Optional collection identifiers |
-| `source_language` | Language of the external resource |
-| `published` | Original publication date when known and meaningful |
-| `added` | Date the project added the reference |
-| `reviewed` | Date of the latest substantive editorial review |
-| `status` | `draft`, `review`, `published`, or `archived` |
-| `preview` | Optional approved image record and provenance |
-| `language` | Language of the project-owned metadata |
-| `translation_of` | Canonical reference identifier for translated metadata |
+| Field             | Purpose                                                                                                         |
+| ----------------- | --------------------------------------------------------------------------------------------------------------- |
+| `id`              | Stable project-owned identifier                                                                                 |
+| `title`           | Resource title as published or editorially normalized without changing its meaning                              |
+| `url`             | Canonical external destination                                                                                  |
+| `publisher`       | Organization or site responsible for the resource                                                               |
+| `author`          | Individual author when available and useful                                                                     |
+| `summary`         | Concise project-owned description for cards and search                                                          |
+| `relevance`       | Why the resource matters to design engineering                                                                  |
+| `format`          | Controlled value such as `article`, `documentation`, `video`, `talk`, `tool`, `course`, `book`, or `repository` |
+| `areas`           | One or more stable area identifiers                                                                             |
+| `collections`     | Optional collection identifiers                                                                                 |
+| `source_language` | Language of the external resource                                                                               |
+| `published`       | Original publication date when known and meaningful                                                             |
+| `added`           | Date the project added the reference                                                                            |
+| `reviewed`        | Date of the latest substantive editorial review                                                                 |
+| `status`          | `draft`, `review`, `published`, or `archived`                                                                   |
+| `preview`         | Optional approved image record and provenance                                                                   |
+| `language`        | Language of the project-owned metadata                                                                          |
+| `translation_of`  | Canonical reference identifier for translated metadata                                                          |
 
 The implementation plan may refine field names or storage format, but it should preserve these responsibilities.
 

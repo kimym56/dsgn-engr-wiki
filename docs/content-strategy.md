@@ -2,132 +2,144 @@
 
 ## Purpose
 
-The content system should help a learner move from unfamiliar vocabulary to connected understanding and then to practical ability.
+The content system should help visitors discover worthwhile design-engineering resources and understand why each one may be relevant before leaving for the original source.
 
 The editorial sequence is:
 
 ```text
-Term → Knowledge → Skill
+Discover → Evaluate → Visit the source
 ```
 
-This is a learning relationship, not a requirement that every entry has all three links.
+The project adds selection, organization, and context. It does not replace the external work being referenced.
 
-## Content types
+## Content objects
 
-### Term entry
+### Reference record
 
-A term entry includes:
+A reference record includes:
 
-- a one-sentence definition
-- a plain-language explanation
-- where the term appears in product work
-- common confusion or misuse
-- related knowledge and skills
-- sources when the definition depends on a standard or external authority
+- the resource title and canonical URL
+- publisher and, when useful, author
+- a concise project-owned summary
+- a short explanation of why the resource matters to design engineering
+- resource format and one or more areas
+- optional collection relationships
+- source language, status, date added, and last substantive review date
+- optional original publication date
+- an approved preview image or the project’s neutral fallback
 
-### Knowledge entry
+### Area
 
-A knowledge entry includes:
+An area is a stable subject classification shared across references. An area page briefly explains its connection to design engineering and displays matching resources without copying their summaries into a separate content system.
 
-- the question or concept being explained
-- why it matters to design engineering
-- a structured explanation
-- trade-offs, limits, or competing approaches
-- examples or diagrams when they improve understanding
-- related terms and skills
-- sources and further reading
+### Collection
 
-### Skill entry
+A collection is an editorial selection built from existing references around a purpose, question, or learning outcome. It may explain why the selection or order matters, but it points to the same canonical reference records.
 
-A skill entry includes:
+### Editorial pages
 
-- the outcome a learner should achieve
-- prerequisites
-- tools or environment assumptions
-- guided steps
-- checkpoints or acceptance criteria
-- common failure modes
-- related terms and knowledge
-- sources when the procedure depends on an external specification or tool
+Home, About, selection-policy, and collection-introduction content may use Markdown or MDX when document structure is helpful. Interactive MDX components should remain exceptional rather than becoming the default content format.
 
-## Shared metadata model
+## Reference metadata model
 
-Every entry should carry the following fields when the content system is implemented:
+Every reference should carry the following fields when the content system is implemented:
 
 | Field | Purpose |
 | --- | --- |
-| `title` | Human-readable entry name |
-| `slug` | Stable URL identifier |
-| `type` | `term`, `knowledge`, or `skill` |
-| `summary` | Short description used in lists and search |
-| `topics` | One or more topic-family identifiers |
-| `difficulty` | `foundation`, `intermediate`, or `advanced` when meaningful |
-| `prerequisites` | Entries a learner should understand first |
-| `related` | Explicitly related entries |
-| `sources` | References supporting the entry |
-| `status` | `draft`, `review`, or `published` |
-| `updated` | Date of the latest substantive review |
-| `language` | Source language of the entry |
-| `translation_of` | Canonical entry identifier for translations |
+| `id` | Stable project-owned identifier |
+| `title` | Resource title as published or editorially normalized without changing its meaning |
+| `url` | Canonical external destination |
+| `publisher` | Organization or site responsible for the resource |
+| `author` | Individual author when available and useful |
+| `summary` | Concise project-owned description for cards and search |
+| `relevance` | Why the resource matters to design engineering |
+| `format` | Controlled value such as `article`, `documentation`, `video`, `talk`, `tool`, `course`, `book`, or `repository` |
+| `areas` | One or more stable area identifiers |
+| `collections` | Optional collection identifiers |
+| `source_language` | Language of the external resource |
+| `published` | Original publication date when known and meaningful |
+| `added` | Date the project added the reference |
+| `reviewed` | Date of the latest substantive editorial review |
+| `status` | `draft`, `review`, `published`, or `archived` |
+| `preview` | Optional approved image record and provenance |
+| `language` | Language of the project-owned metadata |
+| `translation_of` | Canonical reference identifier for translated metadata |
 
-Term entries may omit `difficulty` and `prerequisites` when those fields add no value.
+The implementation plan may refine field names or storage format, but it should preserve these responsibilities.
 
-## Source policy
+## Selection criteria
 
-Use sources in this order of preference:
+A resource is a strong candidate when it:
 
-1. official standards and specifications
-2. official product or framework documentation
-3. peer-reviewed research or established reference works
-4. first-party engineering and design documentation
-5. respected practitioner material, clearly identified as experience or opinion
+- directly connects design intent with implementation, systems, interaction, accessibility, tooling, or frontend quality
+- contains durable insight, a useful example, or authoritative guidance
+- has an identifiable publisher or author and a stable canonical destination
+- adds meaningful coverage rather than duplicating a stronger existing reference
+- can be summarized accurately without reproducing its substantive content
+- is usable by the intended audience or clearly labeled when advanced
 
-Do not cite search-result summaries, unattributed reposts, or AI-generated text as evidence. Links should point to the most direct available source.
+Exclude resources that are primarily promotional, misleading, unattributed, inaccessible without a justifiable reason, or too shallow to add value beyond a search-result snippet.
 
-When sources disagree, describe the disagreement and avoid presenting one interpretation as settled fact. Time-sensitive entries should record the last substantive review date.
+## Source and attribution policy
+
+- Link to the most direct canonical source available.
+- Display the publisher and author when known.
+- Write original summaries; do not copy abstracts, descriptions, transcripts, or substantial passages.
+- Quote only when necessary, keep quotations short, and attribute them directly.
+- Do not treat search-result summaries, reposts, or AI-generated text as evidence.
+- Preserve established product, API, and technical names.
+- When a source changes ownership, redirects, or disappears, record the review outcome before updating or archiving it.
+
+## Preview-image policy
+
+Use the project-owned neutral fallback unless a preview image has passed editorial review. Do not hotlink arbitrary Open Graph images automatically. Record image provenance and alternative text, and ensure a missing image never hides the title, publisher, summary, or destination link.
+
+The full external-source decision is documented in [`docs/decisions/0002-reference-records-and-external-sources.md`](decisions/0002-reference-records-and-external-sources.md).
 
 ## Editorial voice
 
-- Write for an intelligent learner who may know only one side of design engineering.
-- Define specialist language before relying on it.
-- Prefer concrete examples over abstract claims.
-- Explain trade-offs instead of prescribing one universal method.
-- Avoid promotional language and unsupported statements such as “best” or “industry standard.”
+- Write concise, factual summaries for an intelligent reader who may know only one side of design engineering.
+- Explain specific value instead of using promotional language such as “must-read,” “best,” or “industry standard.”
+- Distinguish what the source claims from the project’s editorial judgment.
+- Prefer concrete descriptions over broad praise.
 - Use consistent English terminology so Korean translations have a stable source.
 
 ## English and Korean workflow
 
-English is the canonical source language for the initial release.
+English is the canonical language for project-owned metadata in the initial release. The external resource may be in any explicitly recorded source language.
 
-Korean translation begins after an English entry reaches `published` status. Each translation:
+Korean translation begins after an English reference record reaches `published` status. Each translation:
 
-- references the canonical English entry through `translation_of`
-- preserves code, API names, and established English terms where translation would create ambiguity
-- may add a short Korean explanation for an English term, but may not change the underlying claim
-- returns to review when the canonical English entry changes substantively
+- references the canonical English record through `translation_of`
+- points to the same external destination unless a reviewed Korean edition exists
+- preserves code, API names, publication names, and established English terms where translation would create ambiguity
+- translates the project-owned summary and relevance note without changing their claims
+- returns to review when the canonical English metadata changes substantively
 
-Translation freshness must be visible to editors even if the first public release exposes only English content.
+Translation freshness must be visible to editors even if the first public release exposes only English metadata.
 
 ## Editorial workflow
 
-1. **Propose** — confirm the entry fills a real gap and does not duplicate an existing entry.
-2. **Outline** — select the content type, learning goal, related entries, and likely sources.
-3. **Draft** — write from the matching template.
-4. **Verify** — check claims against direct sources and test procedural instructions.
-5. **Review** — assess clarity, technical accuracy, accessibility, metadata, and links.
+1. **Propose** — confirm that the resource fits the scope and is not a weaker duplicate.
+2. **Evaluate** — inspect the complete source, publisher, relevance, durability, and access conditions.
+3. **Capture** — create a record from [`templates/reference-record.md`](../templates/reference-record.md).
+4. **Verify** — confirm the canonical URL, attribution, metadata, summary accuracy, and preview provenance.
+5. **Review** — assess selection quality, editorial clarity, accessibility, classification, and links.
 6. **Publish** — change the status only after required checks pass.
-7. **Maintain** — revisit entries when sources, standards, or linked content change.
+7. **Maintain** — revisit redirects, failures, stale metadata, and substantive source changes.
+8. **Archive or replace** — preserve editorial history while removing unsuitable resources from normal browsing.
 
 ## Content quality checklist
 
-An entry is publishable when:
+A reference is publishable when:
 
-- its title and summary accurately describe the content
-- its type and topics are correct
-- the explanation matches the intended audience
-- examples and instructions have been checked
-- claims have direct, relevant sources
-- related links are meaningful and reciprocal where appropriate
-- headings and link text remain understandable out of context
-- no untranslated or temporary editorial notes remain
-- the entry has an owner for final review, even if drafting involved AI assistance
+- its title, destination, publisher, and author information are accurate
+- its summary and relevance note are original, concise, and faithful to the source
+- its format, areas, and collections are correct
+- the source has been inspected rather than judged from a search snippet alone
+- the destination is canonical and currently reachable, or an exception is documented
+- preview-image provenance is approved or the neutral fallback is used
+- link text and card content remain understandable out of context
+- translated metadata, if present, points to the correct canonical record
+- no temporary editorial notes remain
+- a person owns final editorial review even when AI assisted discovery or drafting

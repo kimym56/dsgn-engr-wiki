@@ -15,7 +15,7 @@ These rules apply to this directory and its descendants. Root repository instruc
 1. Read `index.md` to locate durable knowledge and unresolved review work.
 2. Read only the relevant submitted URLs, records, analyses, or concepts.
 3. Read `log.md` when recent operations or approval history matter.
-4. Read the project content strategy and external-source decision before drafting editorial metadata.
+4. Read [`../docs/content-strategy.md`](../docs/content-strategy.md) and [`../docs/decisions/0002-reference-records-and-external-sources.md`](../docs/decisions/0002-reference-records-and-external-sources.md) before drafting editorial metadata.
 
 ## Ingest a submitted URL
 
@@ -42,8 +42,10 @@ Use stable lowercase kebab-case IDs. Do not create analysis directories until th
 
 ## Proposal response order
 
+The processing results are proposals, not human-controlled record statuses.
+
 1. Submitted URL and line number
-2. Processing result: `draft`, `duplicate`, `invalid`, `inaccessible`, `rejected`, or `needs-review`
+2. Processing result: `draft`, `duplicate`, `invalid`, `inaccessible`, `reject-recommended`, or `needs-review`
 3. Canonical destination and redirect evidence
 4. Draft reference record
 5. Draft source analysis
@@ -66,7 +68,7 @@ Do not silently repair meaning, identity, status, or provenance. Apply mechanica
 
 ## Archive and restore
 
-Archive without deleting history. Keep archived items discoverable through `index.md` and `log.md`. Restore only after a new verification and human review.
+Archived items leave normal browsing and active synthesis without deleting their history. Keep them discoverable through `index.md` and `log.md`. Request approval before updates that change synthesis conclusions. Restore only after a new verification, human review, and log entry; restored evidence requires new approval before any conclusion-changing synthesis update.
 
 ## Content and design safety
 

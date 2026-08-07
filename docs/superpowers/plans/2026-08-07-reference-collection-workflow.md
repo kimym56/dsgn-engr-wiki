@@ -148,7 +148,7 @@ Create `templates/concept-synthesis.md` with exactly:
 concept_id: "stable-concept-id"
 title: "Concept title"
 supporting_references: []
-reviewed: "YYYY-MM-DD"
+reviewed: null
 status: "draft"
 confidence: "low | medium | high"
 ---
@@ -182,6 +182,8 @@ List questions that require more maintainer-supplied sources or direct human rev
 
 ## Human review
 
+Review metadata and status change only after human approval or rejection. Until then, keep `reviewed: null` and `status: draft`. After the decision, set `reviewed` to the review date, set `status` to `approved` or `rejected`, and complete the fields below.
+
 - Reviewer:
 - Decision:
 - Review date:
@@ -195,6 +197,7 @@ Run:
 ```bash
 rg -n '^## Editorial evaluation$|^## Website design analysis$|^## Evidence and uncertainty$|^## Human review$' templates/source-analysis.md
 rg -n '^## Current synthesis$|^## Supporting evidence$|^## Disagreements and exceptions$|^## Adoption boundary$|^## Human review$' templates/concept-synthesis.md
+rg -n '^reviewed: null$|Review metadata and status change only after human approval or rejection' templates/concept-synthesis.md
 PATH=/Users/yongminkim/.nvm/versions/node/v22.17.0/bin:$PATH npm exec prettier -- --check templates/source-analysis.md templates/concept-synthesis.md
 ```
 
@@ -269,19 +272,23 @@ None.
 
 ### Draft
 
-None.
+| Reference ID | Title | Area | Record |
+| ------------ | ----- | ---- | ------ |
 
 ### Review
 
-None.
+| Reference ID | Title | Area | Record |
+| ------------ | ----- | ---- | ------ |
 
 ### Published
 
-None.
+| Reference ID | Title | Area | Record |
+| ------------ | ----- | ---- | ------ |
 
 ### Archived
 
-None.
+| Reference ID | Title | Area | Record |
+| ------------ | ----- | ---- | ------ |
 
 ## Source analyses
 
@@ -307,6 +314,8 @@ Append new entries in chronological order. Never rewrite an earlier entry; recor
 
 Each entry heading must use `## [YYYY-MM-DD] operation | subject`. Supported operations begin with `ingest`, `review`, `synthesize`, `lint`, `archive`, and `restore`.
 
+Every durable operation must include `Change`, `Affected IDs`, and `Approval` fields, using `none` when a field has no applicable value.
+
 ## [2026-08-07] review | Reference workflow initialized
 
 - Change: Created the approved Markdown collection workflow.
@@ -320,7 +329,9 @@ Run:
 
 ```bash
 rg -n '^## Workflow status$|^## Awaiting human review$|^## Reference records$|^## Source analyses$|^## Concept syntheses$|^## Issues requiring review$' references/index.md
+test "$(rg -c '^\| Reference ID \| Title \| Area \| Record \|$' references/index.md)" -eq 4
 rg -n '^## \[[0-9]{4}-[0-9]{2}-[0-9]{2}\] (ingest|review|synthesize|lint|archive|restore) \| ' references/log.md
+rg -n 'Every durable operation must include `Change`, `Affected IDs`, and `Approval`' references/log.md
 PATH=/Users/yongminkim/.nvm/versions/node/v22.17.0/bin:$PATH npm exec prettier -- --check references/index.md references/log.md
 ```
 
@@ -379,7 +390,7 @@ These rules apply to this directory and its descendants. Root repository instruc
 1. Read `index.md` to locate durable knowledge and unresolved review work.
 2. Read only the relevant submitted URLs, records, analyses, or concepts.
 3. Read `log.md` when recent operations or approval history matter.
-4. Read the project content strategy and external-source decision before drafting editorial metadata.
+4. Read [`../docs/content-strategy.md`](../docs/content-strategy.md) and [`../docs/decisions/0002-reference-records-and-external-sources.md`](../docs/decisions/0002-reference-records-and-external-sources.md) before drafting editorial metadata.
 
 ## Ingest a submitted URL
 
@@ -406,8 +417,10 @@ Use stable lowercase kebab-case IDs. Do not create analysis directories until th
 
 ## Proposal response order
 
+The processing results are proposals, not human-controlled record statuses.
+
 1. Submitted URL and line number
-2. Processing result: `draft`, `duplicate`, `invalid`, `inaccessible`, `rejected`, or `needs-review`
+2. Processing result: `draft`, `duplicate`, `invalid`, `inaccessible`, `reject-recommended`, or `needs-review`
 3. Canonical destination and redirect evidence
 4. Draft reference record
 5. Draft source analysis
@@ -430,7 +443,7 @@ Do not silently repair meaning, identity, status, or provenance. Apply mechanica
 
 ## Archive and restore
 
-Archive without deleting history. Keep archived items discoverable through `index.md` and `log.md`. Restore only after a new verification and human review.
+Archived items leave normal browsing and active synthesis without deleting their history. Keep them discoverable through `index.md` and `log.md`. Request approval before updates that change synthesis conclusions. Restore only after a new verification, human review, and log entry; restored evidence requires new approval before any conclusion-changing synthesis update.
 
 ## Content and design safety
 
@@ -473,6 +486,9 @@ Run:
 rg -n '^## Paste URLs here$' references/inbox.md
 rg -n '^## Ownership boundaries$|^## Read order$|^## Ingest a submitted URL$|^## Proposal response order$|^## Query$|^## Lint$|^## Archive and restore$|^## Failure handling$' references/AGENTS.md
 rg -n 'Never add a URL|must not add, rewrite, reorder, remove, or annotate' references/AGENTS.md references/inbox.md
+rg -n 'reject-recommended|processing results are proposals, not human-controlled record statuses' references/AGENTS.md
+rg -n '\.\./docs/content-strategy\.md|\.\./docs/decisions/0002-reference-records-and-external-sources\.md' references/AGENTS.md
+rg -n 'leave normal browsing and active synthesis|Request approval before updates that change synthesis conclusions|new verification, human review, and log entry' references/AGENTS.md
 PATH=/Users/yongminkim/.nvm/versions/node/v22.17.0/bin:$PATH npm exec prettier -- --check references/AGENTS.md references/inbox.md
 ```
 
@@ -591,8 +607,8 @@ Run:
 
 ```bash
 git status --short
-git diff --stat
-git diff -- README.md references templates/source-analysis.md templates/concept-synthesis.md
+git diff --stat origin/main...HEAD
+git diff origin/main...HEAD -- README.md references templates/source-analysis.md templates/concept-synthesis.md docs/superpowers/specs/2026-08-07-reference-inbox-design.md docs/superpowers/plans/2026-08-07-reference-collection-workflow.md
 ```
 
 Expected: only the README and approved Markdown workflow files are changed; no source code, package metadata, generated files, or application record format is added.

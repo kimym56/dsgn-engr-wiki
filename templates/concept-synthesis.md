@@ -2,7 +2,7 @@
 concept_id: "stable-concept-id"
 title: "Concept title"
 supporting_references: []
-reviewed: "YYYY-MM-DD"
+reviewed: null
 status: "draft"
 confidence: "low | medium | high"
 ---
@@ -35,6 +35,8 @@ State what could be explored in a future product design and what remains source-
 List questions that require more maintainer-supplied sources or direct human review. Do not search for new candidates.
 
 ## Human review
+
+Review metadata and status change only after human approval or rejection. Until then, keep `reviewed: null` and `status: draft`. After the decision, set `reviewed` to the review date, set `status` to `approved` or `rejected`, and complete the fields below.
 
 - Reviewer:
 - Decision:

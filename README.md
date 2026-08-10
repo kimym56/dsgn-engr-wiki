@@ -43,6 +43,14 @@ Korean review translations live in [`docs/ko/`](docs/ko/). English remains the c
 
 Reusable reference-authoring and decision templates live in [`templates/`](templates/).
 
+## Reference collection workflow
+
+To propose sources, paste one absolute web URL per line into [`references/inbox.md`](references/inbox.md). Do not add titles, metadata, or statuses; the URL list remains human-owned input.
+
+AI agents follow the scoped rules in [`references/AGENTS.md`](references/AGENTS.md): they may verify submitted destinations but cannot search for or add related sources. Proposed reference records remain drafts until human review. Approved internal analyses and cross-source concepts are cataloged through [`references/index.md`](references/index.md), with chronological operations preserved in [`references/log.md`](references/log.md).
+
+Authoring structures live in [`templates/`](templates/), and the approved workflow design is documented in [`docs/superpowers/specs/2026-08-07-reference-inbox-design.md`](docs/superpowers/specs/2026-08-07-reference-inbox-design.md).
+
 ## Local development
 
 Requirements:

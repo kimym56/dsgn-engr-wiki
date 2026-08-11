@@ -23,3 +23,9 @@ Every durable operation must include `Change`, `Affected IDs`, and `Approval` fi
 - Change: Added five draft source analyses and recorded processing outcomes for inbox lines 1, 2, 4, 5, and 6.
 - Affected IDs: designparser-design-rules-cheatsheet, deng-design-engineering-directory, emil-kowalski, devouring-details, emil-course-platform.
 - Approval: The maintainer approved the Batch 1 draft writes on 2026-08-11.
+
+## [2026-08-11] review | Korean Batch 1 analysis translations added
+
+- Change: Added Korean review translations for the five Batch 1 source analyses and linked them from the reference index.
+- Affected IDs: designparser-design-rules-cheatsheet, deng-design-engineering-directory, emil-kowalski, devouring-details, emil-course-platform.
+- Approval: The maintainer approved Korean review-aid translations while keeping the English analyses canonical.

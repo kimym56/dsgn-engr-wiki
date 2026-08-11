@@ -51,6 +51,14 @@ Read this file first when querying or maintaining the reference collection. Coun
 - [devouring-details](analyses/sources/devouring-details.md)
 - [emil-course-platform](analyses/sources/emil-course-platform.md)
 
+### Korean review translations
+
+- [designparser-design-rules-cheatsheet](analyses/ko/sources/designparser-design-rules-cheatsheet.md)
+- [deng-design-engineering-directory](analyses/ko/sources/deng-design-engineering-directory.md)
+- [emil-kowalski](analyses/ko/sources/emil-kowalski.md)
+- [devouring-details](analyses/ko/sources/devouring-details.md)
+- [emil-course-platform](analyses/ko/sources/emil-course-platform.md)
+
 ## Concept syntheses
 
 None.

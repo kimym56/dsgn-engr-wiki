@@ -42,7 +42,7 @@ The author describes a centered lesson evolving to a wider main region with pers
 
 ### Typography, color, and visual rhythm
 
-The author describes semantic variables; typography, color, and visual rhythm were not visually inspected.
+The article describes CSS custom properties used for a color scale; typography, color, and visual rhythm were not visually inspected.
 
 ### Accessibility observations
 

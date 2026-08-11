@@ -11,3 +11,15 @@ Every durable operation must include `Change`, `Affected IDs`, and `Approval` fi
 - Change: Created the approved Markdown collection workflow.
 - Affected IDs: none.
 - Approval: project maintainer approved the design specification.
+
+## [2026-08-10] ingest | Initial reference inbox seeded
+
+- Change: Recorded 18 maintainer-supplied URLs in their original order.
+- Affected IDs: none.
+- Approval: The maintainer supplied the URLs and explicitly requested their transcription.
+
+## [2026-08-11] ingest | Batch 1 source analyses drafted
+
+- Change: Added five draft source analyses and recorded processing outcomes for inbox lines 1, 2, 4, 5, and 6.
+- Affected IDs: designparser-design-rules-cheatsheet, deng-design-engineering-directory, emil-kowalski, devouring-details, emil-course-platform.
+- Approval: The maintainer approved the Batch 1 draft writes on 2026-08-11.

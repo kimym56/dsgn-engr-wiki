@@ -4,18 +4,22 @@ Read this file first when querying or maintaining the reference collection. Coun
 
 ## Workflow status
 
-- Submitted URLs: 0
-- Processed submissions: 0
+- Submitted URLs: 18
+- Processed submissions: 5
 - Draft records: 0
 - Records in review: 0
 - Published records: 0
 - Archived records: 0
-- Source analyses: 0
+- Source analyses: 5
 - Concept syntheses: 0
 
 ## Awaiting human review
 
-None.
+- [designparser-design-rules-cheatsheet](analyses/sources/designparser-design-rules-cheatsheet.md) — draft source analysis.
+- [deng-design-engineering-directory](analyses/sources/deng-design-engineering-directory.md) — draft source analysis.
+- [emil-kowalski](analyses/sources/emil-kowalski.md) — draft source analysis.
+- [devouring-details](analyses/sources/devouring-details.md) — draft source analysis.
+- [emil-course-platform](analyses/sources/emil-course-platform.md) — draft source analysis.
 
 ## Reference records
 
@@ -41,7 +45,11 @@ None.
 
 ## Source analyses
 
-None.
+- [designparser-design-rules-cheatsheet](analyses/sources/designparser-design-rules-cheatsheet.md)
+- [deng-design-engineering-directory](analyses/sources/deng-design-engineering-directory.md)
+- [emil-kowalski](analyses/sources/emil-kowalski.md)
+- [devouring-details](analyses/sources/devouring-details.md)
+- [emil-course-platform](analyses/sources/emil-course-platform.md)
 
 ## Concept syntheses
 
@@ -49,4 +57,8 @@ None.
 
 ## Issues requiring review
 
-None.
+- Confirm whether `directory` is an allowed reference format.
+- Decide whether author homepages are standalone references or context only.
+- Review representative Designparser rules for evidence quality and sourcing.
+- Decide whether Devouring Details' paid-access limitation is acceptable.
+- Define a freshness policy for stack and vendor details in the course-platform article.

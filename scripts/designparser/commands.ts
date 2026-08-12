@@ -170,11 +170,61 @@ function isCanonicalReel(reel: DiscoveredReel) {
   );
 }
 
-function metadataNumber(value: unknown, field: string) {
-  if (typeof value !== "number" || !Number.isFinite(value) || value < 0) {
-    throw new Error(`gallery-dl metadata ${field} is invalid`);
+function positiveNumber(value: unknown) {
+  if (typeof value === "string" && value.trim() !== "") value = Number(value);
+  return typeof value === "number" && Number.isFinite(value) && value > 0
+    ? value
+    : undefined;
+}
+
+async function probeTechnicalMetadata(
+  videoPath: string,
+  runner: CommandRunner,
+) {
+  const result = await runner("ffprobe", [
+    "-v",
+    "error",
+    "-select_streams",
+    "v:0",
+    "-show_entries",
+    "stream=width,height,duration:format=duration",
+    "-of",
+    "json",
+    videoPath,
+  ]);
+  if (result.code !== 0) throw new Error("ffprobe failed");
+
+  let output: unknown;
+  try {
+    output = JSON.parse(result.stdout);
+  } catch {
+    throw new Error("ffprobe output is invalid");
   }
-  return value;
+  if (
+    !isObject(output) ||
+    !Array.isArray(output.streams) ||
+    output.streams.length !== 1 ||
+    !isObject(output.streams[0])
+  ) {
+    throw new Error("ffprobe technical metadata is invalid");
+  }
+
+  const stream = output.streams[0];
+  const format = isObject(output.format) ? output.format : undefined;
+  const duration =
+    positiveNumber(format?.duration) ?? positiveNumber(stream.duration);
+  if (
+    duration === undefined ||
+    typeof stream.width !== "number" ||
+    !Number.isInteger(stream.width) ||
+    stream.width <= 0 ||
+    typeof stream.height !== "number" ||
+    !Number.isInteger(stream.height) ||
+    stream.height <= 0
+  ) {
+    throw new Error("ffprobe technical metadata is invalid");
+  }
+  return { duration, width: stream.width, height: stream.height };
 }
 
 const downloadArgs = (reel: DiscoveredReel, reelDirectory: string) => [
@@ -260,15 +310,17 @@ export async function downloadReel(
     }
     const date = publishedAt(metadata.date);
     if (!date) throw new Error("gallery-dl metadata date is invalid");
+    const technical = await probeTechnicalMetadata(
+      path.join(reelDirectory, video.name),
+      runner,
+    );
 
     const source = {
       id: reel.id,
       url: reel.url,
       creator: "@designparser",
       publishedAt: date,
-      duration: metadataNumber(metadata.duration, "duration"),
-      width: metadataNumber(metadata.width, "width"),
-      height: metadataNumber(metadata.height, "height"),
+      ...technical,
     };
     await rename(
       path.join(reelDirectory, video.name),

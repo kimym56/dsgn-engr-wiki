@@ -48,6 +48,29 @@ function runner(result: CommandResult): CommandRunner {
   return async () => result;
 }
 
+async function writeGalleryDownload(reelDirectory: string) {
+  await writeFile(path.join(reelDirectory, "downloaded-1.mp4"), "video");
+  await writeFile(
+    path.join(reelDirectory, "downloaded-1.mp4.json"),
+    JSON.stringify({
+      post_shortcode: reel.id,
+      username: "designparser",
+      date: "2026-08-01 12:00:00",
+    }),
+  );
+}
+
+function downloadRunner(
+  reelDirectory: string,
+  probe: CommandResult,
+): CommandRunner {
+  return async (command) => {
+    if (command === "ffprobe") return probe;
+    await writeGalleryDownload(reelDirectory);
+    return { code: 0, stdout: "", stderr: "" };
+  };
+}
+
 describe("Designparser command adapters", () => {
   it("normalizes Designparser video messages from complete gallery discovery", async () => {
     const calls: Array<{ command: string; args: readonly string[] }> = [];
@@ -179,6 +202,16 @@ describe("Designparser command adapters", () => {
 
     await downloadReel(reel, reelDirectory, async (command, args) => {
       calls.push({ command, args });
+      if (command === "ffprobe") {
+        return {
+          code: 0,
+          stdout: JSON.stringify({
+            streams: [{ width: 720, height: 1280, duration: "12.500000" }],
+            format: { duration: "12.750000" },
+          }),
+          stderr: "",
+        };
+      }
       await writeFile(path.join(reelDirectory, "downloaded-1.mp4"), "video");
       await writeFile(
         path.join(reelDirectory, "downloaded-1.mp4.json"),
@@ -187,7 +220,6 @@ describe("Designparser command adapters", () => {
           post_url: reel.url,
           username: "designparser",
           date: "2026-08-01 12:00:00",
-          duration: 12.5,
           width: 1080,
           height: 1920,
           cookie: "must not persist",
@@ -222,6 +254,20 @@ describe("Designparser command adapters", () => {
           reel.url,
         ],
       },
+      {
+        command: "ffprobe",
+        args: [
+          "-v",
+          "error",
+          "-select_streams",
+          "v:0",
+          "-show_entries",
+          "stream=width,height,duration:format=duration",
+          "-of",
+          "json",
+          path.join(reelDirectory, "downloaded-1.mp4"),
+        ],
+      },
     ]);
     await expect(
       readFile(path.join(reelDirectory, "source.mp4"), "utf8"),
@@ -243,11 +289,63 @@ describe("Designparser command adapters", () => {
         url: reel.url,
         creator: "@designparser",
         publishedAt: reel.publishedAt,
-        duration: 12.5,
-        width: 1080,
-        height: 1920,
+        duration: 12.75,
+        width: 720,
+        height: 1280,
       })}\n`,
     );
+  });
+
+  it.each([
+    ["nonzero", { code: 1, stdout: "", stderr: "failed" }],
+    ["malformed", { code: 0, stdout: "not json", stderr: "" }],
+    [
+      "invalid",
+      {
+        code: 0,
+        stdout: JSON.stringify({
+          streams: [{ width: 0, height: 1280, duration: "12.5" }],
+          format: { duration: "12.75" },
+        }),
+        stderr: "",
+      },
+    ],
+  ] satisfies Array<[string, CommandResult]>)(
+    "rejects %s ffprobe output",
+    async (_, probe) => {
+      const root = await mkdtemp(path.join(tmpdir(), "designparser-commands-"));
+      const reelDirectory = path.join(root, reel.id);
+
+      await expect(
+        downloadReel(reel, reelDirectory, downloadRunner(reelDirectory, probe)),
+      ).rejects.toThrow("ffprobe");
+      await expect(
+        readFile(path.join(reelDirectory, "source.json"), "utf8"),
+      ).rejects.toThrow();
+    },
+  );
+
+  it("falls back to video-stream duration when format duration is invalid", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-commands-"));
+    const reelDirectory = path.join(root, reel.id);
+    const probe = {
+      code: 0,
+      stdout: JSON.stringify({
+        streams: [{ width: 720, height: 1280, duration: "8.250000" }],
+        format: { duration: "N/A" },
+      }),
+      stderr: "",
+    };
+
+    await downloadReel(
+      reel,
+      reelDirectory,
+      downloadRunner(reelDirectory, probe),
+    );
+
+    await expect(
+      readFile(path.join(reelDirectory, "source.json"), "utf8"),
+    ).resolves.toContain('"duration":8.25');
   });
 
   it("retries a failed download in place without deleting downstream artifacts", async () => {
@@ -272,7 +370,17 @@ describe("Designparser command adapters", () => {
       "frame",
     );
 
-    await downloadReel(reel, reelDirectory, async () => {
+    await downloadReel(reel, reelDirectory, async (command) => {
+      if (command === "ffprobe") {
+        return {
+          code: 0,
+          stdout: JSON.stringify({
+            streams: [{ width: 720, height: 1280, duration: "12.500000" }],
+            format: { duration: "12.750000" },
+          }),
+          stderr: "",
+        };
+      }
       await expect(readFile(staleVideo, "utf8")).rejects.toThrow();
       await writeFile(staleVideo, "fresh video");
       await writeFile(

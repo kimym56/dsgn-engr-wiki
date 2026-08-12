@@ -12,7 +12,7 @@ status: "draft"
 
 ### Scope fit
 
-Brian Lovin's directory collects 22 app dissections covering interaction, visual detail, flows, and product decisions in well-known mobile products. The practice of closely observing shipped interfaces is relevant to developing taste. The directory page itself is an index, not the substantive analysis, and most entries concern products and operating-system conventions from roughly 2014–2016.
+Brian Lovin's directory collects 22 app dissections covering interaction, visual detail, flows, and product decisions in well-known mobile products. The practice of closely observing shipped interfaces is relevant to developing taste. The directory page itself is an index, not the substantive analysis, and all displayed entry dates fall between February and May 2016.
 
 ### Authority and durability
 
@@ -68,8 +68,8 @@ Do not reuse screenshots, app branding, card imagery, prose, catalog styling, or
 
 ## Evidence and uncertainty
 
-- Directly observed on 2026-08-13: complete directory page, canonical title, 22 displayed entry labels, and their parent-page URLs.
-- Not observed: child-page contents, screenshots, dates per entry, interaction behavior, responsive layout, or accessibility states.
+- Directly observed on 2026-08-13: complete directory page, canonical title, 22 displayed entry labels, their February–May 2016 dates, and their parent-page URLs.
+- Not observed: child-page contents, screenshots, interaction behavior, responsive layout, or accessibility states.
 - Historical age is an editorial caution, not a conclusion that every underlying principle is obsolete.
 
 ## Human review

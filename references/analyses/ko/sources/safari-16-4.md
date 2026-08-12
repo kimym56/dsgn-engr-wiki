@@ -26,7 +26,7 @@ Apple release note는 Safari 16.4의 웹 플랫폼 추가, 수정, 알려진 문
 
 ### 편집 권고
 
-`context-only`. 정확한 역사 검증용으로 유지하되 오래된 단일 release note를 현재 호환성 지침처럼 제시하지 않는다.
+`review`. 정확한 역사 검증을 위한 맥락 자료로 검토하되 오래된 단일 release note를 현재 호환성 지침처럼 제시하지 않는다.
 
 ## 웹사이트 디자인 분석
 

@@ -24,7 +24,7 @@ Proposed format: `article`. Proposed Areas: `design-engineering-foundations`, `i
 
 ### Editorial recommendation
 
-`context-only`. It can explain an environment in which broad design-engineering ownership is valuable, but should not occupy a core learning path or substitute for current business evidence.
+`review`. Consider it only as contextual material explaining an environment in which broad design-engineering ownership is valuable. It should not occupy a core learning path or substitute for current business evidence.
 
 ## Website design analysis
 

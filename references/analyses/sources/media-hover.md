@@ -24,7 +24,7 @@ Proposed format: `technical reference`. Proposed Areas: `interaction-engineering
 
 ### Editorial recommendation
 
-`publish` after human review. It is concise, authoritative enough for practical use, and should be paired with the stronger product rule that essential behavior cannot depend on hover.
+`review`. The source is concise and authoritative enough to be considered for publication, but a human must make that decision. Any public treatment should pair it with the stronger product rule that essential behavior cannot depend on hover.
 
 ## Website design analysis
 

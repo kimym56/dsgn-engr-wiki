@@ -24,7 +24,7 @@ Proposed format: `technical reference`. Proposed Areas: `motion`, `performance`,
 
 ### Editorial recommendation
 
-`publish` after human review. Its most valuable contribution is the warning that a performance hint can consume memory and worsen performance when overused.
+`review`. The source is a strong publication candidate, but that decision remains human-owned. Its most valuable contribution is the warning that a performance hint can consume memory and worsen performance when overused.
 
 ## Website design analysis
 

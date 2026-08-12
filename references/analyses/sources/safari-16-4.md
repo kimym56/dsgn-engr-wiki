@@ -24,7 +24,7 @@ Proposed format: `release notes`. Proposed Areas: `browser-compatibility`, `fron
 
 ### Editorial recommendation
 
-`context-only`. Retain for exact historical verification, but avoid presenting one old release note as current compatibility guidance.
+`review`. Consider it as context for exact historical verification, but avoid presenting one old release note as current compatibility guidance.
 
 ## Website design analysis
 

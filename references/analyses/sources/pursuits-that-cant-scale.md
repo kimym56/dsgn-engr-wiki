@@ -24,7 +24,7 @@ Proposed format: `article`. Proposed Areas: `career-practice`, `product-craft`. 
 
 ### Editorial recommendation
 
-`context-only`. Preserve as optional career-and-craft context, not a core design-engineering reference. Any publication should explicitly label its metaphorical use of “therapy.”
+`review`. Consider it only as optional career-and-craft context, not a core design-engineering reference. If a human approves publication, explicitly label its metaphorical use of “therapy.”
 
 ## Website design analysis
 

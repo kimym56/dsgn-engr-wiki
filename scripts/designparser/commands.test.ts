@@ -464,4 +464,139 @@ describe("Designparser command adapters", () => {
     ).rejects.toThrow("scene threshold");
     expect(calls).toBe(0);
   });
+
+  it("preserves source.mp4 when FFmpeg audio extraction exits nonzero", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+    const reelDirectory = path.join(root, reel.id);
+    const source = path.join(reelDirectory, "source.mp4");
+    await mkdir(reelDirectory);
+    await writeFile(source, "original video");
+
+    await expect(
+      extractAudio(reelDirectory, async () => ({
+        code: 1,
+        stdout: "",
+        stderr: "ffmpeg failed",
+      })),
+    ).rejects.toThrow("ffmpeg audio extraction failed");
+    await expect(readFile(source, "utf8")).resolves.toBe("original video");
+  });
+
+  it.each([
+    { artifact: "missing", writeOutput: false, error: "audio.wav is missing" },
+    { artifact: "empty", writeOutput: true, error: "audio.wav is empty" },
+  ])(
+    "rejects a $artifact audio artifact after successful FFmpeg extraction",
+    async ({ writeOutput, error }) => {
+      const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+      const reelDirectory = path.join(root, reel.id);
+      const audio = path.join(reelDirectory, "audio.wav");
+      await mkdir(reelDirectory);
+      await writeFile(path.join(reelDirectory, "source.mp4"), "video");
+
+      await expect(
+        extractAudio(reelDirectory, async () => {
+          if (writeOutput) await writeFile(audio, "");
+          return { code: 0, stdout: "", stderr: "" };
+        }),
+      ).rejects.toThrow(error);
+    },
+  );
+
+  it("rejects a nonzero Whisper transcription exit", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+    const reelDirectory = path.join(root, reel.id);
+    await mkdir(reelDirectory);
+    await writeFile(path.join(reelDirectory, "audio.wav"), "audio");
+
+    await expect(
+      transcribeAudio(reelDirectory, async () => ({
+        code: 1,
+        stdout: "",
+        stderr: "whisper failed",
+      })),
+    ).rejects.toThrow("whisper transcription failed");
+  });
+
+  it.each([
+    { output: "missing", content: undefined },
+    { output: "invalid", content: "not JSON" },
+  ])(
+    "rejects $output Whisper JSON after a successful exit",
+    async ({ content }) => {
+      const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+      const reelDirectory = path.join(root, reel.id);
+      await mkdir(reelDirectory);
+      await writeFile(path.join(reelDirectory, "audio.wav"), "audio");
+
+      await expect(
+        transcribeAudio(reelDirectory, async () => {
+          if (content !== undefined) {
+            await writeFile(path.join(reelDirectory, "audio.json"), content);
+          }
+          return { code: 0, stdout: "", stderr: "" };
+        }),
+      ).rejects.toThrow("whisper transcript is missing or invalid");
+    },
+  );
+
+  it("rejects a nonzero FFmpeg scene extraction exit", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+    const reelDirectory = path.join(root, reel.id);
+    await mkdir(reelDirectory);
+    await writeFile(path.join(reelDirectory, "source.mp4"), "video");
+
+    await expect(
+      extractSceneFrames(reelDirectory, 0.32, async () => ({
+        code: 1,
+        stdout: "",
+        stderr: "ffmpeg failed",
+      })),
+    ).rejects.toThrow("ffmpeg frame extraction failed");
+  });
+
+  it("rejects a scene timestamp count that differs from JPEG output", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+    const reelDirectory = path.join(root, reel.id);
+    await mkdir(reelDirectory);
+    await writeFile(path.join(reelDirectory, "source.mp4"), "video");
+
+    await expect(
+      extractSceneFrames(reelDirectory, 0.32, async () => {
+        await writeFile(
+          path.join(reelDirectory, "frames", "000001.jpg"),
+          "one",
+        );
+        return {
+          code: 0,
+          stdout: "",
+          stderr: "pts_time:0\npts_time:1",
+        };
+      }),
+    ).rejects.toThrow("ffmpeg frame count does not match timestamps");
+  });
+
+  it("rejects rounded scene timestamp collisions before renaming frames", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+    const reelDirectory = path.join(root, reel.id);
+    const frames = path.join(reelDirectory, "frames");
+    await mkdir(reelDirectory);
+    await writeFile(path.join(reelDirectory, "source.mp4"), "video");
+
+    await expect(
+      extractSceneFrames(reelDirectory, 0.32, async () => {
+        await Promise.all(
+          ["000001.jpg", "000002.jpg"].map((name) =>
+            writeFile(path.join(frames, name), "frame"),
+          ),
+        );
+        return {
+          code: 0,
+          stdout: "",
+          stderr: "pts_time:0\npts_time:0.0004",
+        };
+      }),
+    ).rejects.toThrow("ffmpeg frame timestamps collide");
+    expect(await readdir(frames)).toEqual(["000001.jpg", "000002.jpg"]);
+  });
 });

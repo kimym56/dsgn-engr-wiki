@@ -418,11 +418,15 @@ export async function extractSceneFrames(
   if (timestamps.length !== files.length) {
     throw new Error("ffmpeg frame count does not match timestamps");
   }
+  const frameNames = timestamps.map(sceneTimestamp);
+  if (new Set(frameNames).size !== frameNames.length) {
+    throw new Error("ffmpeg frame timestamps collide");
+  }
   await Promise.all(
     files.map((file, index) =>
       rename(
         path.join(frames, file),
-        path.join(frames, `${sceneTimestamp(timestamps[index])}.jpg`),
+        path.join(frames, `${frameNames[index]}.jpg`),
       ),
     ),
   );

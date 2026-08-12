@@ -1,4 +1,11 @@
-import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import {
+  mkdir,
+  readFile,
+  readdir,
+  rm,
+  stat,
+  writeFile,
+} from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import {
@@ -429,20 +436,17 @@ async function validateDrafts(ctx: Context) {
   let valid = true;
   for (const id of directories) {
     const draftPath = path.join(reelsRoot, id, "draft.json");
-    let source: string;
     try {
-      source = await readFile(draftPath, "utf8");
+      await stat(draftPath);
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code === "ENOENT") continue;
-      ctx.stderr(`${id}/draft.json: ${conciseCause(error)}`);
-      valid = false;
-      continue;
     }
     try {
       const record = manifest.reels[id];
       if (!record) throw new Error("reel is not in the manifest");
       manifest.reels[id] = setStage(record, "draft", "running", ctx.now());
       await writeManifest(ctx.manifestPath, manifest);
+      const source = await readFile(draftPath, "utf8");
       const draft = validatePrivateDraft(JSON.parse(source));
       if (draft.reelId !== id)
         throw new Error("reelId does not match its directory");

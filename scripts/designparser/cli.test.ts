@@ -1,6 +1,6 @@
 // @vitest-environment node
 
-import { mkdir, mkdtemp, readFile, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, stat, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { beforeEach, describe, expect, it } from "vitest";
@@ -404,11 +404,21 @@ describe("Designparser CLI", () => {
 
   it("runs reels sequentially and continues after one reel fails", async () => {
     const commandAdapters = adapters([newest, older]);
+    let release!: () => void;
+    let entered!: () => void;
+    const firstStarted = new Promise<void>((resolve) => {
+      entered = resolve;
+    });
     commandAdapters.downloadReel = async (value, directory) => {
       commandAdapters.calls.push(`download:start:${value.id}`);
       if (value.id === newest.id) {
-        commandAdapters.calls.push(`download:failed:${value.id}`);
-        throw new Error("inaccessible");
+        entered();
+        return new Promise((_, reject) => {
+          release = () => {
+            commandAdapters.calls.push(`download:failed:${value.id}`);
+            reject(new Error("inaccessible"));
+          };
+        });
       }
       await mkdir(directory, { recursive: true });
       await writeFile(path.join(directory, "source.mp4"), "video");
@@ -416,9 +426,13 @@ describe("Designparser CLI", () => {
       commandAdapters.calls.push(`download:end:${value.id}`);
     };
 
-    expect(await runCli(["extract"], dependencies(root, commandAdapters))).toBe(
-      1,
-    );
+    const extraction = runCli(["extract"], dependencies(root, commandAdapters));
+    await firstStarted;
+    expect(
+      commandAdapters.calls.filter((call) => call.startsWith("download:")),
+    ).toEqual(["download:start:newest"]);
+    release();
+    expect(await extraction).toBe(1);
     expect(
       commandAdapters.calls.filter(
         (call) =>
@@ -548,5 +562,58 @@ describe("Designparser CLI", () => {
       status: "failed",
       error: expect.any(String),
     });
+  });
+
+  it("fails an unreadable formerly-complete draft and continues validation", async () => {
+    let manifest = reconcileDiscovery(
+      emptyManifest("2026-08-12T00:00:00.000Z"),
+      [newest, older],
+      "2026-08-12T00:00:00.000Z",
+    );
+    for (const id of [newest.id, older.id]) {
+      for (const stage of [
+        "download",
+        "audio",
+        "transcript",
+        "frames",
+      ] as const) {
+        manifest.reels[id] = setStage(
+          manifest.reels[id],
+          stage,
+          "complete",
+          "2026-08-12T00:00:00.000Z",
+        );
+      }
+      await mkdir(reelRoot(root, id), { recursive: true });
+    }
+    manifest.reels.newest = setStage(
+      manifest.reels.newest,
+      "draft",
+      "complete",
+      "2026-08-12T00:00:00.000Z",
+    );
+    await saveManifest(root, manifest);
+    await mkdir(path.join(reelRoot(root, newest.id), "draft.json"));
+    await writeFile(
+      path.join(reelRoot(root, older.id), "draft.json"),
+      `${JSON.stringify(validDraft(older.id))}\n`,
+    );
+    const output: string[] = [];
+
+    expect(
+      await runCli(["validate-drafts"], dependencies(root, adapters(), output)),
+    ).toBe(1);
+    expect(output.join("\n")).toContain("newest/draft.json");
+    expect(
+      (
+        await stat(path.join(reelRoot(root, newest.id), "draft.json"))
+      ).isDirectory(),
+    ).toBe(true);
+    manifest = await readManifest(manifestPath(root));
+    expect(manifest.reels.newest.stages.draft).toMatchObject({
+      status: "failed",
+      error: expect.any(String),
+    });
+    expect(manifest.reels.older.stages.draft.status).toBe("complete");
   });
 });

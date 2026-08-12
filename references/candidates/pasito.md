@@ -5,11 +5,11 @@ title_source: destination
 canonical_url: https://joshpuckett.me/pasito
 canonical_verified: true
 source_language: en
-status: discovered
+status: analyzed
 first_discovered: 2026-08-12
 last_checked: 2026-08-12
-analysis_path: null
-translation_path: null
+analysis_path: references/analyses/sources/pasito.md
+translation_path: references/analyses/ko/sources/pasito.md
 discoveries:
   - parent_id: deng-design-engineering-directory
     parent_url: https://deng.theedgar.dev/

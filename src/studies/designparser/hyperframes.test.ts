@@ -61,8 +61,15 @@ const validStudy = validateStudy({
   ],
 });
 
+const expectedSceneIds = [
+  "C-example_1-slide-1",
+  "C-example_1-slide-2",
+  "C-example_1-slide-3",
+  "C-example_1-slide-4",
+] as const;
+
 interface TimelineCall {
-  readonly method: "fromTo" | "to";
+  readonly method: "from" | "fromTo" | "to";
   readonly target: string;
   readonly end: number;
 }
@@ -75,6 +82,11 @@ interface FakeTimeline {
     target: string,
     from: Record<string, unknown>,
     to: Record<string, unknown>,
+    at?: number,
+  ): FakeTimeline;
+  from(
+    target: string,
+    vars: Record<string, unknown>,
     at?: number,
   ): FakeTimeline;
   to(target: string, vars: Record<string, unknown>, at?: number): FakeTimeline;
@@ -98,6 +110,12 @@ function executeTimelineScripts(reducedMotion: boolean) {
         paused: paused === true,
         calls,
         duration: () => duration,
+        from(target, vars, at = 0) {
+          const end = at + Number(vars.duration ?? 0);
+          duration = Math.max(duration, end);
+          calls.push({ method: "from", target, end });
+          return timeline;
+        },
         fromTo(target, _from, to, at = 0) {
           const end = at + Number(to.duration ?? 0);
           duration = Math.max(duration, end);
@@ -203,12 +221,7 @@ describe("HyperFrames study compositions", () => {
   it("synchronously registers one paused six-second timeline per scene", () => {
     const runtime = executeTimelineScripts(false);
 
-    expect(Object.keys(runtime.registry)).toEqual([
-      "C-example_1-slide-1",
-      "C-example_1-slide-2",
-      "C-example_1-slide-3",
-      "C-example_1-slide-4",
-    ]);
+    expect(Object.keys(runtime.registry)).toEqual(expectedSceneIds);
     expect(runtime.timelines).toHaveLength(4);
     expect(Object.values(runtime.registry)).toEqual(runtime.timelines);
     for (const timeline of runtime.timelines) {
@@ -223,6 +236,8 @@ describe("HyperFrames study compositions", () => {
   it("sets final states without entry tweens under reduced motion", () => {
     const runtime = executeTimelineScripts(true);
 
+    expect(Object.keys(runtime.registry)).toEqual(expectedSceneIds);
+    expect(Object.values(runtime.registry)).toEqual(runtime.timelines);
     expect(runtime.sets).toEqual([
       { target: "#C-example_1-slide-1-content", vars: { opacity: 1, y: 0 } },
       { target: "#C-example_1-slide-2-content", vars: { opacity: 1, y: 0 } },
@@ -230,12 +245,16 @@ describe("HyperFrames study compositions", () => {
       { target: "#C-example_1-slide-4-content", vars: { opacity: 1, y: 0 } },
     ]);
     expect(runtime.timelines).toHaveLength(4);
-    for (const timeline of runtime.timelines) {
+    for (const [index, timeline] of runtime.timelines.entries()) {
       expect(timeline.paused).toBe(true);
       expect(timeline.duration()).toBe(6);
-      expect(timeline.calls.some(({ method }) => method === "fromTo")).toBe(
-        false,
-      );
+      expect(timeline.calls).toEqual([
+        {
+          method: "to",
+          target: `#${expectedSceneIds[index]}-clock`,
+          end: 6,
+        },
+      ]);
     }
   });
 

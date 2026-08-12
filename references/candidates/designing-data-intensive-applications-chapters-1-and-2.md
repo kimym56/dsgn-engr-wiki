@@ -5,7 +5,7 @@ title_source: destination
 canonical_url: https://www.youtube.com/watch?v=G7iU2s7LUzA
 canonical_verified: true
 source_language: en
-status: discovered
+status: inaccessible
 first_discovered: 2026-08-12
 last_checked: 2026-08-12
 analysis_path: null
@@ -32,3 +32,4 @@ publication:
 ## Review notes
 
 - DENG category at discovery: `Videos`.
+- First-party video metadata and identity were verified previously, but complete captions or a transcript could not be obtained during this wave; the title and description alone were insufficient for substantive analysis.

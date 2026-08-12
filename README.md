@@ -92,7 +92,17 @@ FFmpeg is also required. Verify the environment without downloading media:
 
 ```bash
 npm run study:designparser -- preflight
+npm run study:designparser -- discover
+npm run study:designparser -- extract --limit 1
+npm run study:designparser -- extract
+npm run study:designparser -- status
+npm run study:designparser -- validate-drafts
 ```
+
+Extraction can take substantial time. Ctrl-C is safe after the current child
+process exits, and rerunning the command resumes from verified outputs.
+Successful extraction prepares private review material; it does not approve a
+study for wiki publication.
 
 All source media, transcripts, frames, and drafts stay under gitignored
 `.study-cache/`. Never export Chrome cookies into the repository. No study is

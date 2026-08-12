@@ -16,7 +16,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
+    "references:check": "node scripts/reference-graph.mjs references/candidates",
+    "check": "npm run references:check && npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {
     "next": "16.3.0",
@@ -37,6 +38,7 @@
     "jsdom": "29.1.1",
     "prettier": "3.9.6",
     "typescript": "6.0.2",
-    "vitest": "4.1.10"
+    "vitest": "4.1.10",
+    "yaml": "2.8.1"
   }
 }

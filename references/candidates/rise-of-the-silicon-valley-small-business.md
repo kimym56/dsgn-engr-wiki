@@ -31,7 +31,7 @@ discoveries:
     active: true
   - parent_id: pursuits-that-cant-scale
     parent_url: https://www.workingtheorys.com/p/pursuits-that-cant-scale
-    section: If this essay resonated with you, you might enjoy these spiritually related pieces
+    section: If this essay resonated with you, you might enjoy these spirtually related pieces
     link_text: Rise of the Silicon Valley Small Business
     encountered_url: https://www.workingtheorys.com/p/silicon-valley-small-business
     discovered: 2026-08-13

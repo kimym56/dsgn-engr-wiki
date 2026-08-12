@@ -1,6 +1,6 @@
 ---
 id: safari-16-4
-title: Safari 16.4
+title: Safari 16.4 Release Notes
 title_source: destination
 canonical_url: https://developer.apple.com/documentation/safari-release-notes/safari-16_4-release-notes
 canonical_verified: true
@@ -27,7 +27,7 @@ publication:
   notes: null
 ---
 
-# Candidate: Safari 16.4
+# Candidate: Safari 16.4 Release Notes
 
 ## Review notes
 

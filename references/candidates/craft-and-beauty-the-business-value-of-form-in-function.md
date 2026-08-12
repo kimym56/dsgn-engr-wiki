@@ -1,7 +1,7 @@
 ---
 id: craft-and-beauty-the-business-value-of-form-in-function
 title: "Craft and beauty: The business value of form in function"
-title_source: parent-link
+title_source: destination
 canonical_url: https://stripe.com/sessions/2024/craft-and-beauty-the-business-value-of-form-in-function
 canonical_verified: true
 source_language: en

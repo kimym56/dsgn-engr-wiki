@@ -13,7 +13,7 @@ translation_path: null
 discoveries:
   - parent_id: pursuits-that-cant-scale
     parent_url: https://www.workingtheorys.com/p/pursuits-that-cant-scale
-    section: "If this essay resonated with you, you might enjoy these spiritually related pieces"
+    section: "If this essay resonated with you, you might enjoy these spirtually related pieces"
     link_text: "Love the Mission or Love the Game"
     encountered_url: https://www.workingtheorys.com/p/mission-or-game
     discovered: 2026-08-13

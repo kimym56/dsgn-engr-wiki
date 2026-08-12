@@ -30,10 +30,10 @@ discoveries:
     depth: 1
     active: true
 publication:
-  decision: pending
-  reviewer: null
-  reviewed: null
-  notes: null
+  decision: publish
+  reviewer: project-maintainer
+  reviewed: 2026-08-13
+  notes: Approved for the public-reference workflow; the reference record is not yet created.
 ---
 
 # Candidate: Web Interface Guidelines

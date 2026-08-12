@@ -19,7 +19,7 @@ Candidates are internal research leads, not reference records. The record counts
 
 - Candidate nodes: 27
 - Candidate lifecycle: 13 discovered, 9 analyzed, 5 inaccessible, 0 analyzing, 0 rejected
-- Candidate publication decisions: 27 pending
+- Candidate publication decisions: 9 publish, 18 pending
 - Active discovery edges: 29 (15 at wave 1/depth 1; 14 at wave 2/depth 2)
 
 ### DENG resource wave 1
@@ -46,9 +46,9 @@ Root: [deng-design-engineering-directory](analyses/sources/deng-design-engineeri
 |    13 | [ux-engineer-a-terminal-career](candidates/ux-engineer-a-terminal-career.md)                                                             | analyzed     | [English](analyses/sources/ux-engineer-a-terminal-career.md)  | [한국어](analyses/ko/sources/ux-engineer-a-terminal-career.md)  |
 |    14 | [how-to-accelerate-your-design-career-with-ai](candidates/how-to-accelerate-your-design-career-with-ai.md)                               | inaccessible | —                                                             | —                                                               |
 
-### Pending wave 2 expansion
+### Approved wave 2 expansion
 
-The next-wave queue contains 13 unique uninspected Candidate nodes across 13 active depth-2 edges. It excludes [on-taste-part-3](candidates/on-taste-part-3.md): that node was already analyzed as a DENG depth-1 Candidate, and its additional `developing-taste` footnote edge is retained as provenance rather than a request to analyze the node again.
+The maintainer approved expansion of all 13 unique uninspected Candidate nodes on 2026-08-13. They remain uninspected until the bounded wave-2 analysis is executed. The queue excludes [on-taste-part-3](candidates/on-taste-part-3.md): that node was already analyzed as a DENG depth-1 Candidate, and its additional `developing-taste` footnote edge is retained as provenance rather than a request to analyze the node again.
 
 - From [taste-is-eating-silicon-valley](candidates/taste-is-eating-silicon-valley.md): [the-rise-of-the-software-creator](candidates/the-rise-of-the-software-creator.md), [pursuits-that-cant-scale](candidates/pursuits-that-cant-scale.md), [rise-of-the-silicon-valley-small-business](candidates/rise-of-the-silicon-valley-small-business.md), [silicon-valley-wikipedia](candidates/silicon-valley-wikipedia.md), [arnold-bennett-wikipedia](candidates/arnold-bennett-wikipedia.md).
 - From [web-interface-guidelines](candidates/web-interface-guidelines.md): [disable-transitions-temporarily](candidates/disable-transitions-temporarily.md), [next-themes](candidates/next-themes.md), [media-hover](candidates/media-hover.md), [will-change](candidates/will-change.md), [safari-16-4](candidates/safari-16-4.md).
@@ -61,7 +61,7 @@ The next-wave queue contains 13 unique uninspected Candidate nodes across 13 act
 - [emil-kowalski](analyses/sources/emil-kowalski.md) — draft source analysis.
 - [devouring-details](analyses/sources/devouring-details.md) — draft source analysis.
 - [emil-course-platform](analyses/sources/emil-course-platform.md) — draft source analysis.
-- Nine analyzed DENG Candidates have draft source analyses and Korean review translations listed in the wave table above; all publication decisions remain pending.
+- Nine analyzed DENG Candidates have draft source analyses and Korean review translations listed in the wave table above. The maintainer approved all nine for the public-reference workflow on 2026-08-13; reference records have not yet been created, so published-record counts remain zero.
 
 ## Reference records
 
@@ -130,6 +130,6 @@ None.
 - Review representative Designparser rules for evidence quality and sourcing.
 - Decide whether Devouring Details' paid-access limitation is acceptable.
 - Define a freshness policy for stack and vendor details in the course-platform article.
-- Decide whether any of the nine analyzed DENG Candidates should enter the public-reference workflow; all Candidate publication decisions are currently `pending`.
+- Create and validate reference records for the nine publication-approved DENG Candidates; Candidate approval alone does not publish them.
 - The five inaccessible DENG video Candidates need complete captions or transcripts before substantive analysis.
-- Decide whether to approve a bounded wave-2 expansion for the 13 pending Candidate nodes; their destinations remain uninspected.
+- Execute the approved bounded wave-2 expansion for 13 Candidate nodes; their destinations remain uninspected.

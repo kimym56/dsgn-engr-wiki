@@ -3,8 +3,6 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { parse } from "yaml";
 
-const candidateMetadata = new WeakMap();
-
 const REQUIRED_FIELDS = [
   "id",
   "title",
@@ -114,6 +112,14 @@ function validateRequiredFields(value, fields, prefix, candidatePath, errors) {
   }
 }
 
+function validateAllowedFields(value, fields, prefix, candidatePath, errors) {
+  for (const field of Object.keys(value)) {
+    if (!fields.includes(field)) {
+      addError(errors, candidatePath, `${prefix}${field}`, "is not allowed");
+    }
+  }
+}
+
 export async function parseCandidateFile(candidatePath) {
   const contents = await readFile(candidatePath, "utf8");
   const lines = contents.split(/\r?\n/);
@@ -131,18 +137,21 @@ export async function parseCandidateFile(candidatePath) {
     );
   }
 
+  let candidate;
   try {
-    const candidate = parse(lines.slice(1, closingDelimiter).join("\n"));
-    if (!isRecord(candidate)) {
-      throw new Error("must be a YAML mapping");
-    }
-    return candidate;
+    candidate = parse(lines.slice(1, closingDelimiter).join("\n"));
   } catch (error) {
     throw new Error(
       `${candidatePath}: front_matter is invalid YAML: ${error.message}`,
       { cause: error },
     );
   }
+
+  if (!isRecord(candidate)) {
+    throw new Error(`${candidatePath}: front_matter must be a YAML mapping`);
+  }
+
+  return candidate;
 }
 
 export function validateCandidate(candidate, candidatePath) {
@@ -154,6 +163,7 @@ export function validateCandidate(candidate, candidatePath) {
   }
 
   validateRequiredFields(candidate, REQUIRED_FIELDS, "", candidatePath, errors);
+  validateAllowedFields(candidate, REQUIRED_FIELDS, "", candidatePath, errors);
 
   if (Object.hasOwn(candidate, "id") && !isKebabCase(candidate.id)) {
     addError(errors, candidatePath, "id", "must be a lowercase kebab-case ID");
@@ -313,19 +323,24 @@ export function validateCandidate(candidate, candidatePath) {
           candidatePath,
           errors,
         );
+        validateAllowedFields(
+          discovery,
+          REQUIRED_DISCOVERY_FIELDS,
+          prefix,
+          candidatePath,
+          errors,
+        );
 
-        for (const property of ["parent_id"]) {
-          if (
-            Object.hasOwn(discovery, property) &&
-            !isKebabCase(discovery[property])
-          ) {
-            addError(
-              errors,
-              candidatePath,
-              `${prefix}${property}`,
-              "must be a lowercase kebab-case ID",
-            );
-          }
+        if (
+          Object.hasOwn(discovery, "parent_id") &&
+          !isKebabCase(discovery.parent_id)
+        ) {
+          addError(
+            errors,
+            candidatePath,
+            `${prefix}parent_id`,
+            "must be a lowercase kebab-case ID",
+          );
         }
         for (const property of ["section", "link_text"]) {
           if (
@@ -403,6 +418,13 @@ export function validateCandidate(candidate, candidatePath) {
         candidatePath,
         errors,
       );
+      validateAllowedFields(
+        candidate.publication,
+        REQUIRED_PUBLICATION_FIELDS,
+        "publication.",
+        candidatePath,
+        errors,
+      );
 
       if (
         Object.hasOwn(candidate.publication, "decision") &&
@@ -457,9 +479,9 @@ export function validateCandidate(candidate, candidatePath) {
   return errors;
 }
 
-function displayPath(candidate, index) {
+function displayPath(candidate, index, context) {
   return (
-    candidateMetadata.get(candidate)?.candidatePath ??
+    context.candidatePaths?.get(candidate) ??
     `<candidate ${isNonEmptyString(candidate?.id) ? candidate.id : index + 1}>`
   );
 }
@@ -521,18 +543,22 @@ async function pathIsFile(filePath) {
   }
 }
 
-export async function validateGraph(candidates) {
+function withLoadContext(candidates, errors, context) {
+  Object.defineProperties(candidates, {
+    errors: { value: errors },
+    context: { value: context },
+  });
+  return candidates;
+}
+
+export async function validateGraph(candidates, context = {}) {
   const errors = [];
   const ids = new Map();
   const canonicalUrls = new Map();
-  const repositoryRoots = new Set();
 
   candidates.forEach((candidate, index) => {
-    const candidatePath = displayPath(candidate, index);
+    const candidatePath = displayPath(candidate, index, context);
     errors.push(...validateCandidate(candidate, candidatePath));
-
-    const repositoryRoot = candidateMetadata.get(candidate)?.repositoryRoot;
-    if (repositoryRoot) repositoryRoots.add(repositoryRoot);
 
     if (isKebabCase(candidate?.id)) {
       if (ids.has(candidate.id)) {
@@ -561,12 +587,17 @@ export async function validateGraph(candidates) {
     }
   });
 
-  const sourceAnalysisIds = await loadAnalysisIds(repositoryRoots);
+  const sourceAnalysisIds = new Set(context.sourceAnalysisIds);
+  if (context.repositoryRoot) {
+    for (const id of await loadAnalysisIds([context.repositoryRoot])) {
+      sourceAnalysisIds.add(id);
+    }
+  }
   const knownParentIds = new Set([...ids.keys(), ...sourceAnalysisIds]);
 
   for (const [candidateIndex, candidate] of candidates.entries()) {
     if (!isRecord(candidate)) continue;
-    const candidatePath = displayPath(candidate, candidateIndex);
+    const candidatePath = displayPath(candidate, candidateIndex, context);
     const seenEdges = new Map();
 
     if (Array.isArray(candidate.discoveries)) {
@@ -607,21 +638,21 @@ export async function validateGraph(candidates) {
       });
     }
 
-    const repositoryRoot =
-      candidateMetadata.get(candidate)?.repositoryRoot ?? process.cwd();
-    for (const property of ["analysis_path", "translation_path"]) {
-      const relativePath = candidate[property];
-      if (
-        typeof relativePath === "string" &&
-        isSafeMarkdownPath(relativePath) &&
-        !(await pathIsFile(path.join(repositoryRoot, relativePath)))
-      ) {
-        addError(
-          errors,
-          candidatePath,
-          property,
-          `does not exist: ${relativePath}`,
-        );
+    if (context.repositoryRoot) {
+      for (const property of ["analysis_path", "translation_path"]) {
+        const relativePath = candidate[property];
+        if (
+          typeof relativePath === "string" &&
+          isSafeMarkdownPath(relativePath) &&
+          !(await pathIsFile(path.join(context.repositoryRoot, relativePath)))
+        ) {
+          addError(
+            errors,
+            candidatePath,
+            property,
+            `does not exist: ${relativePath}`,
+          );
+        }
       }
     }
   }
@@ -634,22 +665,49 @@ export async function loadCandidates(directory) {
   try {
     entries = await readdir(directory, { withFileTypes: true });
   } catch (error) {
-    if (error.code === "ENOENT") return [];
+    if (error.code === "ENOENT") {
+      return withLoadContext([], [], {
+        repositoryRoot: path.resolve(directory, "..", ".."),
+        candidatePaths: new Map(),
+      });
+    }
     throw error;
   }
 
   const repositoryRoot = path.resolve(directory, "..", "..");
   const candidates = [];
+  const errors = [];
+  const candidatePaths = new Map();
   for (const entry of entries
     .filter((item) => item.isFile() && path.extname(item.name) === ".md")
     .sort((left, right) => left.name.localeCompare(right.name))) {
     const candidatePath = path.join(directory, entry.name);
-    const candidate = await parseCandidateFile(candidatePath);
-    candidateMetadata.set(candidate, { candidatePath, repositoryRoot });
-    candidates.push(candidate);
+    try {
+      const candidate = await parseCandidateFile(candidatePath);
+      candidatePaths.set(candidate, candidatePath);
+      candidates.push(candidate);
+
+      if (`${candidate.id}.md` !== entry.name) {
+        addError(
+          errors,
+          candidatePath,
+          "id",
+          `must match filename ${candidate.id}.md`,
+        );
+      }
+    } catch (error) {
+      errors.push(error.message);
+    }
   }
 
-  return candidates;
+  return withLoadContext(candidates, errors, {
+    repositoryRoot,
+    candidatePaths,
+  });
+}
+
+function formatError(error) {
+  return error.replace(/\s*\r?\n\s*/g, " ");
 }
 
 async function main() {
@@ -657,16 +715,19 @@ async function main() {
 
   try {
     const candidates = await loadCandidates(directory);
-    const errors = await validateGraph(candidates);
+    const errors = [
+      ...candidates.errors,
+      ...(await validateGraph(candidates, candidates.context)),
+    ];
     if (errors.length > 0) {
-      for (const error of errors) console.error(error);
+      for (const error of errors) console.error(formatError(error));
       process.exitCode = 1;
       return;
     }
 
     console.log(`Reference graph valid: ${candidates.length} candidates`);
   } catch (error) {
-    console.error(error.message);
+    console.error(formatError(error.message));
     process.exitCode = 1;
   }
 }

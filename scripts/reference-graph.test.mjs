@@ -135,6 +135,14 @@ describe("parseCandidateFile", () => {
     await expect(parseCandidateFile(filePath)).rejects.toThrow(filePath);
     await expect(parseCandidateFile(filePath)).rejects.toThrow("front_matter");
   });
+
+  it("reports a non-mapping document as a front_matter mapping error", async () => {
+    const filePath = await temporaryFile("list.md", "---\n- one\n- two\n---\n");
+
+    await expect(parseCandidateFile(filePath)).rejects.toThrow(
+      `${filePath}: front_matter must be a YAML mapping`,
+    );
+  });
 });
 
 describe("validateCandidate", () => {
@@ -155,6 +163,18 @@ describe("validateCandidate", () => {
         expect.stringContaining(`${candidatePath}: publication`),
       ]),
     );
+  });
+
+  it("rejects unknown root, discovery, and publication properties", () => {
+    const candidate = validCandidate({ unexpected_root: true });
+    candidate.discoveries[0].unexpected_discovery = true;
+    candidate.publication.unexpected_publication = true;
+
+    expect(validateCandidate(candidate, candidatePath)).toEqual([
+      `${candidatePath}: unexpected_root is not allowed`,
+      `${candidatePath}: discoveries[0].unexpected_discovery is not allowed`,
+      `${candidatePath}: publication.unexpected_publication is not allowed`,
+    ]);
   });
 
   it.each([
@@ -269,14 +289,16 @@ describe("reference graph invariants", () => {
       id: "third-source",
       canonical_url: first.canonical_url,
     });
-    const errors = await validateGraph([first, second, third]);
+    const errors = await validateGraph([first, second, third], {
+      sourceAnalysisIds: ["parent-source"],
+    });
 
-    expect(errors).toEqual(
-      expect.arrayContaining([
-        expect.stringContaining("id"),
-        expect.stringContaining("canonical_url"),
-      ]),
-    );
+    expect(errors).toEqual([
+      expect.stringContaining("id duplicates child-source"),
+      expect.stringContaining(
+        "canonical_url duplicates https://example.com/child",
+      ),
+    ]);
   });
 
   it("reports repeated identical discovery edges", async () => {
@@ -284,9 +306,11 @@ describe("reference graph invariants", () => {
     candidate.discoveries.push({ ...candidate.discoveries[0] });
     const { candidateDirectory } = await fixtureRepository([candidate]);
 
-    expect(
-      await validateGraph(await loadCandidates(candidateDirectory)),
-    ).toEqual([expect.stringContaining("discoveries[1]")]);
+    const candidates = await loadCandidates(candidateDirectory);
+
+    expect(await validateGraph(candidates, candidates.context)).toEqual([
+      expect.stringContaining("discoveries[1]"),
+    ]);
   });
 
   it("reports unknown parents and self-links", async () => {
@@ -316,7 +340,7 @@ describe("reference graph invariants", () => {
     ]);
     const candidates = await loadCandidates(candidateDirectory);
 
-    expect(await validateGraph(candidates)).toEqual(
+    expect(await validateGraph(candidates, candidates.context)).toEqual(
       expect.arrayContaining([
         expect.stringContaining("analysis_path"),
         expect.stringContaining("translation_path"),
@@ -341,9 +365,9 @@ describe("reference graph invariants", () => {
     });
     const { candidateDirectory } = await fixtureRepository([parent, child]);
 
-    expect(
-      await validateGraph(await loadCandidates(candidateDirectory)),
-    ).toEqual([]);
+    const candidates = await loadCandidates(candidateDirectory);
+
+    expect(await validateGraph(candidates, candidates.context)).toEqual([]);
   });
 
   it("loads zero candidates when the directory does not exist", async () => {
@@ -353,6 +377,52 @@ describe("reference graph invariants", () => {
     await expect(loadCandidates(path.join(root, "missing"))).resolves.toEqual(
       [],
     );
+  });
+
+  it("reports candidate filenames that do not match their front-matter IDs", async () => {
+    const { candidateDirectory } = await fixtureRepository([]);
+    await writeFile(
+      path.join(candidateDirectory, "wrong-name.md"),
+      `---\n${JSON.stringify(validCandidate())}\n---\n`,
+    );
+
+    const candidates = await loadCandidates(candidateDirectory);
+
+    expect(candidates).toHaveLength(1);
+    expect(candidates.errors).toEqual([
+      expect.stringContaining(
+        "wrong-name.md: id must match filename child-source.md",
+      ),
+    ]);
+  });
+
+  it("validates parsed candidates against an explicit repository context", async () => {
+    const candidate = validCandidate({
+      status: "analyzed",
+      analysis_path: "references/analyses/sources/child-source.md",
+      translation_path: "references/analyses/ko/sources/child-source.md",
+    });
+    const { root, candidateDirectory } = await fixtureRepository([candidate]);
+    const candidatePath = path.join(candidateDirectory, "child-source.md");
+    await mkdir(path.join(root, "references", "analyses", "ko", "sources"), {
+      recursive: true,
+    });
+    await Promise.all([
+      writeFile(
+        path.join(root, candidate.analysis_path),
+        "---\nreference_id: child-source\n---\n",
+      ),
+      writeFile(path.join(root, candidate.translation_path), "# Translation\n"),
+    ]);
+
+    const parsedCandidate = await parseCandidateFile(candidatePath);
+
+    await expect(
+      validateGraph([parsedCandidate], {
+        repositoryRoot: root,
+        candidatePaths: new Map([[parsedCandidate, candidatePath]]),
+      }),
+    ).resolves.toEqual([]);
   });
 });
 
@@ -392,5 +462,43 @@ describe("reference graph CLI", () => {
       expect.stringContaining(`${candidatePath}: canonical_url`),
       expect.stringContaining(`${candidatePath}: status`),
     ]);
+  });
+
+  it("prints parse and validation errors from every candidate as single lines", async () => {
+    const { candidateDirectory } = await fixtureRepository([]);
+    const invalidCandidatePath = path.join(
+      candidateDirectory,
+      "child-source.md",
+    );
+    const firstMalformedPath = path.join(candidateDirectory, "first.md");
+    const secondMalformedPath = path.join(candidateDirectory, "second.md");
+    await Promise.all([
+      writeFile(
+        invalidCandidatePath,
+        `---\n${JSON.stringify(
+          validCandidate({ canonical_url: "http://example.com/child" }),
+        )}\n---\n`,
+      ),
+      writeFile(firstMalformedPath, "---\nid: [unterminated\n---\n"),
+      writeFile(secondMalformedPath, "---\ntitle: [unterminated\n---\n"),
+    ]);
+
+    let failure;
+    try {
+      await executeFile(process.execPath, [scriptPath, candidateDirectory]);
+    } catch (error) {
+      failure = error;
+    }
+
+    const lines = failure?.stderr.trim().split("\n");
+    expect(failure?.code).toBe(1);
+    expect(lines).toHaveLength(3);
+    expect(lines).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining(`${firstMalformedPath}: front_matter`),
+        expect.stringContaining(`${secondMalformedPath}: front_matter`),
+        expect.stringContaining(`${invalidCandidatePath}: canonical_url`),
+      ]),
+    );
   });
 });

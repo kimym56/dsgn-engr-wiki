@@ -40,6 +40,22 @@ A collection is an editorial selection built from existing references around a p
 
 Home, About, selection-policy, and collection-introduction content may use Markdown or MDX when document structure is helpful. Interactive MDX components should remain exceptional rather than becoming the default content format.
 
+### Candidate
+
+A Candidate is an internal Markdown record for a canonical URL discovered through a qualifying resource section. It is a research lead with provenance, lifecycle state, analysis relationships, and a human-owned publication decision; it is not a published reference record.
+
+### Discovery edge
+
+A Discovery edge is the directed relationship from a parent source to a Candidate. It preserves the parent, qualifying section, original link text, encountered URL, discovery date, wave, depth, and active-history state. Several parents may discover the same canonical Candidate without creating duplicate candidate nodes.
+
+### Expansion approval
+
+Expansion approval is a human decision that permits inspection and analysis of one bounded next wave of qualifying Candidates. It never grants publication approval. Qualifying links discovered inside that wave are recorded for a later wave and are not inspected or analyzed until another expansion approval.
+
+### Publication approval
+
+Publication approval is a separate human decision that permits an analyzed Candidate to enter the existing public-reference workflow. Until that decision is `publish` and the existing workflow is complete, Candidates and their draft analyses remain internal authoring material.
+
 ## Reference metadata model
 
 Every reference should carry the following fields when the content system is implemented:
@@ -108,7 +124,9 @@ The full external-source decision is documented in [`docs/decisions/0002-referen
 
 English is the canonical language for project-owned metadata in the initial release. The external resource may be in any explicitly recorded source language.
 
-Korean translation begins after an English reference record reaches `published` status. Each translation:
+Every completed English source analysis receives a Korean translation for internal review, even when its Candidate has not been approved for publication. The Korean analysis translation links back to its canonical English analysis and does not make either artifact public.
+
+Published Korean reference translations begin only after an English reference record reaches `published` status. Each published-reference translation:
 
 - references the canonical English record through `translation_of`
 - points to the same external destination unless a reviewed Korean edition exists

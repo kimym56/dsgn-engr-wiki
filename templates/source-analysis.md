@@ -56,6 +56,13 @@ List principles that may be compared across sources. Do not approve them for pro
 
 Identify branding, assets, code, compositions, or distinctive identity that must remain source-specific.
 
+## Resource discovery
+
+- Qualifying sections:
+- Candidate IDs:
+- Next-wave candidates:
+- Excluded link classes:
+
 ## Evidence and uncertainty
 
 - Direct observations:

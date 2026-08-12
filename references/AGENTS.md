@@ -4,9 +4,12 @@ These rules apply to this directory and its descendants. Root repository instruc
 
 ## Ownership boundaries
 
-- The maintainer owns `inbox.md` and supplies every candidate URL.
-- Never add a URL, follow an outbound link as a candidate, or search for related sources.
+- The maintainer owns `inbox.md` and supplies every root-source URL.
 - Never rewrite, reorder, remove, or annotate submitted URL lines unless the maintainer explicitly asks for cleanup.
+- Add an outbound Candidate only after a maintainer has granted Expansion approval for its parent source and only when the link passes the qualifying-section policy.
+- Expansion approval permits one bounded analysis wave; record qualifying child links for a later wave, but do not inspect or analyze their destinations without another Expansion approval.
+- Canonical URL is the primary deduplication key. Add distinct provenance edges to an existing Candidate, report identical edges without duplicating them, and retain inactive-edge history when a rescan no longer finds a link.
+- Keep an unavailable destination as `inaccessible` and do not infer its content from snippets, previews, or parent descriptions.
 - AI-generated material is a proposal until the maintainer approves the write.
 - Only a human may approve publication, conclusion-changing synthesis, or product-design adoption.
 
@@ -30,9 +33,21 @@ These rules apply to this directory and its descendants. Root repository instruc
 9. Propose relevant updates to existing concept pages; do not create or change durable synthesis before approval.
 10. Present proposed file paths, index changes, and a log entry for approval before writing.
 
+## Expand an approved source wave
+
+1. Confirm the maintainer's Expansion approval and capture the access date.
+2. Inspect the complete available parent source and identify only qualifying curated-resource sections: `Resources`, `References`, `Further reading`, `Recommended`, or a clearly equivalent section by meaning.
+3. Exclude global or local navigation, author and practitioner rosters, incidental prose links, social profiles, image-search or image-credit links, advertisements, sponsors, affiliates, partners, footer or legal links, and login, account, or utility actions. Report ambiguous sections for human judgment.
+4. Preserve section label and displayed link text, resolve redirects and canonical destinations, and create or update Candidate records under `candidates/<candidate-id>.md` with their discovery edges.
+5. Analyze accessible first-level Candidates only. Record qualifying links found inside those analyses as the next wave; do not inspect or analyze them in this wave.
+6. Create the English draft analysis and Korean review translation for each completed analysis. Publication approval remains separate and human-owned.
+7. Record invalid, redirected, inaccessible, restricted, duplicate, and partial-batch outcomes in the index and append-only log. External failures never block the application build.
+
 ## Approved write locations
 
 - Source analyses: `analyses/sources/<reference-id>.md`
+- Candidates: `candidates/<candidate-id>.md`
+- Korean review translations: `analyses/ko/sources/<candidate-id>.md`
 - Concept syntheses: `analyses/concepts/<concept-id>.md`
 - Reference records: no default path until Phase 2 defines validated storage
 - Catalog: `index.md`

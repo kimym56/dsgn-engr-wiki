@@ -58,11 +58,33 @@ Keyboard behavior, focus treatment, semantics, contrast, and motion support were
 
 Do not copy the roster, resource list, labels, descriptions, name, branding, or composition.
 
+## Resource discovery
+
+- Qualifying sections: `Resources` (accessed 2026-08-12).
+- Candidate IDs, in first-appearance source order after canonical-URL deduplication:
+  1. `taste-is-eating-silicon-valley`
+  2. `web-interface-guidelines`
+  3. `developing-taste`
+  4. `pasito`
+  5. `vaul`
+  6. `family-wallet`
+  7. `on-taste-part-3`
+  8. `manage-design-projects`
+  9. `the-rise-of-design-engineering`
+  10. `the-easy-way-to-design-top-tier-websites`
+  11. `designing-data-intensive-applications-chapters-1-and-2`
+  12. `how-this-designer-learned-code-and-became-a-design-engineer`
+  13. `ux-engineer-a-terminal-career`
+  14. `how-to-accelerate-your-design-career-with-ai`
+- Next-wave candidates: Pending. Qualifying child links found while analyzing these first-level candidates will become the next wave; no child destinations were inspected or analyzed in this capture-only task.
+- Excluded link classes: the `Design Engineers` roster, global and local navigation, Google favicon/image links, and page chrome, utility, and filter controls.
+- Discovery ambiguity: DENG rendered `https://interfaces.rauno.me/` twice with conflicting card labels, `Web interfaces guidelines` and `7 practical animation tips`. Both contexts are preserved as distinct discovery edges on the single `web-interface-guidelines` candidate.
+
 ## Evidence and uncertainty
 
-- Direct observations: Limited to the submitted directory page.
+- Direct observations: The complete submitted directory page, its `Resources` section, and the 14 unique first-level destinations were checked on 2026-08-12 for canonical identity and destination title metadata.
 - Claims requiring human confirmation: Curator identity, selection method, maintenance policy, and eligibility of the proposed `directory` format.
-- Access limitations: Outbound entries were not treated as candidates; visual/runtime inspection was unavailable.
+- Access limitations: Candidate capture did not include substantive child analysis. Publication and any next-wave expansion remain pending human decisions.
 - Contradictions with existing analyses: None identified; no existing source analyses were present.
 
 ## Human review

@@ -60,11 +60,33 @@ status: "draft"
 
 인물 목록, 자료 목록, 레이블, 설명, 이름, 브랜딩 또는 구성을 복사하지 않는다.
 
+## 자료 발견
+
+- 적격 섹션: `Resources`(접근일: 2026-08-12).
+- 정규 URL 중복을 제거한 최초 출현 순서의 후보 ID:
+  1. `taste-is-eating-silicon-valley`
+  2. `web-interface-guidelines`
+  3. `developing-taste`
+  4. `pasito`
+  5. `vaul`
+  6. `family-wallet`
+  7. `on-taste-part-3`
+  8. `manage-design-projects`
+  9. `the-rise-of-design-engineering`
+  10. `the-easy-way-to-design-top-tier-websites`
+  11. `designing-data-intensive-applications-chapters-1-and-2`
+  12. `how-this-designer-learned-code-and-became-a-design-engineer`
+  13. `ux-engineer-a-terminal-career`
+  14. `how-to-accelerate-your-design-career-with-ai`
+- 다음 웨이브 후보: 보류 중. 이 1단계 후보들을 분석하며 발견하는 적격 하위 링크는 다음 웨이브가 된다. 이번 후보 캡처 작업에서는 하위 목적지를 검사하거나 분석하지 않았다.
+- 제외한 링크 유형: `Design Engineers` 인물 목록, 전역 및 지역 탐색, Google 파비콘·이미지 링크, 페이지 크롬, 유틸리티 및 필터 컨트롤.
+- 발견 모호성: DENG는 `https://interfaces.rauno.me/`를 `Web interfaces guidelines`와 `7 practical animation tips`라는 서로 충돌하는 카드 레이블로 두 번 렌더링했다. 두 맥락은 하나의 `web-interface-guidelines` 후보에 별개의 발견 엣지로 보존했다.
+
 ## 근거와 불확실성
 
-- 직접 관찰: 제출된 디렉터리 페이지로 제한됨.
+- 직접 관찰: 2026-08-12에 제출된 디렉터리 페이지 전체와 `Resources` 섹션, 고유한 1단계 목적지 14개의 정규 식별 정보와 목적지 제목 메타데이터를 확인했다.
 - 사람의 확인이 필요한 주장: 큐레이터의 정체성, 선정 방식, 유지관리 정책, 제안된 `directory` 형식의 적격성.
-- 접근 제한: 외부 링크 항목은 후보로 취급하지 않았으며, 시각·런타임 검사는 불가능했다.
+- 접근 제한: 후보 캡처에 실질적인 하위 분석은 포함하지 않았다. 공개와 다음 웨이브 확장은 모두 사람의 결정 대기 상태이다.
 - 기존 분석과의 모순: 없음. 기존 출처 분석이 존재하지 않았다.
 
 ## 사람 검토

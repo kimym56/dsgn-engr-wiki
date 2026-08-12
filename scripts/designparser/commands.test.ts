@@ -1,6 +1,6 @@
 // @vitest-environment node
 
-import { mkdtemp, readFile, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, readdir, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -8,6 +8,9 @@ import {
   checkExecutable,
   discoverReels,
   downloadReel,
+  extractAudio,
+  extractSceneFrames,
+  transcribeAudio,
   type CommandResult,
   type CommandRunner,
 } from "./commands.ts";
@@ -286,5 +289,179 @@ describe("Designparser command adapters", () => {
     await expect(
       readFile(path.join(reelDirectory, "downloaded-1.json"), "utf8"),
     ).rejects.toThrow();
+  });
+
+  it("extracts mono PCM audio with FFmpeg", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+    const reelDirectory = path.join(root, reel.id);
+    const source = path.join(reelDirectory, "source.mp4");
+    const audio = path.join(reelDirectory, "audio.wav");
+    const calls: Array<{ command: string; args: readonly string[] }> = [];
+    await mkdir(reelDirectory);
+    await writeFile(source, "video");
+
+    await extractAudio(reelDirectory, async (command, args) => {
+      calls.push({ command, args });
+      await writeFile(audio, "audio");
+      return { code: 0, stdout: "", stderr: "" };
+    });
+
+    expect(calls).toEqual([
+      {
+        command: "ffmpeg",
+        args: [
+          "-nostdin",
+          "-hide_banner",
+          "-loglevel",
+          "error",
+          "-y",
+          "-i",
+          source,
+          "-vn",
+          "-ac",
+          "1",
+          "-ar",
+          "16000",
+          "-c:a",
+          "pcm_s16le",
+          audio,
+        ],
+      },
+    ]);
+    await expect(readFile(audio, "utf8")).resolves.toBe("audio");
+  });
+
+  it("normalizes local English Whisper transcription artifacts", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+    const reelDirectory = path.join(root, reel.id);
+    const audio = path.join(reelDirectory, "audio.wav");
+    const whisperOutput = path.join(reelDirectory, "audio.json");
+    const calls: Array<{ command: string; args: readonly string[] }> = [];
+    await mkdir(reelDirectory);
+    await writeFile(audio, "audio");
+
+    await transcribeAudio(reelDirectory, async (command, args) => {
+      calls.push({ command, args });
+      await writeFile(
+        whisperOutput,
+        JSON.stringify({
+          language: "en",
+          text: " First. Second. ",
+          segments: [
+            { start: 0, end: 1.25, text: " First. " },
+            { start: 1.25, end: 2.5, text: " Second. " },
+          ],
+        }),
+      );
+      return { code: 0, stdout: "", stderr: "" };
+    });
+
+    expect(calls).toEqual([
+      {
+        command: "whisper",
+        args: [
+          audio,
+          "--language",
+          "en",
+          "--task",
+          "transcribe",
+          "--model",
+          "small.en",
+          "--output_format",
+          "json",
+          "--output_dir",
+          reelDirectory,
+        ],
+      },
+    ]);
+    await expect(
+      readFile(path.join(reelDirectory, "transcript.json"), "utf8"),
+    ).resolves.toBe(
+      `${JSON.stringify({
+        language: "en",
+        text: "First. Second.",
+        segments: [
+          { start: 0, end: 1.25, text: "First." },
+          { start: 1.25, end: 2.5, text: "Second." },
+        ],
+      })}\n`,
+    );
+    await expect(
+      readFile(path.join(reelDirectory, "transcript.txt"), "utf8"),
+    ).resolves.toBe("First.\nSecond.\n");
+    await expect(readFile(whisperOutput, "utf8")).rejects.toThrow();
+  });
+
+  it("keeps the first scene frame and names frames by showinfo timestamp", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+    const reelDirectory = path.join(root, reel.id);
+    const source = path.join(reelDirectory, "source.mp4");
+    const framePattern = path.join(reelDirectory, "frames", "%06d.jpg");
+    const calls: Array<{ command: string; args: readonly string[] }> = [];
+    await mkdir(reelDirectory);
+    await writeFile(source, "video");
+
+    await extractSceneFrames(reelDirectory, 0.32, async (command, args) => {
+      calls.push({ command, args });
+      await Promise.all(
+        ["000001.jpg", "000002.jpg", "000003.jpg"].map((name) =>
+          writeFile(path.join(reelDirectory, "frames", name), "frame"),
+        ),
+      );
+      return {
+        code: 0,
+        stdout: "",
+        stderr: [
+          "[Parsed_showinfo_1] n:0 pts:0 pts_time:0",
+          "[Parsed_showinfo_1] n:1 pts:375 pts_time:12.5",
+          "[Parsed_showinfo_1] n:2 pts:930 pts_time:31",
+        ].join("\n"),
+      };
+    });
+
+    expect(calls).toEqual([
+      {
+        command: "ffmpeg",
+        args: [
+          "-nostdin",
+          "-hide_banner",
+          "-loglevel",
+          "info",
+          "-y",
+          "-i",
+          source,
+          "-vf",
+          "select='eq(n,0)+gt(scene,0.32)',showinfo",
+          "-fps_mode",
+          "vfr",
+          framePattern,
+        ],
+      },
+    ]);
+    expect(await readdir(path.join(reelDirectory, "frames"))).toEqual([
+      "000000.000.jpg",
+      "000012.500.jpg",
+      "000031.000.jpg",
+    ]);
+  });
+
+  it("rejects scene thresholds outside the open unit interval before FFmpeg", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+    const reelDirectory = path.join(root, reel.id);
+    await mkdir(reelDirectory);
+    await writeFile(path.join(reelDirectory, "source.mp4"), "video");
+    let calls = 0;
+    const noCommand: CommandRunner = async () => {
+      calls++;
+      return { code: 0, stdout: "", stderr: "" };
+    };
+
+    await expect(
+      extractSceneFrames(reelDirectory, 0, noCommand),
+    ).rejects.toThrow("scene threshold");
+    await expect(
+      extractSceneFrames(reelDirectory, Number.NaN, noCommand),
+    ).rejects.toThrow("scene threshold");
+    expect(calls).toBe(0);
   });
 });

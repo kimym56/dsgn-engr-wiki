@@ -8,7 +8,11 @@ import {
   writeFile,
 } from "node:fs/promises";
 import path from "node:path";
-import { PROFILE_URL, type DiscoveredReel } from "./domain.ts";
+import {
+  normalizeWhisperTranscript,
+  PROFILE_URL,
+  type DiscoveredReel,
+} from "./domain.ts";
 
 export interface CommandResult {
   code: number;
@@ -259,4 +263,167 @@ export async function downloadReel(
   } finally {
     await removeGalleryMetadata(reelDirectory);
   }
+}
+
+function reelPath(reelDirectory: string, file: string) {
+  return path.resolve(reelDirectory, file);
+}
+
+async function requireFile(filePath: string, name: string) {
+  try {
+    await readFile(filePath);
+  } catch {
+    throw new Error(`${name} is missing`);
+  }
+}
+
+async function requireNonemptyFile(filePath: string, name: string) {
+  let content: Buffer;
+  try {
+    content = await readFile(filePath);
+  } catch {
+    throw new Error(`${name} is missing`);
+  }
+  if (content.length === 0) throw new Error(`${name} is empty`);
+}
+
+export async function extractAudio(
+  reelDirectory: string,
+  runner: CommandRunner = runCommand,
+) {
+  const source = reelPath(reelDirectory, "source.mp4");
+  const audio = reelPath(reelDirectory, "audio.wav");
+  await requireFile(source, "source.mp4");
+  const result = await runner("ffmpeg", [
+    "-nostdin",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-y",
+    "-i",
+    source,
+    "-vn",
+    "-ac",
+    "1",
+    "-ar",
+    "16000",
+    "-c:a",
+    "pcm_s16le",
+    audio,
+  ]);
+  if (result.code !== 0) throw new Error("ffmpeg audio extraction failed");
+  await requireNonemptyFile(audio, "audio.wav");
+}
+
+export async function transcribeAudio(
+  reelDirectory: string,
+  runner: CommandRunner = runCommand,
+) {
+  const audio = reelPath(reelDirectory, "audio.wav");
+  const whisperOutput = reelPath(reelDirectory, "audio.json");
+  await requireFile(audio, "audio.wav");
+  const result = await runner("whisper", [
+    audio,
+    "--language",
+    "en",
+    "--task",
+    "transcribe",
+    "--model",
+    "small.en",
+    "--output_format",
+    "json",
+    "--output_dir",
+    path.resolve(reelDirectory),
+  ]);
+  if (result.code !== 0) throw new Error("whisper transcription failed");
+
+  let transcript;
+  try {
+    transcript = normalizeWhisperTranscript(
+      JSON.parse(await readFile(whisperOutput, "utf8")),
+    );
+  } catch {
+    throw new Error("whisper transcript is missing or invalid");
+  }
+  const transcriptPath = reelPath(reelDirectory, "transcript.json");
+  const transcriptTemporary = `${transcriptPath}.tmp`;
+  await writeFile(transcriptTemporary, `${JSON.stringify(transcript)}\n`);
+  await rename(transcriptTemporary, transcriptPath);
+  const textPath = reelPath(reelDirectory, "transcript.txt");
+  const textTemporary = `${textPath}.tmp`;
+  await writeFile(
+    textTemporary,
+    `${transcript.segments.map((segment) => segment.text.trim()).join("\n")}\n`,
+  );
+  await rename(textTemporary, textPath);
+  await rm(whisperOutput);
+}
+
+function sceneTimestamp(timestamp: number) {
+  const milliseconds = Math.round(timestamp * 1000);
+  return `${Math.floor(milliseconds / 1000)
+    .toString()
+    .padStart(6, "0")}.${(milliseconds % 1000).toString().padStart(3, "0")}`;
+}
+
+function showinfoTimestamps(stderr: string) {
+  const timestamps = [...stderr.matchAll(/\bpts_time:([^\s]+)/g)].map((match) =>
+    Number(match[1]),
+  );
+  if (
+    timestamps.some((timestamp) => !Number.isFinite(timestamp) || timestamp < 0)
+  ) {
+    throw new Error("ffmpeg frame timestamps are invalid");
+  }
+  return timestamps;
+}
+
+export async function extractSceneFrames(
+  reelDirectory: string,
+  threshold: number,
+  runner: CommandRunner = runCommand,
+) {
+  if (!Number.isFinite(threshold) || threshold <= 0 || threshold >= 1) {
+    throw new Error("scene threshold must be between 0 and 1");
+  }
+  const source = reelPath(reelDirectory, "source.mp4");
+  const frames = reelPath(reelDirectory, "frames");
+  await requireFile(source, "source.mp4");
+  await rm(frames, { recursive: true, force: true });
+  await mkdir(frames);
+  const result = await runner("ffmpeg", [
+    "-nostdin",
+    "-hide_banner",
+    "-loglevel",
+    "info",
+    "-y",
+    "-i",
+    source,
+    "-vf",
+    `select='eq(n,0)+gt(scene,${threshold})',showinfo`,
+    "-fps_mode",
+    "vfr",
+    path.join(frames, "%06d.jpg"),
+  ]);
+  if (result.code !== 0) throw new Error("ffmpeg frame extraction failed");
+
+  const files = (await readdir(frames, { withFileTypes: true }))
+    .filter(
+      (file) =>
+        file.isFile() && path.extname(file.name).toLowerCase() === ".jpg",
+    )
+    .map((file) => file.name)
+    .sort();
+  const timestamps = showinfoTimestamps(result.stderr);
+  if (timestamps.length !== files.length) {
+    throw new Error("ffmpeg frame count does not match timestamps");
+  }
+  await Promise.all(
+    files.map((file, index) =>
+      rename(
+        path.join(frames, file),
+        path.join(frames, `${sceneTimestamp(timestamps[index])}.jpg`),
+      ),
+    ),
+  );
 }

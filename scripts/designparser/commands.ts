@@ -185,6 +185,20 @@ const downloadArgs = (reel: DiscoveredReel, reelDirectory: string) => [
   reel.url,
 ];
 
+async function removeGalleryMetadata(reelDirectory: string) {
+  const files = await readdir(reelDirectory, { withFileTypes: true });
+  await Promise.all(
+    files
+      .filter(
+        (file) =>
+          file.isFile() &&
+          file.name !== "source.json" &&
+          path.extname(file.name) === ".json",
+      )
+      .map((file) => rm(path.join(reelDirectory, file.name))),
+  );
+}
+
 export async function downloadReel(
   reel: DiscoveredReel,
   reelDirectory: string,
@@ -192,54 +206,57 @@ export async function downloadReel(
 ) {
   if (!isCanonicalReel(reel)) throw new Error("reel URL must be canonical");
   await mkdir(reelDirectory);
-  const result = await runner("gallery-dl", downloadArgs(reel, reelDirectory));
-  if (result.code !== 0) throw new Error("gallery-dl download failed");
-
-  const files = await readdir(reelDirectory, { withFileTypes: true });
-  const videos = files.filter(
-    (file) => file.isFile() && path.extname(file.name).toLowerCase() === ".mp4",
-  );
-  if (videos.length !== 1)
-    throw new Error("gallery-dl download must contain exactly one MP4");
-
-  const video = videos[0];
-  const base = path.basename(video.name, path.extname(video.name));
-  const metadataPath = path.join(reelDirectory, `${base}.json`);
-  let metadata: unknown;
   try {
-    metadata = JSON.parse(await readFile(metadataPath, "utf8"));
-  } catch {
-    throw new Error("gallery-dl metadata is missing or invalid");
-  }
-  if (
-    !isObject(metadata) ||
-    metadata.post_shortcode !== reel.id ||
-    metadata.username !== "designparser"
-  ) {
-    throw new Error("gallery-dl metadata does not match the reel");
-  }
-  const date = publishedAt(metadata.date);
-  if (!date) throw new Error("gallery-dl metadata date is invalid");
+    const result = await runner(
+      "gallery-dl",
+      downloadArgs(reel, reelDirectory),
+    );
+    if (result.code !== 0) throw new Error("gallery-dl download failed");
 
-  const source = {
-    id: reel.id,
-    url: reel.url,
-    creator: "@designparser",
-    publishedAt: date,
-    duration: metadataNumber(metadata.duration, "duration"),
-    width: metadataNumber(metadata.width, "width"),
-    height: metadataNumber(metadata.height, "height"),
-  };
-  await rename(
-    path.join(reelDirectory, video.name),
-    path.join(reelDirectory, "source.mp4"),
-  );
-  const temporary = path.join(reelDirectory, "source.json.tmp");
-  await writeFile(temporary, `${JSON.stringify(source)}\n`);
-  await rename(temporary, path.join(reelDirectory, "source.json"));
-  await Promise.all(
-    files
-      .filter((file) => file.isFile() && path.extname(file.name) === ".json")
-      .map((file) => rm(path.join(reelDirectory, file.name))),
-  );
+    const files = await readdir(reelDirectory, { withFileTypes: true });
+    const videos = files.filter(
+      (file) =>
+        file.isFile() && path.extname(file.name).toLowerCase() === ".mp4",
+    );
+    if (videos.length !== 1)
+      throw new Error("gallery-dl download must contain exactly one MP4");
+
+    const video = videos[0];
+    const base = path.basename(video.name, path.extname(video.name));
+    const metadataPath = path.join(reelDirectory, `${base}.json`);
+    let metadata: unknown;
+    try {
+      metadata = JSON.parse(await readFile(metadataPath, "utf8"));
+    } catch {
+      throw new Error("gallery-dl metadata is missing or invalid");
+    }
+    if (
+      !isObject(metadata) ||
+      metadata.post_shortcode !== reel.id ||
+      metadata.username !== "designparser"
+    ) {
+      throw new Error("gallery-dl metadata does not match the reel");
+    }
+    const date = publishedAt(metadata.date);
+    if (!date) throw new Error("gallery-dl metadata date is invalid");
+
+    const source = {
+      id: reel.id,
+      url: reel.url,
+      creator: "@designparser",
+      publishedAt: date,
+      duration: metadataNumber(metadata.duration, "duration"),
+      width: metadataNumber(metadata.width, "width"),
+      height: metadataNumber(metadata.height, "height"),
+    };
+    await rename(
+      path.join(reelDirectory, video.name),
+      path.join(reelDirectory, "source.mp4"),
+    );
+    const temporary = path.join(reelDirectory, "source.json.tmp");
+    await writeFile(temporary, `${JSON.stringify(source)}\n`);
+    await rename(temporary, path.join(reelDirectory, "source.json"));
+  } finally {
+    await removeGalleryMetadata(reelDirectory);
+  }
 }

@@ -248,4 +248,43 @@ describe("Designparser command adapters", () => {
       }),
     ).rejects.toThrow("exactly one MP4");
   });
+
+  it("removes gallery metadata when the download command fails", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-commands-"));
+    const reelDirectory = path.join(root, reel.id);
+
+    await expect(
+      downloadReel(reel, reelDirectory, async () => {
+        await writeFile(
+          path.join(reelDirectory, "downloaded-1.json"),
+          JSON.stringify({ cookie: "must not persist" }),
+        );
+        return { code: 1, stdout: "", stderr: "" };
+      }),
+    ).rejects.toThrow("gallery-dl download failed");
+
+    await expect(
+      readFile(path.join(reelDirectory, "downloaded-1.json"), "utf8"),
+    ).rejects.toThrow();
+  });
+
+  it("removes gallery metadata after download validation fails", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-commands-"));
+    const reelDirectory = path.join(root, reel.id);
+
+    await expect(
+      downloadReel(reel, reelDirectory, async () => {
+        await writeFile(path.join(reelDirectory, "downloaded-1.mp4"), "video");
+        await writeFile(
+          path.join(reelDirectory, "downloaded-1.json"),
+          JSON.stringify({ post_shortcode: reel.id, username: "someone-else" }),
+        );
+        return { code: 0, stdout: "", stderr: "" };
+      }),
+    ).rejects.toThrow("gallery-dl metadata does not match the reel");
+
+    await expect(
+      readFile(path.join(reelDirectory, "downloaded-1.json"), "utf8"),
+    ).rejects.toThrow();
+  });
 });

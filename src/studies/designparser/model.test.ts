@@ -60,10 +60,14 @@ function copyStudy(): Record<string, unknown> {
 }
 
 describe("reviewed Designparser studies", () => {
-  it("starts with no reviewed studies and has empty lookup params", () => {
-    expect(designparserStudies).toEqual([]);
-    expect(getDesignparserStudy("C-example_1")).toBeUndefined();
-    expect(getDesignparserStudyParams()).toEqual([]);
+  it("derives lookup results and route params from reviewed studies", () => {
+    expect(getDesignparserStudyParams()).toEqual(
+      designparserStudies.map(({ id }) => ({ reelId: id })),
+    );
+    for (const study of designparserStudies) {
+      expect(getDesignparserStudy(study.id)).toBe(study);
+    }
+    expect(getDesignparserStudy("not-a-reviewed-study")).toBeUndefined();
   });
 
   it("accepts a reviewed English study as a frozen narrowed copy", () => {

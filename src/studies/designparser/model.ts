@@ -111,9 +111,17 @@ function rejectProhibitedContent(
   }
 }
 
-function strings(value: unknown, field: string, minimum = 0): string[] {
+function strings(
+  value: unknown,
+  field: string,
+  minimum = 0,
+  maximum = Number.POSITIVE_INFINITY,
+): string[] {
   if (!Array.isArray(value) || value.length < minimum) {
     throw new Error(`${field} must contain at least ${minimum} items`);
+  }
+  if (value.length > maximum) {
+    throw new Error(`${field} must contain at most ${maximum} items`);
   }
   return value.map((item, index) => requiredString(item, `${field}.${index}`));
 }
@@ -132,7 +140,7 @@ function slide(value: unknown, index: number): StudySlide {
   if (visual.type === "sequence" || visual.type === "layers") {
     normalizedVisual = {
       type: visual.type,
-      items: strings(visual.items, `slides.${index}.visual.items`, 1),
+      items: strings(visual.items, `slides.${index}.visual.items`, 1, 6),
     };
   } else if (visual.type === "comparison") {
     normalizedVisual = {

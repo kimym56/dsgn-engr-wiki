@@ -4,7 +4,7 @@ import {
   buildHyperframesComposition,
   buildSlideshowManifest,
 } from "./hyperframes";
-import { validateStudy } from "./model";
+import { validateStudy, type DesignparserStudy } from "./model";
 
 const validStudy = validateStudy({
   id: "C-example_1",
@@ -43,17 +43,90 @@ const validStudy = validateStudy({
       eyebrow: "Principle",
       title: "Separate the decisions",
       body: "Place the group first, then distribute its children.",
-      visual: { type: "sequence", items: ["Place", "Distribute", "Verify"] },
+      visual: {
+        type: "sequence",
+        items: ["Place", "Group", "Distribute", "Measure", "Adjust", "Verify"],
+      },
     },
     {
       kind: "takeaway",
       eyebrow: "Takeaway",
       title: "Clear ownership creates stable layouts",
       body: "Each layout primitive should answer one spatial question.",
-      visual: { type: "layers", items: ["Container", "Group", "Item"] },
+      visual: {
+        type: "layers",
+        items: ["Canvas", "Region", "Container", "Group", "Control", "Item"],
+      },
     },
   ],
 });
+
+interface TimelineCall {
+  readonly method: "fromTo" | "to";
+  readonly target: string;
+  readonly end: number;
+}
+
+interface FakeTimeline {
+  readonly paused: boolean;
+  readonly calls: TimelineCall[];
+  duration(): number;
+  fromTo(
+    target: string,
+    from: Record<string, unknown>,
+    to: Record<string, unknown>,
+    at?: number,
+  ): FakeTimeline;
+  to(target: string, vars: Record<string, unknown>, at?: number): FakeTimeline;
+}
+
+function executeTimelineScripts(reducedMotion: boolean) {
+  const html = buildHyperframesComposition(validStudy);
+  const timelines: FakeTimeline[] = [];
+  const sets: { target: string; vars: Record<string, unknown> }[] = [];
+  const fakeWindow: {
+    __timelines?: Record<string, FakeTimeline>;
+    matchMedia: () => { matches: boolean };
+  } = {
+    matchMedia: () => ({ matches: reducedMotion }),
+  };
+  const gsap = {
+    timeline({ paused }: { paused?: boolean }): FakeTimeline {
+      let duration = 0;
+      const calls: TimelineCall[] = [];
+      const timeline: FakeTimeline = {
+        paused: paused === true,
+        calls,
+        duration: () => duration,
+        fromTo(target, _from, to, at = 0) {
+          const end = at + Number(to.duration ?? 0);
+          duration = Math.max(duration, end);
+          calls.push({ method: "fromTo", target, end });
+          return timeline;
+        },
+        to(target, vars, at = 0) {
+          const end = at + Number(vars.duration ?? 0);
+          duration = Math.max(duration, end);
+          calls.push({ method: "to", target, end });
+          return timeline;
+        },
+      };
+      timelines.push(timeline);
+      return timeline;
+    },
+    set(target: string, vars: Record<string, unknown>) {
+      sets.push({ target, vars });
+    },
+  };
+
+  for (const [, script] of html.matchAll(
+    /<script(?![^>]*\bsrc=)(?![^>]*\btype=)[^>]*>([\s\S]*?)<\/script>/g,
+  )) {
+    Function("window", "gsap", script!)(fakeWindow, gsap);
+  }
+
+  return { registry: fakeWindow.__timelines ?? {}, sets, timelines };
+}
 
 describe("HyperFrames study compositions", () => {
   it("maps each slide to a deterministic six-second scene with speaker notes", () => {
@@ -104,6 +177,8 @@ describe("HyperFrames study compositions", () => {
     expect(html).toContain('class="visual comparison"');
     expect(html).toContain('class="visual sequence"');
     expect(html).toContain('class="visual layers"');
+    expect(html).toContain('id="C-example_1-slide-3-sequence-6"');
+    expect(html).toContain('id="C-example_1-slide-4-layers-6"');
     expect(sceneWindows).toEqual([
       ["C-example_1-slide-1", "0", "6"],
       ["C-example_1-slide-2", "6", "6"],
@@ -125,24 +200,79 @@ describe("HyperFrames study compositions", () => {
     ).toEqual([]);
   });
 
-  it("escapes prose and visual strings before inserting them into HTML", () => {
-    const escapedStudy = validateStudy({
-      ...structuredClone(validStudy),
+  it("synchronously registers one paused six-second timeline per scene", () => {
+    const runtime = executeTimelineScripts(false);
+
+    expect(Object.keys(runtime.registry)).toEqual([
+      "C-example_1-slide-1",
+      "C-example_1-slide-2",
+      "C-example_1-slide-3",
+      "C-example_1-slide-4",
+    ]);
+    expect(runtime.timelines).toHaveLength(4);
+    expect(Object.values(runtime.registry)).toEqual(runtime.timelines);
+    for (const timeline of runtime.timelines) {
+      expect(timeline.paused).toBe(true);
+      expect(timeline.duration()).toBe(6);
+      expect(
+        timeline.calls.filter(({ method }) => method === "fromTo"),
+      ).toHaveLength(1);
+    }
+  });
+
+  it("sets final states without entry tweens under reduced motion", () => {
+    const runtime = executeTimelineScripts(true);
+
+    expect(runtime.sets).toEqual([
+      { target: "#C-example_1-slide-1-content", vars: { opacity: 1, y: 0 } },
+      { target: "#C-example_1-slide-2-content", vars: { opacity: 1, y: 0 } },
+      { target: "#C-example_1-slide-3-content", vars: { opacity: 1, y: 0 } },
+      { target: "#C-example_1-slide-4-content", vars: { opacity: 1, y: 0 } },
+    ]);
+    expect(runtime.timelines).toHaveLength(4);
+    for (const timeline of runtime.timelines) {
+      expect(timeline.paused).toBe(true);
+      expect(timeline.duration()).toBe(6);
+      expect(timeline.calls.some(({ method }) => method === "fromTo")).toBe(
+        false,
+      );
+    }
+  });
+
+  it("round-trips script-sensitive notes through the manifest and JSON island", () => {
+    const body = 'A & B "quoted" </script><script>unsafe()</script>';
+    const escapedStudy: DesignparserStudy = {
+      ...validStudy,
       slides: validStudy.slides.map((slide, index) =>
         index === 0
           ? {
               ...slide,
+              body,
               title: 'A & B "quoted"',
               visual: { type: "rule", statement: 'Use A & B "quoted"' },
             }
           : slide,
       ),
-    });
+    };
 
+    const manifest = buildSlideshowManifest(escapedStudy);
     const html = buildHyperframesComposition(escapedStudy);
+    const island = html.match(
+      /<script type="application\/hyperframes-slideshow\+json">([\s\S]*?)<\/script>/,
+    )?.[1];
+    const parsedHtml = new DOMParser().parseFromString(html, "text/html");
 
+    expect(JSON.parse(manifest).slides[0].notes).toBe(body);
+    expect(JSON.parse(island!).slides[0].notes).toBe(body);
+    expect(manifest).not.toContain("</script>");
+    expect(island).not.toContain("</script>");
     expect(html).toContain("A &amp; B &quot;quoted&quot;");
+    expect(html).toContain(
+      "A &amp; B &quot;quoted&quot; &lt;/script&gt;&lt;script&gt;unsafe()&lt;/script&gt;",
+    );
     expect(html).toContain("Use A &amp; B &quot;quoted&quot;");
-    expect(html).not.toContain('A & B "quoted"');
+    expect(
+      parsedHtml.querySelectorAll("script:not([type]):not([src])"),
+    ).toHaveLength(validStudy.slides.length + 1);
   });
 });

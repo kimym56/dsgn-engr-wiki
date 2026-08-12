@@ -162,6 +162,23 @@ describe("reviewed Designparser studies", () => {
     expect(() => validateStudy({ ...copyStudy(), ...change })).toThrow();
   });
 
+  it.each(["sequence", "layers"] as const)(
+    "rejects more than six %s visual items",
+    (type) => {
+      const study = copyStudy();
+      const slides: unknown[] = [...structuredClone(validStudy.slides)];
+      slides[2] = {
+        ...validStudy.slides[2],
+        visual: {
+          type,
+          items: ["One", "Two", "Three", "Four", "Five", "Six", "Seven"],
+        },
+      };
+
+      expect(() => validateStudy({ ...study, slides })).toThrow("at most 6");
+    },
+  );
+
   it("sorts the collection by newest publication date then ID", () => {
     const earlier = {
       ...copyStudy(),

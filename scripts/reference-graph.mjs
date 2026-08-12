@@ -121,37 +121,43 @@ function validateAllowedFields(value, fields, prefix, candidatePath, errors) {
 }
 
 export async function parseCandidateFile(candidatePath) {
-  const contents = await readFile(candidatePath, "utf8");
+  const { frontMatter } = await parseMarkdownFile(candidatePath);
+  return frontMatter;
+}
+
+async function parseMarkdownFile(filePath) {
+  const contents = await readFile(filePath, "utf8");
   const lines = contents.split(/\r?\n/);
 
   if (lines[0] !== "---") {
     throw new Error(
-      `${candidatePath}: front_matter must start with a --- delimiter`,
+      `${filePath}: front_matter must start with a --- delimiter`,
     );
   }
 
   const closingDelimiter = lines.indexOf("---", 1);
   if (closingDelimiter === -1) {
-    throw new Error(
-      `${candidatePath}: front_matter must end with a --- delimiter`,
-    );
+    throw new Error(`${filePath}: front_matter must end with a --- delimiter`);
   }
 
-  let candidate;
+  let frontMatter;
   try {
-    candidate = parse(lines.slice(1, closingDelimiter).join("\n"));
+    frontMatter = parse(lines.slice(1, closingDelimiter).join("\n"));
   } catch (error) {
     throw new Error(
-      `${candidatePath}: front_matter is invalid YAML: ${error.message}`,
+      `${filePath}: front_matter is invalid YAML: ${error.message}`,
       { cause: error },
     );
   }
 
-  if (!isRecord(candidate)) {
-    throw new Error(`${candidatePath}: front_matter must be a YAML mapping`);
+  if (!isRecord(frontMatter)) {
+    throw new Error(`${filePath}: front_matter must be a YAML mapping`);
   }
 
-  return candidate;
+  return {
+    frontMatter,
+    body: lines.slice(closingDelimiter + 1).join("\n"),
+  };
 }
 
 export function validateCandidate(candidate, candidatePath) {
@@ -492,8 +498,8 @@ function discoveryKey(discovery) {
   ).join("\u0000");
 }
 
-async function loadAnalysisIds(repositoryRoots) {
-  const ids = new Set();
+async function loadAnalysisParents(repositoryRoots) {
+  const parents = new Map();
 
   for (const repositoryRoot of repositoryRoots) {
     const directory = path.join(
@@ -514,16 +520,14 @@ async function loadAnalysisIds(repositoryRoots) {
       if (!entry.isFile() || path.extname(entry.name) !== ".md") continue;
 
       try {
-        const contents = await readFile(
+        const { frontMatter } = await parseMarkdownFile(
           path.join(directory, entry.name),
-          "utf8",
         );
-        const lines = contents.split(/\r?\n/);
-        const closingDelimiter = lines.indexOf("---", 1);
-        if (lines[0] !== "---" || closingDelimiter === -1) continue;
-        const frontMatter = parse(lines.slice(1, closingDelimiter).join("\n"));
-        if (isRecord(frontMatter) && isKebabCase(frontMatter.reference_id)) {
-          ids.add(frontMatter.reference_id);
+        if (
+          isKebabCase(frontMatter.reference_id) &&
+          isHttpsUrl(frontMatter.canonical_url)
+        ) {
+          parents.set(frontMatter.reference_id, frontMatter.canonical_url);
         }
       } catch {
         // Source-analysis validation belongs to its own authoring workflow.
@@ -531,7 +535,46 @@ async function loadAnalysisIds(repositoryRoots) {
     }
   }
 
-  return ids;
+  return parents;
+}
+
+async function validateAnalysisArtifact(
+  filePath,
+  candidate,
+  { reviewTranslation = false } = {},
+) {
+  let artifact;
+  try {
+    artifact = await parseMarkdownFile(filePath);
+  } catch (error) {
+    return [error.message];
+  }
+
+  const errors = [];
+  const expectedValues = {
+    reference_id: candidate.id,
+    canonical_url: candidate.canonical_url,
+    status: "draft",
+  };
+  for (const [property, expectedValue] of Object.entries(expectedValues)) {
+    if (artifact.frontMatter[property] !== expectedValue) {
+      addError(errors, filePath, property, `must match ${expectedValue}`);
+    }
+  }
+
+  if (reviewTranslation) {
+    const expectedNotice = `> 이 문서는 [영문 원본](../../sources/${candidate.id}.md)의 한국어 검토용 번역본입니다. 영문 원본을 기준 분석으로 사용합니다.`;
+    if (!artifact.body.includes(expectedNotice)) {
+      addError(
+        errors,
+        filePath,
+        "review_translation_notice",
+        `must contain the exact backlink ../../sources/${candidate.id}.md`,
+      );
+    }
+  }
+
+  return errors;
 }
 
 async function pathIsFile(filePath) {
@@ -555,6 +598,7 @@ export async function validateGraph(candidates, context = {}) {
   const errors = [];
   const ids = new Map();
   const canonicalUrls = new Map();
+  const candidateParents = new Map();
 
   candidates.forEach((candidate, index) => {
     const candidatePath = displayPath(candidate, index, context);
@@ -570,6 +614,10 @@ export async function validateGraph(candidates, context = {}) {
         );
       } else {
         ids.set(candidate.id, candidatePath);
+      }
+
+      if (isHttpsUrl(candidate?.canonical_url)) {
+        candidateParents.set(candidate.id, candidate.canonical_url);
       }
     }
 
@@ -587,13 +635,18 @@ export async function validateGraph(candidates, context = {}) {
     }
   });
 
-  const sourceAnalysisIds = new Set(context.sourceAnalysisIds);
+  const sourceAnalysisParents = new Map(context.sourceAnalysisParents);
   if (context.repositoryRoot) {
-    for (const id of await loadAnalysisIds([context.repositoryRoot])) {
-      sourceAnalysisIds.add(id);
+    for (const [id, canonicalUrl] of await loadAnalysisParents([
+      context.repositoryRoot,
+    ])) {
+      sourceAnalysisParents.set(id, canonicalUrl);
     }
   }
-  const knownParentIds = new Set([...ids.keys(), ...sourceAnalysisIds]);
+  const parentCanonicalUrls = new Map([
+    ...sourceAnalysisParents,
+    ...candidateParents,
+  ]);
 
   for (const [candidateIndex, candidate] of candidates.entries()) {
     if (!isRecord(candidate)) continue;
@@ -626,13 +679,23 @@ export async function validateGraph(candidates, context = {}) {
           );
         } else if (
           isKebabCase(discovery.parent_id) &&
-          !knownParentIds.has(discovery.parent_id)
+          !parentCanonicalUrls.has(discovery.parent_id)
         ) {
           addError(
             errors,
             candidatePath,
             `${prefix}.parent_id`,
             `unknown ${discovery.parent_id}`,
+          );
+        } else if (
+          parentCanonicalUrls.has(discovery.parent_id) &&
+          discovery.parent_url !== parentCanonicalUrls.get(discovery.parent_id)
+        ) {
+          addError(
+            errors,
+            candidatePath,
+            `${prefix}.parent_url`,
+            `must match ${parentCanonicalUrls.get(discovery.parent_id)}`,
           );
         }
       });
@@ -642,15 +705,28 @@ export async function validateGraph(candidates, context = {}) {
       for (const property of ["analysis_path", "translation_path"]) {
         const relativePath = candidate[property];
         if (
-          typeof relativePath === "string" &&
-          isSafeMarkdownPath(relativePath) &&
-          !(await pathIsFile(path.join(context.repositoryRoot, relativePath)))
+          typeof relativePath !== "string" ||
+          !isSafeMarkdownPath(relativePath)
         ) {
+          continue;
+        }
+
+        const artifactPath = path.join(context.repositoryRoot, relativePath);
+        if (!(await pathIsFile(artifactPath))) {
           addError(
             errors,
             candidatePath,
             property,
             `does not exist: ${relativePath}`,
+          );
+          continue;
+        }
+
+        if (candidate.status === "analyzed") {
+          errors.push(
+            ...(await validateAnalysisArtifact(artifactPath, candidate, {
+              reviewTranslation: property === "translation_path",
+            })),
           );
         }
       }

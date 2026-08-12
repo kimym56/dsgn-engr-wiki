@@ -61,6 +61,7 @@ Do not copy the roster, resource list, labels, descriptions, name, branding, or 
 ## Resource discovery
 
 - Qualifying sections: `Resources` (accessed 2026-08-12).
+- Final depth-1 state: 15 resource cards produced 15 active discovery edges to 14 canonical Candidate nodes after canonical-URL deduplication. Nine nodes were analyzed; five video nodes remain inaccessible because complete captions or transcripts sufficient for substantive analysis were unavailable.
 - Candidate IDs, in first-appearance source order after canonical-URL deduplication:
   1. `taste-is-eating-silicon-valley`
   2. `web-interface-guidelines`
@@ -76,16 +77,16 @@ Do not copy the roster, resource list, labels, descriptions, name, branding, or 
   12. `how-this-designer-learned-code-and-became-a-design-engineer`
   13. `ux-engineer-a-terminal-career`
   14. `how-to-accelerate-your-design-career-with-ai`
-- Next-wave candidates: Pending. Qualifying child links found while analyzing these first-level candidates will become the next wave; no child destinations were inspected or analyzed in this capture-only task.
+- Next-wave candidates: 13 unique pending wave-2 Candidate nodes across 13 active depth-2 edges. Their destinations remain uninspected until a new bounded Expansion approval. One additional depth-2 edge from `developing-taste` to the already analyzed depth-1 node `on-taste-part-3` is retained only as provenance and is not part of the pending queue.
 - Excluded link classes: the `Design Engineers` roster, global and local navigation, Google favicon/image links, and page chrome, utility, and filter controls.
 - Discovery ambiguity: DENG rendered `https://interfaces.rauno.me/` twice with conflicting card labels, `Web interfaces guidelines` and `7 practical animation tips`. Both contexts are preserved as distinct discovery edges on the single `web-interface-guidelines` candidate.
 
 ## Evidence and uncertainty
 
-- Direct observations: The complete submitted directory page, its `Resources` section, and the 14 unique first-level destinations were checked on 2026-08-12 for canonical identity and destination title metadata.
+- Direct observations: The complete submitted directory page and its `Resources` section were inspected on 2026-08-12. The 15 qualifying cards resolve to 14 canonical depth-1 nodes; nine complete accessible destinations received draft analyses, while five videos did not provide complete captions or transcripts sufficient for analysis.
 - Claims requiring human confirmation: Curator identity, selection method, maintenance policy, and eligibility of the proposed `directory` format.
-- Access limitations: Candidate capture did not include substantive child analysis. Publication and any next-wave expansion remain pending human decisions.
-- Contradictions with existing analyses: None identified; no existing source analyses were present.
+- Access limitations: The five inaccessible video Candidates require complete captions or transcripts before substantive analysis. The 13 unique pending wave-2 destinations were not inspected under the approved wave boundary. Publication and any next-wave expansion remain pending human decisions.
+- Contradictions with existing analyses: None identified among the nine completed depth-1 analyses. The extra `developing-taste` → `on-taste-part-3` depth-2 edge records provenance to an already analyzed node rather than independent corroboration or a new analysis request.
 
 ## Human review
 

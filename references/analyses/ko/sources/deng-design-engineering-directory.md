@@ -63,6 +63,7 @@ status: "draft"
 ## 자료 발견
 
 - 적격 섹션: `Resources`(접근일: 2026-08-12).
+- 최종 1단계 상태: 자료 카드 15개는 정규 URL 중복 제거 후 정규 Candidate 노드 14개로 이어지는 활성 발견 엣지 15개를 만들었다. 노드 9개는 분석되었고, 동영상 노드 5개는 실질적인 분석에 충분한 완전한 자막이나 transcript를 확보하지 못해 `inaccessible` 상태로 남아 있다.
 - 정규 URL 중복을 제거한 최초 출현 순서의 후보 ID:
   1. `taste-is-eating-silicon-valley`
   2. `web-interface-guidelines`
@@ -78,16 +79,16 @@ status: "draft"
   12. `how-this-designer-learned-code-and-became-a-design-engineer`
   13. `ux-engineer-a-terminal-career`
   14. `how-to-accelerate-your-design-career-with-ai`
-- 다음 웨이브 후보: 보류 중. 이 1단계 후보들을 분석하며 발견하는 적격 하위 링크는 다음 웨이브가 된다. 이번 후보 캡처 작업에서는 하위 목적지를 검사하거나 분석하지 않았다.
+- 다음 웨이브 후보: 활성 2단계 엣지 13개에 걸친 고유한 웨이브 2 Candidate 노드 13개가 보류 중이다. 새로운 범위 제한 확장 승인이 있기 전까지 목적지는 검사하지 않는다. `developing-taste`에서 이미 1단계에서 분석된 `on-taste-part-3`로 이어지는 추가 2단계 엣지 하나는 provenance로만 유지하며 보류 대기열에 포함하지 않는다.
 - 제외한 링크 유형: `Design Engineers` 인물 목록, 전역 및 지역 탐색, Google 파비콘·이미지 링크, 페이지 크롬, 유틸리티 및 필터 컨트롤.
 - 발견 모호성: DENG는 `https://interfaces.rauno.me/`를 `Web interfaces guidelines`와 `7 practical animation tips`라는 서로 충돌하는 카드 레이블로 두 번 렌더링했다. 두 맥락은 하나의 `web-interface-guidelines` 후보에 별개의 발견 엣지로 보존했다.
 
 ## 근거와 불확실성
 
-- 직접 관찰: 2026-08-12에 제출된 디렉터리 페이지 전체와 `Resources` 섹션, 고유한 1단계 목적지 14개의 정규 식별 정보와 목적지 제목 메타데이터를 확인했다.
+- 직접 관찰: 2026-08-12에 제출된 디렉터리 페이지 전체와 `Resources` 섹션을 검사했다. 적격 카드 15개는 정규 1단계 노드 14개로 해석되었으며, 완전하게 접근할 수 있었던 목적지 9개에는 초안 분석을 작성했다. 동영상 5개는 분석에 충분한 완전한 자막이나 transcript를 제공하지 않았다.
 - 사람의 확인이 필요한 주장: 큐레이터의 정체성, 선정 방식, 유지관리 정책, 제안된 `directory` 형식의 적격성.
-- 접근 제한: 후보 캡처에 실질적인 하위 분석은 포함하지 않았다. 공개와 다음 웨이브 확장은 모두 사람의 결정 대기 상태이다.
-- 기존 분석과의 모순: 없음. 기존 출처 분석이 존재하지 않았다.
+- 접근 제한: 접근할 수 없는 동영상 Candidate 5개는 실질적인 분석 전에 완전한 자막이나 transcript가 필요하다. 승인된 웨이브 경계에 따라 고유한 웨이브 2 목적지 13개는 검사하지 않았다. 공개와 다음 웨이브 확장은 모두 사람의 결정 대기 상태이다.
+- 기존 분석과의 모순: 완료된 1단계 분석 9개 사이에서 확인된 모순은 없다. 추가 `developing-taste` → `on-taste-part-3` 2단계 엣지는 이미 분석된 노드로 향하는 provenance를 기록하며, 독립적인 보강 근거나 새로운 분석 요청을 의미하지 않는다.
 
 ## 사람 검토
 

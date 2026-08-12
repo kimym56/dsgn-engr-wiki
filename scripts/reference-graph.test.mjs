@@ -58,6 +58,51 @@ function validCandidate(overrides = {}) {
   };
 }
 
+function analysisDocument(
+  candidate,
+  {
+    reference_id = candidate.id,
+    canonical_url = candidate.canonical_url,
+    status = "draft",
+  } = {},
+) {
+  return [
+    "---",
+    `reference_id: ${reference_id}`,
+    `canonical_url: ${canonical_url}`,
+    `status: ${status}`,
+    "---",
+    "",
+    `# Source analysis: ${candidate.title}`,
+    "",
+  ].join("\n");
+}
+
+function translationDocument(
+  candidate,
+  {
+    reference_id = candidate.id,
+    canonical_url = candidate.canonical_url,
+    status = "draft",
+    noticePath = `../../sources/${candidate.id}.md`,
+    body,
+  } = {},
+) {
+  return [
+    "---",
+    `reference_id: ${reference_id}`,
+    `canonical_url: ${canonical_url}`,
+    `status: ${status}`,
+    "---",
+    "",
+    body ??
+      `> 이 문서는 [영문 원본](${noticePath})의 한국어 검토용 번역본입니다. 영문 원본을 기준 분석으로 사용합니다.`,
+    "",
+    `# 자료 분석: ${candidate.title}`,
+    "",
+  ].join("\n");
+}
+
 async function temporaryFile(name, contents) {
   const directory = await mkdtemp(path.join(tmpdir(), "reference-graph-"));
   temporaryDirectories.push(directory);
@@ -66,7 +111,15 @@ async function temporaryFile(name, contents) {
   return filePath;
 }
 
-async function fixtureRepository(candidates, parentIds = ["parent-source"]) {
+async function fixtureRepository(
+  candidates,
+  parentSources = [
+    {
+      id: "parent-source",
+      canonicalUrl: "https://example.com/parent",
+    },
+  ],
+) {
   const root = await mkdtemp(path.join(tmpdir(), "reference-graph-"));
   temporaryDirectories.push(root);
   const candidateDirectory = path.join(root, "references", "candidates");
@@ -86,15 +139,38 @@ async function fixtureRepository(candidates, parentIds = ["parent-source"]) {
         `---\n${JSON.stringify(candidate)}\n---\n`,
       ),
     ),
-    ...parentIds.map((parentId, index) =>
+    ...parentSources.map((parentSource, index) =>
       writeFile(
         path.join(analysisDirectory, `source-analysis-${index + 1}.md`),
-        `---\nreference_id: ${parentId}\n---\n`,
+        [
+          "---",
+          `reference_id: ${parentSource.id}`,
+          `canonical_url: ${parentSource.canonicalUrl}`,
+          "status: draft",
+          "---",
+          "",
+        ].join("\n"),
       ),
     ),
   ]);
 
   return { root, candidateDirectory };
+}
+
+async function writeAnalysisPair(
+  root,
+  candidate,
+  { analysis = {}, translation = {} } = {},
+) {
+  const analysisFile = path.join(root, candidate.analysis_path);
+  const translationFile = path.join(root, candidate.translation_path);
+  await mkdir(path.dirname(analysisFile), { recursive: true });
+  await mkdir(path.dirname(translationFile), { recursive: true });
+  await Promise.all([
+    writeFile(analysisFile, analysisDocument(candidate, analysis)),
+    writeFile(translationFile, translationDocument(candidate, translation)),
+  ]);
+  return { analysisFile, translationFile };
 }
 
 afterEach(async () => {
@@ -290,7 +366,9 @@ describe("reference graph invariants", () => {
       canonical_url: first.canonical_url,
     });
     const errors = await validateGraph([first, second, third], {
-      sourceAnalysisIds: ["parent-source"],
+      sourceAnalysisParents: new Map([
+        ["parent-source", "https://example.com/parent"],
+      ]),
     });
 
     expect(errors).toEqual([
@@ -346,6 +424,139 @@ describe("reference graph invariants", () => {
         expect.stringContaining("translation_path"),
       ]),
     );
+  });
+
+  it("accepts matching analysis and translation identities with the review backlink", async () => {
+    const candidate = validCandidate({
+      status: "analyzed",
+      analysis_path: "references/analyses/sources/child-source.md",
+      translation_path: "references/analyses/ko/sources/child-source.md",
+    });
+    const { root, candidateDirectory } = await fixtureRepository([candidate]);
+    await writeAnalysisPair(root, candidate);
+
+    const candidates = await loadCandidates(candidateDirectory);
+
+    expect(await validateGraph(candidates, candidates.context)).toEqual([]);
+  });
+
+  it.each([
+    ["reference_id", "wrong-source"],
+    ["canonical_url", "https://example.com/wrong"],
+    ["status", "review"],
+  ])("reports mismatched English analysis %s", async (property, value) => {
+    const candidate = validCandidate({
+      status: "analyzed",
+      analysis_path: "references/analyses/sources/child-source.md",
+      translation_path: "references/analyses/ko/sources/child-source.md",
+    });
+    const { root, candidateDirectory } = await fixtureRepository([candidate]);
+    const { analysisFile } = await writeAnalysisPair(root, candidate, {
+      analysis: { [property]: value },
+    });
+
+    const candidates = await loadCandidates(candidateDirectory);
+    const errors = await validateGraph(candidates, candidates.context);
+
+    expect(errors).toEqual([
+      expect.stringContaining(`${analysisFile}: ${property}`),
+    ]);
+  });
+
+  it.each([
+    ["reference_id", "wrong-source"],
+    ["canonical_url", "https://example.com/wrong"],
+    ["status", "review"],
+  ])("reports mismatched Korean translation %s", async (property, value) => {
+    const candidate = validCandidate({
+      status: "analyzed",
+      analysis_path: "references/analyses/sources/child-source.md",
+      translation_path: "references/analyses/ko/sources/child-source.md",
+    });
+    const { root, candidateDirectory } = await fixtureRepository([candidate]);
+    const { translationFile } = await writeAnalysisPair(root, candidate, {
+      translation: { [property]: value },
+    });
+
+    const candidates = await loadCandidates(candidateDirectory);
+    const errors = await validateGraph(candidates, candidates.context);
+
+    expect(errors).toEqual([
+      expect.stringContaining(`${translationFile}: ${property}`),
+    ]);
+  });
+
+  it.each([
+    ["missing", { body: "# 자료 분석: Child source" }],
+    ["wrong", { noticePath: "../../sources/wrong-source.md" }],
+  ])(
+    "reports a %s Korean review-translation backlink",
+    async (_case, translation) => {
+      const candidate = validCandidate({
+        status: "analyzed",
+        analysis_path: "references/analyses/sources/child-source.md",
+        translation_path: "references/analyses/ko/sources/child-source.md",
+      });
+      const { root, candidateDirectory } = await fixtureRepository([candidate]);
+      const { translationFile } = await writeAnalysisPair(root, candidate, {
+        translation,
+      });
+
+      const candidates = await loadCandidates(candidateDirectory);
+      const errors = await validateGraph(candidates, candidates.context);
+
+      expect(errors).toEqual([
+        expect.stringContaining(
+          `${translationFile}: review_translation_notice`,
+        ),
+      ]);
+    },
+  );
+
+  it.each(["discovered", "inaccessible"])(
+    "accepts %s candidates with null analysis paths",
+    async (status) => {
+      const { candidateDirectory } = await fixtureRepository([
+        validCandidate({ status }),
+      ]);
+      const candidates = await loadCandidates(candidateDirectory);
+
+      expect(await validateGraph(candidates, candidates.context)).toEqual([]);
+    },
+  );
+
+  it("reports a parent URL that differs from a candidate parent's canonical URL", async () => {
+    const parent = validCandidate({
+      id: "candidate-parent",
+      canonical_url: "https://example.com/candidate-parent",
+    });
+    const child = validCandidate();
+    child.discoveries[0] = {
+      ...child.discoveries[0],
+      parent_id: parent.id,
+      parent_url: "https://example.com/wrong-parent",
+    };
+    const { candidateDirectory } = await fixtureRepository([parent, child]);
+    const candidates = await loadCandidates(candidateDirectory);
+
+    expect(await validateGraph(candidates, candidates.context)).toEqual([
+      expect.stringContaining(
+        "discoveries[0].parent_url must match https://example.com/candidate-parent",
+      ),
+    ]);
+  });
+
+  it("reports a parent URL that differs from a root source analysis canonical URL", async () => {
+    const candidate = validCandidate();
+    candidate.discoveries[0].parent_url = "https://example.com/wrong-parent";
+    const { candidateDirectory } = await fixtureRepository([candidate]);
+    const candidates = await loadCandidates(candidateDirectory);
+
+    expect(await validateGraph(candidates, candidates.context)).toEqual([
+      expect.stringContaining(
+        "discoveries[0].parent_url must match https://example.com/parent",
+      ),
+    ]);
   });
 
   it("accepts distinct edges from candidate and source-analysis parents", async () => {
@@ -404,16 +615,7 @@ describe("reference graph invariants", () => {
     });
     const { root, candidateDirectory } = await fixtureRepository([candidate]);
     const candidatePath = path.join(candidateDirectory, "child-source.md");
-    await mkdir(path.join(root, "references", "analyses", "ko", "sources"), {
-      recursive: true,
-    });
-    await Promise.all([
-      writeFile(
-        path.join(root, candidate.analysis_path),
-        "---\nreference_id: child-source\n---\n",
-      ),
-      writeFile(path.join(root, candidate.translation_path), "# Translation\n"),
-    ]);
+    await writeAnalysisPair(root, candidate);
 
     const parsedCandidate = await parseCandidateFile(candidatePath);
 

@@ -17,6 +17,7 @@ coverage/
 test-results/
 playwright-report/
 .vercel/
+.worktrees/
 *.log
 
 # TypeScript incremental state

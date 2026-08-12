@@ -20,6 +20,26 @@ const discovered = {
   publishedAt: "2026-08-01T12:00:00.000Z",
 };
 
+function privateDraft() {
+  return {
+    reelId: discovered.id,
+    status: "needs-review" as const,
+    title: "A title",
+    summary: "A summary",
+    principles: ["A principle"],
+    applications: ["An application"],
+    uncertainties: [],
+    evidence: [{ label: "Opening", start: 0, end: 1 }],
+    slides: Array.from({ length: 4 }, () => ({
+      kind: "principle" as const,
+      eyebrow: "Design",
+      title: "A slide",
+      body: "Original wording",
+      visual: { type: "rule" as const, statement: "Use hierarchy" },
+    })),
+  };
+}
+
 describe("Designparser extraction domain", () => {
   it("adds a newly discovered reel without replacing completed work", () => {
     const initial = reconcileDiscovery(
@@ -145,5 +165,63 @@ describe("Designparser extraction domain", () => {
         })),
       }),
     ).toThrow("transcript text field");
+  });
+
+  it("rejects prohibited content in unknown draft fields", () => {
+    expect(() =>
+      validatePrivateDraft({
+        ...privateDraft(),
+        sourceMediaPath: ".study-cache/reels/C-example_1/source.mp4",
+      }),
+    ).toThrow("source-media path");
+  });
+
+  it("rejects prohibited content in nested unknown draft fields", () => {
+    expect(() =>
+      validatePrivateDraft({
+        ...privateDraft(),
+        metadata: { html: "<img src=source.mp4>" },
+      }),
+    ).toThrow("HTML");
+  });
+
+  it("retries failed and stale running stages while clearing errors on completion", () => {
+    const record = reconcileDiscovery(
+      emptyManifest("2026-08-12T00:00:00.000Z"),
+      [discovered],
+      "2026-08-12T00:01:00.000Z",
+    ).reels[discovered.id];
+    const failed = setStage(
+      record,
+      "download",
+      "failed",
+      "2026-08-12T00:02:00.000Z",
+      "network error",
+    );
+    const retried = setStage(
+      failed,
+      "download",
+      "running",
+      "2026-08-12T00:03:00.000Z",
+    );
+    const staleRetry = setStage(
+      retried,
+      "download",
+      "running",
+      "2026-08-12T00:04:00.000Z",
+    );
+    const complete = setStage(
+      staleRetry,
+      "download",
+      "complete",
+      "2026-08-12T00:05:00.000Z",
+      "must be cleared",
+    );
+
+    expect(retried.stages.download.error).toBeUndefined();
+    expect(complete.stages.download).toEqual({
+      status: "complete",
+      updatedAt: "2026-08-12T00:05:00.000Z",
+    });
   });
 });

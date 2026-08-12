@@ -255,7 +255,7 @@ export function setStage(
     }
   }
   next.stages[stage] = { status, updatedAt: now };
-  if (error !== undefined)
+  if (status !== "complete" && error !== undefined)
     next.stages[stage].error = requiredString(error, "error");
   return next;
 }
@@ -312,21 +312,29 @@ export function normalizeWhisperTranscript(value: unknown): Transcript {
   return { language: "en", text, segments };
 }
 
-function safeDraftString(value: unknown, field: string): string {
-  const text = requiredString(value, field);
+function rejectProhibitedDraftText(text: string, field: string): void {
   if (/<[^>]*>/.test(text)) throw new Error(`${field} must not contain HTML`);
-  if (/(?:\.study-cache|\/frames\/|\.jpg\b)/i.test(text)) {
-    throw new Error(`${field} must not contain a frame path`);
-  }
   if (
     /(?:source\.(?:json|mp4)|audio\.wav|transcript\.(?:json|txt))/i.test(text)
   ) {
     throw new Error(`${field} must not contain a source-media path`);
   }
+  if (/(?:\.study-cache|\/frames\/|\.jpg\b)/i.test(text)) {
+    throw new Error(`${field} must not contain a frame path`);
+  }
+}
+
+function safeDraftString(value: unknown, field: string): string {
+  const text = requiredString(value, field);
+  rejectProhibitedDraftText(text, field);
   return text;
 }
 
 function rejectPrivateEvidenceFields(value: unknown): void {
+  if (typeof value === "string") {
+    rejectProhibitedDraftText(value, "draft");
+    return;
+  }
   if (Array.isArray(value)) {
     value.forEach(rejectPrivateEvidenceFields);
     return;

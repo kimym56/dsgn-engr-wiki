@@ -4,7 +4,7 @@ title: The Taste Gap - Ira Glass
 title_source: parent-link
 canonical_url: https://x.com/emilkowalski/status/1765004718131068971
 canonical_verified: false
-source_language: en
+source_language: und
 status: discovered
 first_discovered: 2026-08-12
 last_checked: 2026-08-12

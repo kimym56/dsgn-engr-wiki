@@ -20,7 +20,7 @@ The article appears on Emil Kowalski's first-party design-engineering site and r
 
 ### Overlap and classification
 
-Proposed format: `article`. Proposed Areas: `design-engineering-foundations` and `product-craft`. Source language: `en`. It directly overlaps `taste-is-eating-silicon-valley` in its scarcity-to-abundance premise and `on-taste-part-3` in its practical advice. This source is the shortest and most design-engineering-specific synthesis of the three.
+Proposed format: `article`. Proposed Areas: `design-engineering-foundations` and `product-craft`. Proposed Collections: none. Source language: `en`. It directly overlaps `taste-is-eating-silicon-valley` in its scarcity-to-abundance premise and `on-taste-part-3` in its practical advice. This source is the shortest and most design-engineering-specific synthesis of the three.
 
 ### Editorial recommendation
 
@@ -63,7 +63,7 @@ Do not copy the car-versus-horse analogy, quotations, three-part wording, course
 
 - Qualifying sections: the explicitly numbered footnotes.
 - Candidate IDs: `craft-and-beauty-the-business-value-of-form-in-function`, `on-taste-part-3`, `app-dissection`, `the-taste-gap-ira-glass`.
-- Next-wave candidates: four depth-2, wave-2 links were recorded without opening them. Three new provisional nodes use `canonical_verified: false`; `on-taste-part-3` was already canonical-verified, so its existing node received one additional discovery edge.
+- Next-wave candidates: four depth-2, wave-2 links were recorded without opening them. Three new provisional nodes use `canonical_verified: false` and `source_language: und` until wave-2 inspection; `on-taste-part-3` was already canonical-verified, so its existing node received one additional discovery edge.
 - Excluded link classes: the course promotion, author/home link, inline quotation destinations, heading anchors, and previous/next article navigation.
 
 ## Evidence and uncertainty

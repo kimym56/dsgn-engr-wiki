@@ -4,7 +4,7 @@ title: "@media (hover: hover)"
 title_source: parent-link
 canonical_url: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover
 canonical_verified: false
-source_language: en
+source_language: und
 status: discovered
 first_discovered: 2026-08-12
 last_checked: 2026-08-12

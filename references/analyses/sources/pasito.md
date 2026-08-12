@@ -20,7 +20,7 @@ Josh Puckett publishes the component on his personal site and links its GitHub r
 
 ### Overlap and classification
 
-Proposed format: `tool`. Proposed Areas: `interaction-design`, `component-engineering`, `motion`, and `accessibility`. Source language: `en`. It overlaps with `web-interface-guidelines` at the level of touch, motion, and accessible-control heuristics; Pasito contributes an applied component example.
+Proposed format: `tool`. Proposed Areas: `interaction-design`, `component-engineering`, `motion`, and `accessibility`. Proposed Collections: none. Source language: `en`. It overlaps with `web-interface-guidelines` at the level of touch, motion, and accessible-control heuristics; Pasito contributes an applied component example.
 
 ### Editorial recommendation
 

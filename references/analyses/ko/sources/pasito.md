@@ -22,7 +22,7 @@ Josh Puckett은 개인 사이트에서 컴포넌트를 공개하고 GitHub 저�
 
 ### 중복 및 분류
 
-제안 형식: `tool`. 제안 Area: `interaction-design`, `component-engineering`, `motion`, `accessibility`. 출처 언어: `en`. 터치, 모션, 접근 가능한 컨트롤 지침 수준에서 `web-interface-guidelines`와 중복되며, Pasito는 적용된 컴포넌트 사례를 더한다.
+제안 형식: `tool`. 제안 Area: `interaction-design`, `component-engineering`, `motion`, `accessibility`. 제안 Collection: 없음. 출처 언어: `en`. 터치, 모션, 접근 가능한 컨트롤 지침 수준에서 `web-interface-guidelines`와 중복되며, Pasito는 적용된 컴포넌트 사례를 더한다.
 
 ### 편집 권고
 

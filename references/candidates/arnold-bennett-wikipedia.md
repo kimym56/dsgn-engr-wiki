@@ -4,7 +4,7 @@ title: Arnold Bennett
 title_source: parent-link
 canonical_url: https://en.wikipedia.org/wiki/Arnold_Bennett
 canonical_verified: false
-source_language: en
+source_language: und
 status: discovered
 first_discovered: 2026-08-12
 last_checked: 2026-08-12

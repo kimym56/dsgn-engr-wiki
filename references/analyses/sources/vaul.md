@@ -20,7 +20,7 @@ The site is published under Emil Kowalski's domain and links to the Vaul GitHub 
 
 ### Overlap and classification
 
-Proposed format: `tool`. Proposed Areas: `component-engineering`, `interaction-design`, `motion`, and `accessibility`. Source language: `en`. It overlaps with Pasito as a component landing page, but Vaul demonstrates a modal, gesture-oriented surface rather than progress navigation.
+Proposed format: `tool`. Proposed Areas: `component-engineering`, `interaction-design`, `motion`, and `accessibility`. Proposed Collections: none. Source language: `en`. It overlaps with Pasito as a component landing page, but Vaul demonstrates a modal, gesture-oriented surface rather than progress navigation.
 
 ### Editorial recommendation
 

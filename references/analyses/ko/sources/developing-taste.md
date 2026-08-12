@@ -22,7 +22,7 @@ Emil Kowalski는 taste를 개인적 선호가 아니라 훈련할 수 있는 역
 
 ### 중복 및 분류
 
-제안 형식: `article`. 제안 Area: `design-engineering-foundations`, `product-craft`. 출처 언어: `en`. 희소성에서 풍요로 간다는 전제는 `taste-is-eating-silicon-valley`와, 실천 조언은 `on-taste-part-3`와 직접 중복된다. 세 자료 중 이 글이 가장 짧고 디자인 엔지니어링에 특화된 종합본이다.
+제안 형식: `article`. 제안 Area: `design-engineering-foundations`, `product-craft`. 제안 Collection: 없음. 출처 언어: `en`. 희소성에서 풍요로 간다는 전제는 `taste-is-eating-silicon-valley`와, 실천 조언은 `on-taste-part-3`와 직접 중복된다. 세 자료 중 이 글이 가장 짧고 디자인 엔지니어링에 특화된 종합본이다.
 
 ### 편집 권고
 
@@ -65,7 +65,7 @@ Emil Kowalski는 taste를 개인적 선호가 아니라 훈련할 수 있는 역
 
 - 적격 섹션: 명시적으로 번호가 매겨진 footnotes.
 - 후보 ID: `craft-and-beauty-the-business-value-of-form-in-function`, `on-taste-part-3`, `app-dissection`, `the-taste-gap-ira-glass`.
-- 다음 웨이브 후보: 링크를 열지 않고 2단계·웨이브 2 링크 4개를 기록했다. 새 임시 노드 3개는 `canonical_verified: false`를 사용한다. `on-taste-part-3`는 이미 정규 URL이 검증되어 있어 기존 노드에 발견 엣지 하나를 추가했다.
+- 다음 웨이브 후보: 링크를 열지 않고 2단계·웨이브 2 링크 4개를 기록했다. 새 임시 노드 3개는 웨이브 2 검사 전까지 `canonical_verified: false`, `source_language: und`를 사용한다. `on-taste-part-3`는 이미 정규 URL이 검증되어 있어 기존 노드에 발견 엣지 하나를 추가했다.
 - 제외한 링크 유형: course promotion, 저자·홈 링크, inline 인용 목적지, 제목 앵커, 이전·다음 글 탐색.
 
 ## 근거와 불확실성

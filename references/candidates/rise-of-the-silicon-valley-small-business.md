@@ -4,7 +4,7 @@ title: Rise of the Silicon Valley Small Business
 title_source: parent-link
 canonical_url: https://www.workingtheorys.com/p/silicon-valley-small-business
 canonical_verified: false
-source_language: en
+source_language: und
 status: discovered
 first_discovered: 2026-08-12
 last_checked: 2026-08-12

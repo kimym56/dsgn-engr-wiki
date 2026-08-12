@@ -22,7 +22,7 @@ Working Theorys 페이지는 글의 저자를 `Anu`로 표시하고 2024년 9월
 
 ### 중복 및 분류
 
-제안 형식: `article`. 제안 Area: `design-engineering-foundations`, `product-craft`. 출처 언어: `en`. `developing-taste`, `on-taste-part-3`와 직접 중복된다. 이 자료가 시장과 문화에 관한 논지를 제공한다면, 나머지 두 자료는 판단력을 훈련하는 방법에 초점을 둔다.
+제안 형식: `article`. 제안 Area: `design-engineering-foundations`, `product-craft`. 제안 Collection: 없음. 출처 언어: `en`. `developing-taste`, `on-taste-part-3`와 직접 중복된다. 이 자료가 시장과 문화에 관한 논지를 제공한다면, 나머지 두 자료는 판단력을 훈련하는 방법에 초점을 둔다.
 
 ### 편집 권고
 
@@ -65,7 +65,7 @@ Working Theorys 페이지는 글의 저자를 `Anu`로 표시하고 2024년 9월
 
 - 적격 섹션: 명확히 안내된 `You might like these` 추천과 명시적으로 번호가 매겨진 footnotes.
 - 후보 ID: `the-rise-of-the-software-creator`, `pursuits-that-cant-scale`, `rise-of-the-silicon-valley-small-business`, `silicon-valley-wikipedia`, `arnold-bennett-wikipedia`.
-- 다음 웨이브 후보: 2단계·웨이브 2 링크 5개를 부모 페이지에서만 기록했다. 목적지는 하나도 열지 않았고 모두 `canonical_verified: false`인 임시 식별 상태다.
+- 다음 웨이브 후보: 2단계·웨이브 2 링크 5개를 부모 페이지에서만 기록했다. 목적지는 하나도 열지 않았고 모두 웨이브 2 검사 전까지 `canonical_verified: false`, `source_language: und`인 임시 식별 상태다.
 - 제외한 링크 유형: 본문에서 부수적으로 언급된 회사와 제품, 서두의 Andreessen 링크, 소셜·공유 액션, 저자와 댓글 작성자 프로필, 전체 아카이브 링크, 이미지 자산, 댓글, 구독 컨트롤, 플랫폼 탐색, 법적 링크, 푸터 크롬.
 
 ## 근거와 불확실성

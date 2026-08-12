@@ -22,7 +22,7 @@ Raphael Salaja의 2025년 5월 페이지는 다단계 wallet customization flow�
 
 ### 중복 및 분류
 
-제안 형식: `case-study`. 제안 Area: `component-engineering`, `interaction-design`, `state-management`. 출처 언어: `en`. 대화형 컴포넌트 사례라는 점에서 Pasito와 Vaul과 겹치며, 다단계 state를 예측 가능하게 유지한다는 명시적인 주장을 더한다.
+제안 형식: `case-study`. 제안 Area: `component-engineering`, `interaction-design`, `state-management`. 제안 Collection: 없음. 출처 언어: `en`. 대화형 컴포넌트 사례라는 점에서 Pasito와 Vaul과 겹치며, 다단계 state를 예측 가능하게 유지한다는 명시적인 주장을 더한다.
 
 ### 편집 권고
 

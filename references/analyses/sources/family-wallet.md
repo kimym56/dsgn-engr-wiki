@@ -20,7 +20,7 @@ The dated page appears in the creator's own work portfolio and is first-party ev
 
 ### Overlap and classification
 
-Proposed format: `case-study`. Proposed Areas: `component-engineering`, `interaction-design`, and `state-management`. Source language: `en`. It overlaps with Pasito and Vaul as an interactive component example, while adding an explicit claim about keeping multi-stage state predictable.
+Proposed format: `case-study`. Proposed Areas: `component-engineering`, `interaction-design`, and `state-management`. Proposed Collections: none. Source language: `en`. It overlaps with Pasito and Vaul as an interactive component example, while adding an explicit claim about keeping multi-stage state predictable.
 
 ### Editorial recommendation
 

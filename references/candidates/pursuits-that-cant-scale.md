@@ -4,7 +4,7 @@ title: Pursuits That Can’t Scale
 title_source: parent-link
 canonical_url: https://www.workingtheorys.com/p/pursuits-that-cant-scale
 canonical_verified: false
-source_language: en
+source_language: und
 status: discovered
 first_discovered: 2026-08-12
 last_checked: 2026-08-12

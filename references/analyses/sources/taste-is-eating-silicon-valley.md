@@ -20,7 +20,7 @@ The Working Theorys page attributes the essay to `Anu` and dates it September 19
 
 ### Overlap and classification
 
-Proposed format: `article`. Proposed Areas: `design-engineering-foundations` and `product-craft`. Source language: `en`. It overlaps directly with `developing-taste` and `on-taste-part-3`: this source supplies the market-and-culture thesis, while the other two focus on training judgment.
+Proposed format: `article`. Proposed Areas: `design-engineering-foundations` and `product-craft`. Proposed Collections: none. Source language: `en`. It overlaps directly with `developing-taste` and `on-taste-part-3`: this source supplies the market-and-culture thesis, while the other two focus on training judgment.
 
 ### Editorial recommendation
 
@@ -63,7 +63,7 @@ Do not reuse the “eating Silicon Valley” framing, the essay's slogans, examp
 
 - Qualifying sections: the clearly signposted `You might like these` recommendations and the explicitly numbered footnotes.
 - Candidate IDs: `the-rise-of-the-software-creator`, `pursuits-that-cant-scale`, `rise-of-the-silicon-valley-small-business`, `silicon-valley-wikipedia`, `arnold-bennett-wikipedia`.
-- Next-wave candidates: five depth-2, wave-2 links were recorded from the parent page only; none of their destinations was opened, and all remain provisionally identified with `canonical_verified: false`.
+- Next-wave candidates: five depth-2, wave-2 links were recorded from the parent page only; none of their destinations was opened, and all remain provisionally identified with `canonical_verified: false` and `source_language: und` until wave-2 inspection.
 - Excluded link classes: incidental companies and products in the essay body, the opening Andreessen link, social/share actions, author and commenter profiles, the full-archive link, image assets, comments, subscription controls, platform navigation, legal links, and footer chrome.
 
 ## Evidence and uncertainty

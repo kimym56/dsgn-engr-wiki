@@ -22,7 +22,7 @@ Vaul의 landing page는 React용 drawer component를 보여주는 최소한의 1
 
 ### 중복 및 분류
 
-제안 형식: `tool`. 제안 Area: `component-engineering`, `interaction-design`, `motion`, `accessibility`. 출처 언어: `en`. 컴포넌트 landing page라는 점에서 Pasito와 겹치지만, Vaul은 progress navigation이 아니라 modal·gesture 중심 surface를 보여준다.
+제안 형식: `tool`. 제안 Area: `component-engineering`, `interaction-design`, `motion`, `accessibility`. 제안 Collection: 없음. 출처 언어: `en`. 컴포넌트 landing page라는 점에서 Pasito와 겹치지만, Vaul은 progress navigation이 아니라 modal·gesture 중심 surface를 보여준다.
 
 ### 편집 권고
 

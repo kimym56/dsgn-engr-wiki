@@ -4,7 +4,7 @@ title: "Craft and beauty: The business value of form in function"
 title_source: parent-link
 canonical_url: https://stripe.com/sessions/2024/craft-and-beauty-the-business-value-of-form-in-function
 canonical_verified: false
-source_language: en
+source_language: und
 status: discovered
 first_discovered: 2026-08-12
 last_checked: 2026-08-12

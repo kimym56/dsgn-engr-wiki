@@ -22,7 +22,7 @@ Julie Zhuo의 2013년 에세이는 taste를 여섯 가지 실천으로 기르는
 
 ### 중복 및 분류
 
-제안 형식: `article`. 제안 Area: `design-engineering-foundations`, `critique`, `product-craft`. 출처 언어: `en`. 이 글의 여러 아이디어를 인용하고 압축한 `developing-taste`와 상당히 중복된다. 이 글이 더 완전한 1차 표현이며, `taste-is-eating-silicon-valley`는 같은 훈련 순서가 아니라 이후의 시장 근거를 제공한다.
+제안 형식: `article`. 제안 Area: `design-engineering-foundations`, `critique`, `product-craft`. 제안 Collection: 없음. 출처 언어: `en`. 이 글의 여러 아이디어를 인용하고 압축한 `developing-taste`와 상당히 중복된다. 이 글이 더 완전한 1차 표현이며, `taste-is-eating-silicon-valley`는 같은 훈련 순서가 아니라 이후의 시장 근거를 제공한다.
 
 ### 편집 권고
 

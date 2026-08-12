@@ -22,7 +22,7 @@ status: "draft"
 
 ### 중복 및 분류
 
-제안 형식: `documentation`. 제안 Area: `interaction-design`, `frontend-quality`, `accessibility`, `motion`. 출처 언어: `en`. `pasito`, `vaul`, `family-wallet`에서 문서화한 구체적인 컴포넌트 동작과 중복되지만, 이 자료는 더 넓은 체크리스트 범위와 더 적은 사례별 근거를 가진다.
+제안 형식: `documentation`. 제안 Area: `interaction-design`, `frontend-quality`, `accessibility`, `motion`. 제안 Collection: 없음. 출처 언어: `en`. `pasito`, `vaul`, `family-wallet`에서 문서화한 구체적인 컴포넌트 동작과 중복되지만, 이 자료는 더 넓은 체크리스트 범위와 더 적은 사례별 근거를 가진다.
 
 ### 편집 권고
 
@@ -66,7 +66,7 @@ status: "draft"
 
 - 적격 섹션: `Footnotes`.
 - 후보 ID: `disable-transitions-temporarily`, `next-themes`, `media-hover`, `will-change`, `safari-16-4`.
-- 다음 웨이브 후보: footnotes에서만 2단계·웨이브 2 링크 5개를 기록했다. 목적지는 열지 않았고 모두 `canonical_verified: false`인 임시 식별 상태다.
+- 다음 웨이브 후보: footnotes에서만 2단계·웨이브 2 링크 5개를 기록했다. 목적지는 열지 않았고 모두 웨이브 2 검사 전까지 `canonical_verified: false`, `source_language: und`인 임시 식별 상태다.
 - 제외한 링크 유형: 도입부의 WAI-ARIA와 저장소 편집 링크, 체크리스트 항목 안의 inline MDN 및 저장소 링크, 제목 앵커, footnote 돌아가기 링크, 기타 지역 탐색.
 
 ## 근거와 불확실성

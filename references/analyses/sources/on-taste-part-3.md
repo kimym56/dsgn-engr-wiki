@@ -20,7 +20,7 @@ The complete article is attributed to Julie Zhuo, dated May 23, 2013, and publis
 
 ### Overlap and classification
 
-Proposed format: `article`. Proposed Areas: `design-engineering-foundations`, `critique`, and `product-craft`. Source language: `en`. It substantially overlaps with `developing-taste`, which cites and compresses several of its ideas. This article is the more complete primary expression; `taste-is-eating-silicon-valley` contributes a later market rationale rather than the same training sequence.
+Proposed format: `article`. Proposed Areas: `design-engineering-foundations`, `critique`, and `product-craft`. Proposed Collections: none. Source language: `en`. It substantially overlaps with `developing-taste`, which cites and compresses several of its ideas. This article is the more complete primary expression; `taste-is-eating-silicon-valley` contributes a later market rationale rather than the same training sequence.
 
 ### Editorial recommendation
 

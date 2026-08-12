@@ -20,7 +20,7 @@ The document is hosted on Rauno's interface site and links to an editable public
 
 ### Overlap and classification
 
-Proposed format: `documentation`. Proposed Areas: `interaction-design`, `frontend-quality`, `accessibility`, and `motion`. Source language: `en`. It overlaps with the concrete component behavior documented by `pasito`, `vaul`, and `family-wallet`, but has broader checklist coverage and less case-specific evidence.
+Proposed format: `documentation`. Proposed Areas: `interaction-design`, `frontend-quality`, `accessibility`, and `motion`. Proposed Collections: none. Source language: `en`. It overlaps with the concrete component behavior documented by `pasito`, `vaul`, and `family-wallet`, but has broader checklist coverage and less case-specific evidence.
 
 ### Editorial recommendation
 
@@ -64,7 +64,7 @@ Do not copy the checklist wording, exact section composition, decorative grid, s
 
 - Qualifying sections: `Footnotes`.
 - Candidate IDs: `disable-transitions-temporarily`, `next-themes`, `media-hover`, `will-change`, `safari-16-4`.
-- Next-wave candidates: five depth-2, wave-2 links were recorded from the footnotes only; their destinations were not opened, and all remain provisionally identified with `canonical_verified: false`.
+- Next-wave candidates: five depth-2, wave-2 links were recorded from the footnotes only; their destinations were not opened, and all remain provisionally identified with `canonical_verified: false` and `source_language: und` until wave-2 inspection.
 - Excluded link classes: WAI-ARIA and repository-edit links in the introduction, inline MDN and repository links in checklist bullets, heading anchors, footnote return links, and other local navigation.
 
 ## Evidence and uncertainty

@@ -304,7 +304,11 @@ async function runStage(
     if (!(await stageOutputExists(ctx.cacheRoot, record, stage))) {
       throw new Error("output verification failed");
     }
-    manifest.reels[reelId] = setStage(record, stage, "complete", ctx.now());
+    let completed = setStage(record, stage, "complete", ctx.now());
+    if (stage === "frames") {
+      completed = setStage(completed, "draft", "pending", ctx.now());
+    }
+    manifest.reels[reelId] = completed;
     await writeManifest(ctx.manifestPath, manifest);
     return true;
   } catch (error) {
@@ -437,13 +441,31 @@ async function validateDrafts(ctx: Context) {
     try {
       const record = manifest.reels[id];
       if (!record) throw new Error("reel is not in the manifest");
+      manifest.reels[id] = setStage(record, "draft", "running", ctx.now());
+      await writeManifest(ctx.manifestPath, manifest);
       const draft = validatePrivateDraft(JSON.parse(source));
       if (draft.reelId !== id)
         throw new Error("reelId does not match its directory");
-      manifest.reels[id] = setStage(record, "draft", "complete", ctx.now());
+      manifest.reels[id] = setStage(
+        manifest.reels[id],
+        "draft",
+        "complete",
+        ctx.now(),
+      );
       await writeManifest(ctx.manifestPath, manifest);
     } catch (error) {
-      ctx.stderr(`${id}/draft.json: ${conciseCause(error)}`);
+      const detail = conciseCause(error);
+      if (manifest.reels[id]) {
+        manifest.reels[id] = setStage(
+          manifest.reels[id],
+          "draft",
+          "failed",
+          ctx.now(),
+          detail,
+        );
+        await writeManifest(ctx.manifestPath, manifest);
+      }
+      ctx.stderr(`${id}/draft.json: ${detail}`);
       valid = false;
     }
   }

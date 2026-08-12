@@ -321,6 +321,123 @@ describe("Designparser CLI", () => {
     expect(commandAdapters.calls).toContain("transcript:newest");
   });
 
+  it("persists running before an adapter starts", async () => {
+    const commandAdapters = adapters([newest]);
+    let release!: () => void;
+    let entered!: () => void;
+    const audioStarted = new Promise<void>((resolve) => {
+      entered = resolve;
+    });
+    commandAdapters.extractAudio = (directory) =>
+      new Promise((resolve) => {
+        entered();
+        release = async () => {
+          await writeFile(path.join(directory, "audio.wav"), "audio");
+          resolve();
+        };
+      });
+    const extraction = runCli(
+      ["extract", "--reel", newest.id],
+      dependencies(root, commandAdapters),
+    );
+
+    await audioStarted;
+    await expect(readManifest(manifestPath(root))).resolves.toMatchObject({
+      reels: { newest: { stages: { audio: { status: "running" } } } },
+    });
+    release();
+    expect(await extraction).toBe(0);
+  });
+
+  it("retries missing completed frames and resets a completed draft", async () => {
+    const manifest = reconcileDiscovery(
+      emptyManifest("2026-08-12T00:00:00.000Z"),
+      [newest],
+      "2026-08-12T00:00:00.000Z",
+    );
+    for (const stage of [
+      "download",
+      "audio",
+      "transcript",
+      "frames",
+      "draft",
+    ] as const) {
+      manifest.reels.newest = setStage(
+        manifest.reels.newest,
+        stage,
+        "complete",
+        "2026-08-12T00:00:00.000Z",
+      );
+    }
+    await saveManifest(root, manifest);
+    await mkdir(reelRoot(root, newest.id), { recursive: true });
+    await writeFile(path.join(reelRoot(root, newest.id), "source.json"), "{}");
+    await writeFile(
+      path.join(reelRoot(root, newest.id), "source.mp4"),
+      "video",
+    );
+    await writeFile(path.join(reelRoot(root, newest.id), "audio.wav"), "audio");
+    await writeFile(
+      path.join(reelRoot(root, newest.id), "transcript.json"),
+      "{}",
+    );
+    await writeFile(
+      path.join(reelRoot(root, newest.id), "transcript.txt"),
+      "words",
+    );
+    const commandAdapters = adapters([newest]);
+
+    expect(
+      await runCli(
+        ["extract", "--reel", newest.id],
+        dependencies(root, commandAdapters),
+      ),
+    ).toBe(0);
+    expect(commandAdapters.calls).not.toContain("download:newest");
+    expect(commandAdapters.calls).not.toContain("audio:newest");
+    expect(commandAdapters.calls).not.toContain("transcript:newest");
+    expect(commandAdapters.calls).toContain("frames:newest:0.32");
+    await expect(readManifest(manifestPath(root))).resolves.toMatchObject({
+      reels: { newest: { stages: { draft: { status: "pending" } } } },
+    });
+  });
+
+  it("runs reels sequentially and continues after one reel fails", async () => {
+    const commandAdapters = adapters([newest, older]);
+    commandAdapters.downloadReel = async (value, directory) => {
+      commandAdapters.calls.push(`download:start:${value.id}`);
+      if (value.id === newest.id) {
+        commandAdapters.calls.push(`download:failed:${value.id}`);
+        throw new Error("inaccessible");
+      }
+      await mkdir(directory, { recursive: true });
+      await writeFile(path.join(directory, "source.mp4"), "video");
+      await writeFile(path.join(directory, "source.json"), "{}\n");
+      commandAdapters.calls.push(`download:end:${value.id}`);
+    };
+
+    expect(await runCli(["extract"], dependencies(root, commandAdapters))).toBe(
+      1,
+    );
+    expect(
+      commandAdapters.calls.filter(
+        (call) =>
+          call.startsWith("download:") ||
+          call.startsWith("audio:") ||
+          call.startsWith("transcript:") ||
+          call.startsWith("frames:"),
+      ),
+    ).toEqual([
+      "download:start:newest",
+      "download:failed:newest",
+      "download:start:older",
+      "download:end:older",
+      "audio:older",
+      "transcript:older",
+      "frames:older:0.32",
+    ]);
+  });
+
   it("status reports discovered, extracted, failed, and draft-ready totals", async () => {
     const manifest = reconcileDiscovery(
       emptyManifest("2026-08-12T00:00:00.000Z"),
@@ -386,6 +503,12 @@ describe("Designparser CLI", () => {
       }
       await mkdir(reelRoot(root, id), { recursive: true });
     }
+    manifest.reels.older = setStage(
+      manifest.reels.older,
+      "draft",
+      "complete",
+      "2026-08-12T00:00:00.000Z",
+    );
     await saveManifest(root, manifest);
     const validText = `${JSON.stringify(validDraft(newest.id), null, 2)}\n`;
     const wrongIdText = `${JSON.stringify(validDraft("someone-else"))}\n`;
@@ -417,7 +540,13 @@ describe("Designparser CLI", () => {
     ).resolves.toBe(malformedText);
     manifest = await readManifest(manifestPath(root));
     expect(manifest.reels.newest.stages.draft.status).toBe("complete");
-    expect(manifest.reels.older.stages.draft.status).not.toBe("complete");
-    expect(manifest.reels.broken.stages.draft.status).not.toBe("complete");
+    expect(manifest.reels.older.stages.draft).toMatchObject({
+      status: "failed",
+      error: expect.stringContaining("reelId"),
+    });
+    expect(manifest.reels.broken.stages.draft).toMatchObject({
+      status: "failed",
+      error: expect.any(String),
+    });
   });
 });

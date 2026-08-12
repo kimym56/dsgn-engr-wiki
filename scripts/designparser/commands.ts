@@ -56,7 +56,13 @@ export async function checkExecutable(
   command: string,
   runner: CommandRunner = runCommand,
 ) {
-  if ((await runner(command, ["--version"])).code !== 0) {
+  const probe =
+    command === "whisper"
+      ? ["--help"]
+      : command === "ffmpeg"
+        ? ["-version"]
+        : ["--version"];
+  if ((await runner(command, probe)).code !== 0) {
     throw new Error(`${command} is unavailable`);
   }
 }

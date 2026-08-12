@@ -154,6 +154,24 @@ describe("Designparser command adapters", () => {
     ).rejects.toThrow("gallery-dl is unavailable");
   });
 
+  it("uses harmless probes supported by each required executable", async () => {
+    const calls: Array<{ command: string; args: readonly string[] }> = [];
+    const probe: CommandRunner = async (command, args) => {
+      calls.push({ command, args });
+      return { code: 0, stdout: "", stderr: "" };
+    };
+
+    await checkExecutable("gallery-dl", probe);
+    await checkExecutable("ffmpeg", probe);
+    await checkExecutable("whisper", probe);
+
+    expect(calls).toEqual([
+      { command: "gallery-dl", args: ["--version"] },
+      { command: "ffmpeg", args: ["-version"] },
+      { command: "whisper", args: ["--help"] },
+    ]);
+  });
+
   it("writes only sanitized metadata after one validated reel download", async () => {
     const root = await mkdtemp(path.join(tmpdir(), "designparser-commands-"));
     const reelDirectory = path.join(root, reel.id);

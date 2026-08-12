@@ -1,15 +1,15 @@
 ---
 id: silicon-valley-wikipedia
 title: Silicon Valley
-title_source: parent-link
+title_source: destination
 canonical_url: https://en.wikipedia.org/wiki/Silicon_Valley
-canonical_verified: false
-source_language: und
-status: discovered
+canonical_verified: true
+source_language: en
+status: analyzed
 first_discovered: 2026-08-12
-last_checked: 2026-08-12
-analysis_path: null
-translation_path: null
+last_checked: 2026-08-13
+analysis_path: references/analyses/sources/silicon-valley-wikipedia.md
+translation_path: references/analyses/ko/sources/silicon-valley-wikipedia.md
 discoveries:
   - parent_id: taste-is-eating-silicon-valley
     parent_url: https://www.workingtheorys.com/p/taste-is-eating-silicon-valley
@@ -31,4 +31,4 @@ publication:
 
 ## Review notes
 
-- The provisional title is normalized only from the parent footnote context and URL path. The destination was not opened.
+- The complete destination was verified on 2026-08-13. It is retained only as general context; its citation apparatus is not treated as a curated learning-resource section.

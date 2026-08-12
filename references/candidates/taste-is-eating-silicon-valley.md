@@ -20,6 +20,15 @@ discoveries:
     wave: 1
     depth: 1
     active: true
+  - parent_id: the-rise-of-the-software-creator
+    parent_url: https://www.workingtheorys.com/p/software-creator
+    section: If you liked this essay, you might enjoy these too
+    link_text: Taste Is Eating Silicon Valley.
+    encountered_url: https://www.workingtheorys.com/p/taste-is-eating-silicon-valley
+    discovered: 2026-08-13
+    wave: 3
+    depth: 3
+    active: true
 publication:
   decision: publish
   reviewer: project-maintainer

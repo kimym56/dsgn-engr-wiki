@@ -1,15 +1,15 @@
 ---
 id: disable-transitions-temporarily
-title: disable transitions temporarily
-title_source: parent-link
+title: Disable transitions on theme toggle
+title_source: destination
 canonical_url: https://paco.me/writing/disable-theme-transitions
-canonical_verified: false
-source_language: und
-status: discovered
+canonical_verified: true
+source_language: en
+status: analyzed
 first_discovered: 2026-08-12
-last_checked: 2026-08-12
-analysis_path: null
-translation_path: null
+last_checked: 2026-08-13
+analysis_path: references/analyses/sources/disable-transitions-temporarily.md
+translation_path: references/analyses/ko/sources/disable-transitions-temporarily.md
 discoveries:
   - parent_id: web-interface-guidelines
     parent_url: https://interfaces.rauno.me/
@@ -27,8 +27,8 @@ publication:
   notes: null
 ---
 
-# Candidate: disable transitions temporarily
+# Candidate: Disable transitions on theme toggle
 
 ## Review notes
 
-- Recorded from the parent footnote without opening the destination. Identity and canonical URL remain provisional.
+- The short article, destination title, canonical URL, and language were verified on 2026-08-13.

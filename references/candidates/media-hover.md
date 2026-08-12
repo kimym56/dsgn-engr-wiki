@@ -1,15 +1,15 @@
 ---
 id: media-hover
-title: "@media (hover: hover)"
-title_source: parent-link
-canonical_url: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover
-canonical_verified: false
-source_language: und
-status: discovered
+title: hover CSS media feature
+title_source: destination
+canonical_url: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/hover
+canonical_verified: true
+source_language: en
+status: analyzed
 first_discovered: 2026-08-12
-last_checked: 2026-08-12
-analysis_path: null
-translation_path: null
+last_checked: 2026-08-13
+analysis_path: references/analyses/sources/media-hover.md
+translation_path: references/analyses/ko/sources/media-hover.md
 discoveries:
   - parent_id: web-interface-guidelines
     parent_url: https://interfaces.rauno.me/
@@ -27,8 +27,8 @@ publication:
   notes: null
 ---
 
-# Candidate: `@media (hover: hover)`
+# Candidate: `hover` CSS media feature
 
 ## Review notes
 
-- Recorded from the parent footnote without opening the destination. Identity and canonical URL remain provisional.
+- MDN redirected the encountered URL to the canonical reference URL shown above; the complete page was verified on 2026-08-13.

@@ -1,15 +1,15 @@
 ---
 id: will-change
-title: will-change
-title_source: parent-link
-canonical_url: https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
-canonical_verified: false
-source_language: und
-status: discovered
+title: will-change CSS property
+title_source: destination
+canonical_url: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/will-change
+canonical_verified: true
+source_language: en
+status: analyzed
 first_discovered: 2026-08-12
-last_checked: 2026-08-12
-analysis_path: null
-translation_path: null
+last_checked: 2026-08-13
+analysis_path: references/analyses/sources/will-change.md
+translation_path: references/analyses/ko/sources/will-change.md
 discoveries:
   - parent_id: web-interface-guidelines
     parent_url: https://interfaces.rauno.me/
@@ -27,8 +27,8 @@ publication:
   notes: null
 ---
 
-# Candidate: will-change
+# Candidate: `will-change` CSS property
 
 ## Review notes
 
-- Recorded from the parent footnote without opening the destination. Identity and canonical URL remain provisional.
+- MDN redirected the encountered URL to the canonical reference URL shown above; the complete page was verified on 2026-08-13.

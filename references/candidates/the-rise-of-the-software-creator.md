@@ -1,15 +1,15 @@
 ---
 id: the-rise-of-the-software-creator
 title: The Rise of the Software Creator
-title_source: parent-link
+title_source: destination
 canonical_url: https://www.workingtheorys.com/p/software-creator
-canonical_verified: false
-source_language: und
-status: discovered
+canonical_verified: true
+source_language: en
+status: analyzed
 first_discovered: 2026-08-12
-last_checked: 2026-08-12
-analysis_path: null
-translation_path: null
+last_checked: 2026-08-13
+analysis_path: references/analyses/sources/the-rise-of-the-software-creator.md
+translation_path: references/analyses/ko/sources/the-rise-of-the-software-creator.md
 discoveries:
   - parent_id: taste-is-eating-silicon-valley
     parent_url: https://www.workingtheorys.com/p/taste-is-eating-silicon-valley
@@ -31,4 +31,4 @@ publication:
 
 ## Review notes
 
-- Recorded from the parent page without opening the destination. Identity and canonical URL remain provisional.
+- Destination title, canonical URL, language, and complete essay were verified on 2026-08-13.

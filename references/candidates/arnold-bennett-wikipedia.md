@@ -1,15 +1,15 @@
 ---
 id: arnold-bennett-wikipedia
 title: Arnold Bennett
-title_source: parent-link
+title_source: destination
 canonical_url: https://en.wikipedia.org/wiki/Arnold_Bennett
-canonical_verified: false
-source_language: und
-status: discovered
+canonical_verified: true
+source_language: en
+status: analyzed
 first_discovered: 2026-08-12
-last_checked: 2026-08-12
-analysis_path: null
-translation_path: null
+last_checked: 2026-08-13
+analysis_path: references/analyses/sources/arnold-bennett-wikipedia.md
+translation_path: references/analyses/ko/sources/arnold-bennett-wikipedia.md
 discoveries:
   - parent_id: taste-is-eating-silicon-valley
     parent_url: https://www.workingtheorys.com/p/taste-is-eating-silicon-valley
@@ -31,4 +31,4 @@ publication:
 
 ## Review notes
 
-- The provisional title is normalized only from the parent footnote context and displayed URL. The destination was not opened.
+- The complete destination was verified on 2026-08-13. It is retained only as context for the parent essay's quotation; its citation apparatus is not a curated learning path.

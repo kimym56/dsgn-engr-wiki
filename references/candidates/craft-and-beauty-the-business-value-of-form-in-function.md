@@ -3,11 +3,11 @@ id: craft-and-beauty-the-business-value-of-form-in-function
 title: "Craft and beauty: The business value of form in function"
 title_source: parent-link
 canonical_url: https://stripe.com/sessions/2024/craft-and-beauty-the-business-value-of-form-in-function
-canonical_verified: false
-source_language: und
-status: discovered
+canonical_verified: true
+source_language: en
+status: inaccessible
 first_discovered: 2026-08-12
-last_checked: 2026-08-12
+last_checked: 2026-08-13
 analysis_path: null
 translation_path: null
 discoveries:
@@ -31,4 +31,4 @@ publication:
 
 ## Review notes
 
-- Recorded from the parent footnote without opening the destination. Identity and canonical URL remain provisional.
+- The destination and title were verified on 2026-08-13, but only a preview was public; the full video required form completion. No substantive analysis was inferred.

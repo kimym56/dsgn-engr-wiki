@@ -202,9 +202,18 @@ async function removeGalleryMetadata(reelDirectory: string) {
       .filter(
         (file) =>
           file.isFile() &&
-          file.name !== "source.json" &&
+          file.name.startsWith("downloaded-") &&
           path.extname(file.name) === ".json",
       )
+      .map((file) => rm(path.join(reelDirectory, file.name))),
+  );
+}
+
+async function removeStaleGalleryDownloads(reelDirectory: string) {
+  const files = await readdir(reelDirectory, { withFileTypes: true });
+  await Promise.all(
+    files
+      .filter((file) => file.isFile() && file.name.startsWith("downloaded-"))
       .map((file) => rm(path.join(reelDirectory, file.name))),
   );
 }
@@ -215,7 +224,8 @@ export async function downloadReel(
   runner: CommandRunner = runCommand,
 ) {
   if (!isCanonicalReel(reel)) throw new Error("reel URL must be canonical");
-  await mkdir(reelDirectory);
+  await mkdir(reelDirectory, { recursive: true });
+  await removeStaleGalleryDownloads(reelDirectory);
   try {
     const result = await runner(
       "gallery-dl",
@@ -226,7 +236,9 @@ export async function downloadReel(
     const files = await readdir(reelDirectory, { withFileTypes: true });
     const videos = files.filter(
       (file) =>
-        file.isFile() && path.extname(file.name).toLowerCase() === ".mp4",
+        file.isFile() &&
+        file.name.startsWith("downloaded-") &&
+        path.extname(file.name).toLowerCase() === ".mp4",
     );
     if (videos.length !== 1)
       throw new Error("gallery-dl download must contain exactly one MP4");

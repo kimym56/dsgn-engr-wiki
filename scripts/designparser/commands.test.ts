@@ -250,6 +250,62 @@ describe("Designparser command adapters", () => {
     );
   });
 
+  it("retries a failed download in place without deleting downstream artifacts", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-commands-"));
+    const reelDirectory = path.join(root, reel.id);
+    const staleVideo = path.join(reelDirectory, "downloaded-1.mp4");
+
+    await expect(
+      downloadReel(reel, reelDirectory, async () => {
+        await writeFile(staleVideo, "stale video");
+        return { code: 1, stdout: "", stderr: "" };
+      }),
+    ).rejects.toThrow("gallery-dl download failed");
+
+    await writeFile(path.join(reelDirectory, "source.mp4"), "old source");
+    await writeFile(path.join(reelDirectory, "audio.wav"), "audio");
+    await writeFile(path.join(reelDirectory, "transcript.json"), "transcript");
+    await writeFile(path.join(reelDirectory, "draft.json"), "draft");
+    await mkdir(path.join(reelDirectory, "frames"));
+    await writeFile(
+      path.join(reelDirectory, "frames", "000000.000.jpg"),
+      "frame",
+    );
+
+    await downloadReel(reel, reelDirectory, async () => {
+      await expect(readFile(staleVideo, "utf8")).rejects.toThrow();
+      await writeFile(staleVideo, "fresh video");
+      await writeFile(
+        `${staleVideo}.json`,
+        JSON.stringify({
+          post_shortcode: reel.id,
+          username: "designparser",
+          date: "2026-08-01 12:00:00",
+          duration: 12.5,
+          width: 1080,
+          height: 1920,
+        }),
+      );
+      return { code: 0, stdout: "", stderr: "" };
+    });
+
+    await expect(
+      readFile(path.join(reelDirectory, "source.mp4"), "utf8"),
+    ).resolves.toBe("fresh video");
+    await expect(
+      readFile(path.join(reelDirectory, "audio.wav"), "utf8"),
+    ).resolves.toBe("audio");
+    await expect(
+      readFile(path.join(reelDirectory, "transcript.json"), "utf8"),
+    ).resolves.toBe("transcript");
+    await expect(
+      readFile(path.join(reelDirectory, "draft.json"), "utf8"),
+    ).resolves.toBe("draft");
+    await expect(
+      readFile(path.join(reelDirectory, "frames", "000000.000.jpg"), "utf8"),
+    ).resolves.toBe("frame");
+  });
+
   it("fails closed when download output has no video or multiple videos", async () => {
     const root = await mkdtemp(path.join(tmpdir(), "designparser-commands-"));
     await expect(

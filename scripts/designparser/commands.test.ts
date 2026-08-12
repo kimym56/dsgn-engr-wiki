@@ -181,7 +181,7 @@ describe("Designparser command adapters", () => {
       calls.push({ command, args });
       await writeFile(path.join(reelDirectory, "downloaded-1.mp4"), "video");
       await writeFile(
-        path.join(reelDirectory, "downloaded-1.json"),
+        path.join(reelDirectory, "downloaded-1.mp4.json"),
         JSON.stringify({
           post_shortcode: reel.id,
           post_url: reel.url,
@@ -230,7 +230,7 @@ describe("Designparser command adapters", () => {
       readFile(path.join(reelDirectory, "downloaded-1.mp4"), "utf8"),
     ).rejects.toThrow();
     await expect(
-      readFile(path.join(reelDirectory, "downloaded-1.json"), "utf8"),
+      readFile(path.join(reelDirectory, "downloaded-1.mp4.json"), "utf8"),
     ).rejects.toThrow();
     await expect(
       readFile(path.join(reelDirectory, "downloaded-1-extra.json"), "utf8"),
@@ -277,7 +277,7 @@ describe("Designparser command adapters", () => {
     await expect(
       downloadReel(reel, reelDirectory, async () => {
         await writeFile(
-          path.join(reelDirectory, "downloaded-1.json"),
+          path.join(reelDirectory, "downloaded-1.mp4.json"),
           JSON.stringify({ cookie: "must not persist" }),
         );
         return { code: 1, stdout: "", stderr: "" };
@@ -285,7 +285,7 @@ describe("Designparser command adapters", () => {
     ).rejects.toThrow("gallery-dl download failed");
 
     await expect(
-      readFile(path.join(reelDirectory, "downloaded-1.json"), "utf8"),
+      readFile(path.join(reelDirectory, "downloaded-1.mp4.json"), "utf8"),
     ).rejects.toThrow();
   });
 
@@ -297,7 +297,7 @@ describe("Designparser command adapters", () => {
       downloadReel(reel, reelDirectory, async () => {
         await writeFile(path.join(reelDirectory, "downloaded-1.mp4"), "video");
         await writeFile(
-          path.join(reelDirectory, "downloaded-1.json"),
+          path.join(reelDirectory, "downloaded-1.mp4.json"),
           JSON.stringify({ post_shortcode: reel.id, username: "someone-else" }),
         );
         return { code: 0, stdout: "", stderr: "" };
@@ -305,7 +305,7 @@ describe("Designparser command adapters", () => {
     ).rejects.toThrow("gallery-dl metadata does not match the reel");
 
     await expect(
-      readFile(path.join(reelDirectory, "downloaded-1.json"), "utf8"),
+      readFile(path.join(reelDirectory, "downloaded-1.mp4.json"), "utf8"),
     ).rejects.toThrow();
   });
 

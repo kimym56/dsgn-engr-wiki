@@ -232,8 +232,7 @@ export async function downloadReel(
       throw new Error("gallery-dl download must contain exactly one MP4");
 
     const video = videos[0];
-    const base = path.basename(video.name, path.extname(video.name));
-    const metadataPath = path.join(reelDirectory, `${base}.json`);
+    const metadataPath = path.join(reelDirectory, `${video.name}.json`);
     let metadata: unknown;
     try {
       metadata = JSON.parse(await readFile(metadataPath, "utf8"));

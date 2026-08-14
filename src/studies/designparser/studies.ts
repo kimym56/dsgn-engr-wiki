@@ -4671,6 +4671,1203 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DW9GTY-iv2B",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DW9GTY-iv2B/",
+      creator: "@designparser",
+      publishedAt: "2026-04-10",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Typography Can Signal Human Presence",
+    summary:
+      "A communication study contrasting mechanically uniform type with handwriting, whose baseline, pressure, and shape variation can make a short message feel more personal.",
+    principles: [
+      "Typographic regularity and handwritten variation send different social signals.",
+      "Small irregularities can suggest effort, individuality, and a human source.",
+      "Expressive form should support the message without sacrificing readability.",
+    ],
+    applications: [
+      "Consider handwriting for personal notes, acknowledgments, and moments of direct human contact.",
+      "Use a consistent typeface when clarity, repeatability, or institutional tone should lead.",
+      "Test expressive lettering at delivery size and provide clear text where legibility is critical.",
+    ],
+    uncertainties: [
+      "The claim of “better results” does not define an outcome, audience, or comparison method.",
+      "The idea that personality overrides content is rhetorical; message meaning and readability remain consequential.",
+      "Only the opening typed-versus-handwritten thank-you comparison was captured.",
+    ],
+    evidence: [
+      {
+        label: "Less polished typography is linked to a different outcome",
+        start: 0,
+        end: 2.5,
+      },
+      {
+        label: "Printed text is described as uniform",
+        start: 2.5,
+        end: 6.6,
+      },
+      {
+        label: "Handwriting carries baseline and pressure variation",
+        start: 6.6,
+        end: 10.1,
+      },
+      {
+        label: "Imperfection is framed as a personality signal",
+        start: 10.1,
+        end: 14.3,
+      },
+      {
+        label: "Identical words can communicate a different tone",
+        start: 14.3,
+        end: 16.5,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Social typography",
+        title: "The same words can imply a different sender",
+        body: "Uniform type reads as reproducible, while handwriting carries visible traces of an individual gesture.",
+        visual: {
+          type: "comparison",
+          before: "Mechanically uniform note",
+          after: "Handwritten note",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Signal mismatch",
+        title: "Polish can remove the human cue a moment needs",
+        body: "A perfectly consistent message may feel distant when the communication is meant to express personal attention.",
+        visual: {
+          type: "layers",
+          items: [
+            "Uniform form",
+            "Low personal variation",
+            "Institutional tone",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Controlled irregularity",
+        title: "Variation can communicate effort and presence",
+        body: "Changes in baseline, pressure, and letter shape add a human signal before the words are fully read.",
+        visual: {
+          type: "rule",
+          statement: "Visible gesture → perceived personal presence",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Tone choice",
+        title: "Match the writing mode to the relationship",
+        body: "Use handwriting where human acknowledgment matters, and use type where consistency and fast reading carry more value.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name desired tone",
+            "Choose writing mode",
+            "Check legibility",
+            "Test response",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Expression is part of the message",
+        body: "Choose uniformity or variation deliberately, then keep the content clear enough to do its job.",
+        visual: {
+          type: "rule",
+          statement: "Form signals who is speaking",
+        },
+      },
+    ],
+  },
+  {
+    id: "DW38gZ4Cko7",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DW38gZ4Cko7/",
+      creator: "@designparser",
+      publishedAt: "2026-04-08",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Treat the Golden Ratio as a Starting Point",
+    summary:
+      "A proportion study separating the mathematical definition of the golden ratio from claims that it guarantees beauty, arguing that designers should test it as one guideline rather than retrofit it as proof.",
+    principles: [
+      "The golden ratio describes a specific mathematical relationship, not an automatic aesthetic outcome.",
+      "A proportional system can create consistency without being uniquely optimal.",
+      "Post-hoc overlays do not demonstrate that a design was generated from the ratio.",
+    ],
+    applications: [
+      "Use the golden ratio as one candidate when exploring scale or composition.",
+      "Compare it with simpler ratios and judge the actual content in context.",
+      "Document the proportions used during design instead of adding a persuasive overlay afterward.",
+    ],
+    uncertainties: [
+      "The claims about public preference and historical adherence are not accompanied by named studies or artifacts.",
+      "The opening frame confirms the familiar rectangle-and-spiral construction but not how it was used in any historical design.",
+    ],
+    evidence: [
+      {
+        label: "The golden ratio is introduced as overstated",
+        start: 0,
+        end: 2.44,
+      },
+      {
+        label:
+          "Rectangles and a spiral illustrate the mathematical construction",
+        start: 2.44,
+        end: 9.2,
+      },
+      {
+        label: "A constant is distinguished from a law of beauty",
+        start: 9.2,
+        end: 15.6,
+      },
+      {
+        label: "Consistent public preference is questioned",
+        start: 15.6,
+        end: 19.8,
+      },
+      {
+        label: "Historical and post-hoc usage claims are challenged",
+        start: 19.8,
+        end: 24.6,
+      },
+      {
+        label: "The ratio is retained as a guideline",
+        start: 24.6,
+        end: 25.88,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Proportion system",
+        title: "A mathematical ratio is not an aesthetic guarantee",
+        body: "Phi defines a repeatable relationship between dimensions, but the formula cannot judge content, context, or visual purpose.",
+        visual: {
+          type: "comparison",
+          before: "Mathematical consistency",
+          after: "Perceived quality",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Proof by overlay",
+        title: "A spiral added later can explain anything",
+        body: "Retrofitted diagrams create an appearance of intent without showing that the composition actually began from that rule.",
+        visual: {
+          type: "layers",
+          items: [
+            "Finished composition",
+            "Added ratio overlay",
+            "Implied causality",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Design evidence",
+        title: "Use proportion as a constraint to test",
+        body: "A ratio earns its place when it organizes real elements better than the available alternatives.",
+        visual: {
+          type: "rule",
+          statement: "Guideline + comparison → informed choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Exploration",
+        title: "Compare phi with simpler structures",
+        body: "Build variations using halves, thirds, modular steps, and the golden ratio, then evaluate hierarchy and fit.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Choose candidates",
+            "Compose variants",
+            "Test content",
+            "Keep best structure",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Let the ratio guide, never certify",
+        body: "Use the golden ratio when it helps the composition—not as proof that the result must be beautiful.",
+        visual: {
+          type: "rule",
+          statement: "Proportion supports judgment; it does not replace it",
+        },
+      },
+    ],
+  },
+  {
+    id: "DWyyT8QDadE",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWyyT8QDadE/",
+      creator: "@designparser",
+      publishedAt: "2026-04-06",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Design the Peak and the Ending Deliberately",
+    summary:
+      "An experience-design study using the peak-end rule to show why a memorable high point and a strong final moment can shape retrospective judgment of a longer journey.",
+    principles: [
+      "People often summarize an experience through its most intense moment and its ending.",
+      "A polished ending can disproportionately influence how the overall journey is remembered.",
+      "Peak and ending deserve deliberate design, but they cannot excuse avoidable friction elsewhere.",
+    ],
+    applications: [
+      "Map the emotional high point and final step of onboarding, checkout, or service recovery.",
+      "Remove critical usability barriers across the whole journey before polishing memorable moments.",
+      "End with clear closure, confirmation, and an appropriate next action.",
+    ],
+    uncertainties: [
+      "The five-star example is illustrative and does not establish that a strong ending will overcome severe friction in every context.",
+      "The instruction to stop designing everything is rhetorical; baseline usability, accessibility, and trust still apply throughout.",
+      "Only the opening experience-over-time axis was captured; later peak and ending states were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "The experience is framed as uneven",
+        start: 0,
+        end: 4.4,
+      },
+      {
+        label: "A clean final screen is linked to a positive review",
+        start: 4.4,
+        end: 7.68,
+      },
+      {
+        label: "Memory is described as favoring two moments",
+        start: 7.68,
+        end: 10.8,
+      },
+      {
+        label: "The peak-end rule is named",
+        start: 10.8,
+        end: 11.92,
+      },
+      {
+        label: "Peak and ending are prioritized for design",
+        start: 11.92,
+        end: 14,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Peak-end rule",
+        title: "Memory compresses a journey into decisive moments",
+        body: "Retrospective judgment can lean heavily on the strongest point and the final state rather than averaging every minute.",
+        visual: {
+          type: "layers",
+          items: ["Full journey", "Peak moment", "Ending moment"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Uniform effort",
+        title: "Polishing every step equally can miss what lasts",
+        body: "Teams may distribute effort across screens without identifying the moments that dominate memory and trust.",
+        visual: {
+          type: "comparison",
+          before: "Equal polish everywhere",
+          after: "Usable journey with designed peak and end",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Memory structure",
+        title: "Make the high point meaningful and the ending conclusive",
+        body: "The peak should deliver real value, while the final step should confirm success and remove uncertainty.",
+        visual: {
+          type: "rule",
+          statement: "Meaningful peak + clear ending → stronger memory",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Journey map",
+        title: "Find the moments that shape the retelling",
+        body: "Fix blocking friction first, then identify the emotional high and design the final confirmation as a deliberate pair.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Map journey",
+            "Remove blockers",
+            "Strengthen peak",
+            "Close clearly",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title:
+          "Design what users will remember without neglecting what they endure",
+        body: "Use the peak and ending as priorities inside a journey that remains sound from start to finish.",
+        visual: {
+          type: "rule",
+          statement: "Memorable moments sit on a usable foundation",
+        },
+      },
+    ],
+  },
+  {
+    id: "DWwU3Y7iqNY",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWwU3Y7iqNY/",
+      creator: "@designparser",
+      publishedAt: "2026-04-05",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Manage Color Between Screen and Print",
+    summary:
+      "A color-production study explaining why the same encoded color can shift between emitted-light displays and ink-on-paper output, and how ICC profiles support a managed translation.",
+    principles: [
+      "Displays create color with emitted light, while print depends on reflected light from ink and paper.",
+      "Identical numeric values do not guarantee identical appearance across devices and media.",
+      "Color profiles describe device behavior so conversions can be made intentionally.",
+    ],
+    applications: [
+      "Assign the correct source profile before exporting artwork.",
+      "Use the printer, paper, and output profile supplied for the production condition.",
+      "Soft-proof on a calibrated display and approve a physical proof for critical colors.",
+    ],
+    uncertainties: [
+      "The promise that profile assignment makes screen and print identical is too strong; profiles improve predictability but cannot remove gamut, substrate, lighting, or device differences.",
+      "The opening image shows a same-value blue comparison but not the profile-assignment workflow.",
+    ],
+    evidence: [
+      {
+        label: "One encoded color appears different in print",
+        start: 0,
+        end: 2.16,
+      },
+      {
+        label: "Display emission and print absorption are contrasted",
+        start: 2.16,
+        end: 4.76,
+      },
+      {
+        label: "A blue example is described as losing intensity",
+        start: 4.76,
+        end: 6.2,
+      },
+      {
+        label: "ICC profiles are introduced as translation tools",
+        start: 6.2,
+        end: 9.88,
+      },
+      {
+        label: "Profile assignment is linked to output prediction",
+        start: 9.88,
+        end: 11.28,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Color media",
+        title: "Screen light and printed ink build color differently",
+        body: "A display emits colored light; a printed surface filters reflected light through ink and paper.",
+        visual: {
+          type: "comparison",
+          before: "Emitted RGB light",
+          after: "Reflected printed color",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Same-value fallacy",
+        title: "Matching numbers can produce mismatched appearances",
+        body: "Device gamut, paper, ink, and viewing light alter what the eye receives even when a swatch begins from one specification.",
+        visual: {
+          type: "layers",
+          items: ["Source values", "Device and medium", "Observed result"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Color management",
+        title: "Profiles make the conversion explicit",
+        body: "An ICC-managed workflow describes the source and destination so software can translate colors within known limits.",
+        visual: {
+          type: "rule",
+          statement: "Source profile → conversion → output profile",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Proofing loop",
+        title: "Predict digitally and verify physically",
+        body: "Assign profiles, soft-proof on a calibrated display, then approve a production proof on the intended stock.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Assign source",
+            "Choose output profile",
+            "Soft-proof",
+            "Approve print",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Color matching is managed, not automatic",
+        body: "Use profiles to reduce surprises and physical proofs to decide whether the result is acceptable.",
+        visual: {
+          type: "rule",
+          statement: "Profiles predict; proofs confirm",
+        },
+      },
+    ],
+  },
+  {
+    id: "DWrLcyhDVdB",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWrLcyhDVdB/",
+      creator: "@designparser",
+      publishedAt: "2026-04-03",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Subtraction Can Create Shelf Distinction",
+    summary:
+      "A packaging study using a restrained skincare label to show how removing category clichés can create contrast, while a clear reading axis, limited palette, and generous space preserve functional information.",
+    principles: [
+      "Distinctiveness can come from omitting the signals a category repeats.",
+      "Reduction works when the remaining information is organized and legible.",
+      "Negative space and restrained color can turn functional hierarchy into a recognizable identity.",
+    ],
+    applications: [
+      "Inventory the visual conventions that make competitors look interchangeable.",
+      "Remove nonessential decoration while preserving product name, use, quantity, and required information.",
+      "Build one dominant reading axis and test the pared-back package on a realistic shelf.",
+    ],
+    uncertainties: [
+      "The stated contrast ratio and whitespace percentage are presented as informal measurements, not audited specifications.",
+      "The company-value claim does not establish that label subtraction caused commercial success.",
+      "The category comparison and shelf focal-point effect were not independently captured beyond the opening product example.",
+    ],
+    evidence: [
+      {
+        label: "Subtraction is introduced as the design strategy",
+        start: 0,
+        end: 5.36,
+      },
+      {
+        label: "Removing category codes creates difference from the shelf",
+        start: 5.36,
+        end: 10.96,
+      },
+      {
+        label: "A single reading axis and limited palette organize information",
+        start: 11.6,
+        end: 16.4,
+      },
+      {
+        label: "Contrast, type, and whitespace support the reduced label",
+        start: 16.4,
+        end: 21.68,
+      },
+      {
+        label: "A commercial outcome is claimed",
+        start: 21.68,
+        end: 24.56,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Packaging contrast",
+        title: "Absence can become the strongest category signal",
+        body: "A restrained label stands apart when neighboring packages rely on decoration, aspirational naming, and repeated visual codes.",
+        visual: {
+          type: "comparison",
+          before: "Category signal overload",
+          after: "Functional restraint",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Subtractive risk",
+        title: "Removing everything can also remove usefulness",
+        body: "Minimalism fails when essential product information, hierarchy, or legibility disappears with the decoration.",
+        visual: {
+          type: "layers",
+          items: [
+            "Remove conventions",
+            "Preserve information",
+            "Rebuild hierarchy",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Functional reduction",
+        title: "Let structure carry the identity",
+        body: "One reading axis, a limited palette, clear contrast, and generous space can make ordinary information distinctive.",
+        visual: {
+          type: "rule",
+          statement: "Less decoration + stronger information order",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Shelf test",
+        title: "Subtract against the real competitive field",
+        body: "Identify category clichés, remove only what is nonessential, and compare recognition and clarity at shelf distance.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Audit category",
+            "Remove clichés",
+            "Organize facts",
+            "Test on shelf",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Minimalism earns attention when information stays useful",
+        body: "Use subtraction to reveal a clearer product signal, not merely to make the package emptier.",
+        visual: {
+          type: "rule",
+          statement: "Restraint works through organized essentials",
+        },
+      },
+    ],
+  },
+  {
+    id: "DWmCBkrip_W",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWmCBkrip_W/",
+      creator: "@designparser",
+      publishedAt: "2026-04-01",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Emphasis Needs Quiet Around It",
+    summary:
+      "A typography study explaining bold emphasis as a relative signal: one contrasting phrase can stand out, but repeated bolding compresses the difference until the page establishes a new normal.",
+    principles: [
+      "Bold weight creates emphasis through contrast with surrounding text.",
+      "The more elements share the treatment, the less distinctive each one becomes.",
+      "Hierarchy depends on the ratio between emphasized and ordinary content.",
+    ],
+    applications: [
+      "Reserve bold text for the few phrases that change comprehension or action.",
+      "Keep surrounding prose typographically quiet enough to preserve the contrast.",
+      "Audit pages with many bold fragments and replace some with structure, labels, or spacing.",
+    ],
+    uncertainties: [
+      "The stated recall increase and eventual zero advantage are presented without study details and are not treated as universal effect sizes.",
+      "Only the opening multi-highlight state was captured; the one-, four-, and ten-emphasis progression was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Bold is challenged as automatic emphasis",
+        start: 0,
+        end: 1.88,
+      },
+      {
+        label: "One bold item is linked to a recall advantage",
+        start: 1.88,
+        end: 5.88,
+      },
+      {
+        label: "Additional bold items compress contrast",
+        start: 5.88,
+        end: 8.76,
+      },
+      {
+        label: "Heavy repetition becomes the new baseline",
+        start: 8.76,
+        end: 13.52,
+      },
+      {
+        label: "Emphasis is framed as a relational ratio",
+        start: 13.52,
+        end: 17.52,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Typographic emphasis",
+        title: "Bold works because most text is not bold",
+        body: "Weight creates a local difference that directs attention only while the surrounding field remains quieter.",
+        visual: {
+          type: "comparison",
+          before: "One bold phrase",
+          after: "Many bold phrases",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Contrast compression",
+        title: "Repeated emphasis resets the baseline",
+        body: "When many fragments carry the same strong weight, readers stop treating any one of them as exceptional.",
+        visual: {
+          type: "layers",
+          items: [
+            "More bold items",
+            "Less relative difference",
+            "Flattened hierarchy",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Signal ratio",
+        title: "Emphasis is a relationship, not a font setting",
+        body: "The strength of a bold phrase depends on how rarely the treatment appears and what the ordinary text establishes.",
+        visual: {
+          type: "rule",
+          statement: "Sparse signal + quiet field → emphasis",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Content audit",
+        title: "Bold only what changes the reading path",
+        body: "Rank the intended takeaways, keep the essential few, and use spacing or headings for the rest.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Rank messages",
+            "Select key phrases",
+            "Remove excess bold",
+            "Retest scan",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Silence gives the signal its strength",
+        body: "Protect emphasis by limiting it to content that truly deserves interruption.",
+        visual: {
+          type: "rule",
+          statement: "If everything speaks loudly, nothing leads",
+        },
+      },
+    ],
+  },
+  {
+    id: "DWg4lUpimGM",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWg4lUpimGM/",
+      creator: "@designparser",
+      publishedAt: "2026-03-30",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Balance Visual Weight, Not Symmetry",
+    summary:
+      "A composition study showing how asymmetrical layouts can feel stable when dark forms, light space, position, and scale counterbalance one another.",
+    principles: [
+      "Visual balance depends on perceived weight rather than mirrored geometry.",
+      "Darker or denser forms can feel heavier than equally sized light forms.",
+      "Negative space participates in the composition instead of acting as an empty remainder.",
+    ],
+    applications: [
+      "Reduce a composition to its major masses and compare their visual pull.",
+      "Use position, scale, tone, and surrounding space to counter a dominant element.",
+      "Remove elements one at a time to discover which relationships actually stabilize the frame.",
+    ],
+    uncertainties: [
+      "The opening frame is nearly blank and does not independently capture the later dark-shape and corner-space relationships.",
+      "Perceived balance varies with content, viewing scale, cultural reading direction, and surrounding context.",
+    ],
+    evidence: [
+      {
+        label: "Asymmetry is distinguished from instability",
+        start: 0,
+        end: 2.16,
+      },
+      {
+        label: "An isolated shape is described as unstable",
+        start: 2.16,
+        end: 4.04,
+      },
+      {
+        label: "Dark tone carries additional visual weight",
+        start: 4.04,
+        end: 5.96,
+      },
+      {
+        label: "Negative space contributes to balance",
+        start: 5.96,
+        end: 8.64,
+      },
+      {
+        label: "Removing a participating mass collapses the frame",
+        start: 8.64,
+        end: 11,
+      },
+      {
+        label: "Visual balance is separated from drawn geometry",
+        start: 11,
+        end: 14.6,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Asymmetrical balance",
+        title: "Unequal shapes can produce an equal visual pull",
+        body: "A composition can feel stable without mirroring when its masses counter one another across the frame.",
+        visual: {
+          type: "comparison",
+          before: "Geometric symmetry",
+          after: "Perceptual balance",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Single-metric layout",
+        title: "Size alone cannot predict visual weight",
+        body: "Tone, density, position, and open space change how strongly each region pulls attention.",
+        visual: {
+          type: "layers",
+          items: [
+            "Shape size",
+            "Tone and density",
+            "Position",
+            "Negative space",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Counterweight",
+        title: "Treat empty regions as active masses",
+        body: "A bright or open corner can balance a smaller dark form because both affect the directional field.",
+        visual: {
+          type: "rule",
+          statement: "All occupied and open regions carry weight",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Balance test",
+        title: "Simplify the frame and test each relationship",
+        body: "View the major masses, remove one at a time, and adjust position or scale where the visual center drifts.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Map masses",
+            "Estimate pull",
+            "Remove elements",
+            "Rebalance frame",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "The eye balances more than geometry",
+        body: "Compose tone, space, and position together until the whole frame settles.",
+        visual: {
+          type: "rule",
+          statement: "Perceived weight defines stability",
+        },
+      },
+    ],
+  },
+  {
+    id: "DWeMxLJiuxk",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWeMxLJiuxk/",
+      creator: "@designparser",
+      publishedAt: "2026-03-29",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Use Whitespace to Encode Relationships",
+    summary:
+      "A layout study distinguishing active whitespace from leftover space: deliberate gaps group related elements, separate unrelated ones, and create hierarchy before color or weight is considered.",
+    principles: [
+      "Proximity makes nearby elements read as a group.",
+      "Different spacing above and below an element can reveal its ownership.",
+      "Active whitespace directs scanning; passive whitespace is merely what remains.",
+    ],
+    applications: [
+      "Use smaller gaps within a content group and larger gaps between groups.",
+      "Audit heading spacing to ensure each heading sits closer to the content it labels.",
+      "Test hierarchy in grayscale to see whether spacing alone preserves the structure.",
+    ],
+    uncertainties: [
+      "The claim that proximity overrides color and weight is directional rather than absolute; competing cues can still alter grouping.",
+      "The measurable scanning-speed claim is presented without task or study details.",
+      "The opening frame captures a proximity comparison but not the later active-versus-passive progression.",
+    ],
+    evidence: [
+      {
+        label: "Whitespace becomes visible when it is removed",
+        start: 0,
+        end: 2.34,
+      },
+      {
+        label: "One spacing change separates two layouts",
+        start: 2.34,
+        end: 4.04,
+      },
+      {
+        label: "Heading gaps create ownership",
+        start: 4.04,
+        end: 6.34,
+      },
+      {
+        label: "Proximity groups related elements",
+        start: 6.34,
+        end: 9.88,
+      },
+      {
+        label: "Active whitespace creates hierarchy",
+        start: 9.88,
+        end: 15.68,
+      },
+      {
+        label: "Active and passive space are distinguished",
+        start: 15.68,
+        end: 18.02,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Proximity",
+        title: "Spacing tells the eye what belongs together",
+        body: "A heading reads with the content below when the inner gap is smaller than the space separating the next group.",
+        visual: {
+          type: "comparison",
+          before: "Equal gaps",
+          after: "Grouped gaps",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Passive remainder",
+        title: "Unused space does not automatically create hierarchy",
+        body: "A layout can contain plenty of blank area while its local relationships remain ambiguous.",
+        visual: {
+          type: "layers",
+          items: ["Available blank area", "Unstructured gaps", "Weak grouping"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Active whitespace",
+        title: "Give every gap a relational job",
+        body: "Use distance to bind related content, separate sections, and indicate the reading sequence.",
+        visual: {
+          type: "rule",
+          statement: "Smaller within-group gap; larger between-group gap",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Spacing audit",
+        title: "Read the layout with color and weight removed",
+        body: "Reduce the interface to neutral blocks and check whether proximity still reveals headings, groups, and order.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Neutralize styling",
+            "Inspect groups",
+            "Adjust gaps",
+            "Restore hierarchy",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Whitespace ranks by relationship",
+        body: "Treat spacing as structure, not as the area left after elements are placed.",
+        visual: {
+          type: "rule",
+          statement: "Active space explains the layout",
+        },
+      },
+    ],
+  },
+  {
+    id: "DWZJjNDCoYw",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWZJjNDCoYw/",
+      creator: "@designparser",
+      publishedAt: "2026-03-27",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Make the Product Form Carry the Mission",
+    summary:
+      "A packaging case study of Tony’s Chocolonely, where irregular chocolate segments and category-breaking color turn the physical product and wrapper into expressions of the brand’s fairness message.",
+    principles: [
+      "A product can embody a brand idea through its physical structure, not only through copy.",
+      "Breaking a category color convention can create a strong shelf signal.",
+      "A mission-led design is stronger when form, story, and packaging reinforce the same idea.",
+    ],
+    applications: [
+      "Identify whether the product geometry can demonstrate the brand’s central tension or promise.",
+      "Map each unusual visual decision to a specific piece of the narrative.",
+      "Test category-breaking colors for distinctiveness, recognition, and accessibility.",
+    ],
+    uncertainties: [
+      "The claimed geographic mapping, cocoa-production share, and category color convention are not independently sourced in the study.",
+      "The design-to-business or design-to-impact relationship is not quantified.",
+      "Only the opening packaged-bar state was captured; the irregular pieces and map relationship were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "The package rejects photography and decoration",
+        start: 0,
+        end: 3.84,
+      },
+      {
+        label: "Unequal pieces represent unequal cocoa income",
+        start: 3.84,
+        end: 6.88,
+      },
+      {
+        label: "The bar is linked to a geographic cocoa story",
+        start: 7.52,
+        end: 12.96,
+      },
+      {
+        label: "Red breaks a stated category color convention",
+        start: 13.6,
+        end: 16.24,
+      },
+      {
+        label: "The color is framed as an alarm signal",
+        start: 16.24,
+        end: 19.36,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Mission-led packaging",
+        title: "The chocolate itself can tell the inequality story",
+        body: "Irregular segments turn a brand claim about unequal value distribution into a physical interaction.",
+        visual: {
+          type: "comparison",
+          before: "Equal product grid",
+          after: "Unequal product segments",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Decorative purpose",
+        title: "A mission disappears when it lives only in marketing copy",
+        body: "Photography and category styling can make a values-led product look interchangeable before the story is read.",
+        visual: {
+          type: "layers",
+          items: [
+            "Category conventions",
+            "Mission statement",
+            "Weak connection",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Embodied narrative",
+        title: "Align form, color, and story around one tension",
+        body: "Product geometry demonstrates the issue, while an unexpected wrapper color signals that the category should be questioned.",
+        visual: {
+          type: "rule",
+          statement: "Product form + shelf signal → visible mission",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Design translation",
+        title: "Find a truthful physical expression of the message",
+        body: "Connect a real product behavior or structure to the brand idea, then support it with a distinct but usable package system.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name mission",
+            "Find physical metaphor",
+            "Break relevant convention",
+            "Test comprehension",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Let the product prove what the brand says",
+        body: "A mission becomes more credible when people can see or experience it in the designed object.",
+        visual: {
+          type: "rule",
+          statement: "Meaning is strongest when form participates",
+        },
+      },
+    ],
+  },
+  {
+    id: "DWUJxh3Cqd7",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWUJxh3Cqd7/",
+      creator: "@designparser",
+      publishedAt: "2026-03-25",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Tune Tracking for Type Size and Role",
+    summary:
+      "A typography study explaining that letter spacing should change with scale and use: small text may benefit from more room, while display text often needs tighter optical relationships.",
+    principles: [
+      "One tracking value cannot serve every type size and role.",
+      "Small text can need additional spacing to preserve letter separation.",
+      "Large display text exposes gaps more strongly and may need tighter fitting.",
+    ],
+    applications: [
+      "Set tracking separately for body, label, heading, and display styles.",
+      "Review small text at actual device size and display text at its real viewing distance.",
+      "Adjust spacing for the chosen typeface, weight, case, and rendering environment.",
+    ],
+    uncertainties: [
+      "The directional advice is a starting tendency, not a universal rule for every typeface or script.",
+      "The claim about peripheral readability is not accompanied by measurement conditions.",
+      "Only the opening widely tracked display example was captured; small-text and tighter-display comparisons were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Uniform tracking is identified as the problem",
+        start: 0,
+        end: 3.76,
+      },
+      {
+        label: "Small text is associated with slightly wider spacing",
+        start: 3.76,
+        end: 6.44,
+      },
+      {
+        label: "Display text is associated with tighter spacing",
+        start: 6.44,
+        end: 8.68,
+      },
+      {
+        label: "Letter spacing is linked to peripheral readability",
+        start: 8.68,
+        end: 11.08,
+      },
+      {
+        label: "Optimal spacing changes with type size",
+        start: 11.08,
+        end: 14.84,
+      },
+      {
+        label: "Type and overall design also affect the choice",
+        start: 14.84,
+        end: 17.16,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Letter spacing",
+        title: "Tracking changes as type changes scale",
+        body: "A spacing value that keeps small letters distinct can make a large headline look disconnected.",
+        visual: {
+          type: "comparison",
+          before: "Small text with breathing room",
+          after: "Display text optically tightened",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Universal token",
+        title: "One tracking rule creates opposite failures",
+        body: "Small text can close up while large text reveals distracting gaps when both inherit the same setting.",
+        visual: {
+          type: "layers",
+          items: [
+            "Shared tracking value",
+            "Different type sizes",
+            "Different visible spacing",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Optical scale",
+        title: "Judge the interval at the size it will be read",
+        body: "Letterforms, weight, case, and rendering determine whether a style needs more or less space.",
+        visual: {
+          type: "rule",
+          statement: "Type size and role → tracking decision",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Type tokens",
+        title: "Calibrate spacing for each semantic style",
+        body: "Tune body, labels, headings, and display text separately, then review them together as one hierarchy.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set type roles",
+            "Render actual sizes",
+            "Adjust tracking",
+            "Review system",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Tracking belongs to the style, not the project",
+        body: "Assign spacing where type size, face, and function meet instead of relying on one global value.",
+        visual: {
+          type: "rule",
+          statement: "Every type role earns its own spacing check",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

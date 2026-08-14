@@ -2,6 +2,8 @@
 
 This roadmap defines sequence and exit criteria rather than calendar commitments. Each development stage requires its own approved plan before implementation begins.
 
+**Current status (2026-08-15):** Phases 0 through 2 are complete. Phase 3 is the next planning and implementation gate.
+
 ## Phase 0 — Project readiness
 
 **Outcome:** The project can begin development without guessing its purpose, reference model, information architecture, external-source policy, or working process.

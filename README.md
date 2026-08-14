@@ -4,16 +4,16 @@
 
 ## Project status
 
-Phase 1, the **technical foundation**, is implemented. The repository contains a deployable Next.js shell with locale-prefixed English routes, project-owned design tokens, automated checks, and continuous integration.
+Phase 1, the **technical foundation**, and Phase 2, the **reference foundation**, are implemented. The repository contains a deployable Next.js application with locale-prefixed English routes, project-owned design tokens, nine reviewed public references, validated local content, server-rendered filters, automated checks, and opt-in external link-health tooling.
 
-It intentionally does not contain:
+The current boundary intentionally excludes:
 
-- production reference records or content schemas
-- populated Areas or Collections
-- filters, search, or a language switcher
+- visitor-facing Area and Collection pages
+- a populated Explore experience
+- search or a language switcher
 - a database, authentication, CMS, or hosted search service
 
-Those capabilities begin with separately approved Phase 2 and Phase 3 plans.
+The next planning gate is the narrowed Phase 3 core discovery experience.
 
 ## Naming
 
@@ -83,13 +83,13 @@ Open `http://localhost:3000`; the root redirects to `/en`.
 - `npm run build` — create the production build
 - `npm run check` — run the deterministic non-browser quality gate
 
-Run `npm run build` before `npm run test:e2e`. External link-health checks are intentionally separate from these commands and will be introduced with the reference system.
+Run `npm run build` before `npm run test:e2e`. External link-health checks remain intentionally separate from these commands; run `npm run references:links` only as a manual editorial maintenance check.
 
 ## Application routes
 
 - `/` redirects to `/en`
 - `/en` — Home
-- `/en/references` — References shell
+- `/en/references` — published reference index with Area and Format filters
 - `/en/explore` — Explore shell
 - `/en/about` — About
 
@@ -97,4 +97,4 @@ Korean uses the reserved locale code `ko`, but no `/ko` pages or language contro
 
 ## Next gate
 
-The next artifact is the Phase 2 Reference Foundation implementation plan. It will define the local record format, schemas, validation, sample references, preview fallback, generated browse index, and non-blocking link-health workflow before those features are implemented.
+The next artifact is the Phase 3 Core Discovery Experience design and implementation plan. It should preserve the completed References experience and focus on the missing Home discovery path, Explore, Area, and Collection pages. Language switching remains deferred until reviewed translations are approved for publication.

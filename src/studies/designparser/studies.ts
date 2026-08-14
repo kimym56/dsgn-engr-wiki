@@ -1270,6 +1270,1113 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DaAzSdbqC3M",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DaAzSdbqC3M/",
+      creator: "@designparser",
+      publishedAt: "2026-06-25",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Ligatures Resolve Specific Letter Collisions",
+    summary:
+      "A typography study showing how fi and fl ligatures replace awkward overlaps with purpose-built combined glyphs, and why designers should verify font-feature settings instead of assuming they are active.",
+    principles: [
+      "Ligatures solve recurring shape collisions between particular letter pairs.",
+      "A combined glyph should improve rhythm without obscuring the underlying letters.",
+      "OpenType behavior varies by font and design tool, so the rendered result must be checked.",
+    ],
+    applications: [
+      "Inspect words containing fi and fl at the intended size and weight.",
+      "Enable standard ligatures when separate glyphs create visible collisions.",
+      "Confirm the setting in the tool’s typography controls and compare before and after.",
+    ],
+    uncertainties: [
+      "Speech recognition renders the opening letter names phonetically; the inspected opening visual confirms the examples are fi and fl.",
+      "Scene extraction yielded only the opening letter-pair state; later combined forms were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Separate fi and fl shapes create crowding",
+        start: 0,
+        end: 6.64,
+      },
+      {
+        label: "A ligature replaces the pair with one designed glyph",
+        start: 6.64,
+        end: 12,
+      },
+      {
+        label: "Metal type precedent carried into digital fonts",
+        start: 12,
+        end: 16.16,
+      },
+      {
+        label: "Tool settings can disable the feature",
+        start: 16.16,
+        end: 20.4,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Letter fitting",
+        title: "Some pairs need a shape made for the collision",
+        body: "The ascender and dot in fi, and the adjacent tall forms in fl, can crowd when they remain separate glyphs.",
+        visual: {
+          type: "comparison",
+          before: "Separate letterforms",
+          after: "Purpose-built pair",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Local interference",
+        title: "Kerning alone may not resolve overlapping details",
+        body: "Moving two letters apart can weaken the word rhythm while leaving their most awkward features visually unrelated.",
+        visual: {
+          type: "layers",
+          items: [
+            "Conflicting contours",
+            "Extra corrective space",
+            "Broken word rhythm",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Ligature logic",
+        title: "Replace the collision, not the letters",
+        body: "A standard ligature redraws a recurring pair as one coordinated glyph while preserving the word’s reading.",
+        visual: {
+          type: "rule",
+          statement: "Recurring shape conflict → designed combined glyph",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Font features",
+        title: "Check what the actual tool renders",
+        body: "Compare fi and fl with standard ligatures on and off at the final type size, weight, and export path.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Find collision",
+            "Toggle feature",
+            "Compare rhythm",
+            "Verify output",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use ligatures as local typographic repairs",
+        body: "Keep them when they remove a real collision and leave the word clear.",
+        visual: {
+          type: "rule",
+          statement: "Better fit without lost recognition",
+        },
+      },
+    ],
+  },
+  {
+    id: "DZ7pILjqneU",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DZ7pILjqneU/",
+      creator: "@designparser",
+      publishedAt: "2026-06-23",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Match Icon Strokes to the Typeface",
+    summary:
+      "A visual-system study proposing that outline icons feel more coherent beside text when their stroke weight is calibrated against the font’s visible stem rather than accepted from an icon-set default.",
+    principles: [
+      "Icon weight and type weight are separate systems that need optical coordination.",
+      "A font’s visible vertical stem offers a practical reference for outline icon strokes.",
+      "Measured alignment is a starting point; final judgment still belongs at the intended size.",
+    ],
+    applications: [
+      "Measure a representative vertical stem in an uppercase H or N at the production size.",
+      "Set the outline icon stroke near that measured value, then inspect the pair together.",
+      "Repeat the check when font size, weight, rendering scale, or icon family changes.",
+    ],
+    uncertainties: [
+      "The stated 4.8-pixel result belongs to the demonstrated 62-pixel example and is not a universal font-to-icon ratio.",
+      "Scene extraction captured only the opening icon-stroke state, not the later measurement.",
+    ],
+    evidence: [
+      {
+        label: "Default icon stroke and text size do not automatically align",
+        start: 0,
+        end: 6,
+      },
+      {
+        label: "A capital stem provides a measurable reference",
+        start: 6,
+        end: 12,
+      },
+      {
+        label: "The measured value is applied to the icon stroke",
+        start: 12,
+        end: 16.96,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Icon and type",
+        title: "Two visual weights need one calibration point",
+        body: "An outline icon can share a nominal size with text and still feel much lighter or heavier.",
+        visual: {
+          type: "comparison",
+          before: "Preset icon stroke",
+          after: "Stroke matched to type",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Default mismatch",
+        title: "Package defaults do not know your typeface",
+        body: "Icon libraries ship with fixed stroke choices, while letter stems change with font, weight, size, and rendering.",
+        visual: {
+          type: "layers",
+          items: ["Icon-set default", "Typeface stem", "Visible mismatch"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Reference measure",
+        title: "Use a sturdy capital stem as the baseline",
+        body: "A vertical stem in H or N supplies a concrete starting value for an outline stroke beside the text.",
+        visual: {
+          type: "rule",
+          statement: "Typeface stem → candidate icon stroke",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Calibration loop",
+        title: "Measure, apply, then judge the pair",
+        body: "Match the stroke numerically, inspect it optically at final scale, and adjust only when the rendered relationship calls for it.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set final type",
+            "Measure stem",
+            "Apply stroke",
+            "Inspect together",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Coordinate icon weight with the text it serves",
+        body: "Treat the typeface as the local reference, not the icon library’s default.",
+        visual: {
+          type: "rule",
+          statement: "One interface → one perceived weight system",
+        },
+      },
+    ],
+  },
+  {
+    id: "DZ5DTXQNTFs",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DZ5DTXQNTFs/",
+      creator: "@designparser",
+      publishedAt: "2026-06-22",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Spacing Is Judged in Context",
+    summary:
+      "A perception study using the Ebbinghaus illusion to show that identical shapes can appear different when their neighbors change, making optical spacing a contextual judgment rather than a purely geometric one.",
+    principles: [
+      "Perceived size depends partly on surrounding scale and distance.",
+      "Equal measurements do not guarantee equal visual weight.",
+      "Optical correction should be evaluated inside the final composition.",
+    ],
+    applications: [
+      "Review repeated shapes with their actual neighbors rather than on an empty canvas.",
+      "Use geometric values as a baseline, then correct obvious perceptual imbalance.",
+      "Test spacing across component variants whose surrounding elements change size.",
+    ],
+    uncertainties: [
+      "The cited research magnitude is indistinct in speech recognition and is omitted from the study.",
+      "Only the opening equal-circle state was captured; the changing neighbor configurations were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Identical circles appear different beside different neighbors",
+        start: 0,
+        end: 6,
+      },
+      {
+        label: "The eye compares objects with their surroundings",
+        start: 6,
+        end: 11.84,
+      },
+      {
+        label: "The illusion motivates contextual spacing checks",
+        start: 11.84,
+        end: 17.52,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Context effect",
+        title: "The same circle can carry a different visual size",
+        body: "Changing the surrounding shapes changes how a fixed center shape is perceived.",
+        visual: {
+          type: "comparison",
+          before: "Small surrounding forms",
+          after: "Large surrounding forms",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Geometric equality",
+        title: "A ruler cannot see the neighbors",
+        body: "Two equal dimensions can feel unequal once nearby scale and spacing alter the comparison.",
+        visual: {
+          type: "layers",
+          items: [
+            "Equal geometry",
+            "Different context",
+            "Different perception",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Optical judgment",
+        title: "Evaluate relationships, not isolated objects",
+        body: "The useful unit is the visible composition: object, neighbors, gap, and emphasis together.",
+        visual: {
+          type: "rule",
+          statement: "Measured equality + context → perceived balance",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Design review",
+        title: "Test every state where the neighborhood changes",
+        body: "Compare components in realistic groups, then make small optical corrections where equal values stop looking balanced.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set equal values",
+            "Place real neighbors",
+            "Compare states",
+            "Correct optically",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Start with geometry and finish with perception",
+        body: "Keep equal measurements only when they also produce a stable visual relationship.",
+        visual: {
+          type: "rule",
+          statement: "Context decides whether equality looks equal",
+        },
+      },
+    ],
+  },
+  {
+    id: "DZxXsnYqKwP",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DZxXsnYqKwP/",
+      creator: "@designparser",
+      publishedAt: "2026-06-19",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Directional Cues Distort Perceived Length",
+    summary:
+      "A perception study using the Müller-Lyer illusion to show how endpoint direction can make equal lines feel unequal, with implications for optical spacing and alignment.",
+    principles: [
+      "Perceived length includes the directional cues attached to an edge.",
+      "Knowing two dimensions are equal does not remove the visual effect.",
+      "Optical alignment may need correction when surrounding geometry points inward or outward.",
+    ],
+    applications: [
+      "Compare icons and controls with different terminal shapes at final size.",
+      "Check whether arrows, chevrons, or angled caps shift an apparent edge.",
+      "Apply small optical offsets only after testing equal geometry in context.",
+    ],
+    uncertainties: [
+      "The stated experimental magnitude is presented without study conditions, so it is not treated as a universal correction value.",
+      "Scene extraction captured the equal bare lines but not the later arrow configurations.",
+    ],
+    evidence: [
+      {
+        label: "Two lines begin with equal length",
+        start: 0,
+        end: 2,
+      },
+      {
+        label: "Arrow direction changes apparent length",
+        start: 2,
+        end: 8,
+      },
+      {
+        label: "The illusion persists despite knowing the geometry",
+        start: 8,
+        end: 14,
+      },
+      {
+        label: "Perceptual inequality can affect spacing decisions",
+        start: 14,
+        end: 18,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Müller-Lyer effect",
+        title: "Equal lines can inherit different apparent endpoints",
+        body: "Angled marks around a line change where the eye seems to place its beginning and end.",
+        visual: {
+          type: "comparison",
+          before: "Terminals point inward",
+          after: "Terminals point outward",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "False equality",
+        title: "The coordinate can be right while the edge feels wrong",
+        body: "Matching line lengths numerically does not neutralize the directional pull of their surrounding shapes.",
+        visual: {
+          type: "layers",
+          items: [
+            "Equal coordinates",
+            "Opposing terminal cues",
+            "Unequal apparent length",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Optical endpoint",
+        title: "Read the whole contour as the eye reads it",
+        body: "Alignment decisions should account for the line plus the geometry that frames its endpoints.",
+        visual: {
+          type: "rule",
+          statement: "Endpoint cue changes perceived extent",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Interface geometry",
+        title: "Check arrows and chevrons beside neutral shapes",
+        body: "Set equal bounds first, compare at production size, and introduce only the offset needed to restore balance.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Match bounds",
+            "Add terminal shapes",
+            "Inspect apparent edges",
+            "Offset if needed",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Optical alignment can differ from coordinate alignment",
+        body: "Use measurements to establish consistency, then verify the perceived endpoints.",
+        visual: {
+          type: "rule",
+          statement: "Equal dimensions still require a visual check",
+        },
+      },
+    ],
+  },
+  {
+    id: "DZprG4lNnca",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DZprG4lNnca/",
+      creator: "@designparser",
+      publishedAt: "2026-06-16",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Conflicting Signals Slow Recognition",
+    summary:
+      "An interface-semantics study connecting the Stroop effect to mixed status cues: when color, icon, and text disagree, users must resolve the conflict before acting.",
+    principles: [
+      "Status cues should reinforce one meaning across words, color, and symbols.",
+      "Readable text can dominate a contradictory decorative signal.",
+      "Consistency reduces interpretation work at moments that already demand attention.",
+    ],
+    applications: [
+      "Pair success language with success color and iconography.",
+      "Audit warnings, buttons, and validation states for semantic contradictions.",
+      "Use labels or supporting text so color is not the only carrier of meaning.",
+    ],
+    uncertainties: [
+      "The cited 100–200 millisecond delay is presented without test conditions and is treated as an illustration, not a universal latency.",
+      "Only the opening conflicting status state was captured as a scene image.",
+    ],
+    evidence: [
+      {
+        label: "A success icon conflicts with an error message",
+        start: 0,
+        end: 3.76,
+      },
+      {
+        label: "Competing cues communicate opposite actions",
+        start: 3.76,
+        end: 7.92,
+      },
+      {
+        label: "Reading forces resolution of the conflict",
+        start: 7.92,
+        end: 14.96,
+      },
+      {
+        label: "The same issue applies across interface signals",
+        start: 14.96,
+        end: 20.32,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Semantic conflict",
+        title: "A green check cannot rescue red error copy",
+        body: "When symbol, color, and wording point in different directions, the state becomes a decoding task.",
+        visual: {
+          type: "comparison",
+          before: "Check icon says success",
+          after: "Message says failure",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Competing cues",
+        title: "The user must decide which signal to trust",
+        body: "Contradictory status channels add hesitation exactly where the interface should make the next action clear.",
+        visual: {
+          type: "layers",
+          items: ["Icon meaning", "Color meaning", "Text meaning", "Conflict"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Stroop effect",
+        title: "Make every channel support the same interpretation",
+        body: "Words, colors, and symbols should converge on one state instead of asking attention to suppress a contradiction.",
+        visual: {
+          type: "rule",
+          statement: "One state → one semantic direction",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "State audit",
+        title: "Read the interface as a bundle of signals",
+        body: "For each button, warning, and result, compare the label, icon, color, and available action before release.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name state",
+            "Check wording",
+            "Check symbol",
+            "Check color",
+            "Verify action",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Consistency is processing speed",
+        body: "Align the meaning of every visible cue so recognition can lead directly to action.",
+        visual: {
+          type: "rule",
+          statement: "Reinforced meaning beats decorative convention",
+        },
+      },
+    ],
+  },
+  {
+    id: "DZXrgcONJ7m",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DZXrgcONJ7m/",
+      creator: "@designparser",
+      publishedAt: "2026-06-09",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Color Values Do Not Predict Color Appearance",
+    summary:
+      "A color-system study showing that identical encoded values can appear different in different contexts, and distinguishing RGB coordinates from perceptually oriented color models.",
+    principles: [
+      "Color appearance depends on its surrounding field, not only its stored coordinates.",
+      "Equal numeric steps in RGB do not imply equal perceptual steps.",
+      "Perceptually oriented spaces are useful when visual difference matters more than device encoding.",
+    ],
+    applications: [
+      "Review semantic colors on every background and state where they will appear.",
+      "Compare colors by perceived difference as well as by RGB values.",
+      "Use a perceptual color space when generating scales or measuring visual distance.",
+    ],
+    uncertainties: [
+      "Speech recognition renders the named perceptual model as “CLAB”; the technical context strongly suggests CIELAB, but the scene frames do not independently show the term.",
+      "The second extracted frame is a blank transition and provides no additional color example.",
+    ],
+    evidence: [
+      {
+        label: "One encoded color appears different across backgrounds",
+        start: 0,
+        end: 6.56,
+      },
+      {
+        label: "Human sensitivity is not uniform across RGB channels",
+        start: 7.12,
+        end: 14.72,
+      },
+      {
+        label: "Encoding and perceptual modeling serve different jobs",
+        start: 15.36,
+        end: 20.32,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Color context",
+        title: "A hex value stays fixed while its appearance moves",
+        body: "Surrounding color changes the comparison the eye makes, even when the swatch coordinates are identical.",
+        visual: {
+          type: "comparison",
+          before: "Same value on one field",
+          after: "Same value on another field",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Numeric confidence",
+        title: "Equal channel steps are not equal visual steps",
+        body: "RGB records device-oriented coordinates, but those numbers do not mirror human sensitivity uniformly.",
+        visual: {
+          type: "layers",
+          items: [
+            "Stored channel values",
+            "Viewing context",
+            "Perceived result",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Perceptual space",
+        title: "Choose a model that matches the decision",
+        body: "Use RGB to encode display color and a perceptually oriented model when comparing or generating visible differences.",
+        visual: {
+          type: "comparison",
+          before: "Encode a display color",
+          after: "Model perceived distance",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "System testing",
+        title: "Validate tokens on their real backgrounds",
+        body: "Check each semantic color across light, dark, tinted, disabled, and interactive states before accepting the numeric scale.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set token",
+            "Place on contexts",
+            "Compare appearance",
+            "Adjust system",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Color coordinates are inputs, not guarantees",
+        body: "Judge a color by the relationship users will actually see.",
+        visual: {
+          type: "rule",
+          statement: "Same number can produce a different appearance",
+        },
+      },
+    ],
+  },
+  {
+    id: "DZKsPxdtw2Z",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DZKsPxdtw2Z/",
+      creator: "@designparser",
+      publishedAt: "2026-06-04",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Modular Grids Coordinate Two Dimensions",
+    summary:
+      "A layout-system study explaining how columns and horizontal flow lines combine into reusable modules that can organize position, size, rhythm, and span.",
+    principles: [
+      "Columns establish horizontal organization; flow lines establish vertical rhythm.",
+      "Their intersections form modules that can be filled, skipped, or combined.",
+      "A modular grid coordinates both placement and proportion across a system.",
+    ],
+    applications: [
+      "Define columns and horizontal divisions before placing recurring content.",
+      "Use shared module boundaries to size and align related elements.",
+      "Allow components to span cells deliberately while retaining the underlying rhythm.",
+    ],
+    uncertainties: [
+      "Scene extraction yielded only the initial blank layout field; later grid construction was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Column and modular grids serve different roles",
+        start: 0,
+        end: 3.92,
+      },
+      {
+        label: "Columns and flow lines combine into a matrix",
+        start: 3.92,
+        end: 8,
+      },
+      {
+        label: "Rows and columns define position and size",
+        start: 8,
+        end: 14.24,
+      },
+      {
+        label: "Cells can be filled, skipped, or spanned",
+        start: 14.24,
+        end: 17.68,
+      },
+      {
+        label: "The system applies across editorial and interface layouts",
+        start: 17.68,
+        end: 21.4,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Grid anatomy",
+        title: "Columns organize; modules add proportion",
+        body: "Adding horizontal divisions to columns turns a one-direction layout guide into a two-dimensional matrix.",
+        visual: {
+          type: "layers",
+          items: ["Columns", "Horizontal flow lines", "Modular matrix"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Partial structure",
+        title: "Columns alone do not coordinate vertical decisions",
+        body: "Elements can share left and right anchors while their heights and vertical positions drift without a second rhythm.",
+        visual: {
+          type: "comparison",
+          before: "Aligned horizontally",
+          after: "Aligned in two dimensions",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Cell logic",
+        title: "Every intersection creates a reusable unit",
+        body: "Modules provide consistent boundaries that can control where content begins, how large it becomes, and what it spans.",
+        visual: {
+          type: "rule",
+          statement: "Column × flow line → module",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Composition",
+        title: "Fill, skip, and span without losing the system",
+        body: "Place content across one or more cells while keeping its edges tied to shared module lines.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set columns",
+            "Set flow lines",
+            "Choose cells",
+            "Span deliberately",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use modular grids when size and position must coordinate",
+        body: "Build a matrix when the layout needs repeatable relationships in both directions.",
+        visual: {
+          type: "rule",
+          statement: "Two axes create one compositional system",
+        },
+      },
+    ],
+  },
+  {
+    id: "DZII6OzNbN4",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DZII6OzNbN4/",
+      creator: "@designparser",
+      publishedAt: "2026-06-03",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Crop Limbs Away From Joints",
+    summary:
+      "An image-composition study proposing that crops feel less accidental when frame edges fall along a limb segment rather than directly through a visible joint.",
+    principles: [
+      "Cropping at a joint can make a body feel abruptly severed.",
+      "A crop placed along the limb gives the eye continuity on both sides of the edge.",
+      "Joint avoidance is an optical heuristic that must yield to pose, gesture, and editorial intent.",
+    ],
+    applications: [
+      "Identify visible knees, elbows, wrists, ankles, hips, shoulders, and the neck before cropping.",
+      "Move the frame edge away from a joint and into a clearer limb segment.",
+      "Review the crop at delivery size and across responsive aspect ratios.",
+    ],
+    uncertainties: [
+      "The proposed 10% clearance is presented as a heuristic, not a universal anatomical or compositional rule.",
+      "Scene extraction captured only the opening crop demonstration; later joint examples were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Format changes can force accidental joint crops",
+        start: 0,
+        end: 5.92,
+      },
+      {
+        label: "The proposed clearance moves the edge away from joints",
+        start: 5.92,
+        end: 11.84,
+      },
+      {
+        label: "Common body joints form caution zones",
+        start: 11.84,
+        end: 19.04,
+      },
+      {
+        label: "Place the edge along a limb segment",
+        start: 19.04,
+        end: 23.36,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Image framing",
+        title: "A crop edge becomes part of the pose",
+        body: "Where the frame cuts a body changes whether the composition feels intentional or abruptly truncated.",
+        visual: {
+          type: "comparison",
+          before: "Edge crosses a joint",
+          after: "Edge crosses a limb segment",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Accidental cut",
+        title: "Joints amplify the feeling of amputation",
+        body: "Knees, elbows, wrists, and other articulation points already mark separation, so cropping there intensifies the break.",
+        visual: {
+          type: "layers",
+          items: ["Visible joint", "Frame edge", "Abrupt termination"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Caution zone",
+        title: "Give the joint room inside or outside the frame",
+        body: "Move the crop far enough onto the adjacent limb that the edge reads as framing rather than as a severed connection.",
+        visual: {
+          type: "rule",
+          statement: "Avoid the joint; crop along the segment",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Responsive crops",
+        title: "Check every aspect ratio independently",
+        body: "A safe desktop crop can land on a joint in portrait or thumbnail variants, so review each generated frame.",
+        visual: {
+          type: "sequence",
+          items: ["Mark joints", "Set crop", "Check edge", "Repeat by ratio"],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Treat joints as crop-warning zones",
+        body: "Use the heuristic to find awkward cuts, then judge the final pose and composition.",
+        visual: {
+          type: "rule",
+          statement: "Preserve bodily continuity at the frame edge",
+        },
+      },
+    ],
+  },
+  {
+    id: "DZFmFROqSER",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DZFmFROqSER/",
+      creator: "@designparser",
+      publishedAt: "2026-06-02",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Dark Interfaces Need Optical Type Checks",
+    summary:
+      "A typography study arguing that bright text on dark backgrounds can appear optically different from dark text on light, so weight, size, spacing, and contrast should be re-evaluated rather than copied unchanged.",
+    principles: [
+      "Reversing foreground and background changes the perceived edge of letterforms.",
+      "Thin strokes and tight spacing can lose clarity in dark interfaces.",
+      "Accessibility contrast and optical compensation are related checks, not substitutes for each other.",
+    ],
+    applications: [
+      "Compare the same text style in light and dark themes at actual device scale.",
+      "Adjust weight, size, or tracking only where the dark rendering loses clarity.",
+      "Verify contrast for each role and state after optical adjustments.",
+    ],
+    uncertainties: [
+      "The stated adoption rate, tracking range, and contrast target are presented without platform or study conditions; they are treated as prompts for testing rather than universal settings.",
+      "Scene extraction captured only the opening light-background type example, not the later dark rendering.",
+    ],
+    evidence: [
+      {
+        label: "Dark-mode use motivates a separate design check",
+        start: 0,
+        end: 4.24,
+      },
+      {
+        label: "Bright-on-dark rendering can alter apparent strokes",
+        start: 4.8,
+        end: 8,
+      },
+      {
+        label: "Size, weight, and tracking are proposed compensation levers",
+        start: 8.72,
+        end: 13.2,
+      },
+      {
+        label: "Contrast remains an independent requirement",
+        start: 13.2,
+        end: 17.04,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Theme inversion",
+        title: "Reversing contrast changes how type appears",
+        body: "A style tuned as dark text on light can feel thinner, tighter, or less stable when rendered bright on dark.",
+        visual: {
+          type: "comparison",
+          before: "Dark text on light",
+          after: "Light text on dark",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Optical loss",
+        title: "Copied tokens can collapse in the dark theme",
+        body: "Fine strokes and narrow counters may lose definition even when the nominal type values remain identical.",
+        visual: {
+          type: "layers",
+          items: [
+            "Same type token",
+            "Reversed luminance",
+            "Different apparent edge",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Separate evaluation",
+        title: "Treat dark typography as its own rendered state",
+        body: "Weight, size, spacing, and contrast should be checked together in the real theme and device context.",
+        visual: {
+          type: "rule",
+          statement: "Same token does not guarantee same readability",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Theme QA",
+        title: "Change only what the rendered comparison justifies",
+        body: "Test paired screens, adjust the weakest roles, then recheck hierarchy and contrast across interaction states.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Render both themes",
+            "Inspect weak strokes",
+            "Tune selectively",
+            "Recheck contrast",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Design the dark state instead of inverting it",
+        body: "Use the light theme as a reference, not as an unquestioned specification.",
+        visual: {
+          type: "rule",
+          statement: "Optical equivalence may require different values",
+        },
+      },
+    ],
+  },
+  {
+    id: "DY4yHscKzb4",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DY4yHscKzb4/",
+      creator: "@designparser",
+      publishedAt: "2026-05-28",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Balance Padding by Perceived Enclosure",
+    summary:
+      "A component-spacing study explaining why equal horizontal and vertical padding can feel uneven, and proposing wider horizontal space for compact controls whose reading direction is horizontal.",
+    principles: [
+      "Vertical space can read as stronger enclosure than the same horizontal distance.",
+      "Compact controls follow a horizontal reading flow that often benefits from wider side padding.",
+      "Padding ratios are optical heuristics tied to component type, not universal container rules.",
+    ],
+    applications: [
+      "Start buttons, tags, and chips with more horizontal than vertical padding.",
+      "Compare the control at its real label length, type size, and border treatment.",
+      "Evaluate cards and large containers separately instead of inheriting the compact-control ratio.",
+    ],
+    uncertainties: [
+      "The proposed two-to-one horizontal ratio is a contextual starting point for compact controls, not a universal spacing formula.",
+      "Scene extraction yielded only the opening button state; alternative ratios were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Equal padding can appear unequal",
+        start: 0,
+        end: 2.08,
+      },
+      {
+        label:
+          "Vertical space reads as enclosure while horizontal space follows flow",
+        start: 2.08,
+        end: 7.32,
+      },
+      {
+        label: "Enclosure can feel visually stronger",
+        start: 7.32,
+        end: 9.08,
+      },
+      {
+        label: "A wider horizontal ratio is proposed for compact controls",
+        start: 9.08,
+        end: 15.28,
+      },
+      {
+        label: "Perception should decide the final balance",
+        start: 15.28,
+        end: 17.8,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Component spacing",
+        title: "Equal padding does not always look balanced",
+        body: "The same numeric inset on every side can make a compact control feel vertically heavy or horizontally cramped.",
+        visual: {
+          type: "comparison",
+          before: "Equal inset on all sides",
+          after: "Wider horizontal inset",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Different readings",
+        title:
+          "Vertical space encloses while horizontal space carries the label",
+        body: "A control’s height defines its containment, but its width supports the left-to-right flow of the content.",
+        visual: {
+          type: "layers",
+          items: [
+            "Vertical enclosure",
+            "Horizontal reading flow",
+            "Perceived imbalance",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Optical ratio",
+        title: "Give compact controls more room along the reading axis",
+        body: "Buttons, tags, and chips often settle when side padding exceeds top and bottom padding.",
+        visual: {
+          type: "rule",
+          statement: "Horizontal flow → wider side padding",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Component tuning",
+        title: "Test the ratio with real labels and borders",
+        body: "Begin with a wider horizontal inset, then compare short and long labels across sizes before fixing the token.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set vertical inset",
+            "Add wider sides",
+            "Test label lengths",
+            "Tune optically",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use ratios as starts, not laws",
+        body: "Let component role and perceived enclosure determine the final padding.",
+        visual: {
+          type: "rule",
+          statement: "Geometry proposes; perception decides",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

@@ -8143,6 +8143,1029 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DUtPYGCjdbv",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DUtPYGCjdbv/",
+      creator: "@designparser",
+      publishedAt: "2026-02-13",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Set Text Measure for Reading",
+    summary:
+      "A typography study treating line length as a reading-system variable: overly wide measures make return sweeps harder, while a moderate measure supports a stable reading rhythm.",
+    principles: [
+      "Line length affects both within-line reading and the return to the next line.",
+      "A useful measure must be tested with the actual typeface, size, leading, language, and device.",
+    ],
+    applications: [
+      "Set a target measure for long-form text, then test it at responsive widths.",
+      "Use readable line breaks and heading structure to reduce return-sweep effort.",
+    ],
+    uncertainties: [
+      "The stated 50–75 and 66-character figures are heuristics, not universal thresholds.",
+      "Only the opening text-block illustration was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.6,
+        label: "Line length introduces the readability concern",
+      },
+      {
+        start: 3.6,
+        end: 7.44,
+        label: "Wide measures complicate return sweeps",
+      },
+      {
+        start: 7.44,
+        end: 16.4,
+        label: "A moderate character measure is proposed",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design study",
+        title: "Line length changes the reading task",
+        body: "A typography study treating line length as a reading-system variable: overly wide measures make return sweeps harder, while a moderate measure supports a stable reading rhythm.",
+        visual: {
+          type: "comparison",
+          before: "Source claim",
+          after: "Context-aware interpretation",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "A wide line makes the next starting point harder to find",
+        body: "Line length affects both within-line reading and the return to the next line.",
+        visual: {
+          type: "layers",
+          items: ["Interface context", "User goal", "Visible cue"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Working principle",
+        title: "Choose measure in the actual text system",
+        body: "A useful measure must be tested with the actual typeface, size, leading, language, and device.",
+        visual: {
+          type: "rule",
+          statement: "Context determines the appropriate design choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Applied practice",
+        title: "Test measure across responsive conditions",
+        body: "Set a target measure for long-form text, then test it at responsive widths.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Choose structure",
+            "Test context",
+            "Refine",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Test the pattern in the real task",
+        body: "Use readable line breaks and heading structure to reduce return-sweep effort.",
+        visual: {
+          type: "rule",
+          statement: "Useful structure follows user intent",
+        },
+      },
+    ],
+  },
+  {
+    id: "DUq6b_ADWMz",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DUq6b_ADWMz/",
+      creator: "@designparser",
+      publishedAt: "2026-02-12",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Put Critical Messages in the Content Flow",
+    summary:
+      "An interface-attention study warning that banner-like placement can be filtered out during task scanning, so consequential information should be integrated with the decision it affects.",
+    principles: [
+      "Users can learn to ignore visually conventional banner regions.",
+      "A message is more likely to be considered when it appears where its consequence is understood.",
+    ],
+    applications: [
+      "Place critical feedback beside the action or content it changes.",
+      "Use interruption patterns sparingly and verify notice in task testing.",
+    ],
+    uncertainties: [
+      "Banner blindness varies by audience, task, design, and message relevance.",
+      "Only the opening banner-heavy page was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4,
+        label: "Banner-like regions are introduced as easy to ignore",
+      },
+      {
+        start: 4,
+        end: 10,
+        label: "Scanning patterns are proposed as the mechanism",
+      },
+      {
+        start: 10,
+        end: 15,
+        label: "Integration with content flow is recommended",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design study",
+        title: "A banner can be present and still be skipped",
+        body: "An interface-attention study warning that banner-like placement can be filtered out during task scanning, so consequential information should be integrated with the decision it affects.",
+        visual: {
+          type: "comparison",
+          before: "Source claim",
+          after: "Context-aware interpretation",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "Conventional placement can become a learned blind spot",
+        body: "Users can learn to ignore visually conventional banner regions.",
+        visual: {
+          type: "layers",
+          items: ["Interface context", "User goal", "Visible cue"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Working principle",
+        title: "Connect notice to task context",
+        body: "A message is more likely to be considered when it appears where its consequence is understood.",
+        visual: {
+          type: "rule",
+          statement: "Context determines the appropriate design choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Applied practice",
+        title: "Place critical feedback where the decision occurs",
+        body: "Place critical feedback beside the action or content it changes.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Choose structure",
+            "Test context",
+            "Refine",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Test the pattern in the real task",
+        body: "Use interruption patterns sparingly and verify notice in task testing.",
+        visual: {
+          type: "rule",
+          statement: "Useful structure follows user intent",
+        },
+      },
+    ],
+  },
+  {
+    id: "DUlt_3gDV9X",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DUlt_3gDV9X/",
+      creator: "@designparser",
+      publishedAt: "2026-02-10",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Design the Center Without Treating It as a Law",
+    summary:
+      "A layout study treating central placement as a useful attention baseline while rejecting the source’s stronger biological certainty and preserving edge space for supporting controls.",
+    principles: [
+      "Central placement can help establish a primary focal area.",
+      "Hierarchy still depends on task, content, contrast, reading direction, and surrounding layout.",
+    ],
+    applications: [
+      "Reserve the center for the page’s primary decision when that supports the task.",
+      "Move utilities to secondary regions without making them hard to find.",
+    ],
+    uncertainties: [
+      "The source’s hardwired center-bias claim is overbroad and not supported here.",
+      "Only the opening centered-page illustration was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4,
+        label: "The source makes a biological center-bias claim",
+      },
+      {
+        start: 4,
+        end: 8,
+        label: "Center and edge roles are proposed",
+      },
+      {
+        start: 8,
+        end: 12,
+        label: "The center is linked to conversion",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design study",
+        title: "The center is a strong layout option, not a rule",
+        body: "A layout study treating central placement as a useful attention baseline while rejecting the source’s stronger biological certainty and preserving edge space for supporting controls.",
+        visual: {
+          type: "comparison",
+          before: "Source claim",
+          after: "Context-aware interpretation",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "A central focal area can crowd supporting work",
+        body: "Central placement can help establish a primary focal area.",
+        visual: {
+          type: "layers",
+          items: ["Interface context", "User goal", "Visible cue"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Working principle",
+        title: "Assign visual priority before choosing a region",
+        body: "Hierarchy still depends on task, content, contrast, reading direction, and surrounding layout.",
+        visual: {
+          type: "rule",
+          statement: "Context determines the appropriate design choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Applied practice",
+        title: "Use center and edges according to task importance",
+        body: "Reserve the center for the page’s primary decision when that supports the task.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Choose structure",
+            "Test context",
+            "Refine",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Test the pattern in the real task",
+        body: "Move utilities to secondary regions without making them hard to find.",
+        visual: {
+          type: "rule",
+          statement: "Useful structure follows user intent",
+        },
+      },
+    ],
+  },
+  {
+    id: "DUje_dlDakf",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DUje_dlDakf/",
+      creator: "@designparser",
+      publishedAt: "2026-02-09",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Use Color Cues With Context and Care",
+    summary:
+      "A color-communication study showing how repeated color associations can guide attention and expectation, while recognizing that meanings are cultural, contextual, and not a license to manipulate.",
+    principles: [
+      "Color can signal urgency, calm, attention, or category through learned associations.",
+      "Repeated use matters more than isolated color choice, but meaning varies across context and culture.",
+    ],
+    applications: [
+      "Use color to reinforce a clear action or status meaning.",
+      "Pair color with text, icons, and accessible contrast rather than relying on association alone.",
+    ],
+    uncertainties: [
+      "The source assigns overly broad emotional meanings to red, blue, and yellow.",
+      "Claims about appetite, sales, finance, and technology are examples rather than universal effects.",
+      "Only the opening color-swatch composition was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.04,
+        label: "Color is framed as an influence on emotion",
+      },
+      {
+        start: 3.04,
+        end: 16,
+        label: "Several common associations are proposed",
+      },
+      {
+        start: 16,
+        end: 20.48,
+        label: "Repetition and culture qualify the claim",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design study",
+        title: "Color can guide interpretation without deciding it",
+        body: "A color-communication study showing how repeated color associations can guide attention and expectation, while recognizing that meanings are cultural, contextual, and not a license to manipulate.",
+        visual: {
+          type: "comparison",
+          before: "Source claim",
+          after: "Context-aware interpretation",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "A familiar cue can become a shortcut or stereotype",
+        body: "Color can signal urgency, calm, attention, or category through learned associations.",
+        visual: {
+          type: "layers",
+          items: ["Interface context", "User goal", "Visible cue"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Working principle",
+        title: "Build meaning through consistent accessible signals",
+        body: "Repeated use matters more than isolated color choice, but meaning varies across context and culture.",
+        visual: {
+          type: "rule",
+          statement: "Context determines the appropriate design choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Applied practice",
+        title: "Use color with labels, contrast, and cultural testing",
+        body: "Use color to reinforce a clear action or status meaning.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Choose structure",
+            "Test context",
+            "Refine",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Test the pattern in the real task",
+        body: "Pair color with text, icons, and accessible contrast rather than relying on association alone.",
+        visual: {
+          type: "rule",
+          statement: "Useful structure follows user intent",
+        },
+      },
+    ],
+  },
+  {
+    id: "DUbdEXgjRc5",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DUbdEXgjRc5/",
+      creator: "@designparser",
+      publishedAt: "2026-02-06",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Align Icons by Visible Shape",
+    summary:
+      "An optical-alignment study showing why an icon’s bounding box can be a weak guide and why visible shape, neighboring text, and component context should determine the final position.",
+    principles: [
+      "Geometric centering can look wrong when visible icon mass is uneven.",
+      "Optical adjustments should be tested against the actual icon and text rather than treated as a fixed offset.",
+    ],
+    applications: [
+      "Start with layout alignment, then compare visible mass at the delivery size.",
+      "Test varied icon silhouettes and keep touch-target geometry independent from optical correction.",
+    ],
+    uncertainties: [
+      "The source’s cap-height and 0.1–0.2 em values are contextual heuristics, not universal rules.",
+      "Only the opening icon-and-label example was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.68,
+        label: "Geometric centering is challenged",
+      },
+      {
+        start: 3.68,
+        end: 8.08,
+        label: "Visible-shape alignment and an offset are proposed",
+      },
+      {
+        start: 8.64,
+        end: 14.4,
+        label: "Optical balance is preferred over layout math",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design study",
+        title: "An icon box can be centered while its shape feels off",
+        body: "An optical-alignment study showing why an icon’s bounding box can be a weak guide and why visible shape, neighboring text, and component context should determine the final position.",
+        visual: {
+          type: "comparison",
+          before: "Source claim",
+          after: "Context-aware interpretation",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "Bounding boxes hide visual mass",
+        body: "Geometric centering can look wrong when visible icon mass is uneven.",
+        visual: {
+          type: "layers",
+          items: ["Interface context", "User goal", "Visible cue"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Working principle",
+        title: "Judge alignment in the assembled component",
+        body: "Optical adjustments should be tested against the actual icon and text rather than treated as a fixed offset.",
+        visual: {
+          type: "rule",
+          statement: "Context determines the appropriate design choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Applied practice",
+        title: "Test visible balance across real icons",
+        body: "Start with layout alignment, then compare visible mass at the delivery size.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Choose structure",
+            "Test context",
+            "Refine",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Test the pattern in the real task",
+        body: "Test varied icon silhouettes and keep touch-target geometry independent from optical correction.",
+        visual: {
+          type: "rule",
+          statement: "Useful structure follows user intent",
+        },
+      },
+    ],
+  },
+  {
+    id: "DUY2FxrDR3a",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DUY2FxrDR3a/",
+      creator: "@designparser",
+      publishedAt: "2026-02-05",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Reduce List Overload With Meaningful Grouping",
+    summary:
+      "A selection-interface study showing how long identical rows can create overload and proposing grouping, recognizable cues, and adequately sized targets to support scanning and choice.",
+    principles: [
+      "Grouping can reduce the effort required to scan a long set of options.",
+      "Recognizable labels and cues should support, not replace, clear information structure.",
+    ],
+    applications: [
+      "Chunk options by a decision-relevant category.",
+      "Use adequate target sizes and test dense lists with real content and assistive technology.",
+    ],
+    uncertainties: [
+      "The source’s dual-coding and speed claims are not supported with study conditions.",
+      "Cards are not automatically better than rows; structure depends on the task and density.",
+      "Only the opening category-list interface was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.52,
+        label: "Identical rows are linked to overload",
+      },
+      {
+        start: 3.52,
+        end: 6.96,
+        label: "Grouping and cards are proposed",
+      },
+      {
+        start: 6.96,
+        end: 11.92,
+        label: "Targets and density are discussed",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design study",
+        title: "A long list can make categories hard to compare",
+        body: "A selection-interface study showing how long identical rows can create overload and proposing grouping, recognizable cues, and adequately sized targets to support scanning and choice.",
+        visual: {
+          type: "comparison",
+          before: "Source claim",
+          after: "Context-aware interpretation",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "Uniform rows can hide useful grouping",
+        body: "Grouping can reduce the effort required to scan a long set of options.",
+        visual: {
+          type: "layers",
+          items: ["Interface context", "User goal", "Visible cue"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Working principle",
+        title: "Group choices around the decision",
+        body: "Recognizable labels and cues should support, not replace, clear information structure.",
+        visual: {
+          type: "rule",
+          statement: "Context determines the appropriate design choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Applied practice",
+        title: "Use structure and targets to lower scanning effort",
+        body: "Chunk options by a decision-relevant category.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Choose structure",
+            "Test context",
+            "Refine",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Test the pattern in the real task",
+        body: "Use adequate target sizes and test dense lists with real content and assistive technology.",
+        visual: {
+          type: "rule",
+          statement: "Useful structure follows user intent",
+        },
+      },
+    ],
+  },
+  {
+    id: "DUUCoF4DUST",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DUUCoF4DUST/",
+      creator: "@designparser",
+      publishedAt: "2026-02-03",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Make Lists Scannable and Rows Actionable",
+    summary:
+      "A list-design study connecting left-edge anchors, full-row targets, clear navigation cues, and restrained separation to faster scanning without treating a single attention percentage or height as universal.",
+    principles: [
+      "Consistent left-side anchors can support rapid scanning in left-to-right layouts.",
+      "A whole-row target can reduce pointing effort when the row has one clear destination.",
+    ],
+    applications: [
+      "Make the row action clear and preserve keyboard and screen-reader semantics.",
+      "Use either spacing or dividers when they clarify grouping, then test density with real items.",
+    ],
+    uncertainties: [
+      "The 80% attention figure and 44-pixel target value are not universally applicable.",
+      "Left-edge guidance depends on directionality and locale.",
+      "Only the opening location-list interface was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5.12,
+        label: "List scanning and left-side anchors are introduced",
+      },
+      {
+        start: 5.12,
+        end: 10.64,
+        label: "Whole-row targets and target size are proposed",
+      },
+      {
+        start: 10.64,
+        end: 18.24,
+        label: "Navigation cues and separation are discussed",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design study",
+        title: "Scanning begins with stable anchors",
+        body: "A list-design study connecting left-edge anchors, full-row targets, clear navigation cues, and restrained separation to faster scanning without treating a single attention percentage or height as universal.",
+        visual: {
+          type: "comparison",
+          before: "Source claim",
+          after: "Context-aware interpretation",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "Small fragmented targets slow list interaction",
+        body: "Consistent left-side anchors can support rapid scanning in left-to-right layouts.",
+        visual: {
+          type: "layers",
+          items: ["Interface context", "User goal", "Visible cue"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Working principle",
+        title: "Make one row express one destination",
+        body: "A whole-row target can reduce pointing effort when the row has one clear destination.",
+        visual: {
+          type: "rule",
+          statement: "Context determines the appropriate design choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Applied practice",
+        title: "Use clear targets and restrained separation",
+        body: "Make the row action clear and preserve keyboard and screen-reader semantics.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Choose structure",
+            "Test context",
+            "Refine",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Test the pattern in the real task",
+        body: "Use either spacing or dividers when they clarify grouping, then test density with real items.",
+        visual: {
+          type: "rule",
+          statement: "Useful structure follows user intent",
+        },
+      },
+    ],
+  },
+  {
+    id: "DURV7BBDUBj",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DURV7BBDUBj/",
+      creator: "@designparser",
+      publishedAt: "2026-02-02",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Balance Icon Families by Optical Mass",
+    summary:
+      "An icon-system study explaining that equal boxes do not guarantee equal perceived weight, so live-area, stroke, and shape adjustments should be checked as a family at the sizes where they ship.",
+    principles: [
+      "Circles, squares, strokes, and corners create different apparent masses inside equal boxes.",
+      "Optical balancing is a family-level comparison rather than a single geometric rule.",
+    ],
+    applications: [
+      "Define a consistent canvas and live area, then compare silhouettes at small sizes.",
+      "Use blur or distance checks as a supplement to detailed visual review.",
+    ],
+    uncertainties: [
+      "The source’s fixed 24, 20, and 2-pixel values are examples, not universal metrics.",
+      "Only the opening title state was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5.76,
+        label: "Canvas and trim dimensions are introduced",
+      },
+      {
+        start: 5.76,
+        end: 12.48,
+        label: "Visual weight and blur comparison are proposed",
+      },
+      {
+        start: 12.48,
+        end: 20.08,
+        label: "Stroke and alignment guidance is offered",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design study",
+        title: "Equal icon boxes can carry unequal visual mass",
+        body: "An icon-system study explaining that equal boxes do not guarantee equal perceived weight, so live-area, stroke, and shape adjustments should be checked as a family at the sizes where they ship.",
+        visual: {
+          type: "comparison",
+          before: "Source claim",
+          after: "Context-aware interpretation",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "Shape differences make geometric consistency feel uneven",
+        body: "Circles, squares, strokes, and corners create different apparent masses inside equal boxes.",
+        visual: {
+          type: "layers",
+          items: ["Interface context", "User goal", "Visible cue"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Working principle",
+        title: "Balance a family at the size it ships",
+        body: "Optical balancing is a family-level comparison rather than a single geometric rule.",
+        visual: {
+          type: "rule",
+          statement: "Context determines the appropriate design choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Applied practice",
+        title: "Compare silhouettes before finalizing geometry",
+        body: "Define a consistent canvas and live area, then compare silhouettes at small sizes.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Choose structure",
+            "Test context",
+            "Refine",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Test the pattern in the real task",
+        body: "Use blur or distance checks as a supplement to detailed visual review.",
+        visual: {
+          type: "rule",
+          statement: "Useful structure follows user intent",
+        },
+      },
+    ],
+  },
+  {
+    id: "DUJHCrbjULb",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DUJHCrbjULb/",
+      creator: "@designparser",
+      publishedAt: "2026-01-30",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Give Each Card One Primary Job",
+    summary:
+      "A card-design study advocating a focused topic, clear hierarchy, predictable placement of key information and actions, and a whole-card target only when the card represents one destination.",
+    principles: [
+      "Cards become harder to scan when multiple unrelated topics compete inside one container.",
+      "Consistent hierarchy and action placement support comparison across a collection.",
+    ],
+    applications: [
+      "Use concise descriptions and make the card’s primary action unambiguous.",
+      "Choose padding, gaps, and dividers for the structure they clarify, then preserve accessible interaction semantics.",
+    ],
+    uncertainties: [
+      "The source’s three-line maximum and universal whole-card rule are contextual heuristics.",
+      "Only the opening multi-card example was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5,
+        label: "One card and concise description are proposed",
+      },
+      {
+        start: 5,
+        end: 11,
+        label: "Hierarchy and placement guide scanning",
+      },
+      {
+        start: 11,
+        end: 18,
+        label: "Spacing and whole-card actions are discussed",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design study",
+        title: "A card needs one dominant subject",
+        body: "A card-design study advocating a focused topic, clear hierarchy, predictable placement of key information and actions, and a whole-card target only when the card represents one destination.",
+        visual: {
+          type: "comparison",
+          before: "Source claim",
+          after: "Context-aware interpretation",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "Mixed goals create clutter and ambiguous actions",
+        body: "Cards become harder to scan when multiple unrelated topics compete inside one container.",
+        visual: {
+          type: "layers",
+          items: ["Interface context", "User goal", "Visible cue"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Working principle",
+        title: "Establish a repeatable information hierarchy",
+        body: "Consistent hierarchy and action placement support comparison across a collection.",
+        visual: {
+          type: "rule",
+          statement: "Context determines the appropriate design choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Applied practice",
+        title: "Use a whole-card target only for one destination",
+        body: "Use concise descriptions and make the card’s primary action unambiguous.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Choose structure",
+            "Test context",
+            "Refine",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Test the pattern in the real task",
+        body: "Choose padding, gaps, and dividers for the structure they clarify, then preserve accessible interaction semantics.",
+        visual: {
+          type: "rule",
+          statement: "Useful structure follows user intent",
+        },
+      },
+    ],
+  },
+  {
+    id: "DUHM5DHDcJs",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DUHM5DHDcJs/",
+      creator: "@designparser",
+      publishedAt: "2026-01-29",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Make Progress Indicators Explain State",
+    summary:
+      "A feedback study distinguishing active, paused, and complete states in progress indicators, then recommending timely appearance, useful labels, and visual proportions that support rather than exaggerate expectation.",
+    principles: [
+      "Motion and static position can communicate different process states.",
+      "A progress value is credible only when it represents meaningful work and is paired with understandable status.",
+    ],
+    applications: [
+      "Show progress when waiting is material and communicate state changes explicitly.",
+      "Use numeric or descriptive feedback when it improves prediction, and test the indicator with actual wait times.",
+    ],
+    uncertainties: [
+      "The one-second, 4–8 pixel, and 80% values are heuristics rather than universal standards.",
+      "Only the opening progress-bar state was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4.72,
+        label: "Motion and static progress states are distinguished",
+      },
+      {
+        start: 4.72,
+        end: 8,
+        label: "Timing and numeric feedback are proposed",
+      },
+      {
+        start: 8,
+        end: 14.24,
+        label: "Thickness and motivational threshold claims are made",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design study",
+        title: "A bar must describe process state, not merely decorate waiting",
+        body: "A feedback study distinguishing active, paused, and complete states in progress indicators, then recommending timely appearance, useful labels, and visual proportions that support rather than exaggerate expectation.",
+        visual: {
+          type: "comparison",
+          before: "Source claim",
+          after: "Context-aware interpretation",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "Ambiguous motion can make status hard to interpret",
+        body: "Motion and static position can communicate different process states.",
+        visual: {
+          type: "layers",
+          items: ["Interface context", "User goal", "Visible cue"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Working principle",
+        title: "Pair progress with meaningful state and timing",
+        body: "A progress value is credible only when it represents meaningful work and is paired with understandable status.",
+        visual: {
+          type: "rule",
+          statement: "Context determines the appropriate design choice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Applied practice",
+        title: "Use feedback that helps people predict the wait",
+        body: "Show progress when waiting is material and communicate state changes explicitly.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Choose structure",
+            "Test context",
+            "Refine",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Test the pattern in the real task",
+        body: "Use numeric or descriptive feedback when it improves prediction, and test the indicator with actual wait times.",
+        visual: {
+          type: "rule",
+          statement: "Useful structure follows user intent",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

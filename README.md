@@ -51,6 +51,12 @@ AI agents follow the scoped rules in [`references/AGENTS.md`](references/AGENTS.
 
 Authoring structures live in [`templates/`](templates/), and the approved workflow design is documented in [`docs/superpowers/specs/2026-08-07-reference-inbox-design.md`](docs/superpowers/specs/2026-08-07-reference-inbox-design.md).
 
+## Reference maintenance
+
+Author approved English reference metadata in `content/references/en/<id>.json`. Run `npm run references:check` for deterministic local schema and Candidate-graph validation.
+
+Run `npm run references:links` only when manually checking the published destinations. This opt-in command contacts external sources; redirects and unavailable URLs are maintenance findings for editorial review. Remote failures never enter or block the default application build and quality gate.
+
 ## Local development
 
 Requirements:

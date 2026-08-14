@@ -19,6 +19,7 @@
     "references:graph:check": "node scripts/reference-graph.mjs references/candidates",
     "references:records:check": "vitest run src/content/reference-content.test.ts",
     "references:check": "npm run references:graph:check && npm run references:records:check",
+    "references:links": "npm run references:records:check && node scripts/reference-link-health.mjs",
     "check": "npm run references:check && npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {

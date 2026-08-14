@@ -43,6 +43,7 @@
 ### Task 1: Adopt the source-graph editorial contract
 
 **Files:**
+
 - Create: `docs/decisions/0003-source-graph-discovery.md`
 - Create: `docs/ko/decisions/0003-source-graph-discovery.md`
 - Create: `templates/discovered-candidate.md`
@@ -54,6 +55,7 @@
 - Modify: `docs/ko/decisions/README.md`
 
 **Interfaces:**
+
 - Consumes: approved design terminology and lifecycle values.
 - Produces: the exact authoring contract used by the validator and all later data tasks.
 
@@ -99,12 +101,14 @@ git commit -m "docs: adopt source graph discovery policy"
 ### Task 2: Add offline graph validation
 
 **Files:**
+
 - Create: `scripts/reference-graph.mjs`
 - Create: `scripts/reference-graph.test.mjs`
 - Modify: `package.json`
 - Modify: `package-lock.json`
 
 **Interfaces:**
+
 - Consumes: candidate schema from `templates/discovered-candidate.md`.
 - Produces: `parseCandidateFile(path)`, `validateCandidate(candidate, path)`, `validateGraph(candidates)`, `loadCandidates(directory)`, and CLI exit status; `npm run references:check`.
 
@@ -154,11 +158,13 @@ git commit -m "feat: validate reference source graphs"
 ### Task 3: Capture DENG wave 1 candidate nodes
 
 **Files:**
+
 - Create: `references/candidates/*.md` for every unique canonical resource destination on the DENG page at access time.
 - Modify: `references/analyses/sources/deng-design-engineering-directory.md`
 - Modify: `references/analyses/ko/sources/deng-design-engineering-directory.md`
 
 **Interfaces:**
+
 - Consumes: candidate template, validator, and approved DENG expansion scope.
 - Produces: canonical first-wave nodes with `discovered` status and DENG provenance edges; an exact candidate-ID list for Tasks 4 and 5.
 
@@ -190,12 +196,14 @@ git commit -m "data: capture DENG resource candidates"
 ### Task 4: Analyze the first half of DENG wave 1
 
 **Files:**
+
 - Modify: the first half of DENG candidate files in source order.
 - Create: matching English files under `references/analyses/sources/`.
 - Create: matching Korean files under `references/analyses/ko/sources/`.
 - Create: additional `references/candidates/*.md` only for qualifying next-wave links discovered in these sources.
 
 **Interfaces:**
+
 - Consumes: Task 3's ordered candidate list.
 - Produces: completed draft analyses and translations plus uninspected depth-2 candidate nodes.
 
@@ -233,12 +241,14 @@ git commit -m "data: analyze first DENG resource batch"
 ### Task 5: Complete DENG wave 1
 
 **Files:**
+
 - Modify: all remaining first-level DENG candidate files.
 - Create: their English analyses under `references/analyses/sources/`.
 - Create: their Korean translations under `references/analyses/ko/sources/`.
 - Create or modify: deduplicated next-wave nodes under `references/candidates/`.
 
 **Interfaces:**
+
 - Consumes: remaining ordered Task 3 nodes and Task 4's graph.
 - Produces: a terminal wave result for every DENG first-level candidate.
 
@@ -275,10 +285,12 @@ git commit -m "data: complete DENG resource wave"
 ### Task 6: Publish the internal wave report and final verification
 
 **Files:**
+
 - Modify: `references/index.md`
 - Modify: `references/log.md`
 
 **Interfaces:**
+
 - Consumes: the validated complete candidate graph and analyses.
 - Produces: the human review queue and append-only audit entry; no public product publication.
 

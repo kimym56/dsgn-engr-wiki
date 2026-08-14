@@ -15,12 +15,13 @@ export function ReferenceCard({
   areas,
   dictionary,
 }: ReferenceCardProps) {
+  const titleId = `reference-${record.id}-title`;
   const recordAreas = record.areas
     .map((areaId) => areas.find(({ id }) => id === areaId))
     .filter((area): area is ReferenceArea => area !== undefined);
 
   return (
-    <article className="reference-card">
+    <article aria-labelledby={titleId} className="reference-card">
       <div className="reference-card__preview">
         <span aria-hidden="true" className="reference-card__preview-mark" />
         <p>{dictionary.neutralPreview}</p>
@@ -28,7 +29,7 @@ export function ReferenceCard({
       <p className="reference-card__format">
         {dictionary.formats[record.format]}
       </p>
-      <h2>
+      <h2 id={titleId}>
         <a className="reference-card__title" href={record.url}>
           {record.title}
         </a>

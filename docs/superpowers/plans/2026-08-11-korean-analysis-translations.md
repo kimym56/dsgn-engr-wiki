@@ -26,11 +26,13 @@
 ### Task 1: Establish the Korean analysis convention with the course-platform translation
 
 **Files:**
+
 - Create: `references/analyses/ko/sources/emil-course-platform.md`
 - Read: `references/analyses/sources/emil-course-platform.md`
 - Test: `references/analyses/ko/sources/emil-course-platform.md`
 
 **Interfaces:**
+
 - Consumes: the canonical English analysis and `docs/superpowers/specs/2026-08-11-korean-analysis-translations-design.md`.
 - Produces: the directory convention, notice, and Korean heading vocabulary reused by later tasks.
 
@@ -55,20 +57,35 @@ Use this exact heading vocabulary:
 
 ```markdown
 # 자료 분석: How I built my course platform
+
 ## 편집 평가
+
 ### 범위 적합성
+
 ### 권위와 지속 가능성
+
 ### 중복 및 분류
+
 ### 편집 권고
+
 ## 웹사이트 디자인 분석
+
 ### 정보 계층과 탐색
+
 ### UI, 인터랙션 및 모션
+
 ### 그리드, 레이아웃 및 반응형 동작
+
 ### 타이포그래피, 색상 및 시각적 리듬
+
 ### 접근성 관찰
+
 ### 전이 가능한 원칙
+
 ### 복제하지 않아야 할 출처 고유 표현
+
 ## 근거와 불확실성
+
 ## 사람 검토
 ```
 
@@ -100,12 +117,14 @@ Expected: 4 test files and 9 tests pass before commit.
 ### Task 2: Translate Devouring Details and Designparser
 
 **Files:**
+
 - Create: `references/analyses/ko/sources/devouring-details.md`
 - Create: `references/analyses/ko/sources/designparser-design-rules-cheatsheet.md`
 - Read: `references/analyses/sources/devouring-details.md`
 - Read: `references/analyses/sources/designparser-design-rules-cheatsheet.md`
 
 **Interfaces:**
+
 - Consumes: Task 1 heading vocabulary and the two same-named English analyses.
 - Produces: Korean review translations for the paid reference manual and rule-lookup tool.
 
@@ -146,12 +165,14 @@ Expected: structure checks, immutability check, diff check, and 9 tests pass bef
 ### Task 3: Translate DENG and Emil Kowalski
 
 **Files:**
+
 - Create: `references/analyses/ko/sources/deng-design-engineering-directory.md`
 - Create: `references/analyses/ko/sources/emil-kowalski.md`
 - Read: `references/analyses/sources/deng-design-engineering-directory.md`
 - Read: `references/analyses/sources/emil-kowalski.md`
 
 **Interfaces:**
+
 - Consumes: Task 1 heading vocabulary and the two same-named English analyses.
 - Produces: Korean review translations for the secondary directory and author-context website.
 
@@ -192,11 +213,13 @@ Expected: structure checks, immutability check, diff check, and 9 tests pass bef
 ### Task 4: Index, log, and verify all Korean translations
 
 **Files:**
+
 - Modify: `references/index.md`
 - Modify: `references/log.md`
 - Verify: five English files and five Korean files
 
 **Interfaces:**
+
 - Consumes: all five Korean translations from Tasks 1–3.
 - Produces: discoverable review links and append-only provenance without changing canonical counts or decisions.
 

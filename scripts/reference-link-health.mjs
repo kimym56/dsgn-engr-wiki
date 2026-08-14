@@ -3,6 +3,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 const MAX_REDIRECTS = 5;
+const MAX_CONCURRENCY = 4;
 const DEFAULT_CONTENT_DIRECTORY = path.join(
   process.cwd(),
   "content",
@@ -154,6 +155,7 @@ export async function checkReferenceLinks(
   const results = new Array(records.length);
   const workerCount = Math.min(
     records.length,
+    MAX_CONCURRENCY,
     Number.isInteger(concurrency) && concurrency > 0 ? concurrency : 1,
   );
   let nextIndex = 0;

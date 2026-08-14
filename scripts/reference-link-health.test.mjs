@@ -251,6 +251,28 @@ describe("checkReferenceLinks", () => {
     ]);
   });
 
+  it("caps caller-supplied concurrency above four", async () => {
+    const records = Array.from({ length: 9 }, (_, index) =>
+      record(`over-limit-${index}`),
+    );
+    let active = 0;
+    let maximumActive = 0;
+    const fetchImpl = async () => {
+      active += 1;
+      maximumActive = Math.max(maximumActive, active);
+      await new Promise((resolve) => setTimeout(resolve, 5));
+      active -= 1;
+      return response(200);
+    };
+
+    await checkReferenceLinks(records, {
+      fetchImpl,
+      concurrency: 9,
+    });
+
+    expect(maximumActive).toBe(4);
+  });
+
   it("formats stable result lines and exits zero when nothing is unavailable", async () => {
     const records = [
       record("redirected", "https://example.com/start"),

@@ -156,13 +156,20 @@ describe("parseReferenceCatalog", () => {
     );
   });
 
-  it("rejects duplicate and malformed registry ids", () => {
+  it("rejects duplicate area ids", () => {
     const input = structuredClone(validInput);
     input.areas = [
       validArea,
       { ...validArea, label: "Duplicate" },
-      { ...validArea, id: "Invalid Id" },
     ];
+
+    expect(validateReferenceCatalog(input)).toEqual(
+      expect.arrayContaining([expect.stringContaining("duplicate area id")]),
+    );
+  });
+
+  it("rejects duplicate collection ids", () => {
+    const input = structuredClone(validInput);
     input.collections = [
       { id: "featured", label: "Featured", description: "Featured work." },
       { id: "featured", label: "Again", description: "Repeated work." },
@@ -170,10 +177,17 @@ describe("parseReferenceCatalog", () => {
 
     expect(validateReferenceCatalog(input)).toEqual(
       expect.arrayContaining([
-        expect.stringContaining("duplicate area id"),
-        expect.stringContaining("areas[2].id"),
         expect.stringContaining("duplicate collection id"),
       ]),
+    );
+  });
+
+  it("rejects malformed registry ids", () => {
+    const input = structuredClone(validInput);
+    input.areas = [{ ...validArea, id: "Invalid Id" }];
+
+    expect(validateReferenceCatalog(input)).toEqual(
+      expect.arrayContaining([expect.stringContaining("areas[0].id")]),
     );
   });
 
@@ -186,11 +200,24 @@ describe("parseReferenceCatalog", () => {
     );
   });
 
-  it("rejects non-English metadata language and preview source URLs", () => {
+  it("rejects a non-English metadata language", () => {
     const input = structuredClone(validInput);
     input.records[0].value = {
       ...validRecord,
       language: "ko",
+    };
+
+    expect(validateReferenceCatalog(input)).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining("developing-taste.json.language"),
+      ]),
+    );
+  });
+
+  it("rejects an invalid preview source URL", () => {
+    const input = structuredClone(validInput);
+    input.records[0].value = {
+      ...validRecord,
       preview: {
         src: "/previews/developing-taste.webp",
         alt: "Developing Taste preview",
@@ -201,7 +228,6 @@ describe("parseReferenceCatalog", () => {
 
     expect(validateReferenceCatalog(input)).toEqual(
       expect.arrayContaining([
-        expect.stringContaining("developing-taste.json.language"),
         expect.stringContaining("preview.source_url"),
       ]),
     );

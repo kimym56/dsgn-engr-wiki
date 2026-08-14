@@ -16,7 +16,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "references:check": "node scripts/reference-graph.mjs references/candidates",
+    "references:graph:check": "node scripts/reference-graph.mjs references/candidates",
+    "references:records:check": "vitest run src/content/reference-content.test.ts",
+    "references:check": "npm run references:graph:check && npm run references:records:check",
     "check": "npm run references:check && npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {

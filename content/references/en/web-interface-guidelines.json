@@ -1,0 +1,25 @@
+{
+  "id": "web-interface-guidelines",
+  "title": "Web Interface Guidelines",
+  "url": "https://interfaces.rauno.me/",
+  "publisher": "Web Interface Guidelines",
+  "author": null,
+  "summary": "A living checklist of interface details spanning forms, typography, motion, touch, performance, accessibility, and feedback.",
+  "relevance": "Makes tacit frontend craft decisions reviewable while reminding teams to test each guideline against current browser and product context.",
+  "format": "documentation",
+  "areas": [
+    "interface-implementation",
+    "interaction-and-motion",
+    "accessibility-and-inclusive-design",
+    "frontend-quality-and-performance"
+  ],
+  "collections": [],
+  "source_language": "en",
+  "published": null,
+  "added": "2026-08-14",
+  "reviewed": "2026-08-14",
+  "status": "review",
+  "preview": null,
+  "language": "en",
+  "translation_of": null
+}

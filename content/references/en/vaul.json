@@ -1,0 +1,24 @@
+{
+  "id": "vaul",
+  "title": "Vaul",
+  "url": "https://vaul.emilkowal.ski/",
+  "publisher": "Vaul",
+  "author": null,
+  "summary": "A focused landing page and demonstration for a React drawer component, with direct paths to its documentation and source.",
+  "relevance": "Provides a concise example of presenting a spatial, gesture-oriented interaction while keeping implementation resources close to the demo.",
+  "format": "tool",
+  "areas": [
+    "interface-implementation",
+    "interaction-and-motion",
+    "accessibility-and-inclusive-design"
+  ],
+  "collections": [],
+  "source_language": "en",
+  "published": null,
+  "added": "2026-08-14",
+  "reviewed": "2026-08-14",
+  "status": "review",
+  "preview": null,
+  "language": "en",
+  "translation_of": null
+}

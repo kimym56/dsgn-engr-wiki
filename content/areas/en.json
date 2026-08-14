@@ -1,0 +1,42 @@
+[
+  {
+    "id": "design-engineering-foundations",
+    "label": "Design Engineering Foundations",
+    "description": "Core perspectives on the role, judgment, and practice of connecting design intent with implementation."
+  },
+  {
+    "id": "interface-implementation",
+    "label": "Interface Implementation",
+    "description": "Component structure, state, responsive behavior, and frontend techniques that turn interface decisions into working software."
+  },
+  {
+    "id": "interaction-and-motion",
+    "label": "Interaction and Motion",
+    "description": "Feedback, transitions, gestures, and temporal behavior that make interfaces understandable and responsive."
+  },
+  {
+    "id": "design-systems-and-tokens",
+    "label": "Design Systems and Tokens",
+    "description": "Reusable foundations, component systems, tokens, and governance that align design and engineering."
+  },
+  {
+    "id": "prototyping-and-tooling",
+    "label": "Prototyping and Tooling",
+    "description": "Tools and prototyping practices that help teams explore, communicate, and test interface ideas."
+  },
+  {
+    "id": "accessibility-and-inclusive-design",
+    "label": "Accessibility and Inclusive Design",
+    "description": "Practices that make interfaces usable across abilities, input methods, preferences, and environments."
+  },
+  {
+    "id": "collaboration-handoff-and-workflow",
+    "label": "Collaboration, Handoff, and Workflow",
+    "description": "Shared processes and artifacts that keep design and engineering aligned throughout delivery."
+  },
+  {
+    "id": "frontend-quality-and-performance",
+    "label": "Frontend Quality and Performance",
+    "description": "Reliability, performance, and implementation quality as they affect the user experience."
+  }
+]

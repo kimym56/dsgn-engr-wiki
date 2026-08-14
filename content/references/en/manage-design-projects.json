@@ -1,0 +1,20 @@
+{
+  "id": "manage-design-projects",
+  "title": "Manage design projects",
+  "url": "https://linear.app/method/manage-design-projects",
+  "publisher": "Linear",
+  "author": null,
+  "summary": "Linear describes how its team moves design work from problem verification and open exploration into focused feedback, task decomposition, and continuous engineering collaboration.",
+  "relevance": "Treats handoff as shared project context rather than a final transfer and offers concrete ways to represent uncertain design work.",
+  "format": "article",
+  "areas": ["collaboration-handoff-and-workflow"],
+  "collections": [],
+  "source_language": "en",
+  "published": null,
+  "added": "2026-08-14",
+  "reviewed": "2026-08-14",
+  "status": "review",
+  "preview": null,
+  "language": "en",
+  "translation_of": null
+}

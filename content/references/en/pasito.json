@@ -1,0 +1,24 @@
+{
+  "id": "pasito",
+  "title": "Pasito",
+  "url": "https://joshpuckett.me/pasito",
+  "publisher": "Josh Puckett",
+  "author": "Josh Puckett",
+  "summary": "A demonstration and API reference for a React stepper with multiple orientations, autoplay, windowing, theming, and documented accessibility semantics.",
+  "relevance": "Shows how a compact interaction primitive can combine live examples, usage code, customization, motion, and accessibility considerations.",
+  "format": "tool",
+  "areas": [
+    "interface-implementation",
+    "interaction-and-motion",
+    "accessibility-and-inclusive-design"
+  ],
+  "collections": [],
+  "source_language": "en",
+  "published": null,
+  "added": "2026-08-14",
+  "reviewed": "2026-08-14",
+  "status": "review",
+  "preview": null,
+  "language": "en",
+  "translation_of": null
+}

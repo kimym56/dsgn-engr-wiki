@@ -1,0 +1,20 @@
+{
+  "id": "family-wallet",
+  "title": "Family Wallet",
+  "url": "https://www.raphaelsalaja.com/work/family-wallet",
+  "publisher": "Raphael Salaja",
+  "author": "Raphael Salaja",
+  "summary": "A compact recreation of a multi-stage wallet-customization flow that frames component complexity as a state-modeling problem.",
+  "relevance": "Offers an applied prompt for planning predictable state transitions before building a visually rich interactive component.",
+  "format": "case-study",
+  "areas": ["interface-implementation", "interaction-and-motion"],
+  "collections": [],
+  "source_language": "en",
+  "published": null,
+  "added": "2026-08-14",
+  "reviewed": "2026-08-14",
+  "status": "review",
+  "preview": null,
+  "language": "en",
+  "translation_of": null
+}

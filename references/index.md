@@ -7,7 +7,7 @@ Read this file first when querying or maintaining the reference collection. Coun
 - Submitted URLs: 18
 - Processed submissions: 5
 - Draft records: 0
-- Records in review: 0
+- Records in review: 9
 - Published records: 0
 - Archived records: 0
 - Source analyses: 25
@@ -15,7 +15,7 @@ Read this file first when querying or maintaining the reference collection. Coun
 
 ## Candidate discovery graph
 
-Candidates are internal research leads, not reference records. The record counts above therefore remain zero; no Candidate is draft, in review, published, or archived as a reference record.
+Candidates are internal research leads, not reference records. Reference records are tracked separately below; no Candidate itself is draft, in review, published, or archived as a reference record.
 
 - Candidate nodes: 61
 - Candidate lifecycle: 34 discovered, 20 analyzed, 7 inaccessible, 0 analyzing, 0 rejected
@@ -83,7 +83,7 @@ Wave 2 recorded 38 active depth-3 edges without opening any destination: 34 new 
 - [emil-kowalski](analyses/sources/emil-kowalski.md) — draft source analysis.
 - [devouring-details](analyses/sources/devouring-details.md) — draft source analysis.
 - [emil-course-platform](analyses/sources/emil-course-platform.md) — draft source analysis.
-- Nine analyzed DENG wave-1 Candidates have draft source analyses and Korean review translations listed above. The maintainer approved all nine for the public-reference workflow on 2026-08-13; reference records have not yet been created, so published-record counts remain zero.
+- Nine analyzed DENG wave-1 Candidates have draft source analyses and Korean review translations listed above. Their nine review records now await the explicit public-metadata gate; published-record counts remain zero.
 - Eleven analyzed DENG wave-2 Candidates have new English draft analyses and Korean review translations awaiting human editorial decisions. No wave-2 publication decision has been made.
 
 ## Reference records
@@ -95,8 +95,17 @@ Wave 2 recorded 38 active depth-3 edges without opening any destination: 34 new 
 
 ### Review
 
-| Reference ID | Title | Area | Record |
-| ------------ | ----- | ---- | ------ |
+| Reference ID                   | Title                           | Area                                 | Record                                                                 |
+| ------------------------------ | ------------------------------- | ------------------------------------ | ---------------------------------------------------------------------- |
+| taste-is-eating-silicon-valley | Taste Is Eating Silicon Valley. | Design Engineering Foundations       | [Record](../content/references/en/taste-is-eating-silicon-valley.json) |
+| web-interface-guidelines       | Web Interface Guidelines        | Interface Implementation             | [Record](../content/references/en/web-interface-guidelines.json)       |
+| developing-taste               | Developing Taste                | Design Engineering Foundations       | [Record](../content/references/en/developing-taste.json)               |
+| pasito                         | Pasito                          | Interface Implementation             | [Record](../content/references/en/pasito.json)                         |
+| vaul                           | Vaul                            | Interface Implementation             | [Record](../content/references/en/vaul.json)                           |
+| family-wallet                  | Family Wallet                   | Interface Implementation             | [Record](../content/references/en/family-wallet.json)                  |
+| on-taste-part-3                | On Taste, Part 3                | Design Engineering Foundations       | [Record](../content/references/en/on-taste-part-3.json)                |
+| manage-design-projects         | Manage design projects          | Collaboration, Handoff, and Workflow | [Record](../content/references/en/manage-design-projects.json)         |
+| ux-engineer-a-terminal-career  | UX Engineer, a terminal career  | Design Engineering Foundations       | [Record](../content/references/en/ux-engineer-a-terminal-career.json)  |
 
 ### Published
 

@@ -9166,6 +9166,1134 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DUB_PzfDcpN",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DUB_PzfDcpN/",
+      creator: "@designparser",
+      publishedAt: "2026-01-27",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Separate Navigation from Action",
+    summary:
+      "A mobile-navigation study separating persistent destinations from a prominent creation action, while using labels, one active state, and reachable placement to make the current location and available action unambiguous.",
+    principles: [
+      "Tabs communicate location among peer destinations, while a floating action button communicates a distinct high-priority action.",
+      "Labels and a single active treatment reduce the interpretation required from icons alone.",
+      "Reachability depends on device, posture, handedness, and the rest of the interface rather than one universal thumb zone.",
+    ],
+    applications: [
+      "Rank the primary destinations before deciding how many belong in the persistent tab bar.",
+      "Give each tab a clear label, reserve one active state for the current destination, and visually separate the primary action.",
+      "Test bottom controls on representative devices with one-handed and assistive-technology use.",
+    ],
+    uncertainties: [
+      "Three to five tabs is a common heuristic, not a fixed limit for every information architecture.",
+      "The source's thumb-zone guidance does not account for device size, handedness, posture, or accessibility needs.",
+      "Only the opening navigation bar with labeled and unlabeled icon examples was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.52,
+        label: "Navigation confusion and a tab-count heuristic are introduced",
+      },
+      {
+        start: 3.52,
+        end: 6.88,
+        label: "Labels and reachable placement are recommended",
+      },
+      {
+        start: 6.88,
+        end: 11.52,
+        label: "Active state, primary action, and location roles are separated",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Navigation study",
+        title: "A bottom bar must explain both place and possibility",
+        body: "Persistent destinations and the primary action become easier to understand when they do not compete for the same visual role.",
+        visual: {
+          type: "comparison",
+          before: "Six equal icon controls",
+          after: "Labeled destinations plus one distinct action",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Failure mode",
+        title: "Icons alone turn navigation into recall",
+        body: "Too many peers, missing labels, and competing highlights make people decode the bar before moving through it.",
+        visual: {
+          type: "layers",
+          items: ["Too many peers", "Missing labels", "Competing active cues"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Role clarity",
+        title: "Let tabs answer where and the action button answer what now",
+        body: "One control family represents location; the other represents the most important immediate action.",
+        visual: {
+          type: "rule",
+          statement: "Tabs = location; primary button = action",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Bar audit",
+        title: "Build the bar from destination priority",
+        body: "Choose the persistent destinations first, label them, mark one current location, then place the distinct action within tested reach.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Rank destinations",
+            "Label icons",
+            "Mark one active tab",
+            "Test action reach",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "A calm tab bar gives every control one job",
+        body: "Keep destination choice, current location, and the primary action visually distinct even when they share the same edge of the screen.",
+        visual: {
+          type: "rule",
+          statement: "One destination set + one distinct action",
+        },
+      },
+    ],
+  },
+  {
+    id: "DT_OIgPDMEc",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DT_OIgPDMEc/",
+      creator: "@designparser",
+      publishedAt: "2026-01-26",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Pair Typefaces Through Shared Structure",
+    summary:
+      "A font-pairing study balancing shared proportions and rhythm with enough stylistic contrast to assign clear roles, using x-height, stroke character, spacing, and family relationships as concrete comparison points.",
+    principles: [
+      "A stable pairing combines structural compatibility with a visible difference in role or voice.",
+      "X-height, apparent weight, spacing, and texture should be compared in the actual sizes and content where the pair will appear.",
+      "Related families can simplify coordination, but contrast still needs to be intentionally assigned.",
+    ],
+    applications: [
+      "Set the same sample text in both candidates and compare lowercase scale, density, stroke color, and spacing.",
+      "Assign one face to sustained reading and the other to a specific display or accent role.",
+      "Test the pair across headings, paragraphs, labels, and numerals before adopting it as a system.",
+    ],
+    uncertainties: [
+      "The spoken record appears to render 'sans serif' as 'sound serif' in several places; the draft uses the visually and contextually supported category name.",
+      "Genre pairings such as serif with sans serif or script with sans serif are examples, not formulas for harmony.",
+      "The claim that superfamilies work best is contextual; closely related styles can also lack useful contrast.",
+      "Only the opening Comic Sans and Didot pairing was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4.8,
+        label: "Pairing harmony is defined as common ground plus difference",
+      },
+      {
+        start: 4.8,
+        end: 9.44,
+        label: "X-height, stroke weight, and spacing are proposed as checks",
+      },
+      {
+        start: 9.44,
+        end: 22.24,
+        label: "Several contrasting genre pairings and roles are described",
+      },
+      {
+        start: 22.24,
+        end: 24.48,
+        label: "Shared metrics in related families are recommended",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Type pairing",
+        title: "Harmony needs common ground and a visible difference",
+        body: "Two typefaces can coordinate through proportion and rhythm while still speaking with distinct voices.",
+        visual: {
+          type: "comparison",
+          before: "Unrelated scale and texture",
+          after: "Shared rhythm, distinct roles",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Mismatch",
+        title: "Two attractive faces can still argue on the page",
+        body: "Conflicting lowercase scale, density, or spacing makes the reader experience the pair as accidental rather than coordinated.",
+        visual: {
+          type: "layers",
+          items: [
+            "Lowercase scale",
+            "Stroke color",
+            "Spacing rhythm",
+            "Assigned role",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Compatibility",
+        title: "Match structure before judging style labels",
+        body: "Compare x-height, apparent weight, texture, and spacing in context; then decide whether the remaining contrast serves the hierarchy.",
+        visual: {
+          type: "rule",
+          statement: "Compatible metrics + purposeful contrast = useful pair",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Pairing proof",
+        title: "Test both faces in the roles they will own",
+        body: "A heading and paragraph specimen reveals relationships that separate font previews hide.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set shared text",
+            "Normalize size",
+            "Assign roles",
+            "Compare full hierarchy",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Pairing rule",
+        title:
+          "Let one relationship stabilize the pair and one difference explain it",
+        body: "A successful pairing is neither identical nor random: its common structure holds the system together while contrast clarifies use.",
+        visual: {
+          type: "rule",
+          statement: "Share the rhythm; separate the voice",
+        },
+      },
+    ],
+  },
+  {
+    id: "DT8h80fjelp",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DT8h80fjelp/",
+      creator: "@designparser",
+      publishedAt: "2026-01-25",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Choose Type for the Intended Voice",
+    summary:
+      "A typography study treating serif, sans-serif, script, and display forms as signals shaped by convention, then turning those broad associations into a contextual selection process rather than fixed emotional guarantees.",
+    principles: [
+      "Letterform structure and repeated cultural use contribute to the voice readers perceive.",
+      "Broad type categories contain substantial variation, so the actual family matters more than the category label alone.",
+      "Credibility comes from alignment among content, audience, medium, and typographic behavior.",
+    ],
+    applications: [
+      "Describe the intended voice in specific terms before browsing typefaces.",
+      "Compare representative families using real headlines, paragraphs, labels, and names.",
+      "Validate tone and legibility with the intended audience instead of relying only on genre associations.",
+    ],
+    uncertainties: [
+      "Claims that serif, sans-serif, script, and display categories trigger specific emotions are broad associations rather than universal responses.",
+      "Perception varies with family design, language, culture, content, and prior exposure.",
+      "Only the opening brain-and-type statement was frame-verified; the later category examples were not independently captured.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5.64,
+        label: "Serif forms are associated with authority and trust",
+      },
+      {
+        start: 5.64,
+        end: 9.96,
+        label: "Sans-serif forms are associated with innovation and clarity",
+      },
+      {
+        start: 9.96,
+        end: 15.56,
+        label:
+          "Script and display forms are assigned personality and impact roles",
+      },
+      {
+        start: 15.56,
+        end: 17.72,
+        label: "A poor match is linked to lost credibility",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Typographic voice",
+        title: "Letterforms arrive with learned associations",
+        body: "Readers interpret shape, contrast, rhythm, and familiarity together when they form an impression of a typeface.",
+        visual: {
+          type: "layers",
+          items: [
+            "Letterform shape",
+            "Cultural convention",
+            "Content context",
+            "Reader experience",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Category shortcut",
+        title: "A genre label cannot predict a reader's response",
+        body: "Two serif families can carry different voices, and the same family can read differently across language, scale, and subject.",
+        visual: {
+          type: "comparison",
+          before: "Serif means trustworthy",
+          after: "This family fits this message",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Contextual fit",
+        title: "Select the family, not the stereotype",
+        body: "Treat category associations as hypotheses, then inspect the actual design against the intended voice and reading conditions.",
+        visual: {
+          type: "rule",
+          statement: "Form + context + audience determine perceived voice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Voice test",
+        title: "Compare real words before naming an emotional effect",
+        body: "Use production content and representative readers to evaluate whether tone and legibility work together.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name intended voice",
+            "Choose varied families",
+            "Set real content",
+            "Ask representative readers",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Selection rule",
+        title: "Typography earns credibility when its voice fits its message",
+        body: "Use conventions as a starting vocabulary, then let the actual family, content, and audience decide the choice.",
+        visual: {
+          type: "rule",
+          statement: "Choose by demonstrated fit, not category mythology",
+        },
+      },
+    ],
+  },
+  {
+    id: "DT3rY5ajS4U",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DT3rY5ajS4U/",
+      creator: "@designparser",
+      publishedAt: "2026-01-23",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Give Buttons a Coherent Physical Profile",
+    summary:
+      "A depth study distinguishing flat, surface-level, raised, highly elevated, and inset button treatments, with edge lighting establishing the physical profile and shadows supporting that profile afterward.",
+    principles: [
+      "Edge highlights and occlusion cues establish whether a control sits on, above, or below a surface.",
+      "A coherent light direction must govern highlights, inset edges, and cast shadows together.",
+      "Depth should clarify interaction state or hierarchy rather than decorate every control.",
+    ],
+    applications: [
+      "Define a small set of button profiles tied to interaction roles and states.",
+      "Draw top and bottom edge behavior from one light model before adding a cast shadow.",
+      "Compare default, hover, pressed, and disabled states on the actual background and at delivery size.",
+    ],
+    uncertainties: [
+      "The five named profiles are one useful taxonomy, not a universal component-state model.",
+      "The source does not distinguish how depth cues should change across dark themes, materials, or accessibility modes.",
+      "The opening frame verifies three blue button depth treatments, not every later profile.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 6,
+        label: "Button confusion and flat treatment are introduced",
+      },
+      {
+        start: 6,
+        end: 12,
+        label: "Surface, raised, and high-elevation profiles are distinguished",
+      },
+      {
+        start: 12,
+        end: 16,
+        label: "Inset lighting and lower-edge glow are described",
+      },
+      {
+        start: 16,
+        end: 20,
+        label: "Edges are prioritized before shadows",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Button depth",
+        title: "A control's edges tell the surface story first",
+        body: "Highlights, occlusion, and cast shadow combine to place a button on, above, or inside its surrounding plane.",
+        visual: {
+          type: "comparison",
+          before: "Same fill, arbitrary shadow",
+          after: "Profile-led edges and shadow",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "False depth",
+        title: "A shadow cannot repair contradictory edges",
+        body: "If top and bottom cues imply different light directions, the button reads as a stack of effects instead of one object.",
+        visual: {
+          type: "layers",
+          items: [
+            "Surface plane",
+            "Top-edge light",
+            "Bottom occlusion",
+            "Cast shadow",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Physical profile",
+        title: "Choose the elevation relationship before styling the shadow",
+        body: "Flat, raised, and inset controls need different edge logic because they occupy different positions relative to the surface.",
+        visual: {
+          type: "rule",
+          statement: "Surface relationship → edge behavior → shadow",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "State construction",
+        title: "Build one light model across the full button set",
+        body: "Start with the plane, define the profile for each state, then tune shadow and contrast on the final background.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set light direction",
+            "Choose surface relation",
+            "Draw edge cues",
+            "Add supporting shadow",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Depth rule",
+        title: "Edges establish elevation; shadows only confirm it",
+        body: "Make the control's contact with the surface legible before using blur and opacity to reinforce distance.",
+        visual: {
+          type: "rule",
+          statement: "Profile first, shadow second",
+        },
+      },
+    ],
+  },
+  {
+    id: "DT0gnIsjSnp",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DT0gnIsjSnp/",
+      creator: "@designparser",
+      publishedAt: "2026-01-22",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Build Shadows as an Elevation System",
+    summary:
+      "A shadow-system study using blur and opacity to express distance and intensity, then combining broad separation and tight contact cues so a small set of elevation tokens reads consistently.",
+    principles: [
+      "Blur, offset, spread, and opacity work together; no single value describes elevation by itself.",
+      "A broad soft component can suggest separation while a tighter contact component anchors the object to its surface.",
+      "A useful elevation scale contains only as many levels as the interface can reliably distinguish.",
+    ],
+    applications: [
+      "Define shadow tokens from semantic elevation roles rather than isolated visual samples.",
+      "Use one light direction and tune both separation and contact components on each production background.",
+      "Compare adjacent levels at delivery size and remove values that do not create a perceptible role change.",
+    ],
+    uncertainties: [
+      "Five elevation levels is a heuristic rather than a necessary count.",
+      "The spoken labels for the primary and ambient components are ambiguous; the draft preserves the observable functions of broad separation and tight contact instead of asserting those names.",
+      "Only the opening stack of five shadowed blue tiles was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5.52,
+        label: "Blur and opacity are assigned distance and intensity roles",
+      },
+      {
+        start: 5.52,
+        end: 11.52,
+        label:
+          "A five-level scale and a two-component construction are proposed",
+      },
+      {
+        start: 12.24,
+        end: 16.16,
+        label: "A tighter contact component is described",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Shadow hierarchy",
+        title: "A shadow scale must show meaningful changes in distance",
+        body: "Elevation becomes systematic when each token represents a distinct relationship between object, surface, and light.",
+        visual: {
+          type: "layers",
+          items: [
+            "Surface",
+            "Contact cue",
+            "Separation cue",
+            "Elevated object",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Token drift",
+        title: "Unrelated blur and opacity values create decorative noise",
+        body: "When adjacent levels do not share a light model or visible progression, the shadow scale stops communicating hierarchy.",
+        visual: {
+          type: "comparison",
+          before: "Five unrelated effects",
+          after: "Five ordered surface distances",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Two functions",
+        title: "Separate contact from atmospheric distance",
+        body: "A tight component anchors the object while a broader component carries the sense of separation.",
+        visual: {
+          type: "rule",
+          statement: "Tight contact + broad separation = legible elevation",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Token construction",
+        title: "Tune adjacent elevations as one family",
+        body: "Assign semantic levels, build both shadow components, then compare the entire ladder on every supported surface.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name elevation roles",
+            "Set light direction",
+            "Tune two components",
+            "Remove indistinct levels",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "System rule",
+        title:
+          "Keep only shadow levels that communicate a different surface relationship",
+        body: "A smaller perceptible ladder is more useful than a dense scale whose neighboring tokens look interchangeable.",
+        visual: {
+          type: "rule",
+          statement: "Distinct elevation role or no new token",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTv9DGRjafS",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTv9DGRjafS/",
+      creator: "@designparser",
+      publishedAt: "2026-01-20",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Make Depth Follow One Light Model",
+    summary:
+      "A compact depth study arguing that a consistent overhead light, coherent edge cues, supporting shadows, and surface-aware tuning make elevated interface elements feel related rather than artificially pasted on.",
+    principles: [
+      "Every highlight, edge, and cast shadow should agree on the light direction.",
+      "Edges establish the object's elevation relationship before the shadow reinforces it.",
+      "The same elevation needs different shadow tuning on light, dark, textured, and colored surfaces.",
+    ],
+    applications: [
+      "Declare a light direction for the component system and audit conflicting edge cues.",
+      "Establish the object's surface contact before adjusting shadow blur, offset, and opacity.",
+      "Test elevation tokens on every supported background instead of copying one shadow unchanged.",
+    ],
+    uncertainties: [
+      "A single overhead light is a simplifying convention, not a physical requirement for every visual style.",
+      "The source does not specify how material, color, contrast, or motion changes the depth model.",
+      "The opening frame verifies two blue button treatments, not the later surface adaptations.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.12,
+        label:
+          "Artificial depth and an overhead light convention are introduced",
+      },
+      {
+        start: 3.12,
+        end: 5.84,
+        label: "Edges are placed before supporting shadows",
+      },
+      {
+        start: 5.84,
+        end: 7.6,
+        label: "Shadow treatment is adapted to the surface",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Depth model",
+        title: "Depth feels coherent when every cue shares one light",
+        body: "Highlights, edges, and shadows should describe the same object-surface relationship instead of behaving as separate effects.",
+        visual: {
+          type: "comparison",
+          before: "Conflicting edge and shadow",
+          after: "One light, one elevation story",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Pasted-on effect",
+        title: "A borrowed shadow ignores the surface beneath it",
+        body: "The same blur and opacity can disappear on one background and become too forceful on another.",
+        visual: {
+          type: "layers",
+          items: [
+            "Surface color",
+            "Object edge",
+            "Contact zone",
+            "Cast shadow",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Cue order",
+        title: "Define the edge relationship before tuning the cast shadow",
+        body: "The object's boundaries establish elevation; the shadow adds distance and direction without contradicting them.",
+        visual: {
+          type: "rule",
+          statement: "Shared light direction across edge, contact, and shadow",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Surface audit",
+        title: "Retune elevation on every supported background",
+        body: "Keep the semantic level stable while adapting contrast, blur, and opacity to the actual surface.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Declare light",
+            "Set edge cues",
+            "Add shadow",
+            "Compare surfaces",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Depth rule",
+        title:
+          "One elevation token can vary visually while preserving its role",
+        body: "Adapt the rendering to the surface, but keep its light direction and hierarchy relationship consistent.",
+        visual: {
+          type: "rule",
+          statement: "Stable role, surface-aware rendering",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTtZBNYDZOC",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTtZBNYDZOC/",
+      creator: "@designparser",
+      publishedAt: "2026-01-19",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Design Component Relationships Before Pages",
+    summary:
+      "An atomic-design study reframing interface work as relationships among elements, small component groups, and larger systems, while keeping pages as necessary contexts for validating how those relationships behave together.",
+    principles: [
+      "Reusable systems emerge from explicit relationships among smaller parts, not from isolated components alone.",
+      "Each level of composition should add a meaningful behavior or content relationship.",
+      "Pages remain essential integration contexts even when the system is authored from smaller units.",
+    ],
+    applications: [
+      "Inventory repeated elements and identify which combinations carry a stable shared purpose.",
+      "Document the inputs, spacing, states, and behaviors that bind parts into a reusable component.",
+      "Validate components inside representative pages so local reuse does not create global inconsistency.",
+    ],
+    uncertainties: [
+      "The chemistry metaphor simplifies component systems and does not describe data flow, behavior, ownership, or responsive context.",
+      "The instruction to stop designing pages is rhetorical; pages are still required for integration and task validation.",
+      "Only the opening crossed-out page composition was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.56,
+        label: "Page-first design is contrasted with relationship-first design",
+      },
+      {
+        start: 3.56,
+        end: 7.04,
+        label:
+          "The atomic-design chemistry metaphor and elements are introduced",
+      },
+      {
+        start: 7.04,
+        end: 10.16,
+        label:
+          "Connections and systems are mapped to larger composition levels",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Atomic design",
+        title: "A system begins with relationships, not finished screens",
+        body: "Elements become useful system parts only when their shared purpose, states, and composition rules are explicit.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Element",
+            "Component group",
+            "Reusable section",
+            "Page context",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Page duplication",
+        title: "Screen-by-screen work can hide repeated decisions",
+        body: "The same input, card, or navigation relationship is redesigned locally when its reusable contract has not been named.",
+        visual: {
+          type: "comparison",
+          before: "Three pages, three local patterns",
+          after: "One pattern, three tested contexts",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Composition contract",
+        title: "Every level must add a relationship",
+        body: "A group deserves to become a component when its parts share purpose, state, layout, or behavior that should travel together.",
+        visual: {
+          type: "rule",
+          statement: "Reusable boundary = shared purpose + shared behavior",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "System extraction",
+        title: "Move from repeated decisions to tested components",
+        body: "Inventory recurring parts, define their relationships, then prove them in representative page contexts.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Find repetition",
+            "Name relationships",
+            "Define component contract",
+            "Validate in pages",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "System rule",
+        title:
+          "Reusable systems grow from tested connections, not isolated atoms",
+        body: "Keep the small parts composable, but judge their success in the larger tasks and layouts they must support.",
+        visual: {
+          type: "rule",
+          statement: "Compose small; validate whole",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTq2LqNjdSJ",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTq2LqNjdSJ/",
+      creator: "@designparser",
+      publishedAt: "2026-01-18",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Coordinate Spacing and Type on a Shared Rhythm",
+    summary:
+      "A spacing-system study using an eight-unit rhythm for larger intervals, a four-unit subdivision for finer adjustments, and a coordinated text baseline so layout gaps and typography do not drift into unrelated value sets.",
+    principles: [
+      "A small shared interval set makes spacing relationships easier to recognize and maintain.",
+      "A finer subdivision can support compact details without abandoning the larger rhythm.",
+      "Text line-height and placement should be coordinated with spacing tokens rather than forced onto a grid mechanically.",
+    ],
+    applications: [
+      "Inventory current spacing values and map recurring roles to a compact token scale.",
+      "Use the larger interval for structural gaps and the smaller subdivision only where density requires it.",
+      "Test line-heights and vertical alignment with real typefaces, sizes, languages, and responsive widths.",
+    ],
+    uncertainties: [
+      "Eight- and four-unit intervals are practical conventions, not universal requirements.",
+      "The phrase 'eight-point baseline' does not explain how type size, line-height, or font metrics are reconciled.",
+      "Only the opening irregular five-unit spacing example was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4.96,
+        label: "Eight-unit rhythm and four-unit detail are proposed",
+      },
+      {
+        start: 4.96,
+        end: 8.48,
+        label: "Random values are contrasted with a consistent grid",
+      },
+      {
+        start: 9.04,
+        end: 12.8,
+        label: "Typography is added to the baseline discussion",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Spacing rhythm",
+        title: "A spacing scale turns isolated gaps into relationships",
+        body: "Structural and detailed intervals become easier to compare when they derive from a compact shared rhythm.",
+        visual: {
+          type: "comparison",
+          before: "5, 11, 19, 27",
+          after: "4, 8, 16, 24",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Value drift",
+        title: "Random gaps make similar relationships look unrelated",
+        body: "When every component invents spacing locally, density and hierarchy become difficult to predict or maintain.",
+        visual: {
+          type: "layers",
+          items: [
+            "Local values",
+            "Inconsistent rhythm",
+            "Unclear hierarchy",
+            "Maintenance drift",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Two scales",
+        title: "Use a structural rhythm and a deliberate subdivision",
+        body: "Larger gaps can follow an eight-unit cadence while four-unit steps handle compact detail without creating a second unrelated system.",
+        visual: {
+          type: "rule",
+          statement: "Structural interval 8; detail subdivision 4",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Token migration",
+        title: "Map roles before replacing every value",
+        body: "Group current gaps by purpose, assign the nearest useful token, then check typography and responsive layouts for optical exceptions.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Inventory gaps",
+            "Group by role",
+            "Assign tokens",
+            "Check type rhythm",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Spacing rule",
+        title:
+          "A grid should reduce arbitrary choices without erasing optical judgment",
+        body: "Let shared intervals carry the system, then document the few contextual exceptions that make real content align well.",
+        visual: {
+          type: "rule",
+          statement: "Shared rhythm by default; explicit exception by evidence",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTm1dltDW0M",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTm1dltDW0M/",
+      creator: "@designparser",
+      publishedAt: "2026-01-17",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Treat User Patience as a Recoverable Resource",
+    summary:
+      "A user-experience study using a goodwill-reservoir metaphor to show how hidden costs, unclear errors, and format confusion consume patience, while clear paths and immediate feedback can rebuild confidence over time.",
+    principles: [
+      "Trust is cumulative: repeated small obstacles can matter as much as one obvious failure.",
+      "Costs, requirements, and recovery paths should be visible before people commit effort.",
+      "Timely feedback restores confidence only when it accurately explains what happened and what comes next.",
+    ],
+    applications: [
+      "Audit a task for surprises, ambiguous errors, format requirements, and delayed confirmation.",
+      "Reveal material constraints before submission and make recovery instructions specific to the failed field or action.",
+      "Confirm consequential actions promptly and measure whether people can recover without restarting.",
+    ],
+    uncertainties: [
+      "The goodwill reservoir is a design metaphor, not a directly measured or uniformly sized psychological resource.",
+      "The source does not distinguish temporary frustration from lasting trust or provide conditions for the refill claim.",
+      "Only the opening goodwill-reservoir title state was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5.68,
+        label:
+          "Limited patience and cumulative bad interactions are introduced",
+      },
+      {
+        start: 5.68,
+        end: 10.88,
+        label: "Hidden costs, unclear errors, and format confusion are named",
+      },
+      {
+        start: 11.52,
+        end: 15.76,
+        label: "Clear paths and immediate feedback are framed as restorative",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Trust over time",
+        title:
+          "Every interaction changes the next interaction's starting point",
+        body: "People carry the effects of surprises, unclear recovery, and reliable feedback forward through a product relationship.",
+        visual: {
+          type: "layers",
+          items: [
+            "Prior experience",
+            "Current obstacle",
+            "Recovery quality",
+            "Next-task confidence",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Trust drain",
+        title: "Small hidden obstacles accumulate",
+        body: "A surprise cost, vague error, or unexplained format rule forces people to spend effort they could not plan for.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Hidden requirement",
+            "Failed attempt",
+            "Unclear recovery",
+            "Lower confidence",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Repair",
+        title: "Clarity restores agency before it restores trust",
+        body: "Useful feedback names the result, explains the next step, and lets the person recover without discarding completed work.",
+        visual: {
+          type: "rule",
+          statement: "Explain result + preserve progress + provide next step",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Task audit",
+        title: "Find every surprise between intent and completion",
+        body: "Trace the real task, expose requirements early, write specific recovery guidance, and verify that confirmation arrives on time.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Trace task",
+            "Expose constraints",
+            "Repair errors",
+            "Confirm outcome",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Trust rule",
+        title: "Do not ask people to repay the cost of an interface mistake",
+        body: "Preserve their work, make the recovery path explicit, and let accurate feedback rebuild confidence one interaction at a time.",
+        visual: {
+          type: "rule",
+          statement: "Interface-caused failure should have low-cost recovery",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTiN7GXDeRX",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTiN7GXDeRX/",
+      creator: "@designparser",
+      publishedAt: "2026-01-15",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Use Saturation to Encode Attention Priority",
+    summary:
+      "A color-hierarchy study reserving low-saturation colors for supporting surfaces, stronger colors for interactive states, and the most intense accents for scarce high-priority moments, while treating the proposed percentages as contextual rather than universal.",
+    principles: [
+      "When many colors are equally intense, they compete instead of expressing priority.",
+      "Supporting surfaces, interactive controls, and brand accents need distinct attention roles rather than one saturation level.",
+      "Saturation cannot replace contrast, state redundancy, semantic consistency, or accessibility testing.",
+    ],
+    applications: [
+      "Inventory colors by semantic role and identify where high intensity is currently overused.",
+      "Establish restrained supporting colors before assigning stronger interaction and accent colors.",
+      "Test every state for contrast, non-color cues, theme behavior, and sustained visual comfort.",
+    ],
+    uncertainties: [
+      "The proposed percentage ranges do not name a color model, overlap substantially, and are not portable as direct token values.",
+      "The claim that high saturation tires the eyes is not accompanied by duration, viewing conditions, or audience evidence.",
+      "Only the opening cyan square was frame-verified; the neutral, interface, and accent comparisons were not independently captured.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5,
+        label: "Equal saturation is linked to competing attention",
+      },
+      {
+        start: 5,
+        end: 13,
+        label: "Different saturation ranges are proposed for three roles",
+      },
+      {
+        start: 13,
+        end: 16,
+        label: "High saturation is linked to attention and fatigue",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Color hierarchy",
+        title: "Intensity is an attention budget",
+        body: "A palette becomes easier to scan when supporting, interactive, and accent roles do not all demand equal attention.",
+        visual: {
+          type: "comparison",
+          before: "Five equally intense colors",
+          after: "Support, interaction, accent ladder",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Color competition",
+        title: "Equal intensity flattens semantic priority",
+        body: "If background, control, status, and brand color all shout, the interface cannot use color to direct attention.",
+        visual: {
+          type: "layers",
+          items: [
+            "Supporting surface",
+            "Interactive control",
+            "Current state",
+            "Scarce accent",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Role ladder",
+        title: "Reserve stronger chroma for fewer, clearer moments",
+        body: "Low-intensity support creates room for interaction and accent colors to become noticeable without competing everywhere.",
+        visual: {
+          type: "rule",
+          statement: "Frequency decreases as attention intensity increases",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Palette audit",
+        title: "Assign semantic roles before tuning saturation",
+        body: "Classify each token, remove unnecessary intensity, then verify contrast and non-color state cues in every theme.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Inventory tokens",
+            "Assign roles",
+            "Reduce competition",
+            "Verify states",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Palette rule",
+        title:
+          "An accent stays meaningful only when the rest of the system leaves it room",
+        body: "Use intense color sparingly and deliberately, then support its meaning with contrast, labels, and state structure.",
+        visual: {
+          type: "rule",
+          statement: "Scarce intensity creates useful emphasis",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

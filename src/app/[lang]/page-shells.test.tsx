@@ -25,22 +25,23 @@ describe("English Phase 1 page shells", () => {
     ).toHaveAttribute("href", "/en/explore");
   });
 
-  it("keeps review records hidden outside development preview mode", async () => {
+  it("shows published records without enabling preview mode", async () => {
     render(
       await ReferencesPage({
         params: englishParams,
-        searchParams: Promise.resolve({ preview: "review" }),
+        searchParams: Promise.resolve({}),
       }),
     );
 
     expect(
       screen.getByRole("heading", { level: 1, name: "References" }),
     ).toBeInTheDocument();
-    expect(screen.getByText("0 references")).toHaveAttribute(
+    expect(screen.getByText("9 references")).toHaveAttribute(
       "aria-live",
       "polite",
     );
-    expect(screen.queryByText("Developing Taste")).not.toBeInTheDocument();
+    expect(screen.getAllByRole("article")).toHaveLength(9);
+    expect(screen.getByText("Developing Taste")).toBeInTheDocument();
     expect(
       screen.queryByText(
         "Editorial preview: review records are visible in this development build.",

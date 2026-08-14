@@ -7,8 +7,8 @@ Read this file first when querying or maintaining the reference collection. Coun
 - Submitted URLs: 18
 - Processed submissions: 5
 - Draft records: 0
-- Records in review: 9
-- Published records: 0
+- Records in review: 0
+- Published records: 9
 - Archived records: 0
 - Source analyses: 25
 - Concept syntheses: 0
@@ -83,7 +83,7 @@ Wave 2 recorded 38 active depth-3 edges without opening any destination: 34 new 
 - [emil-kowalski](analyses/sources/emil-kowalski.md) — draft source analysis.
 - [devouring-details](analyses/sources/devouring-details.md) — draft source analysis.
 - [emil-course-platform](analyses/sources/emil-course-platform.md) — draft source analysis.
-- Nine analyzed DENG wave-1 Candidates have draft source analyses and Korean review translations listed above. Their nine review records now await the explicit public-metadata gate; published-record counts remain zero.
+- Nine analyzed DENG wave-1 Candidates have draft source analyses and Korean review translations listed above. Their nine public records were created, reviewed, and published on 2026-08-14 after explicit maintainer approval.
 - Eleven analyzed DENG wave-2 Candidates have new English draft analyses and Korean review translations awaiting human editorial decisions. No wave-2 publication decision has been made.
 
 ## Reference records
@@ -94,6 +94,11 @@ Wave 2 recorded 38 active depth-3 edges without opening any destination: 34 new 
 | ------------ | ----- | ---- | ------ |
 
 ### Review
+
+| Reference ID | Title | Area | Record |
+| ------------ | ----- | ---- | ------ |
+
+### Published
 
 | Reference ID                   | Title                           | Area                                 | Record                                                                 |
 | ------------------------------ | ------------------------------- | ------------------------------------ | ---------------------------------------------------------------------- |
@@ -106,11 +111,6 @@ Wave 2 recorded 38 active depth-3 edges without opening any destination: 34 new 
 | on-taste-part-3                | On Taste, Part 3                | Design Engineering Foundations       | [Record](../content/references/en/on-taste-part-3.json)                |
 | manage-design-projects         | Manage design projects          | Collaboration, Handoff, and Workflow | [Record](../content/references/en/manage-design-projects.json)         |
 | ux-engineer-a-terminal-career  | UX Engineer, a terminal career  | Design Engineering Foundations       | [Record](../content/references/en/ux-engineer-a-terminal-career.json)  |
-
-### Published
-
-| Reference ID | Title | Area | Record |
-| ------------ | ----- | ---- | ------ |
 
 ### Archived
 
@@ -184,7 +184,6 @@ None.
 - Review representative Designparser rules for evidence quality and sourcing.
 - Decide whether Devouring Details' paid-access limitation is acceptable.
 - Define a freshness policy for stack and vendor details in the course-platform article.
-- Create and validate reference records for the nine publication-approved DENG Candidates; Candidate approval alone does not publish them.
 - The five inaccessible DENG video Candidates need complete captions or transcripts before substantive analysis.
 - Review publication decisions for the eleven wave-2 analyses; the analyses' recommendations range from publish to reject, but Candidate publication decisions remain human-owned and pending.
 - The Stripe Sessions video needs a complete public recording or transcript, and the X post needs readable post content, before substantive analysis.

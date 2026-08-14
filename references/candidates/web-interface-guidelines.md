@@ -33,7 +33,7 @@ publication:
   decision: publish
   reviewer: project-maintainer
   reviewed: 2026-08-13
-  notes: Approved for the public-reference workflow; the reference record is not yet created.
+  notes: Its public record was created, reviewed, and published at `content/references/en/web-interface-guidelines.json`.
 ---
 
 # Candidate: Web Interface Guidelines

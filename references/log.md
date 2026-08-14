@@ -59,3 +59,9 @@ Every durable operation must include `Change`, `Affected IDs`, and `Approval` fi
 - Change: Added nine schema-validated local English reference records at review status for the approved DENG wave-1 Candidates. They await the explicit public-metadata gate before publication.
 - Affected IDs: taste-is-eating-silicon-valley, web-interface-guidelines, developing-taste, pasito, vaul, family-wallet, on-taste-part-3, manage-design-projects, ux-engineer-a-terminal-career.
 - Approval: The 2026-08-13 Candidate approval and accepted public-reference design specification authorized drafting, not publication.
+
+## [2026-08-14] review | DENG wave 1 public records published
+
+- Change: Published all nine schema-validated DENG wave-1 public reference records after the explicit metadata checkpoint approval.
+- Affected IDs: taste-is-eating-silicon-valley, web-interface-guidelines, developing-taste, pasito, vaul, family-wallet, on-taste-part-3, manage-design-projects, ux-engineer-a-terminal-career.
+- Approval: The project maintainer explicitly approved all nine public-record metadata entries on 2026-08-14.

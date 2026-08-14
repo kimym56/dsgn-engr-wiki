@@ -39,6 +39,9 @@ export function ReferenceIndex({
         className="reference-index__filters"
         method="get"
       >
+        {isReviewPreview ? (
+          <input name="preview" type="hidden" value="review" />
+        ) : null}
         <label>
           <span>{dictionary.areaFilter}</span>
           <select defaultValue={filters.area ?? ""} name="area">

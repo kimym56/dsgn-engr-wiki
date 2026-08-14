@@ -193,6 +193,31 @@ describe("ReferenceIndex", () => {
     ).toBeVisible();
   });
 
+  it("preserves review preview through filter submission only in preview mode", () => {
+    const props = {
+      lang: "en",
+      records: [record({ status: "review" as const })],
+      areas,
+      filters: { area: null, format: null, hasInvalidValue: false },
+      dictionary,
+    };
+    const { rerender } = render(<ReferenceIndex {...props} isReviewPreview />);
+    const form = screen.getByRole("form", { name: "Apply filters" });
+    const previewInput = form.querySelector('input[name="preview"]');
+
+    expect(previewInput).toBeInstanceOf(HTMLInputElement);
+    expect(previewInput).toHaveAttribute("type", "hidden");
+    expect(previewInput).toHaveValue("review");
+
+    rerender(<ReferenceIndex {...props} isReviewPreview={false} />);
+
+    expect(
+      screen
+        .getByRole("form", { name: "Apply filters" })
+        .querySelector('input[name="preview"]'),
+    ).toBeNull();
+  });
+
   it("shows a clear action for valid filters with zero results", () => {
     render(
       <ReferenceIndex

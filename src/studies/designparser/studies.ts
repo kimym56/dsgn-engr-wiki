@@ -7040,6 +7040,1109 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DVglxsBiqbW",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVglxsBiqbW/",
+      creator: "@designparser",
+      publishedAt: "2026-03-05",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Manage Gamut Before Print",
+    summary:
+      "A color-production study explaining why an on-screen color can lose intensity in print: displays emit additive RGB light, while print relies on light reflected through subtractive CMYK inks with a different reproducible gamut.",
+    principles: [
+      "A color value is interpreted through the output medium that reproduces it.",
+      "Emissive RGB and reflective CMYK create color through different physical processes.",
+      "A color inside a display gamut may sit outside the gamut available to a chosen printer, ink, and paper combination.",
+    ],
+    applications: [
+      "Choose a print-aware color workflow before approving brand or campaign colors.",
+      "Soft-proof critical colors against the intended print condition and substrate.",
+      "Use physical proofs when exact reproduction matters more than screen appearance.",
+    ],
+    uncertainties: [
+      "The source treats RGB and CMYK as broad categories; actual gamuts vary by display, profile, ink set, press, and paper.",
+      "The statement that print is always narrower is a useful production warning rather than a universal comparison of every device and process.",
+      "Only the opening RGB color example was captured, so later production examples were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Screen and print use different color models",
+        start: 0,
+        end: 4.56,
+      },
+      {
+        label: "RGB combines emitted light",
+        start: 4.56,
+        end: 7.96,
+      },
+      {
+        label: "CMYK controls reflected light with ink",
+        start: 7.96,
+        end: 11.88,
+      },
+      {
+        label: "The reproducible ranges do not fully overlap",
+        start: 11.88,
+        end: 14.72,
+      },
+      {
+        label: "Production planning should account for gamut",
+        start: 14.72,
+        end: 16.2,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Color production",
+        title: "One color can change when the medium changes",
+        body: "A display creates color with light, while a printed surface returns ambient light through ink and paper.",
+        visual: {
+          type: "comparison",
+          before: "Emitted RGB light",
+          after: "Reflected CMYK color",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Gamut mismatch",
+        title: "A vivid screen choice may not have a print equivalent",
+        body: "When a selected color falls outside the target print condition, conversion must move it to a reproducible alternative.",
+        visual: {
+          type: "layers",
+          items: ["Screen gamut", "Print gamut", "Nearest printable result"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Medium matters",
+        title: "Color is a system outcome, not a detached code",
+        body: "Profiles, devices, inks, and substrates all shape the color that a viewer finally sees.",
+        visual: {
+          type: "rule",
+          statement: "Value + medium + profile → appearance",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Print workflow",
+        title: "Proof against the real production condition",
+        body: "Convert with the intended profile, check critical colors, and request a physical proof for high-stakes work.",
+        visual: {
+          type: "sequence",
+          items: ["Select profile", "Soft-proof", "Adjust", "Physical proof"],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Design color for its destination",
+        body: "Treat screen appearance as a preview, not a guarantee of printed output.",
+        visual: {
+          type: "rule",
+          statement: "Approve in the target medium",
+        },
+      },
+    ],
+  },
+  {
+    id: "DVd_sDyCqck",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVd_sDyCqck/",
+      creator: "@designparser",
+      publishedAt: "2026-03-04",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Design for Attention, Not Mere Visibility",
+    summary:
+      "A perception study distinguishing physical visibility from conscious notice: an interface element can be present in the visual field yet missed when attention is committed elsewhere.",
+    principles: [
+      "Being inside the viewport does not guarantee that an element enters conscious awareness.",
+      "Fixation and attention are related but not identical; a user can look near something without processing it.",
+      "Similarity, proximity, and task relevance influence whether a secondary element is noticed.",
+    ],
+    applications: [
+      "Place consequential feedback close to the action or object that created it.",
+      "Use a distinct visual change when users must notice a new state.",
+      "Test critical notices during realistic tasks rather than asking whether they are technically visible.",
+    ],
+    uncertainties: [
+      "The source compresses complex attention research into a short design heuristic; noticeability also depends on timing, motion, expectation, and user goals.",
+      "Similarity and proximity do not guarantee awareness and should not replace usability testing.",
+      "The captured opening scene is visually blank, so the spoken examples were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Visible elements can still go unnoticed",
+        start: 0,
+        end: 2.64,
+      },
+      {
+        label: "Fixation and attention are distinguished",
+        start: 2.64,
+        end: 5.76,
+      },
+      {
+        label: "Attention filters what reaches awareness",
+        start: 5.76,
+        end: 11,
+      },
+      {
+        label: "Design cues can improve the chance of notice",
+        start: 11,
+        end: 15,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Selective attention",
+        title: "On-screen does not mean noticed",
+        body: "Users filter the visual field around the task they are trying to complete.",
+        visual: {
+          type: "comparison",
+          before: "Element is present",
+          after: "Element enters awareness",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Attention gap",
+        title: "A critical message can sit outside the user's task focus",
+        body: "Technical visibility is a weak safeguard when the notice is distant, expected to be static, or visually similar to its surroundings.",
+        visual: {
+          type: "layers",
+          items: ["Visual field", "Task focus", "Conscious notice"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Contextual salience",
+        title: "Connect a signal to the action that makes it relevant",
+        body: "Proximity and meaningful contrast help users associate feedback with the event they are already attending to.",
+        visual: {
+          type: "rule",
+          statement: "Relevant cue + timely placement → stronger notice",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Critical feedback",
+        title: "Put state changes where the decision happens",
+        body: "Anchor validation, status, and risk messages near their controls, then verify notice during a realistic flow.",
+        visual: {
+          type: "sequence",
+          items: [
+            "User acts",
+            "State changes",
+            "Local cue appears",
+            "User confirms",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Design the path to attention",
+        body: "For essential information, test whether people notice and understand it—not merely whether it exists.",
+        visual: {
+          type: "rule",
+          statement: "Presence ≠ perception",
+        },
+      },
+    ],
+  },
+  {
+    id: "DVZPniSikfS",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVZPniSikfS/",
+      creator: "@designparser",
+      publishedAt: "2026-03-02",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Use Luminance Contrast Thresholds Correctly",
+    summary:
+      "An accessibility study explaining that common WCAG contrast ratios are computed from relative luminance rather than intuitive hue difference, then applied through thresholds that depend on the kind and size of content.",
+    principles: [
+      "Perceived color difference is not a reliable substitute for a measured contrast ratio.",
+      "WCAG contrast calculations compare relative luminance values on a defined scale.",
+      "The applicable minimum depends on whether the target is text, large text, or a qualifying graphical or interface boundary.",
+    ],
+    applications: [
+      "Check contrast with a standards-aware tool instead of judging by hue alone.",
+      "Classify each target correctly before choosing a threshold.",
+      "Test all interactive states, not only the default palette.",
+    ],
+    uncertainties: [
+      "The exact applicability of 7:1, 4.5:1, and 3:1 depends on WCAG conformance level, text size and weight, component state, and the specific success criterion.",
+      "A 3:1 requirement does not automatically apply to every pixel or every interface element; standards review is needed for each implementation.",
+      "Only the opening contrast example was captured, so later calculations and threshold examples were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Hue difference alone can mislead",
+        start: 0,
+        end: 4.88,
+      },
+      {
+        label: "Relative luminance underlies the ratio",
+        start: 4.88,
+        end: 10,
+      },
+      {
+        label: "Text thresholds vary by conformance and size",
+        start: 10,
+        end: 14.96,
+      },
+      {
+        label: "Non-text cases require correct classification",
+        start: 14.96,
+        end: 19.8,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Accessible contrast",
+        title: "Contrast is measured through luminance, not hue names",
+        body: "Two colors can look categorically different yet still produce insufficient light-dark separation.",
+        visual: {
+          type: "comparison",
+          before: "Different hues",
+          after: "Measured luminance ratio",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Visual guesswork",
+        title: "A vivid palette can still hide text or controls",
+        body: "Colorfulness and saturation do not establish whether adjacent elements meet the relevant contrast requirement.",
+        visual: {
+          type: "layers",
+          items: ["Foreground", "Background", "Relative luminance", "Ratio"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Contextual threshold",
+        title: "Measure first, then apply the right criterion",
+        body: "The ratio is only half the decision; the target's role, size, weight, and conformance goal determine how it is evaluated.",
+        visual: {
+          type: "rule",
+          statement: "Measured ratio + target class → evaluation",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "State audit",
+        title: "Check the full component lifecycle",
+        body: "Verify default, hover, focus, selected, disabled, error, and adjacent-state boundaries with a standards-aware checker.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Classify target",
+            "Measure pair",
+            "Check criterion",
+            "Repeat states",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Do not infer compliance from appearance",
+        body: "Use the defined luminance calculation and confirm which requirement actually governs the element.",
+        visual: {
+          type: "rule",
+          statement: "Measure, classify, verify",
+        },
+      },
+    ],
+  },
+  {
+    id: "DVRr80kCkYA",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVRr80kCkYA/",
+      creator: "@designparser",
+      publishedAt: "2026-02-27",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Separate Typeface, Font, and Family",
+    summary:
+      "A typography terminology study separating the visual design system of a typeface from the font resources that implement particular styles and weights, while showing why everyday digital usage often blurs the terms.",
+    principles: [
+      "A typeface names a coherent letterform design, not a single weight file.",
+      "A font is a usable implementation of that design in a particular format, style, or variable range.",
+      "A type family groups related styles so an interface can select consistent variants.",
+    ],
+    applications: [
+      "Name typography tokens by family, role, weight, and style rather than by ambiguous shorthand.",
+      "Load only the font resources or variable ranges the product actually uses.",
+      "Document fallback behavior so the intended typeface system degrades predictably.",
+    ],
+    uncertainties: [
+      "Typography terminology varies by historical period, vendor, and technical context; font is commonly used for both a design and its digital resource.",
+      "Variable fonts can contain many axes in one resource, making a one-file-one-style explanation incomplete.",
+      "Only the opening family declaration was captured, so later distinctions were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Everyday usage blurs the terms",
+        start: 0,
+        end: 3.52,
+      },
+      {
+        label: "The design is separated from its implementation",
+        start: 3.52,
+        end: 7.12,
+      },
+      {
+        label: "A family groups related variants",
+        start: 7.12,
+        end: 10.24,
+      },
+      {
+        label: "Weights and styles are selected within the system",
+        start: 10.24,
+        end: 14.72,
+      },
+      {
+        label: "Precise naming improves communication",
+        start: 14.72,
+        end: 16.04,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Typography language",
+        title: "The design and the resource are related, not identical",
+        body: "A typeface defines a visual system; fonts make that system usable in software and production.",
+        visual: {
+          type: "layers",
+          items: [
+            "Typeface design",
+            "Family",
+            "Font resources",
+            "Rendered text",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Ambiguous handoff",
+        title: "One word can hide several implementation choices",
+        body: "A request for a font may leave family, weight, style, format, and fallback unspecified.",
+        visual: {
+          type: "comparison",
+          before: "Use the font",
+          after: "Name family, role, weight, style",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "System vocabulary",
+        title: "Name each layer at the level where it changes",
+        body: "Keep the visual identity of the typeface separate from the assets and parameters used to render it.",
+        visual: {
+          type: "rule",
+          statement: "Design system ≠ delivery resource",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Product tokens",
+        title: "Make typography choices explicit",
+        body: "Define semantic roles, map them to family and variation settings, and document the fallback chain.",
+        visual: {
+          type: "sequence",
+          items: ["Role", "Family", "Weight/style", "Resource", "Fallback"],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use precise terms when precision affects the build",
+        body: "Casual overlap is harmless until it obscures which design or resource a team must ship.",
+        visual: {
+          type: "rule",
+          statement: "Name the layer you mean",
+        },
+      },
+    ],
+  },
+  {
+    id: "DVOiVYpivR6",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVOiVYpivR6/",
+      creator: "@designparser",
+      publishedAt: "2026-02-26",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Avoid Full Justification When Spacing Breaks",
+    summary:
+      "A responsive-typography study showing how full justification can stretch word spacing unpredictably as line length changes, reducing reading comfort even when the text block looks geometrically tidy.",
+    principles: [
+      "Full justification redistributes horizontal space across each line.",
+      "Narrow or changing measures can create irregular gaps and distracting visual channels.",
+      "A stable ragged edge often preserves more consistent word spacing in responsive interfaces.",
+    ],
+    applications: [
+      "Default long-form interface copy to start alignment unless the layout has strong typographic controls.",
+      "Test text blocks across content lengths, breakpoints, zoom levels, and language variants.",
+      "If justification is required, manage measure, hyphenation, line breaking, and spacing together.",
+    ],
+    uncertainties: [
+      "The source's blanket claim that justified text fails WCAG is too broad; WCAG guidance and success criteria should be checked for the applicable version and context.",
+      "Well-composed justification can work in controlled editorial settings with suitable measure, hyphenation, and line-breaking support.",
+      "Only the opening spacing example was captured, so later responsive comparisons were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "A compliance claim introduces the concern",
+        start: 0,
+        end: 2.76,
+      },
+      {
+        label: "Justification stretches space to fill a line",
+        start: 2.76,
+        end: 7.72,
+      },
+      {
+        label: "Responsive widths make the gaps unstable",
+        start: 7.72,
+        end: 11.68,
+      },
+      {
+        label: "Start alignment keeps spacing more consistent",
+        start: 11.68,
+        end: 15.44,
+      },
+      {
+        label: "Reading comfort is the practical test",
+        start: 15.44,
+        end: 18.04,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Responsive typography",
+        title: "A straight edge can conceal unstable spacing",
+        body: "Full justification makes both edges align by changing the spaces within each line.",
+        visual: {
+          type: "comparison",
+          before: "Even outer edges",
+          after: "Uneven inner gaps",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Variable measure",
+        title: "Every breakpoint recomputes the texture",
+        body: "As containers narrow or copy changes, expanded gaps can interrupt grouping and produce distracting channels through a paragraph.",
+        visual: {
+          type: "layers",
+          items: [
+            "Container width",
+            "Line breaks",
+            "Word spacing",
+            "Reading rhythm",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Reading rhythm",
+        title: "Consistent spacing matters more than a perfect edge",
+        body: "Start-aligned text accepts a ragged boundary so the spaces between words can remain steadier.",
+        visual: {
+          type: "rule",
+          statement: "Stable word spacing outweighs geometric neatness",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Stress test",
+        title: "Judge text across real layout conditions",
+        body: "Review long and short copy at each breakpoint, with zoom, localization, and user-selected text sizing.",
+        visual: {
+          type: "sequence",
+          items: ["Vary copy", "Resize", "Zoom", "Localize", "Read"],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Choose alignment for readable spacing",
+        body: "Use full justification only when the composition system can control the gaps it creates.",
+        visual: {
+          type: "rule",
+          statement: "Control the texture, not only the edge",
+        },
+      },
+    ],
+  },
+  {
+    id: "DVJpP8eipki",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVJpP8eipki/",
+      creator: "@designparser",
+      publishedAt: "2026-02-24",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Use Grids as Anchors, Not Hierarchy",
+    summary:
+      "A composition study reframing the rule of thirds as a set of useful placement anchors rather than a biological law, with hierarchy still determined by content, contrast, and the viewer's reading context.",
+    principles: [
+      "A grid supplies alignment opportunities; it does not decide what deserves attention.",
+      "Common scan patterns are influenced by reading direction, culture, task, and content rather than fixed biology alone.",
+      "Hierarchy emerges from the interaction of placement, scale, contrast, and sequence.",
+    ],
+    applications: [
+      "Use third-line intersections as candidate anchors, then test whether the intended subject actually leads.",
+      "Adapt the entry point and reading path for locale and content direction.",
+      "Break the grid deliberately when another placement communicates priority more clearly.",
+    ],
+    uncertainties: [
+      "The source's top-left and bottom-right attention claims are directional heuristics, not universal biological facts.",
+      "Reading direction, culture, task, imagery, motion, and prior expectation can all change a scan path.",
+      "Only the opening thirds grid was captured, so later anchor examples were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "The familiar thirds grid is introduced",
+        start: 0,
+        end: 3.66,
+      },
+      {
+        label: "A biological explanation is proposed",
+        start: 3.66,
+        end: 7.16,
+      },
+      {
+        label: "Entry and terminal anchors are assigned",
+        start: 7.16,
+        end: 10.8,
+      },
+      {
+        label: "The grid is reframed as a placement aid",
+        start: 10.8,
+        end: 14.18,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Composition grids",
+        title: "The rule of thirds offers anchors, not answers",
+        body: "Its lines and intersections are a practical starting structure for arranging a frame.",
+        visual: {
+          type: "layers",
+          items: ["Frame", "Third lines", "Candidate anchors", "Content"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "False certainty",
+        title: "A grid cannot guarantee the viewer's route",
+        body: "Attention changes with language direction, task, subject matter, contrast, motion, and learned conventions.",
+        visual: {
+          type: "comparison",
+          before: "Fixed universal path",
+          after: "Context-dependent path",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Designed hierarchy",
+        title: "Placement works with every other visual signal",
+        body: "An intersection becomes meaningful only when scale, contrast, content, and surrounding space support the intended priority.",
+        visual: {
+          type: "rule",
+          statement: "Anchor × contrast × content → hierarchy",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Composition test",
+        title: "Start on the grid, then test the actual path",
+        body: "Place the primary subject, inspect first fixation and sequence, and move or break alignment when the story requires it.",
+        visual: {
+          type: "sequence",
+          items: ["Choose anchor", "Add hierarchy", "Test scan", "Adjust"],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Let the grid support the message",
+        body: "Treat thirds as compositional scaffolding, not a law of perception.",
+        visual: {
+          type: "rule",
+          statement: "Grid guides; content leads",
+        },
+      },
+    ],
+  },
+  {
+    id: "DVHLrdDipEl",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVHLrdDipEl/",
+      creator: "@designparser",
+      publishedAt: "2026-02-23",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Balance Icon-and-Text Padding Optically",
+    summary:
+      "A control-layout study showing why equal outer padding can look unbalanced when an icon and its internal gap occupy one side of a label, and proposing a relationship-aware starting adjustment.",
+    principles: [
+      "Equal measured padding does not always produce equal perceived space.",
+      "The icon-to-label gap participates in the visual mass on the icon side of a control.",
+      "Optical balance should be checked after the control's internal relationships are assembled.",
+    ],
+    applications: [
+      "Begin with a spacing relationship that accounts for the internal icon gap, then inspect the result.",
+      "Test icons with different bounding boxes, stroke weights, and optical centers.",
+      "Keep hit-target size and accessibility requirements independent from the visual adjustment.",
+    ],
+    uncertainties: [
+      "Subtracting the icon-label gap from one outer inset is a contextual heuristic, not a universal formula.",
+      "Icon geometry, text metrics, control width, directionality, and platform conventions can require a different adjustment.",
+      "Only the opening symmetric-padding example was captured, so the corrected state was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Equal insets appear visually unequal",
+        start: 0,
+        end: 3.66,
+      },
+      {
+        label: "The internal icon gap adds perceived space",
+        start: 3.66,
+        end: 6.92,
+      },
+      {
+        label: "A subtraction relationship is proposed",
+        start: 6.92,
+        end: 9.56,
+      },
+      {
+        label: "Optical balance is the intended outcome",
+        start: 9.56,
+        end: 12.56,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Control geometry",
+        title: "Equal insets can feel unequal",
+        body: "An icon, its gap, and the label create an asymmetric internal composition inside a button.",
+        visual: {
+          type: "comparison",
+          before: "Equal numeric padding",
+          after: "Unequal perceived space",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Hidden interval",
+        title: "The icon-side gap compounds the outer space",
+        body: "Users perceive the relationship among all visible elements, not only the distance from content bounds to the container.",
+        visual: {
+          type: "layers",
+          items: ["Outer inset", "Icon", "Inner gap", "Label", "Outer inset"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Optical correction",
+        title: "Balance the assembled control",
+        body: "Use the gap-aware relationship as a starting point, then adjust for the icon's actual optical shape.",
+        visual: {
+          type: "rule",
+          statement: "Measure relationships, then judge balance",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Component QA",
+        title: "Test more than one ideal icon",
+        body: "Check filled, outlined, narrow, wide, and bidirectional variants while preserving the required touch target.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set gap",
+            "Adjust inset",
+            "Swap icons",
+            "Check direction",
+            "Verify target",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Numeric symmetry is only the first draft",
+        body: "Finalize padding against the control's visible mass and interaction requirements.",
+        visual: {
+          type: "rule",
+          statement: "Optical balance follows the whole composition",
+        },
+      },
+    ],
+  },
+  {
+    id: "DU_f4IeCix7",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DU_f4IeCix7/",
+      creator: "@designparser",
+      publishedAt: "2026-02-20",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Build Spacing Hierarchy With a Scale",
+    summary:
+      "A typography-spacing study arguing that equal or mechanically linear gaps weaken hierarchy, and proposing a ratio-based scale as one way to make separation grow with level and emphasis.",
+    principles: [
+      "Spacing communicates grouping and rank alongside type size and weight.",
+      "Equal gaps can make distinct hierarchy levels feel unrelated or flat.",
+      "A reusable scale creates intentional relationships, but its ratio is a design choice rather than a perceptual constant.",
+    ],
+    applications: [
+      "Define semantic spacing tokens for heading-to-heading and heading-to-body relationships.",
+      "Try a modest modular ratio, then test the resulting rhythm in real layouts.",
+      "Tune the scale for density, typography, viewport, and content instead of applying it mechanically.",
+    ],
+    uncertainties: [
+      "The source's claim about logarithmic spacing perception is presented without research details and should be treated as a heuristic.",
+      "A 1.25 ratio is one possible modular scale, not a validated universal value.",
+      "Only the opening equal-gap hierarchy was captured, so later scale examples were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Equal gaps flatten heading relationships",
+        start: 0,
+        end: 4.28,
+      },
+      {
+        label: "Linear increments are challenged",
+        start: 4.28,
+        end: 9.32,
+      },
+      {
+        label: "A modular ratio is proposed",
+        start: 9.32,
+        end: 13.52,
+      },
+      {
+        label: "The ratio is applied across levels",
+        start: 13.52,
+        end: 18.32,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Vertical rhythm",
+        title: "Equal gaps can erase hierarchy",
+        body: "When every heading interval is identical, spacing stops explaining which levels belong together.",
+        visual: {
+          type: "comparison",
+          before: "Uniform gaps",
+          after: "Ranked gaps",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Flat relationships",
+        title: "Type size changes while the surrounding rhythm stays still",
+        body: "A fixed interval can feel too large for a minor heading and too small for a major section break.",
+        visual: {
+          type: "layers",
+          items: ["Heading rank", "Type scale", "Spacing scale", "Grouping"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Relational scale",
+        title: "Let separation grow with structural distance",
+        body: "A modular ratio can produce repeatable differences while leaving room for optical tuning.",
+        visual: {
+          type: "rule",
+          statement: "More structural distance → more separation",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Token system",
+        title: "Map spacing to semantic relationships",
+        body: "Create tokens for adjacent text levels, section boundaries, and content blocks, then test them across responsive contexts.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Choose base",
+            "Try ratio",
+            "Map roles",
+            "Test pages",
+            "Tune",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use a scale to start the rhythm, not finish it",
+        body: "Consistent relationships help, but the layout still needs visual judgment.",
+        visual: {
+          type: "rule",
+          statement: "Systematic does not mean automatic",
+        },
+      },
+    ],
+  },
+  {
+    id: "DU6hZs7jRA1",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DU6hZs7jRA1/",
+      creator: "@designparser",
+      publishedAt: "2026-02-18",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Distinguish Luminance From Color-Space Lightness",
+    summary:
+      "A color-measurement study separating photometric luminance from a lightness coordinate in a color model, showing why two colors with the same nominal lightness value can still differ greatly in emitted or reflected light.",
+    principles: [
+      "Luminance describes a weighted physical-light quantity, while lightness is a coordinate defined by a particular color model.",
+      "Equal numeric lightness in one model does not imply equal relative luminance.",
+      "Contrast and accessibility decisions require the measurement defined by the applicable standard.",
+    ],
+    applications: [
+      "Do not use an HSL lightness value as a proxy for WCAG relative luminance.",
+      "Use standards-aware tools to calculate contrast from the rendered color pair.",
+      "Choose perceptually oriented spaces for palette operations only after understanding what their lightness axis models.",
+    ],
+    uncertainties: [
+      "The source combines general lightness terminology with an HSL example; different color spaces define lightness or tone differently.",
+      "The stated numeric luminance difference is not independently reproduced here and depends on the exact colors and transfer-function assumptions.",
+      "The closing characterization of lightness is internally inconsistent with the earlier perception framing, so this study limits the claim to a measurement distinction.",
+      "Only the opening equal-HSL-lightness example was captured, so later numeric comparisons were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Physical luminance and modeled lightness are separated",
+        start: 0,
+        end: 4,
+      },
+      {
+        label: "Equal nominal lightness colors are compared",
+        start: 4,
+        end: 9,
+      },
+      {
+        label: "A large luminance difference is claimed",
+        start: 9,
+        end: 14,
+      },
+      {
+        label: "The distinction is summarized with an unresolved inconsistency",
+        start: 14,
+        end: 16,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Color measurement",
+        title: "A lightness number does not directly measure light",
+        body: "Model coordinates and photometric measurements describe different properties, even when both sound like brightness.",
+        visual: {
+          type: "comparison",
+          before: "Color-space lightness",
+          after: "Relative luminance",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "False equivalence",
+        title: "Matching one coordinate can hide a large luminance gap",
+        body: "Hue contributions and the color model's geometry can produce equal lightness values without equal light output.",
+        visual: {
+          type: "layers",
+          items: [
+            "Color coordinates",
+            "Transfer function",
+            "Luminance weighting",
+            "Rendered result",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Use the defined measure",
+        title: "Match the metric to the decision",
+        body: "Palette generation, perceptual adjustment, and standards contrast checks may each call for a different calculation.",
+        visual: {
+          type: "rule",
+          statement: "Question → color space → measurement",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Contrast workflow",
+        title: "Calculate from the rendered foreground and background",
+        body: "Use the applicable relative-luminance formula and verify the resulting ratio for the target content type.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Render colors",
+            "Compute luminance",
+            "Calculate ratio",
+            "Check criterion",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Do not substitute a familiar color slider for a standard",
+        body: "A lightness coordinate is useful within its model, but it is not automatically the right accessibility metric.",
+        visual: {
+          type: "rule",
+          statement: "Same label ≠ same quantity",
+        },
+      },
+    ],
+  },
+  {
+    id: "DU3vm-UjR-B",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DU3vm-UjR-B/",
+      creator: "@designparser",
+      publishedAt: "2026-02-17",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Compose With Multiple Sources of Visual Weight",
+    summary:
+      "A hierarchy study treating visual weight as the combined effect of size, contrast, saturation, shape, density, and isolation, then using those variables to create a deliberate scan path through an interface.",
+    principles: [
+      "Visual weight emerges from several interacting cues rather than one property.",
+      "Isolation can increase salience by giving an element a distinct region of space.",
+      "Hierarchy is strongest when multiple cues support the same intended reading order.",
+    ],
+    applications: [
+      "Rank interface elements by task priority before assigning visual emphasis.",
+      "Use the fewest weight cues needed to make the primary action lead.",
+      "Reduce competing contrast, saturation, or isolation when too many elements demand first attention.",
+    ],
+    uncertainties: [
+      "The source presents visual-weight factors qualitatively and does not supply a validated formula for combining them.",
+      "Salience and scan order also depend on content, expectation, culture, task, and interaction state.",
+      "Speech recognition produced only two broad timing blocks, and only the opening pricing-card composition was captured.",
+    ],
+    evidence: [
+      {
+        label: "Several cues contribute to perceived weight",
+        start: 0,
+        end: 7.68,
+      },
+      {
+        label: "Isolation strengthens emphasis and guides scanning",
+        start: 8.4,
+        end: 12.72,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Visual hierarchy",
+        title: "Weight is an interaction of cues",
+        body: "Size, contrast, saturation, shape, density, and surrounding space all affect which element leads.",
+        visual: {
+          type: "layers",
+          items: ["Size", "Contrast", "Color", "Shape", "Isolation"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Competing emphasis",
+        title: "When every cue is loud, the scan path disappears",
+        body: "Multiple oversized, saturated, high-contrast elements force users to resolve priority for themselves.",
+        visual: {
+          type: "comparison",
+          before: "Many equal magnets",
+          after: "One clear lead",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Aligned signals",
+        title: "Combine cues around task priority",
+        body: "The primary element can lead through a small set of reinforcing signals while secondary content remains available without competing.",
+        visual: {
+          type: "rule",
+          statement: "Task priority → coordinated visual weight",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Hierarchy audit",
+        title: "Tune the page from first glance to next action",
+        body: "Blur or squint at the layout, identify the first few anchors, and remove emphasis that conflicts with the intended sequence.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Rank tasks",
+            "Assign cues",
+            "Check first glance",
+            "Reduce competition",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Spend visual weight where attention should go",
+        body: "Hierarchy becomes deliberate when emphasis follows the user's next useful decision.",
+        visual: {
+          type: "rule",
+          statement: "Emphasis is a limited budget",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

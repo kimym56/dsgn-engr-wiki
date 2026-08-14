@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { loadDictionary } from "@/i18n/load-dictionary";
 
 export const metadata: Metadata = { title: "Explore" };
@@ -17,7 +18,12 @@ export default async function ExplorePage({ params }: ExplorePageProps) {
       <p className="eyebrow">{copy.eyebrow}</p>
       <h1>{copy.title}</h1>
       <p className="lede">{copy.description}</p>
-      <p className="empty-state">{dictionary.emptyState.explore}</p>
+      <div className="empty-state">
+        <p>{dictionary.emptyState.explore}</p>
+        <Link className="button" href={`/${lang}/references`}>
+          {dictionary.homeActions.references}
+        </Link>
+      </div>
     </section>
   );
 }

@@ -26,13 +26,13 @@ export const englishDictionary = {
       eyebrow: "Complete library",
       title: "References",
       description:
-        "The complete index will make reviewed design-engineering resources easy to scan and evaluate.",
+        "Reviewed design-engineering resources with original summaries and direct links to their canonical sources.",
     },
     explore: {
       eyebrow: "Guided discovery",
       title: "Explore",
       description:
-        "Areas and editorial collections will offer focused paths through the same canonical reference library.",
+        "Start with the complete reviewed reference index while dedicated discovery paths are being prepared.",
     },
     about: {
       eyebrow: "Project scope",
@@ -46,9 +46,30 @@ export const englishDictionary = {
     explore: "Explore the library",
   },
   emptyState: {
-    references: "The first reviewed reference set is being prepared.",
-    explore:
-      "Areas and collections will appear with the first reviewed references.",
+    explore: "Browse the complete reviewed reference index.",
+  },
+  references: {
+    count: (count) => `${count} reference${count === 1 ? "" : "s"}`,
+    areaFilter: "Area",
+    formatFilter: "Format",
+    allAreas: "All areas",
+    allFormats: "All formats",
+    applyFilters: "Apply filters",
+    clearFilters: "Clear filters",
+    noResults: "No reviewed references match these filters.",
+    previewBanner:
+      "Editorial preview: review records are visible in this development build.",
+    neutralPreview: "Project-reviewed reference",
+    relevance: "Why it matters",
+    sourceLanguage: "Source language",
+    reviewed: "Reviewed",
+    visitSource: "Visit original source",
+    formats: {
+      article: "Article",
+      documentation: "Documentation",
+      tool: "Tool",
+      "case-study": "Case study",
+    },
   },
   about: {
     heading: "How the library works",

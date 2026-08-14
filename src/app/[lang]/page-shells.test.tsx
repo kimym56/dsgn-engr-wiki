@@ -25,28 +25,41 @@ describe("English Phase 1 page shells", () => {
     ).toHaveAttribute("href", "/en/explore");
   });
 
-  it("keeps References honest before records are published", async () => {
-    render(await ReferencesPage({ params: englishParams }));
+  it("keeps review records hidden outside development preview mode", async () => {
+    render(
+      await ReferencesPage({
+        params: englishParams,
+        searchParams: Promise.resolve({ preview: "review" }),
+      }),
+    );
 
     expect(
       screen.getByRole("heading", { level: 1, name: "References" }),
     ).toBeInTheDocument();
+    expect(screen.getByText("0 references")).toHaveAttribute(
+      "aria-live",
+      "polite",
+    );
+    expect(screen.queryByText("Developing Taste")).not.toBeInTheDocument();
     expect(
-      screen.getByText("The first reviewed reference set is being prepared."),
-    ).toBeInTheDocument();
+      screen.queryByText(
+        "Editorial preview: review records are visible in this development build.",
+      ),
+    ).not.toBeInTheDocument();
   });
 
-  it("keeps Explore honest before areas and collections are published", async () => {
+  it("directs Explore readers to the complete References index", async () => {
     render(await ExplorePage({ params: englishParams }));
 
     expect(
       screen.getByRole("heading", { level: 1, name: "Explore" }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(
-        "Areas and collections will appear with the first reviewed references.",
-      ),
+      screen.getByText("Browse the complete reviewed reference index."),
     ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: "Browse references" }),
+    ).toHaveAttribute("href", "/en/references");
   });
 
   it("explains the library's editorial principles", async () => {

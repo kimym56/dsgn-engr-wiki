@@ -3496,6 +3496,1181 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DX7K6G1KUQ4",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DX7K6G1KUQ4/",
+      creator: "@designparser",
+      publishedAt: "2026-05-04",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Let Recognition Guide Logo Emphasis",
+    summary:
+      "A brand-system study explaining how the balance between wordmark and symbol can evolve: names support early recognition, while established symbols can lead once repeated exposure gives them meaning.",
+    principles: [
+      "A new or less familiar identity benefits from keeping its name prominent.",
+      "A symbol acquires meaning through consistent association and repeated use.",
+      "A mature identity still needs multiple logo variants for different contexts.",
+    ],
+    applications: [
+      "Use a wordmark-led or combined lockup when audiences still need the name.",
+      "Track recognition before allowing a symbol-only variant to lead.",
+      "Define context rules for full, compact, and symbol-only logo formats.",
+    ],
+    uncertainties: [
+      "Recognition is treated qualitatively; no measurement method or threshold for changing logo formats is provided.",
+      "Scene extraction captured only the opening statement, not the later lockup variants.",
+    ],
+    evidence: [
+      {
+        label: "Logo format is linked to recognition",
+        start: 0,
+        end: 2.44,
+      },
+      {
+        label: "At low recognition the name carries the identity",
+        start: 2.44,
+        end: 7.04,
+      },
+      {
+        label: "Repetition gives the symbol meaning",
+        start: 7.04,
+        end: 9.88,
+      },
+      {
+        label: "At high recognition the symbol can lead",
+        start: 9.88,
+        end: 14.72,
+      },
+      {
+        label: "Established systems retain contextual variants",
+        start: 14.72,
+        end: 19.48,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Identity recognition",
+        title: "Logo emphasis can change as familiarity grows",
+        body: "The wordmark explains who the brand is; the symbol becomes useful only after audiences learn that association.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name leads",
+            "Pair repeats",
+            "Symbol gains meaning",
+            "Variants emerge",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Premature shorthand",
+        title: "An unknown symbol cannot identify itself",
+        body: "Removing the name too early asks audiences to recognize a mark before repetition has built the link.",
+        visual: {
+          type: "comparison",
+          before: "Symbol without learned meaning",
+          after: "Name and symbol together",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Recognition stage",
+        title: "Let the more informative element lead",
+        body: "Use the name while it carries recognition, then increase symbol independence as real familiarity develops.",
+        visual: {
+          type: "rule",
+          statement: "Lower recognition → stronger wordmark presence",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Variant system",
+        title: "Specify formats by context, not prestige",
+        body: "Define full, compact, and symbol-only options with clear rules for space, audience familiarity, and communication goal.",
+        visual: {
+          type: "layers",
+          items: ["Full lockup", "Compact lockup", "Symbol-only variant"],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Earn the shorthand before relying on it",
+        body: "A symbol can lead when recognition supports it, while the broader system keeps the name available where needed.",
+        visual: {
+          type: "rule",
+          statement: "Familiarity determines emphasis",
+        },
+      },
+    ],
+  },
+  {
+    id: "DXwoxRRqdSt",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DXwoxRRqdSt/",
+      creator: "@designparser",
+      publishedAt: "2026-04-30",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Choose Aspect Ratio for the Story",
+    summary:
+      "A framing study showing how wide, classic, vertical, and square formats redistribute attention between subject and environment, making aspect ratio an editorial decision rather than a neutral container.",
+    principles: [
+      "A wider frame gives more room for environmental context.",
+      "A narrower or vertical frame can strengthen subject dominance and directness.",
+      "A square frame reduces directional bias and can support balanced compositions.",
+    ],
+    applications: [
+      "Choose the frame according to whether subject, environment, intimacy, or balance should lead.",
+      "Compose within the final ratio instead of relying on a late crop.",
+      "Test alternate delivery ratios for changes in context, scale, and visual hierarchy.",
+    ],
+    uncertainties: [
+      "Speech recognition fragments the first wide-screen ratio; the study therefore preserves the wide-format principle without asserting that exact value.",
+      "The emotional labels assigned to ratios are compositional heuristics and depend on subject placement, lens, crop, and motion.",
+      "The referenced film example and later formats were not independently captured in the single opening frame.",
+    ],
+    evidence: [
+      {
+        label: "Format is introduced as a perceptual choice",
+        start: 0,
+        end: 2.96,
+      },
+      {
+        label: "Wide framing distributes attention into the environment",
+        start: 2.96,
+        end: 11.12,
+      },
+      {
+        label: "A classic frame encourages central subject focus",
+        start: 11.12,
+        end: 17.84,
+      },
+      {
+        label: "Vertical framing reduces horizontal context",
+        start: 17.84,
+        end: 24.96,
+      },
+      {
+        label: "Square framing supports even balance",
+        start: 24.96,
+        end: 31.76,
+      },
+      {
+        label: "Format can communicate structural meaning",
+        start: 31.76,
+        end: 38.4,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Frame semantics",
+        title: "The container changes what the viewer notices",
+        body: "Aspect ratio decides how much space surrounds the subject and which direction carries the composition.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Wide context",
+            "Classic focus",
+            "Vertical intimacy",
+            "Square balance",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Neutral-frame myth",
+        title: "A late crop can rewrite the visual hierarchy",
+        body: "Removing horizontal or vertical context changes whether the environment, person, or overall balance dominates.",
+        visual: {
+          type: "comparison",
+          before: "Compose once, crop later",
+          after: "Compose for each ratio",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Editorial priority",
+        title: "Match the axis to what should lead",
+        body: "Use breadth when the world matters, vertical compression when the subject should dominate, and symmetry when balance is central.",
+        visual: {
+          type: "rule",
+          statement: "Story priority → frame geometry",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Multi-format delivery",
+        title: "Recompose rather than merely resize",
+        body: "Check focal position, negative space, scale, and supporting details separately in every required ratio.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name priority",
+            "Select ratio",
+            "Compose subject",
+            "Verify alternate crops",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Format is part of the message",
+        body: "Choose and compose the frame with the same intent used for type, color, and pacing.",
+        visual: {
+          type: "rule",
+          statement: "The frame directs attention",
+        },
+      },
+    ],
+  },
+  {
+    id: "DXrccYxinsd",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DXrccYxinsd/",
+      creator: "@designparser",
+      publishedAt: "2026-04-28",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Reduce Simultaneous Choices or Chunk Them",
+    summary:
+      "An information-design study connecting working-memory limits to option sets: when many items must be compared at once, grouping or reducing them can lower cognitive load without hiding navigable information.",
+    principles: [
+      "Working memory handles only a small number of active chunks at once.",
+      "Rehearsal and meaningful grouping can expand what functions as one chunk.",
+      "Comparison sets and scan-based navigation place different demands on memory.",
+    ],
+    applications: [
+      "Keep pricing plans, key metrics, and simultaneous filters focused on a few distinct choices.",
+      "Group related items under meaningful labels instead of presenting one flat set.",
+      "Test whether users must compare all options at once or can scan and select progressively.",
+    ],
+    uncertainties: [
+      "The four-plus-or-minus-one capacity is a research-based baseline, not a universal interface limit.",
+      "Capacity varies with familiarity, rehearsal, chunk quality, and task design.",
+      "Only the opening count state was captured; later comparison and grouping examples were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "A seven-option set is proposed for reduction",
+        start: 0,
+        end: 3.44,
+      },
+      {
+        label: "Earlier items can fade during sequential reading",
+        start: 3.44,
+        end: 7.44,
+      },
+      {
+        label: "Working memory is described as holding roughly four chunks",
+        start: 7.44,
+        end: 12.96,
+      },
+      {
+        label: "Historical estimates and chunking are distinguished",
+        start: 12.96,
+        end: 21.12,
+      },
+      {
+        label: "The limit matters when options compete simultaneously",
+        start: 21.12,
+        end: 27.92,
+      },
+      {
+        label: "Chunking changes load without removing information",
+        start: 27.92,
+        end: 33.92,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Working memory",
+        title: "Seven visible choices can still exceed active comparison",
+        body: "A viewer may see the whole set yet lose earlier details while evaluating the later items.",
+        visual: {
+          type: "comparison",
+          before: "Seven competing options",
+          after: "Four meaningful chunks",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Displacement",
+        title: "Flat sets make each new item compete with the last",
+        body: "When every option needs simultaneous comparison, later details can displace the criteria attached to earlier ones.",
+        visual: {
+          type: "layers",
+          items: [
+            "Many equal items",
+            "Limited active memory",
+            "Lost comparisons",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Chunking",
+        title: "Organize information around meaningful units",
+        body: "A coherent group can function as one chunk, reducing load without pretending that all interfaces need a hard item cap.",
+        visual: {
+          type: "rule",
+          statement: "Related items → one usable chunk",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Task distinction",
+        title: "Limit comparison sets, structure scan sets",
+        body: "Reduce plans and competing metrics, while grouping navigation or filters that users can inspect progressively.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify task",
+            "Find simultaneous choices",
+            "Reduce or group",
+            "Test recall",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Design for the comparison the user must hold",
+        body: "Use fewer active choices and stronger chunks when the task depends on remembering relationships.",
+        visual: {
+          type: "rule",
+          statement: "Cognitive load follows the task, not the raw count",
+        },
+      },
+    ],
+  },
+  {
+    id: "DXpQN6Xircl",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DXpQN6Xircl/",
+      creator: "@designparser",
+      publishedAt: "2026-04-27",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Do Not Encode Status With Color Alone",
+    summary:
+      "An accessibility study distinguishing luminance contrast from color distinguishability: a palette can pass contrast checks yet fail when red–green differences are the only way to read status, series, or errors.",
+    principles: [
+      "Luminance contrast and hue distinguishability test different properties.",
+      "Color-vision differences can collapse distinctions between colors that otherwise meet contrast targets.",
+      "Critical meaning needs a redundant cue beyond color.",
+    ],
+    applications: [
+      "Pair status colors with labels, icons, patterns, shapes, or line styles.",
+      "Simulate common red–green color-vision conditions during design review.",
+      "Test charts, errors, and state systems without color to confirm that meaning survives.",
+    ],
+    uncertainties: [
+      "The global prevalence and sex-linked percentages are presented without a cited population source and are not used as design thresholds.",
+      "The genetic explanation is simplified and does not cover the full range of color-vision variation.",
+      "Only the opening two-color chart state was captured; later simulations were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "A contrast-passing palette can remain inaccessible",
+        start: 0,
+        end: 4.8,
+      },
+      {
+        label: "Color-vision prevalence is introduced",
+        start: 4.8,
+        end: 11.16,
+      },
+      {
+        label: "Red and green can become difficult to distinguish",
+        start: 11.16,
+        end: 17.36,
+      },
+      {
+        label: "Luminance contrast does not measure hue distinguishability",
+        start: 17.36,
+        end: 22.68,
+      },
+      {
+        label: "Red–green simulations are recommended",
+        start: 22.68,
+        end: 26.6,
+      },
+      {
+        label: "Meaning must not depend on color alone",
+        start: 26.6,
+        end: 33.4,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Accessible color",
+        title: "Passing contrast does not prove two states differ",
+        body: "Two colors may each contrast with the background while remaining hard to tell apart from one another.",
+        visual: {
+          type: "comparison",
+          before: "Contrast passes",
+          after: "State distinction fails",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Single-channel meaning",
+        title: "Hue-only systems lose information when colors converge",
+        body: "Charts, errors, and statuses break when the category exists only in the red–green difference.",
+        visual: {
+          type: "layers",
+          items: [
+            "Color-coded meaning",
+            "Reduced hue distinction",
+            "Missing information",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Redundant encoding",
+        title: "Give every important state another visible cue",
+        body: "Text, icon shape, pattern, position, or line style should preserve the distinction even without hue.",
+        visual: {
+          type: "rule",
+          statement: "Color + independent cue → resilient meaning",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Accessibility audit",
+        title: "Test the system in color and without it",
+        body: "Simulate common color-vision conditions, remove color mentally or literally, and verify that every category remains identifiable.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Check luminance",
+            "Simulate vision",
+            "Remove color cue",
+            "Verify meaning",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Contrast is necessary, not sufficient",
+        body: "Measure luminance and protect distinguishability with redundant signals.",
+        visual: {
+          type: "rule",
+          statement: "Accessible status survives hue loss",
+        },
+      },
+    ],
+  },
+  {
+    id: "DXemNG5Cm-X",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DXemNG5Cm-X/",
+      creator: "@designparser",
+      publishedAt: "2026-04-23",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Choose Process or Spot Color by Tolerance",
+    summary:
+      "A print-production study contrasting CMYK process builds with premixed spot ink: use process color for flexible reproduction and specify a spot system when a brand color requires tighter matching.",
+    principles: [
+      "CMYK produces color from overprinted halftone components.",
+      "A spot color uses a premixed ink rather than reconstructing the target from process channels.",
+      "The right method depends on acceptable variation, production method, and budget.",
+    ],
+    applications: [
+      "Define which brand colors require tight physical matching.",
+      "Specify a spot ink for critical limited-color work when the printer supports it.",
+      "Use calibrated CMYK builds for flexible jobs and approve physical proofs on the actual stock.",
+    ],
+    uncertainties: [
+      "Spot ink is described as exact, but appearance still varies with substrate, coating, ink batch, press conditions, and viewing light.",
+      "The recommendation does not address digital presses, extended-gamut printing, cost, or mixed spot-and-process jobs.",
+      "Scene extraction captured only the opening red swatch; printed comparisons were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Process printing is challenged for strict logo matching",
+        start: 0,
+        end: 3.04,
+      },
+      {
+        label: "CMYK relies on optically mixed halftone dots",
+        start: 3.04,
+        end: 8.08,
+      },
+      {
+        label: "Spot color uses a premixed solid ink",
+        start: 8.08,
+        end: 12,
+      },
+      {
+        label: "Process builds approximate the target",
+        start: 12,
+        end: 15.2,
+      },
+      {
+        label: "Tolerance determines spot versus process choice",
+        start: 15.2,
+        end: 20.24,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Print color",
+        title: "A brand swatch can be built or premixed",
+        body: "Process printing combines channel dots on paper, while spot printing lays down a specified ink mixture.",
+        visual: {
+          type: "comparison",
+          before: "CMYK process build",
+          after: "Premixed spot ink",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Matching tolerance",
+        title: "A close process build may not satisfy a critical color",
+        body: "Halftone screens, substrate, and press conditions can shift the physical result away from a reference swatch.",
+        visual: {
+          type: "layers",
+          items: ["Channel percentages", "Press and stock", "Observed color"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Production choice",
+        title: "Match the method to the allowed variation",
+        body: "Reserve spot ink for colors whose consistency justifies the production constraints; use process color where flexibility matters more.",
+        visual: {
+          type: "rule",
+          statement: "Tighter tolerance → stronger case for spot ink",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Proofing",
+        title: "Approve the color in the real print conditions",
+        body: "Document both spot and process specifications, test on intended stock, and judge a physical proof under controlled light.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set tolerance",
+            "Choose method",
+            "Print on stock",
+            "Approve proof",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Color specification is a production decision",
+        body: "Choose spot or process from matching needs, materials, scale, and cost—not from format loyalty.",
+        visual: {
+          type: "rule",
+          statement: "Required consistency determines the ink system",
+        },
+      },
+    ],
+  },
+  {
+    id: "DXZahpwiiqv",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DXZahpwiiqv/",
+      creator: "@designparser",
+      publishedAt: "2026-04-21",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Center Icons by Visual Mass",
+    summary:
+      "An icon-system study explaining why geometric centering can still look off: asymmetrical shapes and different silhouettes distribute visual mass unevenly, requiring optical alignment within a shared box.",
+    principles: [
+      "Bounding-box center and perceived center are not always the same.",
+      "Shape mass can make a mathematically centered icon appear high, low, large, or small.",
+      "Optical correction should be judged across the icon set at final size.",
+    ],
+    applications: [
+      "Start with geometric centering, then compare silhouettes in identical boxes.",
+      "Shift asymmetric icons until their visual mass aligns with neighboring symbols.",
+      "Adjust apparent scale as well as position when circles and squares feel unequal.",
+    ],
+    uncertainties: [
+      "No universal offset is provided because the correction depends on silhouette, stroke, size, and surrounding icons.",
+      "Only the opening triangle state was captured; the circle and square comparison was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Geometric and visual centers are distinguished",
+        start: 0,
+        end: 4.4,
+      },
+      {
+        label: "A centered triangle carries mass near its base",
+        start: 4.4,
+        end: 14.4,
+      },
+      {
+        label: "Equal boxes can produce unequal apparent size",
+        start: 14.4,
+        end: 19.12,
+      },
+      {
+        label: "Icons should align by optical center",
+        start: 19.12,
+        end: 23.92,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Icon alignment",
+        title: "The box can be centered while the shape feels low",
+        body: "A triangle concentrates more area near its base, so coordinate equality does not guarantee visual balance.",
+        visual: {
+          type: "comparison",
+          before: "Geometric center",
+          after: "Optical center",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Uneven silhouettes",
+        title: "Shared bounds hide different distributions of mass",
+        body: "Triangles, circles, and squares occupy and weight the same box differently.",
+        visual: {
+          type: "layers",
+          items: [
+            "Equal bounding box",
+            "Different silhouette",
+            "Different perceived center",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Optical correction",
+        title: "Align what the eye experiences",
+        body: "Use geometric centering as the baseline, then adjust position and apparent scale until neighboring icons feel stable.",
+        visual: {
+          type: "rule",
+          statement: "Coordinate center + optical correction",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "System review",
+        title: "Judge icons as a family, not one at a time",
+        body: "Place representative shapes in identical containers at production size and compare their apparent center and scale.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Normalize boxes",
+            "Compare silhouettes",
+            "Shift and scale",
+            "Review as set",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Consistency can require unequal coordinates",
+        body: "Small optical offsets are valid when they produce a more even icon system.",
+        visual: {
+          type: "rule",
+          statement: "Perceived alignment is the final criterion",
+        },
+      },
+    ],
+  },
+  {
+    id: "DXXI9MZipyC",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DXXI9MZipyC/",
+      creator: "@designparser",
+      publishedAt: "2026-04-20",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Distinctiveness Works by Contrast",
+    summary:
+      "A visual-hierarchy study based on the von Restorff effect: one item becomes memorable by differing from its peers, but multiple competing exceptions weaken the advantage.",
+    principles: [
+      "An isolated visual difference attracts attention within a uniform set.",
+      "Distinctiveness is relational; the surrounding sameness creates the effect.",
+      "Adding more exceptions reduces the clarity of the original emphasis.",
+    ],
+    applications: [
+      "Reserve the strongest contrast treatment for the single highest-priority action or fact.",
+      "Keep neighboring items visually consistent so the exception remains legible.",
+      "Audit pages for competing badges, colors, scales, and motion that dilute emphasis.",
+    ],
+    uncertainties: [
+      "The recall improvement is described without an effect size, task, or study condition.",
+      "Distinctiveness can attract attention without guaranteeing comprehension, relevance, or ethical prioritization.",
+      "Only the opening uniform-item state was captured; the isolated-item progression was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "One element captures attention before deliberate choice",
+        start: 0,
+        end: 4.2,
+      },
+      {
+        label: "The von Restorff effect is introduced",
+        start: 4.2,
+        end: 5.72,
+      },
+      {
+        label: "One isolated item is linked to stronger recall",
+        start: 5.72,
+        end: 8.92,
+      },
+      {
+        label: "A second exception weakens the advantage",
+        start: 8.92,
+        end: 14.24,
+      },
+      {
+        label: "Difference from the set creates distinctiveness",
+        start: 14.24,
+        end: 17.76,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Von Restorff effect",
+        title: "One exception gains power from a consistent field",
+        body: "A single item that differs in color, size, or shape becomes easier to notice because its peers establish a stable pattern.",
+        visual: {
+          type: "comparison",
+          before: "Uniform set",
+          after: "One distinct item",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Competing emphasis",
+        title: "Two exceptions stop feeling exceptional",
+        body: "When several elements demand the same special treatment, the contrast hierarchy collapses into another pattern.",
+        visual: {
+          type: "layers",
+          items: ["First exception", "Second exception", "Diluted distinction"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Relational contrast",
+        title: "The surrounding sameness does the work",
+        body: "A highlight is effective only relative to the visual rules that the rest of the set follows.",
+        visual: {
+          type: "rule",
+          statement: "Consistent field + one difference → emphasis",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Priority audit",
+        title: "Spend the strongest contrast once",
+        body: "Choose the most important action or fact, simplify its neighbors, and remove decorative competitors.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Rank priorities",
+            "Normalize peers",
+            "Isolate one item",
+            "Test recall",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Emphasis is scarce by design",
+        body: "Protect one meaningful exception instead of highlighting everything.",
+        visual: {
+          type: "rule",
+          statement: "One clear difference beats many loud signals",
+        },
+      },
+    ],
+  },
+  {
+    id: "DXMqS0rCtLL",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DXMqS0rCtLL/",
+      creator: "@designparser",
+      publishedAt: "2026-04-16",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Use Column Counts That Divide the Layout",
+    summary:
+      "A grid-system study explaining why twelve columns are flexible on wide screens: twelve divides evenly into halves, thirds, and quarters, while simpler breakpoint grids can reduce complexity on smaller screens.",
+    principles: [
+      "A useful column count supports the span patterns the layout actually needs.",
+      "Twelve columns divide evenly into two, three, four, and six-part arrangements.",
+      "Responsive grids can use fewer columns where available width and composition are simpler.",
+    ],
+    applications: [
+      "List required content spans before selecting a grid count.",
+      "Use twelve columns when halves, thirds, and quarters must coexist.",
+      "Reduce the grid at narrower breakpoints while preserving alignment relationships.",
+    ],
+    uncertainties: [
+      "The statement that twelve “misses nothing” is rhetorical; twelve does not support every possible division and is not universally optimal.",
+      "The fixed 12/8/4 breakpoint sequence is a common pattern, not a requirement for every interface.",
+      "The historical attribution and later responsive grids were not independently captured in the opening frame.",
+    ],
+    evidence: [
+      {
+        label: "A twelve-column grid is introduced as a proportion system",
+        start: 0,
+        end: 5,
+      },
+      {
+        label: "Twelve is divisible by two, three, and four",
+        start: 5,
+        end: 9,
+      },
+      {
+        label: "The system is linked to typographic and framework practice",
+        start: 9,
+        end: 12,
+      },
+      {
+        label: "Alternative counts lose some common divisions",
+        start: 12,
+        end: 17,
+      },
+      {
+        label: "Fewer columns are proposed at narrower breakpoints",
+        start: 17,
+        end: 20,
+      },
+      {
+        label: "More divisions provide finer placement control",
+        start: 20,
+        end: 23,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Grid arithmetic",
+        title: "Twelve supports several common span patterns",
+        body: "A twelve-column field can form halves, thirds, quarters, and sixths without fractional columns.",
+        visual: {
+          type: "sequence",
+          items: ["2 spans", "3 spans", "4 spans", "6 spans"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Wrong divisibility",
+        title: "A column count can fight the content structure",
+        body: "If the grid cannot divide into the arrangements a page needs, components require awkward offsets or inconsistent spans.",
+        visual: {
+          type: "comparison",
+          before: "Count chosen by habit",
+          after: "Count chosen by spans",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Layout requirements",
+        title: "Select the smallest grid that supports the system",
+        body: "More columns add placement options, but they also add decisions; flexibility should answer real compositions.",
+        visual: {
+          type: "rule",
+          statement: "Required divisions → column count",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Responsive simplification",
+        title: "Reduce decisions as the viewport narrows",
+        body: "Use a denser grid on wide screens and fewer columns where content stacks, while keeping shared edges coherent.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Map desktop spans",
+            "Choose count",
+            "Simplify breakpoint grid",
+            "Verify alignment",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Divisibility is a tool, not a tradition",
+        body: "Use twelve when its factors help, and choose another count when the layout asks for something else.",
+        visual: {
+          type: "rule",
+          statement: "Grid math follows content structure",
+        },
+      },
+    ],
+  },
+  {
+    id: "DXHaZyACi2H",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DXHaZyACi2H/",
+      creator: "@designparser",
+      publishedAt: "2026-04-14",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Keep At-a-Glance Groups Small",
+    summary:
+      "A perception study on subitizing: people can recognize very small quantities without deliberate counting, while larger sets trigger a slower scan, affecting icon groups and compact status displays.",
+    principles: [
+      "Small quantities can be recognized as a pattern rather than counted one by one.",
+      "As groups grow, enumeration shifts toward serial scanning.",
+      "At-a-glance interfaces should use grouping and hierarchy instead of relying on dense raw counts.",
+    ],
+    applications: [
+      "Keep critical icon groups and status clusters small when instant recognition matters.",
+      "Chunk larger sets into labeled groups or summarize them with a number.",
+      "Test glanceable displays under real viewing time, size, spacing, and familiarity.",
+    ],
+    uncertainties: [
+      "The exact quantity boundary, 40–100 millisecond range, and eight-times slowdown are presented without experimental conditions.",
+      "Performance varies with arrangement, spacing, familiarity, attention, and whether items form recognizable patterns.",
+      "Only the opening single-item state was captured; the four- and seven-item comparisons were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Very small quantities are described as immediately recognized",
+        start: 0,
+        end: 5.12,
+      },
+      {
+        label: "A seven-item set requires counting or scanning",
+        start: 5.12,
+        end: 12.08,
+      },
+      {
+        label: "Timing differences are introduced",
+        start: 12.08,
+        end: 18.48,
+      },
+      {
+        label: "The effect is framed as pre-attentive processing",
+        start: 18.48,
+        end: 24.08,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Subitizing",
+        title: "A tiny set can register before counting begins",
+        body: "Small, well-arranged quantities are often perceived as a whole pattern rather than enumerated item by item.",
+        visual: {
+          type: "comparison",
+          before: "Four-item pattern",
+          after: "Seven-item scan",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Dense glance target",
+        title: "More items change recognition into a search path",
+        body: "A compact group can stop being instantly legible once the eye must visit each element in sequence.",
+        visual: {
+          type: "layers",
+          items: ["Larger item count", "Serial scan", "Slower recognition"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Pattern capacity",
+        title: "Protect the small set that must read instantly",
+        body: "Use a few distinct signals for urgent recognition and move supporting detail into grouped or progressive views.",
+        visual: {
+          type: "rule",
+          statement: "Instant recognition favors small coherent groups",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Information display",
+        title: "Summarize before adding another icon",
+        body: "Group related items, show an aggregate count, or reveal details on demand when the visible set becomes dense.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify glance task",
+            "Limit visible items",
+            "Group remainder",
+            "Test recognition",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Design the pattern, not just the count",
+        body: "Keep urgent groups small and structure larger quantities for deliberate scanning.",
+        visual: {
+          type: "rule",
+          statement: "Small sets glance; larger sets need organization",
+        },
+      },
+    ],
+  },
+  {
+    id: "DXE11vvCj1m",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DXE11vvCj1m/",
+      creator: "@designparser",
+      publishedAt: "2026-04-13",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Use Pie Charts Only for Simple Shares",
+    summary:
+      "A data-visualization study explaining why angle comparison becomes difficult as pie slices multiply, recommending a shared-baseline bar chart when precise comparison or many categories matter.",
+    principles: [
+      "People compare aligned lengths more accurately than separated angles.",
+      "Each additional pie slice increases comparison and labeling difficulty.",
+      "Three-dimensional treatment distorts the geometry used to judge share.",
+    ],
+    applications: [
+      "Reserve pie charts for a few clearly different parts of one whole.",
+      "Use bars when categories are numerous, close in value, or require ranking.",
+      "Keep a shared zero baseline when accurate magnitude comparison is the goal.",
+    ],
+    uncertainties: [
+      "The five-slice maximum is a practical heuristic, not a universal empirical cutoff.",
+      "The claim of consistent research is not accompanied by specific studies or task conditions.",
+      "Scene extraction captured only the opening many-slice pie, not the later bar-chart alternative.",
+    ],
+    evidence: [
+      {
+        label: "Pie charts are introduced as error-prone",
+        start: 0,
+        end: 2,
+      },
+      {
+        label: "Angle comparison is identified as difficult",
+        start: 2,
+        end: 4,
+      },
+      {
+        label: "Additional segments increase the problem",
+        start: 4,
+        end: 8,
+      },
+      {
+        label: "Few slices and no 3D are proposed",
+        start: 8,
+        end: 11,
+      },
+      {
+        label: "Bars are recommended for larger category sets",
+        start: 11,
+        end: 16,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Chart choice",
+        title: "A pie asks the eye to compare angles",
+        body: "Part-to-whole structure is visible, but precise differences become harder to judge across separate wedges.",
+        visual: {
+          type: "comparison",
+          before: "Many pie slices",
+          after: "Aligned bar lengths",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Segment overload",
+        title: "Every extra slice adds another angle and label",
+        body: "Small or similar wedges force repeated visual estimation while reducing space for clear annotation.",
+        visual: {
+          type: "layers",
+          items: ["More categories", "Smaller angles", "Harder comparison"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Perceptual scale",
+        title: "Use a common baseline for close values",
+        body: "Bars align lengths against one axis, making ranking and magnitude differences easier to inspect.",
+        visual: {
+          type: "rule",
+          statement: "Precise comparison → aligned lengths",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Decision rule",
+        title: "Keep the pie for simple part-to-whole stories",
+        body: "Use a few distinct shares without perspective effects; switch to bars when categories multiply or precision matters.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name question",
+            "Count categories",
+            "Assess value gaps",
+            "Choose pie or bar",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Chart form follows the comparison task",
+        body: "Choose pie for a simple whole and bars for accurate category comparison.",
+        visual: {
+          type: "rule",
+          statement: "Simple shares use angles; comparisons use lengths",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

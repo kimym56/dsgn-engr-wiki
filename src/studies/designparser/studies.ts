@@ -2377,6 +2377,1125 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DYzoJ3LKzFd",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DYzoJ3LKzFd/",
+      creator: "@designparser",
+      publishedAt: "2026-05-26",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Use Real Small Caps or Skip Them",
+    summary:
+      "A typography study distinguishing purpose-drawn small capitals from mechanically reduced uppercase letters, whose thinner strokes can break the surrounding text color.",
+    principles: [
+      "True small caps are drawn to harmonize with lowercase text, not merely scaled from full capitals.",
+      "Mechanical scaling reduces both height and stroke weight, creating a visibly weaker texture.",
+      "Small-cap styling depends on an actual font feature and should be verified before use.",
+    ],
+    applications: [
+      "Check whether the selected font includes purpose-drawn small capitals.",
+      "Compare small caps with neighboring lowercase at the final size and weight.",
+      "Switch fonts or choose another emphasis treatment when the feature is absent.",
+    ],
+    uncertainties: [
+      "The stated 70% synthesis behavior is tool-dependent and is not treated as a universal scaling rule.",
+      "The broad claim about how many fonts lack small capitals is not independently quantified.",
+      "Scene extraction captured only the opening mixed-case comparison; later feature checks were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Software can synthesize small caps from reduced capitals",
+        start: 0,
+        end: 5.2,
+      },
+      {
+        label: "Scaling also weakens the capital strokes",
+        start: 5.2,
+        end: 10.96,
+      },
+      {
+        label: "The designer must verify the font feature",
+        start: 10.96,
+        end: 15.36,
+      },
+      {
+        label: "Absent small capitals require another choice",
+        start: 15.36,
+        end: 19.28,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Small-cap typography",
+        title: "Reduced capitals are not purpose-drawn small caps",
+        body: "A software-generated substitute shrinks the full-capital shape without rebuilding its weight and proportions for text.",
+        visual: {
+          type: "comparison",
+          before: "Scaled uppercase",
+          after: "Designed small capital",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Uneven text color",
+        title: "Height falls, and stroke strength falls with it",
+        body: "Mechanically reduced capitals can look pale beside lowercase because every contour becomes thinner.",
+        visual: {
+          type: "layers",
+          items: [
+            "Full capital shape",
+            "Uniform reduction",
+            "Weaker stroke texture",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Font capability",
+        title: "The feature must exist in the typeface",
+        body: "Real small capitals are an authored set whose height, spacing, and stroke weight are coordinated with the family.",
+        visual: {
+          type: "rule",
+          statement: "Purpose-drawn glyphs → consistent text color",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Typography check",
+        title: "Inspect the font before assigning the style",
+        body: "Turn on the available feature, compare it in context, and reject a synthetic result that visibly thins out.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Check font feature",
+            "Render in context",
+            "Compare stroke color",
+            "Keep or replace",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "No real small caps means no small-cap shortcut",
+        body: "Choose another font or another form of emphasis instead of accepting a weak simulation.",
+        visual: {
+          type: "rule",
+          statement: "Authentic feature or deliberate alternative",
+        },
+      },
+    ],
+  },
+  {
+    id: "DYxAcxGqIvp",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DYxAcxGqIvp/",
+      creator: "@designparser",
+      publishedAt: "2026-05-25",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Scale Corner Radius With Component Character",
+    summary:
+      "A component-style study treating corner radius as a proportional signal: sharper corners can feel precise, moderate rounding neutral, and pill shapes overtly soft or playful.",
+    principles: [
+      "Corner radius communicates tone through its relationship to component size.",
+      "A fixed radius can feel inconsistent when applied across very different dimensions.",
+      "Radius bands are visual heuristics, not semantic guarantees.",
+    ],
+    applications: [
+      "Define radius tokens relative to the component families they serve.",
+      "Compare sharp, moderate, rounded, and pill variants at production size.",
+      "Test whether a radius remains coherent across buttons, cards, fields, and responsive sizes.",
+    ],
+    uncertainties: [
+      "The percentage bands and personality labels are subjective style heuristics without stated study conditions.",
+      "A 50% value does not produce the same geometry for every box shape or rendering system.",
+      "Only the opening rectangular state was captured; the later radius progression was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Radius is framed as a proportional personality cue",
+        start: 0,
+        end: 6.16,
+      },
+      {
+        label: "Lower and moderate bands are assigned different tones",
+        start: 6.16,
+        end: 12.8,
+      },
+      {
+        label: "Larger rounding and pill forms signal increasing softness",
+        start: 13.44,
+        end: 22.48,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Shape language",
+        title: "Corner radius changes how a component speaks",
+        body: "The same rectangle can feel technical, neutral, friendly, or playful as its corners move from sharp to fully rounded.",
+        visual: {
+          type: "sequence",
+          items: ["Sharp", "Moderate", "Rounded", "Pill"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Token mismatch",
+        title: "One fixed radius drifts across component sizes",
+        body: "A value that reads softly on a small control can become barely visible on a large surface.",
+        visual: {
+          type: "comparison",
+          before: "Same radius everywhere",
+          after: "Radius scaled by component",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Proportional cue",
+        title: "Judge rounding as a share of the shape",
+        body: "Evaluate corner curvature against width, height, border weight, and the rest of the system rather than as an isolated number.",
+        visual: {
+          type: "rule",
+          statement: "Radius ÷ component scale → perceived character",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "System calibration",
+        title: "Build a small family, then test the transitions",
+        body: "Compare representative controls and surfaces across the intended radius levels before naming the tokens.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Choose component set",
+            "Apply radius levels",
+            "Compare character",
+            "Name tokens",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use radius to reinforce a tone, not manufacture one",
+        body: "Let proportional rounding support the broader type, color, spacing, and interaction language.",
+        visual: {
+          type: "rule",
+          statement: "Consistent character comes from the whole system",
+        },
+      },
+    ],
+  },
+  {
+    id: "DYmrv0PqtvV",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DYmrv0PqtvV/",
+      creator: "@designparser",
+      publishedAt: "2026-05-21",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Shapes Carry Sound Expectations",
+    summary:
+      "A naming study based on the bouba–kiki effect: rounded and angular contours tend to evoke different sound qualities before a viewer knows what a name means.",
+    principles: [
+      "Visual contour can bias how an unfamiliar word is expected to sound.",
+      "Rounded forms often pair with softer sounds, while angular forms often pair with sharper sounds.",
+      "Sound–shape correspondence is a tendency to test, not a deterministic naming law.",
+    ],
+    applications: [
+      "Compare candidate names against the contour language of a brand or product.",
+      "Use rounded and angular visual territories to probe whether a name feels congruent.",
+      "Validate associations with the intended audience rather than assuming universal agreement.",
+    ],
+    uncertainties: [
+      "The stated prevalence, cross-cultural universality, and infant-age claims are presented without study details and are not treated as universal facts.",
+      "Scene extraction captured the rounded and angular examples but not later participant or research evidence.",
+    ],
+    evidence: [
+      {
+        label: "Rounded and angular forms invite different invented names",
+        start: 0,
+        end: 3.96,
+      },
+      {
+        label: "The association appears without prior word knowledge",
+        start: 3.96,
+        end: 5.64,
+      },
+      {
+        label: "Broad prevalence claims are introduced",
+        start: 5.64,
+        end: 13.08,
+      },
+      {
+        label: "Shape is linked to sound expectation",
+        start: 13.08,
+        end: 18.32,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Bouba–kiki effect",
+        title: "A contour can suggest how a word should sound",
+        body: "People often match a soft invented name to a rounded shape and a clipped name to an angular one.",
+        visual: {
+          type: "comparison",
+          before: "Rounded contour / soft sound",
+          after: "Angular contour / sharp sound",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Naming in isolation",
+        title: "A word and a visual identity can pull apart",
+        body: "An unfamiliar name may imply one sensory quality while the product shapes and marks imply another.",
+        visual: {
+          type: "layers",
+          items: ["Name sound", "Visual contour", "Perceived mismatch"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Crossmodal cue",
+        title: "Treat sound and shape as one expectation system",
+        body: "Phonetic rhythm and contour character can reinforce each other before literal meaning takes over.",
+        visual: {
+          type: "rule",
+          statement: "Sound quality ↔ contour quality",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Concept testing",
+        title: "Pair names with contrasting shape territories",
+        body: "Show rounded and angular directions, ask for unprompted associations, and look for stable patterns in the target audience.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Select names",
+            "Build shape contrasts",
+            "Test associations",
+            "Refine pairing",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use the effect as a hypothesis, not a verdict",
+        body: "Let sound–shape fit guide exploration, then validate it with the people and context that matter.",
+        visual: {
+          type: "rule",
+          statement: "Association suggests; audience evidence decides",
+        },
+      },
+    ],
+  },
+  {
+    id: "DYhiRDcqEnX",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DYhiRDcqEnX/",
+      creator: "@designparser",
+      publishedAt: "2026-05-19",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Adapt Color Tokens Across Themes",
+    summary:
+      "A color-system study showing why one encoded color can feel more saturated or lose contrast on a darker background, motivating theme-specific chroma and tone adjustments while preserving hue.",
+    principles: [
+      "Identical color coordinates can produce different appearances across light and dark surroundings.",
+      "Hue continuity does not require identical chroma and tone values.",
+      "Theme adaptation should protect both perceptual character and contrast.",
+    ],
+    applications: [
+      "Compare each semantic color on its real light and dark backgrounds.",
+      "Hold the intended hue relationship while testing lower chroma and lighter tone in dark mode.",
+      "Measure contrast again after every perceptual adjustment.",
+    ],
+    uncertainties: [
+      "The suggested 20–30% chroma reduction is a contextual starting range, not a universal dark-mode conversion.",
+      "The phrase “contrast collapses” does not specify the tested colors, backgrounds, or contrast method.",
+      "Only the opening light-versus-dark comparison was captured; the adjusted result was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "The same encoded color appears different across modes",
+        start: 0,
+        end: 5.36,
+      },
+      {
+        label: "Chroma reduction and tone lift are proposed for dark mode",
+        start: 5.36,
+        end: 12,
+      },
+      {
+        label:
+          "The adjusted token preserves hue while changing appearance controls",
+        start: 12,
+        end: 16.24,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Theme color",
+        title: "One hex value does not create one visual result",
+        body: "A shared token can appear stronger on a dark field and weaker in contrast even though its stored coordinates do not change.",
+        visual: {
+          type: "comparison",
+          before: "Same value on light",
+          after: "Same value on dark",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Literal reuse",
+        title: "Copied coordinates can break perceptual continuity",
+        body: "Dark surroundings alter saturation and contrast relationships, so identical numbers may stop serving the same role.",
+        visual: {
+          type: "layers",
+          items: [
+            "Shared encoded value",
+            "Changed background",
+            "Changed appearance",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Controlled adaptation",
+        title: "Preserve identity while adjusting chroma and tone",
+        body: "Keep the color family recognizable, then tune intensity and lightness for the new surrounding field.",
+        visual: {
+          type: "rule",
+          statement: "Stable hue + adapted chroma and tone",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Token pairing",
+        title: "Design light and dark values side by side",
+        body: "Place both theme tokens in representative states, compare their visual role, and verify contrast after each change.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set semantic role",
+            "Compare themes",
+            "Tune appearance",
+            "Verify contrast",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Theme parity is perceptual, not numeric",
+        body: "Use different coordinates when they are required to preserve the same visible intent.",
+        visual: {
+          type: "rule",
+          statement: "Match the role, not the raw value",
+        },
+      },
+    ],
+  },
+  {
+    id: "DYe8mXVq4r4",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DYe8mXVq4r4/",
+      creator: "@designparser",
+      publishedAt: "2026-05-18",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Balance Page Margins as a Spread",
+    summary:
+      "A page-layout study describing a traditional 1:1:2:2 margin relationship and an optically raised text block, so facing pages read as a balanced spread rather than two isolated centered rectangles.",
+    principles: [
+      "Inner, top, outer, and bottom margins form a proportional system.",
+      "Facing-page balance depends on the combined inner margins as well as each page edge.",
+      "Optical centering can place a text block slightly above geometric center.",
+    ],
+    applications: [
+      "Design facing pages together before tuning individual margins.",
+      "Use a base unit to compare gutter, head, fore-edge, and foot relationships.",
+      "Raise the text block only after evaluating the full spread at reading size.",
+    ],
+    uncertainties: [
+      "The historical continuity claim is not accompanied by specific manuscripts or sources.",
+      "The 1:1:2:2 proportions and 5–10% upward correction are presented as one compositional canon, not universal page-layout rules.",
+      "Scene extraction captured only the opening margin diagram; later diagonal construction was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "A 1:1:2:2 margin relationship is introduced",
+        start: 0,
+        end: 3.88,
+      },
+      {
+        label: "Diagonal construction is linked to historical page practice",
+        start: 3.88,
+        end: 9.72,
+      },
+      {
+        label: "Facing inner margins balance the outer margin",
+        start: 9.72,
+        end: 14.88,
+      },
+      {
+        label: "The text block sits above geometric center",
+        start: 14.88,
+        end: 20.32,
+      },
+      {
+        label: "A modest upward shift is proposed",
+        start: 20.32,
+        end: 22.28,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Page canon",
+        title: "Margins become a system when the book opens",
+        body: "The gutter, head, fore-edge, and foot can share a base ratio that balances each page with its facing partner.",
+        visual: {
+          type: "layers",
+          items: ["Gutter 1", "Head 1", "Fore-edge 2", "Foot 2"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Isolated centering",
+        title: "A centered rectangle can feel low and disconnected",
+        body: "Geometric centering ignores the visual weight of the foot margin and the combined interior of a spread.",
+        visual: {
+          type: "comparison",
+          before: "Page centered alone",
+          after: "Spread balanced together",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Spread proportion",
+        title: "Treat two inner margins as one shared interval",
+        body: "When the book is open, the paired gutters participate in the same rhythm as the outer margins.",
+        visual: {
+          type: "rule",
+          statement: "Two facing gutters → one central spacing relationship",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Optical placement",
+        title: "Set the ratio, then judge vertical position",
+        body: "Build the margin system first and test a slight upward shift only if the text block still reads low.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Choose base unit",
+            "Build facing margins",
+            "Place text block",
+            "Adjust optically",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Compose the spread, not just the page",
+        body: "Use proportional margins to create a stable reading field across both pages.",
+        visual: {
+          type: "rule",
+          statement: "Facing relationships define page balance",
+        },
+      },
+    ],
+  },
+  {
+    id: "DYUpz17qlvT",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DYUpz17qlvT/",
+      creator: "@designparser",
+      publishedAt: "2026-05-14",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Build Weight Hierarchy With Visible Steps",
+    summary:
+      "A typography-system study arguing that adjacent numeric font weights may look too similar for hierarchy, so roles should be selected by perceptible contrast rather than by consecutive labels.",
+    principles: [
+      "Font-weight numbers name positions on an axis; they do not guarantee equal perceptual intervals.",
+      "A hierarchy needs visible contrast between neighboring roles.",
+      "Fewer well-separated weights can create a clearer system than many subtle steps.",
+    ],
+    applications: [
+      "Render candidate text roles together in the actual typeface.",
+      "Compare regular, emphasis, and display weights at production sizes.",
+      "Remove intermediate weights that do not create a distinct visual role.",
+    ],
+    uncertainties: [
+      "The proposed 200-unit spacing is a heuristic; numeric weight intervals vary visibly across font families and variable-font axes.",
+      "The opening frame shows the available weight ladder but not the later three-role comparison.",
+    ],
+    evidence: [
+      {
+        label: "A nearby weight step is described as too weak for hierarchy",
+        start: 0,
+        end: 4.8,
+      },
+      {
+        label: "Wider numeric separation is proposed",
+        start: 5.44,
+        end: 13.52,
+      },
+      {
+        label: "A three-step 400, 600, 800 system is suggested",
+        start: 13.52,
+        end: 17.68,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Type hierarchy",
+        title: "A numeric step is not automatically a visible step",
+        body: "Moving from one named font weight to the next may change the file value more than the perceived role.",
+        visual: {
+          type: "comparison",
+          before: "Adjacent weight labels",
+          after: "Clearly separated roles",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Muddy emphasis",
+        title: "Too many nearby weights flatten the system",
+        body: "When regular, medium, and semibold look almost alike, readers cannot reliably infer which role matters more.",
+        visual: {
+          type: "layers",
+          items: [
+            "Several weight tokens",
+            "Small visible differences",
+            "Unclear hierarchy",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Perceptual interval",
+        title: "Choose weights by contrast in the actual family",
+        body: "The useful gap is the one that produces a distinct reading level at the intended size and rendering.",
+        visual: {
+          type: "rule",
+          statement: "Visible role change matters more than axis arithmetic",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Token audit",
+        title: "Put every hierarchy role on one test page",
+        body: "Compare the candidates together, keep the few that separate cleanly, and retest across small and large text.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Render roles",
+            "Compare contrast",
+            "Remove duplicates",
+            "Test sizes",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use the smallest weight set that reads clearly",
+        body: "Let perceptual separation define the hierarchy instead of filling every available axis stop.",
+        visual: {
+          type: "rule",
+          statement: "Distinct roles beat dense weight ladders",
+        },
+      },
+    ],
+  },
+  {
+    id: "DYPghJ_KSek",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DYPghJ_KSek/",
+      creator: "@designparser",
+      publishedAt: "2026-05-12",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Compare Font Payloads in Production",
+    summary:
+      "A web-typography study correcting the assumption that variable fonts are always smaller: their efficiency depends on how many styles and axes are needed, how each build is subset, and what the final payload contains.",
+    principles: [
+      "A variable font consolidates multiple styles, but consolidation alone does not guarantee a smaller transfer.",
+      "Variable delivery becomes more competitive as one file replaces several required static styles.",
+      "Axes, compression, subsetting, family design, and actual usage determine the result.",
+    ],
+    applications: [
+      "List the exact styles and character sets each page needs.",
+      "Build equivalent static and variable subsets with the same production scope.",
+      "Compare final transferred font payloads rather than source files or marketing claims.",
+    ],
+    uncertainties: [
+      "Speech recognition garbles the webfont format name near the end; the opening visual confirms a variable webfont example, but no file-size comparison is shown.",
+      "Scene extraction captured only the opening variable-font asset state.",
+    ],
+    evidence: [
+      {
+        label: "Variable fonts are not inherently smaller",
+        start: 0,
+        end: 2.4,
+      },
+      {
+        label: "Static delivery uses separate style resources",
+        start: 2.4,
+        end: 8.52,
+      },
+      {
+        label: "Variable delivery combines style variation",
+        start: 8.52,
+        end: 14.6,
+      },
+      {
+        label: "Axes, compression, subsetting, and family affect efficiency",
+        start: 14.6,
+        end: 19.16,
+      },
+      {
+        label: "Production payloads must be compared directly",
+        start: 19.16,
+        end: 25.72,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Webfont delivery",
+        title: "One variable resource is not automatically the lightest option",
+        body: "Combining styles can reduce requests and duplication, but the final transfer still depends on what the resource contains.",
+        visual: {
+          type: "comparison",
+          before: "Several static styles",
+          after: "One variable family",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "File-count shortcut",
+        title: "Fewer resources can still carry more unused capability",
+        body: "A broad variable build may include axes or character coverage that a narrowly subset static set does not need.",
+        visual: {
+          type: "layers",
+          items: [
+            "Style coverage",
+            "Axis coverage",
+            "Character subset",
+            "Compressed payload",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Equivalent scope",
+        title: "Compare like-for-like production builds",
+        body: "Both options should represent the same styles, scripts, features, and delivery conditions before size is judged.",
+        visual: {
+          type: "rule",
+          statement: "Equal requirements → meaningful payload comparison",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Delivery test",
+        title: "Measure the resources the browser actually receives",
+        body: "Subset both strategies, enable production compression, and compare transferred bytes for representative pages.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Define requirements",
+            "Build both options",
+            "Compress and subset",
+            "Measure transfer",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Choose variable fonts for the system, not the slogan",
+        body: "Use the format that best balances needed flexibility, payload, rendering, and maintenance.",
+        visual: {
+          type: "rule",
+          statement: "Production evidence decides efficiency",
+        },
+      },
+    ],
+  },
+  {
+    id: "DYM6HkmK8r1",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DYM6HkmK8r1/",
+      creator: "@designparser",
+      publishedAt: "2026-05-11",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Give the Layout a Clear Entry Point",
+    summary:
+      "A visual-hierarchy study explaining how one dominant anchor and a supporting alignment axis can tell the eye where to begin and how to move through a composition.",
+    principles: [
+      "A clear anchor reduces the search required to enter a layout.",
+      "Size or contrast can establish dominance without explicit instruction.",
+      "Alignment turns the anchor into an orientation system for related elements.",
+    ],
+    applications: [
+      "Identify the first element a viewer should notice on each key layout.",
+      "Strengthen that element through size, contrast, position, or a deliberate combination.",
+      "Align secondary content to a visible axis that extends the anchor’s logic.",
+    ],
+    uncertainties: [
+      "The speed claim is presented without study conditions and is not used as a measurable performance guarantee.",
+      "The one-anchor rule is a simplification for focused compositions; complex interfaces can support multiple coordinated entry points.",
+      "Only the opening low-hierarchy poster state was captured; later anchor and axis changes were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "A layout without an anchor lacks an entry point",
+        start: 0,
+        end: 3.8,
+      },
+      {
+        label: "Visual search adds effort",
+        start: 3.8,
+        end: 6.28,
+      },
+      {
+        label: "Dominance by size or contrast establishes an anchor",
+        start: 6.28,
+        end: 13.96,
+      },
+      {
+        label: "Axial alignment stabilizes orientation",
+        start: 13.96,
+        end: 18.44,
+      },
+      {
+        label: "Breaking the anchor relationship weakens hierarchy",
+        start: 18.44,
+        end: 20.22,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Visual hierarchy",
+        title: "Every focused layout needs somewhere to begin",
+        body: "Without a dominant element, the eye must search across equally weighted content before it can form a reading path.",
+        visual: {
+          type: "comparison",
+          before: "Many equal signals",
+          after: "One clear anchor",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Entry cost",
+        title: "No anchor turns scanning into guesswork",
+        body: "When nothing leads, viewers spend attention deciding where the composition starts instead of understanding it.",
+        visual: {
+          type: "layers",
+          items: ["Equal emphasis", "Uncertain entry", "Slow orientation"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Anchor and axis",
+        title: "Dominance starts the path; alignment continues it",
+        body: "A strong element captures attention, and a shared edge or axis organizes the content that follows.",
+        visual: {
+          type: "rule",
+          statement: "Anchor → axis → reading path",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Hierarchy audit",
+        title: "Name the first look and test the next two",
+        body: "Choose the intended entry point, strengthen it, and verify that secondary elements connect through a stable alignment.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Choose entry",
+            "Create dominance",
+            "Set axis",
+            "Trace reading path",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "One strong beginning can organize the whole",
+        body: "Build hierarchy around an intentional anchor and let alignment carry its influence.",
+        visual: {
+          type: "rule",
+          statement: "Clear entry creates coherent orientation",
+        },
+      },
+    ],
+  },
+  {
+    id: "DYCqzklq_cg",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DYCqzklq_cg/",
+      creator: "@designparser",
+      publishedAt: "2026-05-07",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Define Logo Clear Space From a Stable Unit",
+    summary:
+      "A brand-system study proposing that logo clear space be expressed as a repeatable unit—such as cap height—so surrounding content cannot crowd the mark.",
+    principles: [
+      "Clear space protects recognition by separating a logo from competing elements.",
+      "A unit derived from the mark or wordmark scales with the logo.",
+      "The exclusion zone must be explicit enough for different placements and formats.",
+    ],
+    applications: [
+      "Choose a stable internal measure such as cap height as the base unit.",
+      "Specify the factor and show the resulting boundary on every side.",
+      "Test the rule against nearby type, imagery, edges, and partner marks.",
+    ],
+    uncertainties: [
+      "The factor applied to the base unit is not specified and must be chosen for the actual mark.",
+      "Cap height is one example; symbols without a wordmark may require a different stable measure.",
+      "Scene extraction captured only the opening logo state, not the measured exclusion zone.",
+    ],
+    evidence: [
+      {
+        label: "Crowded placement is identified as the problem",
+        start: 0,
+        end: 4.24,
+      },
+      {
+        label: "Adjacent elements reduce clarity and motivate a base unit",
+        start: 4.24,
+        end: 8.4,
+      },
+      {
+        label: "Clear space is defined as a scaled unit",
+        start: 8.4,
+        end: 12,
+      },
+      {
+        label: "The unit is applied around every side",
+        start: 12,
+        end: 15.52,
+      },
+      {
+        label: "The exclusion zone remains empty",
+        start: 15.52,
+        end: 20,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Brand protection",
+        title: "A logo needs a boundary that travels with it",
+        body: "Clear space gives the mark enough separation to remain recognizable across changing layouts.",
+        visual: {
+          type: "layers",
+          items: ["Logo", "Measured boundary", "Surrounding content"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Visual crowding",
+        title: "Nearby elements compete with the mark",
+        body: "Type, images, borders, and partner logos can reduce clarity when they enter the logo’s immediate field.",
+        visual: {
+          type: "comparison",
+          before: "Crowded placement",
+          after: "Protected placement",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Scalable unit",
+        title: "Derive the boundary from a stable part of the identity",
+        body: "An internal measure such as cap height scales with the wordmark and avoids a fixed distance that fails at new sizes.",
+        visual: {
+          type: "rule",
+          statement: "Internal unit × factor → clear-space boundary",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Usage rule",
+        title: "Show the exclusion zone, not just the number",
+        body: "Document the base unit, factor, and boundary on all four sides with realistic collision examples.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Select unit",
+            "Choose factor",
+            "Draw boundary",
+            "Test intrusions",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Nothing enters the defined field",
+        body: "Make the clear-space rule measurable, scalable, and easy to audit in every placement.",
+        visual: {
+          type: "rule",
+          statement: "Protected space preserves recognition",
+        },
+      },
+    ],
+  },
+  {
+    id: "DX9dIX7K0Zh",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DX9dIX7K0Zh/",
+      creator: "@designparser",
+      publishedAt: "2026-05-05",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Use Easing to Express Physical Intent",
+    summary:
+      "A motion-design study contrasting constant-speed interpolation with easing, showing how acceleration and deceleration help interface changes align with familiar motion expectations.",
+    principles: [
+      "Natural motion usually changes speed rather than moving linearly from start to finish.",
+      "An easing curve communicates how an object departs, travels, and settles.",
+      "The appropriate curve depends on the interaction’s direction, distance, and purpose.",
+    ],
+    applications: [
+      "Use constant-speed motion only when mechanical uniformity is intentional.",
+      "Test hover growth and other short state changes with a gentle settling curve.",
+      "Compare curves at production distance and duration instead of judging names alone.",
+    ],
+    uncertainties: [
+      "The broad claim that ease-out feels natural is treated as a short settling-motion example, not a universal curve choice.",
+      "Scene extraction captured only the opening dot state; the ball and button motion examples were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "A thrown object changes speed around its peak",
+        start: 0,
+        end: 5.6,
+      },
+      {
+        label: "Constant-speed interface growth can feel mechanical",
+        start: 6.16,
+        end: 11.68,
+      },
+      {
+        label: "Experience creates expectations for motion curves",
+        start: 11.68,
+        end: 17.44,
+      },
+      {
+        label: "Easing changes the perceived character of the interaction",
+        start: 17.44,
+        end: 25.04,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Motion perception",
+        title: "Speed over time gives movement its character",
+        body: "Two animations can share distance and duration yet feel different because one accelerates and settles while the other stays constant.",
+        visual: {
+          type: "comparison",
+          before: "Constant speed",
+          after: "Changing speed",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Linear default",
+        title: "Uniform interpolation exposes the mechanism",
+        body: "A control that changes at one unvarying rate can feel detached from the motion patterns people already know.",
+        visual: {
+          type: "layers",
+          items: ["State change", "Constant velocity", "Mechanical impression"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Easing curve",
+        title: "Shape the departure and arrival deliberately",
+        body: "Acceleration and deceleration determine whether motion feels immediate, energetic, restrained, or settled.",
+        visual: {
+          type: "rule",
+          statement: "Velocity curve → perceived motion intent",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Interaction tuning",
+        title: "Compare curves in the real transition",
+        body: "Test the actual distance, duration, and trigger, then choose the curve that supports how the element should enter or settle.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name motion intent",
+            "Set duration",
+            "Compare curves",
+            "Observe settling",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Easing should explain the movement",
+        body: "Choose a curve because it clarifies the interaction, not because it is the default preset.",
+        visual: {
+          type: "rule",
+          statement: "Motion intent selects the curve",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

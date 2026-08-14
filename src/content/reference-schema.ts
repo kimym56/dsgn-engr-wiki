@@ -111,12 +111,18 @@ function expectExactKeys(
   for (const key of keys) {
     if (!(key in value)) errors.push(`${path}.${key}: missing required field`);
   }
-  for (const key of Object.keys(value).filter((key) => !keys.includes(key)).sort()) {
+  for (const key of Object.keys(value)
+    .filter((key) => !keys.includes(key))
+    .sort()) {
     errors.push(`${path}.${key}: unknown field`);
   }
 }
 
-function expectNonEmptyString(value: unknown, path: string, errors: string[]): value is string {
+function expectNonEmptyString(
+  value: unknown,
+  path: string,
+  errors: string[],
+): value is string {
   if (typeof value !== "string" || value.trim() === "") {
     errors.push(`${path}: expected a non-empty string`);
     return false;
@@ -124,10 +130,17 @@ function expectNonEmptyString(value: unknown, path: string, errors: string[]): v
   return true;
 }
 
-function expectId(value: unknown, path: string, errors: string[]): value is string {
+function expectId(
+  value: unknown,
+  path: string,
+  errors: string[],
+): value is string {
   return expectNonEmptyString(value, path, errors) && ID_PATTERN.test(value)
     ? true
-    : (typeof value === "string" && value.trim() !== "" && errors.push(`${path}: invalid id`), false);
+    : (typeof value === "string" &&
+        value.trim() !== "" &&
+        errors.push(`${path}: invalid id`),
+      false);
 }
 
 function expectHttpsUrl(value: unknown, path: string, errors: string[]): void {
@@ -175,12 +188,18 @@ function validateRegistry(
       errors.push(`${itemPath}: expected an object`);
       continue;
     }
-    expectExactKeys(item, kind === "area" ? AREA_KEYS : COLLECTION_KEYS, itemPath, errors);
+    expectExactKeys(
+      item,
+      kind === "area" ? AREA_KEYS : COLLECTION_KEYS,
+      itemPath,
+      errors,
+    );
     const idIsValid = expectId(item.id, `${itemPath}.id`, errors);
     expectNonEmptyString(item.label, `${itemPath}.label`, errors);
     expectNonEmptyString(item.description, `${itemPath}.description`, errors);
     if (idIsValid && typeof item.id === "string") {
-      if (ids.has(item.id)) errors.push(`${itemPath}.id: duplicate ${kind} id ${item.id}`);
+      if (ids.has(item.id))
+        errors.push(`${itemPath}.id: duplicate ${kind} id ${item.id}`);
       ids.add(item.id);
     }
   }
@@ -199,7 +218,8 @@ function validateRelationships(
     errors.push(`${path}: expected an array`);
     return;
   }
-  if (required && value.length === 0) errors.push(`${path}: expected at least one ${kind}`);
+  if (required && value.length === 0)
+    errors.push(`${path}: expected at least one ${kind}`);
   const seen = new Set<string>();
   for (const [index, id] of value.entries()) {
     const itemPath = `${path}[${index}]`;
@@ -217,7 +237,10 @@ function validatePreview(value: unknown, path: string, errors: string[]): void {
     return;
   }
   expectExactKeys(value, PREVIEW_KEYS, path, errors);
-  if (expectNonEmptyString(value.src, `${path}.src`, errors) && !value.src.startsWith("/")) {
+  if (
+    expectNonEmptyString(value.src, `${path}.src`, errors) &&
+    !value.src.startsWith("/")
+  ) {
     errors.push(`${path}.src: expected a root-relative path`);
   }
   expectNonEmptyString(value.alt, `${path}.alt`, errors);
@@ -225,10 +248,16 @@ function validatePreview(value: unknown, path: string, errors: string[]): void {
   expectNonEmptyString(value.rights, `${path}.rights`, errors);
 }
 
-export function validateReferenceCatalog(input: ReferenceCatalogInput): string[] {
+export function validateReferenceCatalog(
+  input: ReferenceCatalogInput,
+): string[] {
   const errors: string[] = [];
   const areaIds = validateRegistry(input.areas, "area", errors);
-  const collectionIds = validateRegistry(input.collections, "collection", errors);
+  const collectionIds = validateRegistry(
+    input.collections,
+    "collection",
+    errors,
+  );
   const recordIds = new Set<string>();
   const urls = new Set<string>();
 
@@ -244,39 +273,76 @@ export function validateReferenceCatalog(input: ReferenceCatalogInput): string[]
     expectNonEmptyString(value.title, `${path}.title`, errors);
     expectHttpsUrl(value.url, `${path}.url`, errors);
     expectNonEmptyString(value.publisher, `${path}.publisher`, errors);
-    if (value.author !== null) expectNonEmptyString(value.author, `${path}.author`, errors);
+    if (value.author !== null)
+      expectNonEmptyString(value.author, `${path}.author`, errors);
     expectNonEmptyString(value.summary, `${path}.summary`, errors);
     expectNonEmptyString(value.relevance, `${path}.relevance`, errors);
-    if (!REFERENCE_FORMATS.includes(value.format as ReferenceFormat)) errors.push(`${path}.format: invalid format`);
-    validateRelationships(value.areas, `${path}.areas`, areaIds, "area", errors, true);
-    validateRelationships(value.collections, `${path}.collections`, collectionIds, "collection", errors, false);
-    if (!expectNonEmptyString(value.source_language, `${path}.source_language`, errors) || !LANGUAGE_PATTERN.test(value.source_language)) {
-      if (typeof value.source_language === "string" && value.source_language.trim() !== "") errors.push(`${path}.source_language: invalid language code`);
+    if (!REFERENCE_FORMATS.includes(value.format as ReferenceFormat))
+      errors.push(`${path}.format: invalid format`);
+    validateRelationships(
+      value.areas,
+      `${path}.areas`,
+      areaIds,
+      "area",
+      errors,
+      true,
+    );
+    validateRelationships(
+      value.collections,
+      `${path}.collections`,
+      collectionIds,
+      "collection",
+      errors,
+      false,
+    );
+    if (
+      !expectNonEmptyString(
+        value.source_language,
+        `${path}.source_language`,
+        errors,
+      ) ||
+      !LANGUAGE_PATTERN.test(value.source_language)
+    ) {
+      if (
+        typeof value.source_language === "string" &&
+        value.source_language.trim() !== ""
+      )
+        errors.push(`${path}.source_language: invalid language code`);
     }
-    if (value.source_language !== "en") errors.push(`${path}.source_language: English records require en`);
-    if (value.published !== null) expectDate(value.published, `${path}.published`, errors);
+    if (value.source_language !== "en")
+      errors.push(`${path}.source_language: English records require en`);
+    if (value.published !== null)
+      expectDate(value.published, `${path}.published`, errors);
     expectDate(value.added, `${path}.added`, errors);
     expectDate(value.reviewed, `${path}.reviewed`, errors);
-    if (!REFERENCE_STATUSES.includes(value.status as ReferenceStatus)) errors.push(`${path}.status: invalid status`);
+    if (!REFERENCE_STATUSES.includes(value.status as ReferenceStatus))
+      errors.push(`${path}.status: invalid status`);
     validatePreview(value.preview, `${path}.preview`, errors);
-    if (value.language !== "en") errors.push(`${path}.language: English records require en`);
-    if (value.translation_of !== null) errors.push(`${path}.translation_of: English records require null`);
+    if (value.language !== "en")
+      errors.push(`${path}.language: English records require en`);
+    if (value.translation_of !== null)
+      errors.push(`${path}.translation_of: English records require null`);
 
     if (idIsValid && typeof value.id === "string") {
-      if (recordIds.has(value.id)) errors.push(`${path}.id: duplicate record id ${value.id}`);
+      if (recordIds.has(value.id))
+        errors.push(`${path}.id: duplicate record id ${value.id}`);
       recordIds.add(value.id);
     }
     if (typeof value.url === "string") {
-      if (urls.has(value.url)) errors.push(`${path}.url: duplicate canonical url ${value.url}`);
+      if (urls.has(value.url))
+        errors.push(`${path}.url: duplicate canonical url ${value.url}`);
       urls.add(value.url);
     }
   }
   return errors;
 }
 
-export function parseReferenceCatalog(input: ReferenceCatalogInput): ReferenceCatalog {
+export function parseReferenceCatalog(
+  input: ReferenceCatalogInput,
+): ReferenceCatalog {
   const errors = validateReferenceCatalog(input);
-  if (errors.length > 0) throw new Error(`Invalid reference catalog:\n${errors.join("\n")}`);
+  if (errors.length > 0)
+    throw new Error(`Invalid reference catalog:\n${errors.join("\n")}`);
   return {
     areas: input.areas as ReferenceArea[],
     collections: input.collections as ReferenceCollection[],

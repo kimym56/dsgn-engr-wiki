@@ -33,9 +33,7 @@ const validArea = {
 };
 
 const validInput: ReferenceCatalogInput = {
-  areas: [
-    validArea,
-  ],
+  areas: [validArea],
   collections: [],
   records: [
     {
@@ -78,7 +76,8 @@ describe("parseReferenceCatalog", () => {
 
   it("rejects missing fields and unknown fields", () => {
     const input = structuredClone(validInput);
-    const { summary: _summary, ...missingSummary } = validRecord;
+    const missingSummary: Partial<typeof validRecord> = { ...validRecord };
+    delete missingSummary.summary;
     input.records = [
       { path: "content/references/en/missing.json", value: missingSummary },
       {
@@ -158,10 +157,7 @@ describe("parseReferenceCatalog", () => {
 
   it("rejects duplicate area ids", () => {
     const input = structuredClone(validInput);
-    input.areas = [
-      validArea,
-      { ...validArea, label: "Duplicate" },
-    ];
+    input.areas = [validArea, { ...validArea, label: "Duplicate" }];
 
     expect(validateReferenceCatalog(input)).toEqual(
       expect.arrayContaining([expect.stringContaining("duplicate area id")]),
@@ -227,9 +223,7 @@ describe("parseReferenceCatalog", () => {
     };
 
     expect(validateReferenceCatalog(input)).toEqual(
-      expect.arrayContaining([
-        expect.stringContaining("preview.source_url"),
-      ]),
+      expect.arrayContaining([expect.stringContaining("preview.source_url")]),
     );
   });
 });

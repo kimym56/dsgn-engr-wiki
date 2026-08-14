@@ -5868,6 +5868,1178 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DWO2JTUimTR",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWO2JTUimTR/",
+      creator: "@designparser",
+      publishedAt: "2026-03-23",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Comparisons Can Steer Tier Choice",
+    summary:
+      "A pricing-interface study of the decoy effect: adding an inferior nearby option can change how a target tier is evaluated, even when the target itself has not changed.",
+    principles: [
+      "People evaluate an option relative to the alternatives placed beside it.",
+      "An asymmetrically inferior tier can make a neighboring tier appear more valuable.",
+      "Choice architecture should clarify real trade-offs rather than manufacture a misleading comparison.",
+    ],
+    applications: [
+      "Audit pricing tiers for options that exist only to manipulate preference.",
+      "Give every offered plan a defensible audience, feature set, and value.",
+      "Test comprehension and informed choice, not only conversion to the target tier.",
+    ],
+    uncertainties: [
+      "The 50%, 71%, and near-zero selection figures are presented as an illustrative scenario without experiment details.",
+      "The study describes a potentially manipulative pattern; it is not evidence that a decoy is ethical or suitable for real pricing.",
+      "Only the opening Basic-and-Pro comparison was captured; the third tier and changed selections were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Two plans begin without a clear winner",
+        start: 0,
+        end: 7.2,
+      },
+      {
+        label: "An inferior higher-priced third tier is added",
+        start: 7.2,
+        end: 10,
+      },
+      {
+        label: "Preference shifts toward the neighboring target plan",
+        start: 10,
+        end: 13.84,
+      },
+      {
+        label: "The decoy effect is named",
+        start: 13.84,
+        end: 16,
+      },
+      {
+        label: "The third plan changes comparison rather than serving demand",
+        start: 16,
+        end: 18.48,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Choice architecture",
+        title: "A third option can change the meaning of the first two",
+        body: "Plans are judged relative to their neighbors, so an added tier can shift preference without changing the target offer.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Two-way choice",
+            "Add inferior neighbor",
+            "Target gains relative value",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Manipulated comparison",
+        title: "A plan can exist only to make another look better",
+        body: "An option that is worse on both price and value creates an artificial reference rather than a meaningful customer fit.",
+        visual: {
+          type: "comparison",
+          before: "Independent trade-offs",
+          after: "Asymmetric decoy",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Relative judgment",
+        title: "Every neighboring tier participates in the decision",
+        body: "Price, features, and ordering create a comparison frame that can guide attention before users calculate absolute value.",
+        visual: {
+          type: "rule",
+          statement: "Offer set → perceived value",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Ethical tier design",
+        title: "Make each option useful to a real audience",
+        body: "Define a credible job for every plan, state trade-offs plainly, and measure whether people understand the choice.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name audience",
+            "Check dominance",
+            "Explain trade-offs",
+            "Test comprehension",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use comparison to clarify, not trap",
+        body: "A pricing table should help users select the right fit without inventing a disposable option.",
+        visual: {
+          type: "rule",
+          statement: "Legitimate choices earn trust",
+        },
+      },
+    ],
+  },
+  {
+    id: "DWMOIpSjUrR",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWMOIpSjUrR/",
+      creator: "@designparser",
+      publishedAt: "2026-03-22",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "A Palette Is a System of Color Relationships",
+    summary:
+      "A color-perception study showing how the same gray can appear different on warm and cool backgrounds, making simultaneous contrast a system-level concern rather than a swatch-level property.",
+    principles: [
+      "Color is perceived relative to its surrounding colors.",
+      "Warm and cool backgrounds can shift the apparent character of an unchanged neutral.",
+      "A palette must be evaluated in the combinations and proportions where it will appear.",
+    ],
+    applications: [
+      "Review neutral and semantic tokens on every background they use.",
+      "Build palette documentation around pairings and roles, not isolated swatch rows.",
+      "Test adjacent colors at production size and in representative lighting.",
+    ],
+    uncertainties: [
+      "The historical attribution and 1839 date are not independently verified in this study.",
+      "Only the opening single-value state was captured; the warm-versus-cool background comparison was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "One encoded value produces two perceptions",
+        start: 0,
+        end: 2.32,
+      },
+      {
+        label: "Color is read through contrast rather than in isolation",
+        start: 2.32,
+        end: 5.6,
+      },
+      {
+        label: "Warm and cool surrounds shift the same gray",
+        start: 5.6,
+        end: 8.48,
+      },
+      {
+        label: "A historical description of the effect is cited",
+        start: 9.04,
+        end: 13.12,
+      },
+      {
+        label: "Palette design is framed as relational",
+        start: 13.12,
+        end: 17.76,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Simultaneous contrast",
+        title: "The same gray changes when its neighbors change",
+        body: "A neutral inherits a warmer or cooler appearance from the field against which the eye compares it.",
+        visual: {
+          type: "comparison",
+          before: "Gray on warm field",
+          after: "Gray on cool field",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Isolated swatches",
+        title: "A token list hides the relationships users see",
+        body: "Approving colors one by one misses how adjacent backgrounds and accents alter their apparent hue and value.",
+        visual: {
+          type: "layers",
+          items: ["Stored token", "Surrounding field", "Perceived color"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Relational palette",
+        title: "Evaluate colors as pairs, roles, and proportions",
+        body: "The useful design object is not the swatch alone but the system of combinations in which it operates.",
+        visual: {
+          type: "rule",
+          statement: "Color + context → appearance",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Token testing",
+        title: "Place every token in its real neighborhood",
+        body: "Compare text, surface, border, and accent roles across themes and states before accepting the palette.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Assign roles",
+            "Build pairings",
+            "Test contexts",
+            "Adjust relationships",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Color values do not travel alone",
+        body: "Design the relationship that reaches the eye, not only the code stored in the system.",
+        visual: {
+          type: "rule",
+          statement: "A palette is a network, not a list",
+        },
+      },
+    ],
+  },
+  {
+    id: "DWHKvRwih0A",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DWHKvRwih0A/",
+      creator: "@designparser",
+      publishedAt: "2026-03-20",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Odd Groups Can Create a Visual Center",
+    summary:
+      "A composition study proposing that groups of three or five can establish a dominant center and a stable hierarchy, while pairs may close too evenly and large groups begin to read as a crowd.",
+    principles: [
+      "Two similar elements can form a closed pair without a clear leader.",
+      "An odd group can create a middle or dominant relationship that anchors attention.",
+      "Once a set becomes dense, viewers may perceive texture or crowding instead of individual hierarchy.",
+    ],
+    applications: [
+      "Compare two-, three-, and five-element arrangements for editorial and product compositions.",
+      "Use scale, position, or contrast to clarify which item leads inside the group.",
+      "Switch from item-level hierarchy to grouping or pattern when the set becomes dense.",
+    ],
+    uncertainties: [
+      "The claims that three and five always hold and that the effect disappears above nine are presented without task or study conditions.",
+      "Calling the behavior perceptual physics overstates a contextual composition heuristic.",
+      "Only the opening two-element state was captured; odd and crowded variants were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "A two-element pair lacks a clear winner",
+        start: 0,
+        end: 4.64,
+      },
+      {
+        label: "The closed pair lets attention move on",
+        start: 4.64,
+        end: 6.08,
+      },
+      {
+        label: "A third element creates a center",
+        start: 6.08,
+        end: 10.92,
+      },
+      {
+        label: "Dominance is linked to stronger attention",
+        start: 10.92,
+        end: 15.48,
+      },
+      {
+        label: "Three and five are contrasted with a large crowd",
+        start: 15.48,
+        end: 21.2,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Group composition",
+        title: "A pair can close before hierarchy begins",
+        body: "Two comparable elements often read as one balanced unit, leaving neither as an obvious entry point.",
+        visual: {
+          type: "comparison",
+          before: "Two equal elements",
+          after: "Three with a center",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "No leader",
+        title: "Symmetry can flatten the reading order",
+        body: "When both sides carry equal weight, attention may register the pair and move on without settling.",
+        visual: {
+          type: "layers",
+          items: ["Equal pair", "Closed relationship", "No dominant entry"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Odd grouping",
+        title: "A third element can create an anchor",
+        body: "An odd arrangement offers a center or asymmetry around which the other items can organize.",
+        visual: {
+          type: "rule",
+          statement: "Odd group + clear dominance → visual anchor",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Scale test",
+        title: "Choose an item group or a pattern deliberately",
+        body: "Use small odd groups for item-level hierarchy, then group or simplify once quantity begins to read as texture.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set group size",
+            "Choose leader",
+            "Test balance",
+            "Simplify crowd",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use odd counts when they improve the composition",
+        body: "Let the desired center and reading order determine the group rather than treating three or five as laws.",
+        visual: {
+          type: "rule",
+          statement: "Hierarchy decides the count",
+        },
+      },
+    ],
+  },
+  {
+    id: "DV_zfOkio9m",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DV_zfOkio9m/",
+      creator: "@designparser",
+      publishedAt: "2026-03-17",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Color Depends on Its Viewing System",
+    summary:
+      "A color-management study linking contextual perception with screen-to-print differences: identical source data can be interpreted differently under new lighting, media, and output standards.",
+    principles: [
+      "Color appearance depends on surrounding light and visual context.",
+      "RGB display color is emitted, while printed color is produced by reflected light from ink and paper.",
+      "Profiles and print standards define conversions; they do not make unlike media physically identical.",
+    ],
+    applications: [
+      "Evaluate color in the environment and medium where it will be used.",
+      "Convert through the correct source and output profiles for print production.",
+      "Use standardized viewing and physical proofs for colors that matter.",
+    ],
+    uncertainties: [
+      "The dress example demonstrates ambiguous illumination, but it is an analogy rather than direct proof of every screen-to-print shift.",
+      "The phrase “same hex” is technically incomplete across RGB and print because an RGB code requires a color space and conversion.",
+      "Only the opening dress image was captured; profile conversion and paper results were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "An ambiguous dress introduces contextual color",
+        start: 0,
+        end: 4.2,
+      },
+      {
+        label: "Lighting and context alter perception",
+        start: 4.2,
+        end: 7.16,
+      },
+      {
+        label: "Screen design shifts when reproduced on paper",
+        start: 7.16,
+        end: 11.12,
+      },
+      {
+        label: "Emission and reflected ink are distinguished",
+        start: 11.12,
+        end: 17.48,
+      },
+      {
+        label: "Profiles and standards manage print conversion",
+        start: 17.48,
+        end: 22.92,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Color context",
+        title: "Pixels do not determine appearance by themselves",
+        body: "The eye interprets a color through assumed lighting and nearby cues, so identical image data can support different readings.",
+        visual: {
+          type: "layers",
+          items: ["Pixel values", "Lighting assumption", "Perceived color"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Cross-media translation",
+        title: "Screen and paper are different color systems",
+        body: "Displays emit light, while print reflects it through ink and substrate, creating different gamuts and viewing conditions.",
+        visual: {
+          type: "comparison",
+          before: "Emitted display color",
+          after: "Reflected printed color",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Managed conversion",
+        title: "Describe both endpoints before translating",
+        body: "Source profiles, output profiles, and print standards make the conversion intentional and repeatable within physical limits.",
+        visual: {
+          type: "rule",
+          statement: "Defined source → controlled conversion → defined output",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Production proof",
+        title: "Judge the result in the destination medium",
+        body: "Soft-proof under a managed display setup, then approve a physical sample under standardized light.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Assign profiles",
+            "Convert output",
+            "Soft-proof",
+            "Inspect print",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Color is a result, not just a value",
+        body: "Specify the viewing system and verify the final medium whenever appearance matters.",
+        visual: {
+          type: "rule",
+          statement: "Context and medium complete the color",
+        },
+      },
+    ],
+  },
+  {
+    id: "DV9TABeCs_A",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DV9TABeCs_A/",
+      creator: "@designparser",
+      publishedAt: "2026-03-16",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Give Color Temperature a Clear Dominant Role",
+    summary:
+      "A palette-composition study using warm and cool color as depth cues, proposing a dominant–supporting–accent ratio so foreground and background signals do not compete equally.",
+    principles: [
+      "Warm colors often appear to advance while cool colors often appear to recede.",
+      "Equal warm and cool coverage can produce competing depth cues.",
+      "A dominant, supporting, and accent distribution can clarify visual hierarchy.",
+    ],
+    applications: [
+      "Choose whether warm or cool color should establish the primary field.",
+      "Assign a supporting family and reserve the smallest share for accent.",
+      "Test the palette with actual content rather than applying a ratio mechanically.",
+    ],
+    uncertainties: [
+      "The neuroscience framing and claim that equal temperature coverage creates irresolvable conflict are not supported by study conditions.",
+      "The 60–30–10 split is a familiar composition heuristic, not a universal perceptual law.",
+      "Only the opening separated warm-and-cool fields were captured; the proposed ratio was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Equal warm and cool shares are introduced",
+        start: 0,
+        end: 3.32,
+      },
+      {
+        label: "The balance is reframed as competing signals",
+        start: 3.32,
+        end: 5.28,
+      },
+      {
+        label: "Warm and cool are treated as depth cues",
+        start: 5.28,
+        end: 10.68,
+      },
+      {
+        label: "Equal coverage is said to weaken depth resolution",
+        start: 10.68,
+        end: 14.72,
+      },
+      {
+        label: "One family is proposed as dominant",
+        start: 14.72,
+        end: 17.96,
+      },
+      {
+        label: "A 60–30–10 hierarchy is suggested",
+        start: 17.96,
+        end: 20.76,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Temperature hierarchy",
+        title: "Warm and cool colors can imply different depth planes",
+        body: "Warm color often advances visually while cool color recedes, giving temperature a role in spatial organization.",
+        visual: {
+          type: "comparison",
+          before: "Warm foreground cue",
+          after: "Cool background cue",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Equal competition",
+        title: "A split palette can leave two fields fighting to lead",
+        body: "When warm and cool occupy comparable weight, neither depth signal establishes a stable hierarchy.",
+        visual: {
+          type: "layers",
+          items: [
+            "Equal warm share",
+            "Equal cool share",
+            "Competing depth cues",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Dominant system",
+        title: "Choose one temperature to establish the field",
+        body: "Let one family dominate, another support, and a smaller accent create focus without dividing the composition evenly.",
+        visual: {
+          type: "rule",
+          statement: "Dominant → support → accent",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Palette test",
+        title: "Use ratios as a draft, then compose with content",
+        body: "Assign roles, place real text and imagery, and adjust the distribution until hierarchy and contrast are clear.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Choose temperature lead",
+            "Assign support",
+            "Place accent",
+            "Test composition",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Balance does not require equal area",
+        body: "A stable palette can use unequal proportions to make depth and emphasis easier to read.",
+        visual: {
+          type: "rule",
+          statement: "Clear roles create balance",
+        },
+      },
+    ],
+  },
+  {
+    id: "DV1HZEqCs4x",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DV1HZEqCs4x/",
+      creator: "@designparser",
+      publishedAt: "2026-03-13",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Break Shelf Patterns With Material and Ingredient Cues",
+    summary:
+      "A packaging case study describing a matte snack redesign that contrasts with glossy competitors while using ingredient-linked colors, texture, and a product-shaped logo treatment to strengthen provenance.",
+    principles: [
+      "Material finish can create distinctiveness when a category shares one surface convention.",
+      "Ingredient-linked color can organize variants while keeping the master brand coherent.",
+      "Texture and product cues can communicate origin more directly than generic decoration.",
+    ],
+    applications: [
+      "Audit competitor finish, color, imagery, and hierarchy at real shelf distance.",
+      "Choose one category convention to break while preserving fast brand and flavor recognition.",
+      "Connect variant colors and textures to truthful ingredient or sourcing cues.",
+    ],
+    uncertainties: [
+      "The claims of category dominance, competitor glossiness, and the 2025 redesign scope are not independently verified.",
+      "The stated buyer-awareness percentage is presented without survey details.",
+      "Only the opening empty-line state was captured; the matte packs, wood texture, flavor colors, and potato stamp were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "A dominant brand is said to disappear in a uniform shelf field",
+        start: 0,
+        end: 6.4,
+      },
+      {
+        label: "A matte finish and variant ingredient colors create difference",
+        start: 6.4,
+        end: 10,
+      },
+      {
+        label: "Wood texture introduces a farming cue",
+        start: 10,
+        end: 12.64,
+      },
+      {
+        label: "A product-awareness statistic motivates provenance",
+        start: 12.64,
+        end: 17.04,
+      },
+      {
+        label: "The logo treatment uses a real potato cue",
+        start: 17.04,
+        end: 20.24,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Shelf distinction",
+        title: "A surface finish can interrupt a glossy category",
+        body: "Moving from a common shine to a matte pack changes the material signal before shoppers read the copy.",
+        visual: {
+          type: "comparison",
+          before: "Glossy category field",
+          after: "Matte focal package",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Familiarity without focus",
+        title: "A known brand can still blend into repeated shelf codes",
+        body: "Shared finish, color behavior, and imagery reduce the visual difference between neighboring products.",
+        visual: {
+          type: "layers",
+          items: [
+            "Repeated conventions",
+            "Distributed attention",
+            "Weak focal package",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Coherent break",
+        title: "Change one convention and reinforce the product truth",
+        body: "Distinct finish attracts attention while ingredient colors, texture, and provenance cues explain what the product is.",
+        visual: {
+          type: "rule",
+          statement: "Pattern break + truthful cue → useful distinction",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Range system",
+        title: "Differentiate flavors without losing the master brand",
+        body: "Hold logo and layout structure steady, then vary colors and ingredient signals in a controlled family.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Audit shelf",
+            "Choose pattern break",
+            "Map variant cues",
+            "Test recognition",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Make the interruption relevant",
+        body: "Shelf distinction lasts when the unusual material or visual cue also strengthens product understanding.",
+        visual: {
+          type: "rule",
+          statement: "Noticeability should carry meaning",
+        },
+      },
+    ],
+  },
+  {
+    id: "DVylM32CrYN",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVylM32CrYN/",
+      creator: "@designparser",
+      publishedAt: "2026-03-12",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Extend Artwork Beyond the Trim",
+    summary:
+      "A print-production study explaining bleed as artwork extended past the final cut line, preventing unintended white edges when printing and trimming vary within normal tolerances.",
+    principles: [
+      "Trim is the intended finished edge, not a guaranteed exact cut position.",
+      "Bleed gives background artwork extra coverage beyond that edge.",
+      "The required bleed amount comes from the printer and die-line specification.",
+    ],
+    applications: [
+      "Extend colors and images that touch an edge beyond the trim line.",
+      "Keep critical text and marks inside the documented safe area.",
+      "Confirm bleed, trim, and safety requirements with the production vendor before export.",
+    ],
+    uncertainties: [
+      "No bleed amount is specified because the correct value depends on the printer, process, format, and die line.",
+      "Only the opening trim-and-artwork diagram was captured; later tolerance movement was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Missing bleed creates white edges and waste",
+        start: 0,
+        end: 3.68,
+      },
+      {
+        label: "Artwork without bleed stops at the cut line",
+        start: 3.68,
+        end: 6.64,
+      },
+      {
+        label: "Artwork should extend beyond trim",
+        start: 6.64,
+        end: 9,
+      },
+      {
+        label: "The extension absorbs press and cutting tolerance",
+        start: 9,
+        end: 11.04,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Print setup",
+        title: "The cut line is a target, not a pixel-perfect boundary",
+        body: "Small shifts in printing and trimming can expose unprinted stock when edge artwork stops exactly at trim.",
+        visual: {
+          type: "layers",
+          items: ["Safe area", "Trim line", "Bleed area"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Edge failure",
+        title: "Artwork ending at trim leaves no tolerance",
+        body: "A slight outward cut can reveal a white sliver or force the piece to be rejected.",
+        visual: {
+          type: "comparison",
+          before: "Artwork stops at trim",
+          after: "Artwork extends past trim",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Bleed coverage",
+        title: "Carry edge artwork beyond the finished size",
+        body: "The extra printed area ensures that normal cut variation still lands inside continuous color or imagery.",
+        visual: {
+          type: "rule",
+          statement: "Edge artwork → extend through bleed",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Preflight",
+        title: "Use the production specification, not a guessed default",
+        body: "Confirm bleed and safety distances, extend backgrounds, keep critical content inward, and inspect the export.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Get die line",
+            "Extend artwork",
+            "Check safe area",
+            "Preflight export",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Bleed protects the edge; safety protects the content",
+        body: "Design for the real tolerance between printed artwork and the final cut.",
+        visual: {
+          type: "rule",
+          statement: "Plan beyond trim and inside safety",
+        },
+      },
+    ],
+  },
+  {
+    id: "DVtihFXCrK1",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVtihFXCrK1/",
+      creator: "@designparser",
+      publishedAt: "2026-03-10",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Do Not Confuse a Default With Intent",
+    summary:
+      "An interaction-design study explaining that preselected choices often reflect convenience or inertia, so meaningful preference—especially consent—should be inferred from an explicit user action.",
+    principles: [
+      "Defaults reduce effort and therefore increase passive acceptance.",
+      "A preselected state does not prove that the user considered or preferred it.",
+      "Consequential choices need clear information and an affirmative action.",
+    ],
+    applications: [
+      "Leave consent and other consequential options unselected until the user acts.",
+      "Record the interaction that expresses a choice rather than assuming intent from page load.",
+      "Use neutral defaults where a default is necessary and make alternatives equally understandable.",
+    ],
+    uncertainties: [
+      "The cognitive-load and acceptance claims are directional and are not accompanied by effect sizes or task conditions.",
+      "The opening frame shows a checked consent control, but later user actions or alternative states were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Preselection is separated from user intent",
+        start: 0,
+        end: 2.34,
+      },
+      {
+        label: "Defaults create a path of least resistance",
+        start: 2.34,
+        end: 4.68,
+      },
+      {
+        label: "Reduced cognitive effort is proposed as the mechanism",
+        start: 4.68,
+        end: 7.3,
+      },
+      {
+        label: "Defaults increase passive acceptance",
+        start: 7.3,
+        end: 9.34,
+      },
+      {
+        label: "Intent should be inferred from action",
+        start: 9.34,
+        end: 11.52,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Default effect",
+        title: "A checked box can reflect inertia, not preference",
+        body: "Preselection removes a decision step, so acceptance may occur without deliberate evaluation.",
+        visual: {
+          type: "comparison",
+          before: "Preselected state",
+          after: "Explicit user choice",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "False intent",
+        title: "Convenience can masquerade as agreement",
+        body: "Treating a default as evidence of preference overstates what the user actually communicated.",
+        visual: {
+          type: "layers",
+          items: [
+            "Default state",
+            "Low-friction continuation",
+            "Assumed intent",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Affirmative action",
+        title: "Consequential choices should begin neutral",
+        body: "When privacy, payment, or commitment is involved, the interface should wait for an informed action.",
+        visual: {
+          type: "rule",
+          statement: "No action ≠ expressed intent",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Choice design",
+        title: "Make selection visible and reversible",
+        body: "Present understandable alternatives, require an intentional control change, and retain a clear way to revisit it.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Explain choice",
+            "Start neutral",
+            "Capture action",
+            "Allow revision",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Read intent from what users do",
+        body: "Defaults can simplify routine setup, but they should not manufacture agreement.",
+        visual: {
+          type: "rule",
+          statement: "Explicit action carries the signal",
+        },
+      },
+    ],
+  },
+  {
+    id: "DVqxz6GigrQ",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVqxz6GigrQ/",
+      creator: "@designparser",
+      publishedAt: "2026-03-09",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Center Controls by Perception",
+    summary:
+      "A component-alignment study showing why mathematical centering can still look low, and proposing a small optical offset when type, shape, or surrounding space shifts the perceived center.",
+    principles: [
+      "Geometric center is a useful baseline, not always the final visual position.",
+      "Letterforms and surrounding shape distribute visual mass unevenly.",
+      "Optical correction should be determined in context at the final size.",
+    ],
+    applications: [
+      "Center the control geometrically before judging it.",
+      "Compare the label or icon inside the actual button shape and state.",
+      "Apply a small offset only when repeated side-by-side tests show a consistent imbalance.",
+    ],
+    uncertainties: [
+      "The proposed 2–6% shift is a contextual range, not a universal button-centering formula.",
+      "The direction and amount depend on the font, label, icon, control height, and rendering.",
+      "Only the opening button state was captured; the shifted comparison was not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "Geometric centering is challenged",
+        start: 0,
+        end: 1.64,
+      },
+      {
+        label: "A 50% coordinate midpoint is identified",
+        start: 1.64,
+        end: 3.84,
+      },
+      {
+        label: "The centered content is perceived as low",
+        start: 3.84,
+        end: 5.72,
+      },
+      {
+        label: "A small shift is proposed",
+        start: 5.72,
+        end: 8.48,
+      },
+      {
+        label: "Optical center is framed as a perceptual correction",
+        start: 8.48,
+        end: 13.68,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Optical alignment",
+        title: "A centered label can still appear low",
+        body: "The visual mass of capital letters and the surrounding control can pull perception away from the coordinate midpoint.",
+        visual: {
+          type: "comparison",
+          before: "Geometric midpoint",
+          after: "Optically corrected position",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Coordinate confidence",
+        title: "Fifty percent cannot evaluate the visible shape",
+        body: "Layout math centers boxes, while the eye responds to the uneven contours and empty space inside them.",
+        visual: {
+          type: "layers",
+          items: ["Centered text box", "Uneven glyph mass", "Perceived offset"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Measured correction",
+        title: "Start geometric and adjust only with evidence",
+        body: "A small nudge is appropriate when the same imbalance persists across realistic size, state, and comparison tests.",
+        visual: {
+          type: "rule",
+          statement: "Geometric baseline + contextual optical offset",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Component QA",
+        title: "Compare states and neighboring controls together",
+        body: "Inspect the button at production scale, toggle the offset, and verify that focus, loading, and icon variants stay aligned.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Center boxes",
+            "Render real label",
+            "Compare offset",
+            "Check all states",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Use unequal coordinates to achieve equal appearance",
+        body: "Keep the mathematical center unless a small, repeatable correction clearly improves balance.",
+        visual: {
+          type: "rule",
+          statement: "Perception decides the final position",
+        },
+      },
+    ],
+  },
+  {
+    id: "DVjurJsCvnO",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DVjurJsCvnO/",
+      creator: "@designparser",
+      publishedAt: "2026-03-06",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-14",
+    status: "reviewed",
+    title: "Create One Clear Shelf Signal",
+    summary:
+      "A packaging comparison arguing that a focused hierarchy, strong whitespace, large type contrast, limited color, and category-breaking illustration can outperform a pack with many competing focal points.",
+    principles: [
+      "Too many focal points divide attention and weaken the reading path.",
+      "Whitespace and strong type-scale contrast can create a clear vertical hierarchy.",
+      "A distinctive illustration style can interrupt a category dominated by generic product imagery.",
+    ],
+    applications: [
+      "Reduce a package to the first, second, and third things shoppers should notice.",
+      "Use whitespace and scale to connect those elements in one reading direction.",
+      "Replace generic imagery only when a more distinctive visual still communicates product type.",
+    ],
+    uncertainties: [
+      "The claim that the older brand loses on shelf is not accompanied by sales, attention, or recognition data.",
+      "The description of one package as multicolor noise is a subjective critique rather than a measured result.",
+      "Only the opening Alpro package was captured; the Oatly comparison and reading-flow changes were not independently captured.",
+    ],
+    evidence: [
+      {
+        label: "An older brand is described as losing shelf attention",
+        start: 0,
+        end: 3.64,
+      },
+      {
+        label: "Many focal points are contrasted with one focus",
+        start: 3.64,
+        end: 8,
+      },
+      {
+        label: "Whitespace creates a vertical reading flow",
+        start: 8,
+        end: 10.36,
+      },
+      {
+        label: "Type scale and limited contrast create a strong signal",
+        start: 10.36,
+        end: 16.4,
+      },
+      {
+        label: "Generic imagery is contrasted with illustration",
+        start: 16.4,
+        end: 20.44,
+      },
+      {
+        label: "Category interruption is identified as the pattern",
+        start: 20.44,
+        end: 22.32,
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Shelf hierarchy",
+        title: "A package needs one obvious way in",
+        body: "When logo, claims, badges, imagery, and color all compete, none becomes a reliable first read.",
+        visual: {
+          type: "comparison",
+          before: "Many focal points",
+          after: "One dominant signal",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Distributed attention",
+        title: "More information can produce less recognition",
+        body: "Competing scales and colors fragment the reading path before shoppers identify the brand or product.",
+        visual: {
+          type: "layers",
+          items: [
+            "Multiple highlights",
+            "Broken reading flow",
+            "Weak shelf signal",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Focused contrast",
+        title: "Use whitespace to connect a deliberate hierarchy",
+        body: "A limited palette and extreme but controlled type-scale differences can establish one vertical sequence.",
+        visual: {
+          type: "rule",
+          statement: "One focus → one reading path",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Category interruption",
+        title: "Break a convention without hiding the product",
+        body: "Test distinctive illustration or typography against category imagery while keeping brand, variant, and use quickly legible.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Rank information",
+            "Simplify signals",
+            "Choose pattern break",
+            "Test at shelf distance",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Working rule",
+        title: "Focus creates the interruption",
+        body: "A clear hierarchy stands out because the package knows what should lead.",
+        visual: {
+          type: "rule",
+          statement: "Reduce competition to strengthen recognition",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

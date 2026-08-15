@@ -12527,6 +12527,1153 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DSst4K-Db6c",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSst4K-Db6c/",
+      creator: "@designparser",
+      publishedAt: "2025-12-25",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Lock Spacing to an 8-Point Grid",
+    summary:
+      "A spacing-system study replacing guesswork with an 8-point grid whose multiples are credited with consistent rhythm, crisp rendering, and scalable layouts, though those outcomes are asserted without a cited source and describe one discipline rather than the only valid sizing approach.",
+    principles: [
+      "Spacing values should come from a fixed system instead of case-by-case guesses, so layout decisions stay consistent across a whole product.",
+      "Restricting spacing to multiples of a single base unit produces an even rhythm because every gap shares a common factor.",
+      "Keeping dimensions and gaps on one grid preserves proportional relationships as a layout scales up or down.",
+    ],
+    applications: [
+      "Define a spacing scale of 8, 16, 24, 32, and 40 and draw all margins, padding, and gaps exclusively from it.",
+      "When an off-system value seems necessary, multiply or divide by 8 and snap the result back to the nearest allowed value.",
+      "Audit finished screens by confirming that every gap and component dimension sits on the grid before shipping.",
+    ],
+    uncertainties: [
+      "The claims that a multiple-of-8 system scales perfectly and eliminates blurry pixels are made without a cited source, and crisp rendering depends on device pixel density as much as spacing values, so I presented them as intended benefits rather than guaranteed outcomes.",
+      "The instruction that every value must be a multiple of 8 was softened into a discipline choice, since many working systems add a 4-point half-step for fine control.",
+      "Only one opening still image was available; it verifies the grid topic and headline styling, but the demonstrated value ladder from 8 through 40 is spoken rather than shown in that frame, and the speech was normalized into just two long spans, which limits the evidence ranges to two.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4.8,
+        label:
+          "Guessing spacing is rejected and an 8-point grid of multiples is introduced",
+      },
+      {
+        start: 4.8,
+        end: 14,
+        label:
+          "The 8-to-40 value ladder is enumerated and credited with scaling, crisp pixels, and consistent rhythm",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Spacing system",
+        title: "Stop guessing spacing values",
+        body: "This lesson proposes the 8-point grid: a fixed ladder of spacing values in which every margin, pad, and gap is a multiple of one shared base unit.",
+        visual: {
+          type: "sequence",
+          items: ["8", "16", "24", "32", "40"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Arbitrary gaps",
+        title: "Guesswork quietly breaks layout rhythm",
+        body: "When each gap is chosen by feel, near-identical values accumulate into visible inconsistency, and nothing keeps large screens related to small ones.",
+        visual: {
+          type: "comparison",
+          before: "Gaps chosen by eye, each slightly different",
+          after: "Gaps snapped to shared multiples of 8",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Shared base unit",
+        title: "One base unit keeps a layout in rhythm",
+        body: "Because every allowed value shares the factor 8, spacing relationships stay proportional, and doubling or halving a value keeps the design on the same system.",
+        visual: {
+          type: "layers",
+          items: [
+            "Base unit of 8",
+            "All values are multiples",
+            "Even rhythm across screens",
+            "Predictable scaling",
+          ],
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Token set",
+        title: "Snap every spacing decision to the grid",
+        body: "Turn the multiples into named spacing tokens, use only those tokens in designs and code, and correct any off-grid value back to the nearest multiple.",
+        visual: {
+          type: "rule",
+          statement: "If it is spacing, it is a multiple of 8",
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Grid discipline",
+        title: "A grid turns spacing opinions into decisions",
+        body: "The 8-point system removes recurring micro-decisions, so a team spends its attention on layout structure rather than on arguing over pixel gaps.",
+        visual: {
+          type: "rule",
+          statement: "Multiply by 8, then stop deliberating",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSsuIVMDViM",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSsuIVMDViM/",
+      creator: "@designparser",
+      publishedAt: "2025-12-25",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Match Font Weight to Purpose",
+    summary:
+      "A font-weight study mapping the 100-900 type scale to distinct communicative roles, keeping running text near weight 400 and warning that ultra-thin weights lose legibility at small sizes, though the nine-step scale and one-role-per-weight assignments are presented as convention without a cited source.",
+    principles: [
+      "Typeface weight is a primary hierarchy device, signaling what leads and what supports before size or color is considered.",
+      "Each step on the weight scale earns its place by serving a distinct role, from decorative lightness through emphatic heaviness.",
+      "Very light weights trade legibility for delicacy at small sizes, so sustained reading should stay near the regular 400 weight.",
+    ],
+    applications: [
+      "Give every weight in a project a named job, such as thin for decoration, regular for body copy, medium for emphasis, bold for headings, and black for high-impact statements.",
+      "Hold running text at or near weight 400 and reserve thin and light cuts for large display sizes.",
+      "Review each weight choice against its assigned role so decorative preference never overrides the text's function.",
+    ],
+    uncertainties: [
+      "The nine-weight, 100-900 scale and the instruction to use 400 for readability are stated without a cited source; many type families offer fewer steps or named weights, so the count is a convention rather than a fact.",
+      "The reel assigns exactly one purpose to each weight, which I softened into default role mappings, since real projects may shift roles depending on the family, size, and context.",
+      "The single available still image is the opening title card on a grid background; it confirms the font-weight topic, but the individual weight demonstrations from thin to black described in the audio could not be visually verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5,
+        label:
+          "Weight is framed as a hierarchy tool and the nine-step 100-900 scale is introduced",
+      },
+      {
+        start: 5,
+        end: 13.08,
+        label:
+          "Six weights are each matched to a purpose, from decoration up to impact",
+      },
+      {
+        start: 13.08,
+        end: 16.8,
+        label:
+          "Thin weights are rejected for small text and 400 is recommended for readability",
+      },
+      {
+        start: 16.8,
+        end: 19.28,
+        label: "Closing guidance to match each weight choice to its purpose",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Type hierarchy",
+        title: "Font weight is a hierarchy tool",
+        body: "This lesson treats the weight axis of a type family as a system of nine steps, from 100 to 900, that creates structure on a page before any other styling is applied.",
+        visual: {
+          type: "sequence",
+          items: ["Thin 100", "Regular 400", "Bold 700", "Black 900"],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Weight misuse",
+        title: "Delicate type can quietly fail readers",
+        body: "A thin cut may look elegant, but at small sizes its strokes become hard to resolve, and a layout that ignores weight roles flattens hierarchy into decoration.",
+        visual: {
+          type: "comparison",
+          before: "Small text set in thin weight",
+          after: "Same text held at regular 400",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Weight roles",
+        title: "Every weight step should carry a job",
+        body: "The scale communicates only when each step is reserved for a role, so lightness reads as elegance, regular as reading weight, and the heavy end as impact.",
+        visual: {
+          type: "layers",
+          items: [
+            "Decoration: thin and light",
+            "Body: regular",
+            "Emphasis: medium",
+            "Headings and impact: bold to black",
+          ],
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Weight system",
+        title: "Assign weights by purpose, not taste",
+        body: "Decide up front which weights the project will use, keep sustained reading near 400, and step up through medium and bold as content demands emphasis.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name each weight's job",
+            "Keep body copy near 400",
+            "Reserve thin cuts for large sizes",
+            "Audit the final hierarchy",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Weight rule",
+        title: "Weight is meaning, so spend it deliberately",
+        body: "A weight system succeeds when each choice reflects the text's purpose rather than momentary preference, keeping hierarchy legible at every size.",
+        visual: {
+          type: "rule",
+          statement: "One weight, one job",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSm--D1DWfo",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSm--D1DWfo/",
+      creator: "@designparser",
+      publishedAt: "2025-12-23",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Structure Layouts With the Right Grid",
+    summary:
+      "A layout-grid study cataloging four structural systems, from the single-column manuscript grid to hierarchical grids that bend structure around priority, while treating the reel's framing of grids as the backbone of controlled order as design doctrine rather than a tested conclusion.",
+    principles: [
+      "A layout grid is the load-bearing structure of a composition, decided before any decorative styling is applied.",
+      "Grid choice should follow content complexity, running from a single column for focused reading to modules for intricate interfaces.",
+      "Departing from the grid sparingly can direct attention, provided an underlying order still governs the whole composition.",
+    ],
+    applications: [
+      "Select one of the four grid types at project start based on how focused, flexible, or complex the content is.",
+      "Use a one-column manuscript grid for long-form reading and a modular grid of rows and columns when many recurring components must align.",
+      "Reserve deliberate grid breaks for the elements that deserve the most attention, so the departure itself signals importance.",
+    ],
+    uncertainties: [
+      "Column grids are called the standard for flexibility and modular grids the engine of complex interfaces; both characterizations are asserted without examples or sources, so I present them as typical use cases rather than proven rankings.",
+      "The advice to stop guessing and the invitation to break the grid were both softened, since abandoning intuition entirely is impractical and grid breaks only communicate meaning when the underlying structure is otherwise consistent.",
+      "Two still images were inspected: the opening frame confirms the grid-types title card, and a later frame confirms a hierarchical-grid label around the grid-break discussion, but the manuscript, column, and modular demonstrations could not be visually verified from the available frames.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4.5,
+        label:
+          "Grids are framed as a layout's hidden structure and structuring is preferred to guessing",
+      },
+      {
+        start: 4.5,
+        end: 11.2,
+        label:
+          "Manuscript and column grids are described for focus and flexibility",
+      },
+      {
+        start: 11.2,
+        end: 20.4,
+        label:
+          "Modular grids are tied to complex interfaces and hierarchical grids to prioritizing what matters",
+      },
+      {
+        start: 20.4,
+        end: 23.6,
+        label:
+          "Design is characterized as controlled order rather than decoration, ending with a call to choose a grid",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Layout structure",
+        title: "Grids are the bones of a layout",
+        body: "This survey presents four grid systems as the hidden skeleton that holds a composition together, positioned as a decision that precedes all surface styling.",
+        visual: {
+          type: "layers",
+          items: [
+            "Manuscript grid",
+            "Column grid",
+            "Modular grid",
+            "Hierarchical grid",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Unstructured layout",
+        title: "Placement by feel produces decoration, not design",
+        body: "When every element is positioned by eye, the result may look busy while lacking any governing order that ties screens and pages together.",
+        visual: {
+          type: "comparison",
+          before: "Elements scattered by intuition",
+          after: "Elements seated on a shared structure",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Grid selection",
+        title: "Match the grid to the content's complexity",
+        body: "Simple reading favors a single column, varied content favors columns, dense interfaces favor modules, and content with clear priorities favors a hierarchy-shaped grid.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Manuscript: one column of focus",
+            "Column: zones of flexibility",
+            "Modular: rows plus columns",
+            "Hierarchical: shaped by priority",
+          ],
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Grid choice",
+        title: "Choose the structure first, then decorate",
+        body: "Decide the grid type before visual work begins, seat components onto it, and let the structure carry alignment so styling decisions stay superficial rather than structural.",
+        visual: {
+          type: "rule",
+          statement: "Structure first, decoration second",
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Controlled order",
+        title: "Design is controlled order, not ornament",
+        body: "A grid converts arrangement into a repeatable decision system, and a deliberate break from it reads as emphasis precisely because order governs everything else.",
+        visual: {
+          type: "rule",
+          statement: "Pick the grid before anything else",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSlSHpzjT6j",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSlSHpzjT6j/",
+      creator: "@designparser",
+      publishedAt: "2025-12-22",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Cut Options to Speed Decisions",
+    summary:
+      "A decision-design study applying Hick's law to interface choice density, arguing that trimming a large action set to a few options shortens decision time, while its specific second estimates are unsourced and its always-faster conclusion is softened to a general speed advantage.",
+    principles: [
+      "The time it takes to choose grows as the number of presented options grows, a relationship the reel attributes to Hick's law.",
+      "Surfacing every available action at once burdens people with scanning and comparing work that the interface should absorb.",
+      "Screens communicate best when they present a small set of high-value actions rather than an exhaustive menu.",
+    ],
+    applications: [
+      "Reduce primary screens to the few actions most people need, and move the remainder into secondary levels or progressive disclosure.",
+      "Group related options so that people compare a handful of grouped choices instead of one long undifferentiated list.",
+      "Time real users choosing among actions on key screens, and treat hesitation as a signal that the visible option set is too large.",
+    ],
+    uncertainties: [
+      "The figures that twenty buttons take six seconds and three buttons take under one are given without a cited study, and the spoken law name was contextually normalized to Hick's law; the underlying model describes logarithmic growth under controlled conditions, so the specific counts are treated as illustrative rather than measured.",
+      "The closing claim that fewer options are always faster was softened, because decision speed also depends on labeling, grouping, and familiarity, and cutting choices can hide capability that some people need.",
+      "One still image was inspected; it shows a dark comparison card contrasting a twenty-button panel with a three-button panel, which supports the numeric argument visually, but no frames were available for the later advice about simplifying screens.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 2.48,
+        label:
+          "Slow reactions to excessive choice are attributed to Hick's law",
+      },
+      {
+        start: 2.48,
+        end: 6.72,
+        label:
+          "Processing times of six seconds for twenty buttons and under one second for three buttons are compared",
+      },
+      {
+        start: 6.72,
+        end: 11.2,
+        label:
+          "Viewers are urged to stop overwhelming users and keep interfaces simple, concluding that fewer options act faster",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Decision speed",
+        title: "Too many options slow people down",
+        body: "This lesson attributes hesitation in busy interfaces to Hick's law, contrasting a cluttered twenty-button panel with a focused three-button one.",
+        visual: {
+          type: "comparison",
+          before: "Twenty buttons, long scanning time",
+          after: "Three buttons, near-instant choice",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Choice overload",
+        title: "Every added option taxes the chooser",
+        body: "Each extra action must be noticed, read, and weighed against the others, and that cumulative comparison work surfaces as hesitation before anyone acts.",
+        visual: {
+          type: "layers",
+          items: [
+            "Perceive every option",
+            "Compare alternatives",
+            "Commit to one action",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Hick's law",
+        title: "Decision time rises with choice count",
+        body: "The reel's timing comparison illustrates the named principle: reaction lengthens as options multiply, so the size of the visible action set is itself a design cost.",
+        visual: {
+          type: "rule",
+          statement: "Fewer choices, faster decisions",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Fewer actions",
+        title: "Curate the visible action set",
+        body: "Inventory the actions a screen offers, promote only the essential ones to the first layer, and tuck the rest behind grouping or progressive disclosure.",
+        visual: {
+          type: "sequence",
+          items: [
+            "List every available action",
+            "Mark the essential few",
+            "Demote the remainder",
+            "Reveal extras on demand",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Simplicity rule",
+        title: "Show less so people move faster",
+        body: "Simplicity here means curating choices rather than removing capability, letting depth in navigation replace breadth on a single screen.",
+        visual: {
+          type: "rule",
+          statement: "Depth over breadth on primary screens",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSizaLwCC-N",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSizaLwCC-N/",
+      creator: "@designparser",
+      publishedAt: "2025-12-21",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Convincing Glass UI Copies Real Optics",
+    summary:
+      "A glass-effect study explaining how a Figma material uses angle, light, refraction, depth, dispersion, and frost to mimic real optical behavior so translucent interfaces read as physical material, though its Apple spending figure is uncited and its stated parameter count does not match the effects it names.",
+    principles: [
+      "Glass realism comes from simulating optical physics rather than from flat translucency alone.",
+      "Each parameter should carry one physical job: angle sets light direction, light sharpens edges, refraction bends the backdrop, depth adds thickness, dispersion splits the spectrum, and frost supplies blur.",
+      "Mimicking how the physical world treats glass, the approach the reel attributes to Apple, is what helps a digital material feel believable.",
+    ],
+    applications: [
+      "Set the light angle first so edge highlights and background distortion share one consistent direction.",
+      "Keep dispersion and frost separate in your tuning so spectrum splitting is controlled independently from overall softness.",
+      "Adjust depth together with refraction so the backdrop bends as though the layer had real thickness.",
+    ],
+    uncertainties: [
+      "The claims that Apple spent millions studying refraction and that the effect exposes exactly five parameters are asserted without cited sources, and the narration then names six distinct effects, so both the spending figure and the parameter count are treated as unverified.",
+      "The closing promise that mastering these settings makes an interface feel real is softened in these notes to a contribution toward believability, since perceived realism also depends on context, motion, and device performance.",
+      "Frame verification: both available stills were inspected and show a rounded frosted panel over a colorful gradient with numbered callouts, which supports the glass-parameter demonstration; the individual parameter values and the spoken Apple claim could not be read from the stills.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4.24,
+        label: "Apple's refraction research is invoked as the hook",
+      },
+      {
+        start: 4.24,
+        end: 9.6,
+        label:
+          "The Figma glass material and its parameter count are introduced, starting with angle",
+      },
+      {
+        start: 9.6,
+        end: 15.6,
+        label: "Light, refraction, and depth are each given a physical role",
+      },
+      {
+        start: 15.6,
+        end: 22.56,
+        label:
+          "Dispersion and frost are defined, and physical mimicry is framed as the goal",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Glass study",
+        title: "Apple's refraction work inspired a learnable material",
+        body: "The reel opens by crediting years of Apple's optical research, then argues the same physical behavior is now adjustable through named parameters in a design tool.",
+        visual: {
+          type: "comparison",
+          before: "Flat translucent overlay",
+          after: "Physically simulated glass",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Fake glass",
+        title: "Translucency without optics reads as a gray smear",
+        body: "A simple see-through panel ignores how light, thickness, and bending shape real glass, so the result looks pasted on rather than like a material.",
+        visual: {
+          type: "layers",
+          items: [
+            "Missing light direction",
+            "No background bending",
+            "Blur standing in for optics",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Optical roles",
+        title: "Give every glass parameter one physical job",
+        body: "When angle, light, refraction, depth, dispersion, and frost each model a single phenomenon, tuning one property no longer breaks the illusion created by the others.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Angle steers light",
+            "Light sharpens edges",
+            "Refraction bends backdrop",
+            "Depth adds thickness",
+            "Dispersion and frost finish",
+          ],
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Tuning order",
+        title: "Build the glass effect from light to blur",
+        body: "Establish direction first, add edge response and bending, give the layer thickness, then resolve color splitting and softness so the stack stays coherent.",
+        visual: {
+          type: "rule",
+          statement: "Direction, then edges, then bending, then thickness",
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Physical truth",
+        title: "Believable glass borrows its rules from the real world",
+        body: "The reel's advice is to study how physical optics behave and reproduce those behaviors, because familiarity with real materials is what makes an interface feel tangible.",
+        visual: {
+          type: "comparison",
+          before: "Decorative transparency",
+          after: "Optics people already believe",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSizm3VCCid",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSizm3VCCid/",
+      creator: "@designparser",
+      publishedAt: "2025-12-21",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Give Border Radius a System, Not Guesswork",
+    summary:
+      "A border-radius study combining a defined brand character, a single base unit, proportional sizing, and nested-corner arithmetic so corner rounding follows rules and tokens rather than arbitrary values, though its percentage guidance is offered without cited evidence.",
+    principles: [
+      "Corner curvature should express a defined brand character and derive from one base unit rather than arbitrary numbers.",
+      "Radius size should track element height, and small components should keep their curve smaller than their inner padding.",
+      "Nested corners obey a fixed relationship: the inner curve is smaller than the outer curve by exactly the padding between them, and a component's function determines its curve.",
+    ],
+    applications: [
+      "Choose the brand's rounding character first, then generate every radius value from a shared base unit.",
+      "Check nested surfaces with the inner-plus-padding arithmetic so container and child corners stay in relationship.",
+      "Cap radii on small components below their padding and record the finished scale as design tokens.",
+    ],
+    uncertainties: [
+      "The proportional band of roughly 15 to 25 percent of element height is asserted without a cited study or benchmark, so it is treated here as a heuristic rather than a verified optimum.",
+      "The claim that the system is complete only once tokenized is softened in these notes; documentation supports consistency but does not by itself guarantee it.",
+      "Frame verification: the sole available still shows only a neutral grid backdrop with no readable on-screen text or diagrams, so none of the spoken numbers or rules could be confirmed visually.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5,
+        label:
+          "Hook promises a radius formula and the first step of defining the brand",
+      },
+      {
+        start: 5,
+        end: 13,
+        label:
+          "Base-unit instruction and proportional-height guidance with percentages",
+      },
+      {
+        start: 13,
+        end: 19.5,
+        label: "Golden-rules list opens with nested-corner arithmetic",
+      },
+      {
+        start: 19.5,
+        end: 27.88,
+        label:
+          "Function-driven curves, small-component radius cap, and token documentation",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Radius system",
+        title: "Corner rounding can run on rules instead of instinct",
+        body: "The reel argues that curvature is a system-level decision: brand character, a base unit, and proportion decide the values so no radius is picked at random.",
+        visual: {
+          type: "comparison",
+          before: "Radii chosen per element by feel",
+          after: "One base unit scaled by explicit rules",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Random corners",
+        title: "Unsystematic radii make surfaces feel unrelated",
+        body: "When every corner is a one-off, components stop reading as parts of one product and nested shapes drift out of relationship.",
+        visual: {
+          type: "layers",
+          items: ["Arbitrary values", "Broken nesting", "Undocumented scale"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Nesting math",
+        title: "Subtract the padding to get the inner corner",
+        body: "For nested corners this equation keeps child and container curves aligned, while the component's function, not taste, sets how round it should be.",
+        visual: {
+          type: "rule",
+          statement: "Outer corner minus padding sets the inner corner",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Token workflow",
+        title: "Derive every radius from brand, unit, and proportion",
+        body: "Start with the brand's curve character, set a base unit, size radii against element height, cap small components below their padding, then publish the scale as tokens.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Define brand curve",
+            "Set base unit",
+            "Size by height ratio",
+            "Cap small components",
+            "Publish tokens",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Curve discipline",
+        title: "A radius system is remembered rules plus tokens",
+        body: "Rules make rounding predictable and teachable; tokenized documentation keeps the whole team applying the same curves.",
+        visual: {
+          type: "rule",
+          statement: "Brand, unit, proportion, then tokens",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSdb2loDfCN",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSdb2loDfCN/",
+      creator: "@designparser",
+      publishedAt: "2025-12-19",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Tune Line Height to Text Role and Column Width",
+    summary:
+      "A line-height study explaining the font-size-times-multiplier calculation and pairing ratio bands with text roles and column widths so vertical spacing supports comfortable reading, though its numeric guidelines arrive without cited sources.",
+    principles: [
+      "Line height should be computed as font size times a chosen multiplier, with the surplus distributed evenly above and below each line.",
+      "The multiplier should follow the text's role: roomier for body and small text, tighter for large headings.",
+      "Column width should influence leading, with wide measures around 60 to 75 characters keeping looser spacing and narrow measures tightening instead.",
+    ],
+    applications: [
+      "Compute leading explicitly, for example 16 pixels at a multiplier of 1.5 yielding 24 pixels, and confirm the eight surplus pixels split evenly between the top and bottom of the line.",
+      "Start from role-based bands of roughly 1.5 to 1.6 for body text, 1.1 to 1.2 for headings, and 1.6 to 1.7 for small text, then adjust for the typeface.",
+      "Check the measure before finalizing: wide columns stay in the 1.5 to 1.6 range while columns under about 50 characters tighten toward 1.3 to 1.4.",
+    ],
+    uncertainties: [
+      "All numeric guidance, including the ratio bands per role and the 60-to-75 and under-50 character thresholds, is stated without a cited study or source, so it is treated as practical heuristics rather than validated optima.",
+      "The opening claim that poor spacing ruins readability and the closing promise of leveling up are hyperbole softened here to a strong influence on reading comfort, and the final word was resolved contextually as typography after an apparent speech-recognition slip.",
+      "Frame verification: the sole available still was inspected and shows two stacked text lines with vertical arrows marking the gap between them, which supports the line-height demonstration; the later ratio bands and column-width rules had no corresponding visuals to check.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5.52,
+        label:
+          "Spacing is blamed for poor readability and line height is defined",
+      },
+      {
+        start: 5.52,
+        end: 15.04,
+        label:
+          "The multiplier math is demonstrated with 16 pixels at 1.5 and an even split",
+      },
+      {
+        start: 15.04,
+        end: 24.52,
+        label:
+          "Ratio bands are assigned to body text, headings, and small text",
+      },
+      {
+        start: 24.52,
+        end: 35.08,
+        label: "Leading is matched to column width and the lesson closes",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Leading basics",
+        title: "Line height is a calculation, not a guess",
+        body: "The reel defines leading as the vertical room between lines and insists it come from multiplying font size by a deliberate multiplier.",
+        visual: {
+          type: "comparison",
+          before: "Leading chosen by eye",
+          after: "Leading derived from font size",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Spacing failures",
+        title: "One lazy multiplier cannot serve every role",
+        body: "A single global ratio squeezes headings while letting small text float loose, and it ignores how wide the column is.",
+        visual: {
+          type: "layers",
+          items: [
+            "One global ratio",
+            "Mismatched text roles",
+            "Ignored column width",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Leading math",
+        title: "Multiply the font size, then split the remainder",
+        body: "Size times multiplier gives the line box, and whatever exceeds the glyphs should divide evenly between the space above and below each line.",
+        visual: {
+          type: "rule",
+          statement: "Line height = font size × multiplier",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Ratio selection",
+        title: "Pick the band from role, then adjust for measure",
+        body: "Assign looser bands to body and small text, tighter ones to headings, and tighten further only when the column runs narrow.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Identify the text role",
+            "Check column width",
+            "Multiply size by the band",
+            "Verify even spacing",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Vertical rhythm",
+        title: "Readable spacing follows the text, not a default",
+        body: "Let what the text is and how wide it runs decide its leading, and re-check the choice whenever role or measure changes.",
+        visual: {
+          type: "rule",
+          statement: "Role and measure set the multiplier",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSbA3f4jQ0M",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSbA3f4jQ0M/",
+      creator: "@designparser",
+      publishedAt: "2025-12-18",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Build Hierarchy With Nonlinear Type Scales",
+    summary:
+      "A type-scale study arguing that evenly stepped sizes erase hierarchy, contrasting stable ratio-based growth with expressive Fibonacci-style growth and matching each to interface or editorial content, while its hierarchy and method-fit claims go untested by any cited evidence.",
+    principles: [
+      "Type sizes that grow by equal steps deliver uniform spacing and bigger text rather than a readable ranking of information.",
+      "Widening the gap between steps as sizes increase makes hierarchy the output of a deliberate system instead of an accident.",
+      "The growth method should follow the content: a fixed ratio suits stable interface systems, while Fibonacci-style addition suits dramatic editorial and hero typography.",
+    ],
+    applications: [
+      "Replace evenly spaced size steps with a progression whose intervals expand as the sizes get larger.",
+      "Adopt a modular ratio for product interfaces and save Fibonacci-based scales for editorial spreads and hero statements.",
+      "Compare candidate scales side by side in a type-scale generator and choose based on how the real content reads.",
+    ],
+    uncertainties: [
+      "The claim that linear scaling destroys hierarchy, along with the pairing of each method with a specific use case, is practitioner assertion offered without user research or cited examples.",
+      "The two methods are framed as a strict split between stable and dramatic, which the principles soften because hybrid progressions and custom ratios are common in real systems.",
+      "The only still available is the series hook card naming typography failure with one orange-accented word on a grid background, so the garbled opening term was resolved contextually to typography, and none of the described scale examples could be verified visually.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 6.04,
+        label:
+          "Linear scaling is diagnosed as uniform spacing without hierarchy",
+      },
+      {
+        start: 6.04,
+        end: 12.68,
+        label:
+          "Nonlinear growth with widening gaps is credited as systematic hierarchy",
+      },
+      {
+        start: 12.68,
+        end: 19.44,
+        label:
+          "Modular ratio and Fibonacci methods are introduced with opposing characters",
+      },
+      {
+        start: 19.44,
+        end: 26.54,
+        label:
+          "Method selection by context and scale comparison tools are recommended",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Type scale study",
+        title: "Linear size steps flatten hierarchy",
+        body: "Evenly spaced sizes make every jump feel identical, so text simply gets bigger without gaining rank. A deliberate growth pattern separates levels at a glance.",
+        visual: {
+          type: "comparison",
+          before: "Sizes spaced by equal steps",
+          after: "Intervals that widen as sizes grow",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Even spacing",
+        title: "Uniform gaps read as size change, not hierarchy",
+        body: "When steps stay constant, headings and body copy differ only in magnitude. Nothing in the system signals which level matters more.",
+        visual: {
+          type: "layers",
+          items: ["Equal steps", "Even-looking gaps", "Magnitude without rank"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Systematic hierarchy",
+        title: "Grow the gaps deliberately as type gets larger",
+        body: "Hierarchy should come from a defined progression rather than ad hoc sizing choices. Widening intervals give larger text proportionally more separation.",
+        visual: {
+          type: "rule",
+          statement: "Wider steps at larger sizes = hierarchy by system",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Choosing a method",
+        title: "Match the scale method to the content",
+        body: "A modular ratio keeps interface typography predictable, while Fibonacci-style growth suits expressive editorial moments. Testing both against real content exposes which fits.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set a base size",
+            "Try a modular ratio",
+            "Try Fibonacci growth",
+            "Compare with real content",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Scale rule",
+        title: "Let the content decide the scale",
+        body: "No single progression wins by default; the material being set should choose between stability and drama. A scale exists to rank information, not just to resize it.",
+        visual: {
+          type: "rule",
+          statement: "A type scale ranks content; it does not just resize it",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSYeolGiNXL",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSYeolGiNXL/",
+      creator: "@designparser",
+      publishedAt: "2025-12-17",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Build Color Ramps on a Single Hue",
+    summary:
+      "A color-system study arguing that scattered code picks produce look-alike but unrelated values, and showing how to build a numbered single-hue ramp anchored by text and background extremes and finished with a human contrast check, though its claim about designer habits goes uncited.",
+    principles: [
+      "Hand-picked color values can look similar while sharing no systematic relationship.",
+      "A usable palette is a numbered ramp from one hue, anchored by its darkest step for text and its lightest step for backgrounds.",
+      "Step numbers alone do not prove quality; perceived contrast has to be confirmed by eye.",
+    ],
+    applications: [
+      "Start from one base color at the middle of the scale, then define the darkest and lightest steps before anything else.",
+      "Derive the remaining numbered steps by changing lightness and saturation while holding the hue constant.",
+      "Treat the finished ramp as a draft and manually check text-on-background pairings instead of trusting the step numbers.",
+    ],
+    uncertainties: [
+      "The claim that most designers work from unrelated color values is stated without any cited survey, research, or examples.",
+      "Hue-saturation-lightness is presented as the fix for palette coherence, which the principles soften into one organizing model, since it does not by itself guarantee perceptual evenness across steps.",
+      "The only still available is the series hook card naming color failure with one orange-accented word on a grid background, so no swatch ramps, numbered steps, or tool views could be verified visually.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 8.32,
+        label:
+          "Scattered color values are diagnosed as similar-looking but unrelated",
+      },
+      {
+        start: 8.32,
+        end: 13.04,
+        label:
+          "Hue, saturation, and lightness are proposed as the organizing model",
+      },
+      {
+        start: 13.04,
+        end: 22.24,
+        label:
+          "A base color plus darkest and lightest anchors define the ramp while hue stays fixed",
+      },
+      {
+        start: 22.24,
+        end: 29.36,
+        label:
+          "Remaining steps are filled and contrast is judged by eye rather than by numbers",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Color scale study",
+        title: "Hex picks alone do not make a palette",
+        body: "Two similar blues can sit side by side yet belong to no shared system. Working from a scale instead of isolated values keeps every color related.",
+        visual: {
+          type: "comparison",
+          before: "Look-alike blues from separate codes",
+          after: "One hue ramp from darkest to lightest",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Unrelated colors",
+        title: "Similar-looking values can hide missing relationships",
+        body: "Matching appearance suggests a family that does not exist. Without a shared hue and ordered steps, the palette cannot support consistent text and surface roles.",
+        visual: {
+          type: "layers",
+          items: ["Look-alike hues", "No shared hue", "No ordered steps"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Single-hue ramp",
+        title: "Anchor the extremes, then hold the hue steady",
+        body: "Fixing the darkest and lightest steps first assigns the ramp its text and background roles. Intermediate colors then vary only in lightness and saturation.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Anchor one base step",
+            "Set darkest step for text",
+            "Set lightest step for surfaces",
+            "Hold hue, vary lightness",
+          ],
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Fill and check",
+        title: "Number the steps, then judge contrast by eye",
+        body: "Populating the middle numbers completes the system on paper, but readability is decided by looking. Pair candidates for text and backgrounds and verify the result manually.",
+        visual: {
+          type: "rule",
+          statement: "Numbers organize the ramp; eyes approve it",
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Palette rule",
+        title: "Reach for a scale before adding another color",
+        body: "Growing a palette should mean extending an ordered hue family rather than collecting stray values. The model provides structure, and the eye makes the final call.",
+        visual: {
+          type: "comparison",
+          before: "One more stray color value",
+          after: "One more step on the ramp",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSU-n5rjcrz",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSU-n5rjcrz/",
+      creator: "@designparser",
+      publishedAt: "2025-12-16",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Choose Near Black Over Pure Black",
+    summary:
+      "A dark-surface study arguing that pure black backgrounds create harsh on-screen contrast while near-black tones feel calmer and more professional, while conceding that luxury brands use pure black deliberately for impact, with the eye-strain and industry-usage claims left unverified.",
+    principles: [
+      "Pure black backgrounds on screens create harsh contrast that is said to strain the eyes over long viewing sessions.",
+      "Because real surfaces and shadows are never perfectly black, mainstream digital products soften their blacks.",
+      "Pure black remains a valid deliberate choice when a brand wants maximum contrast and a luxurious, authoritative impression.",
+    ],
+    applications: [
+      "Set default interface and reading surfaces to near-black values for a calmer, more refined feel.",
+      "Reserve pure black for brand moments where maximum impact matters more than viewing comfort.",
+      "Make the impact-versus-comfort choice explicit for each dark surface instead of defaulting to either extreme.",
+    ],
+    uncertainties: [
+      "The eye-strain and industry-avoidance claims are stated without cited research or measurements, and the brand examples were not independently checked against those products' current palettes.",
+      "The opening framing that pure black ruins designs is hyperbole that the reel itself walks back by naming brands that use it on purpose, so the principles present a trade-off rather than a ban.",
+      "The only still available is the series hook card naming black as the failing topic with one orange-accented word on a grid background, so no black-value comparisons or product examples could be verified visually.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 6.8,
+        label:
+          "Pure black is blamed for harsh on-screen contrast and eye strain",
+      },
+      {
+        start: 6.8,
+        end: 14.96,
+        label:
+          "Real surfaces never being perfectly black is given as the reason products soften it",
+      },
+      {
+        start: 14.96,
+        end: 22.96,
+        label:
+          "Deliberate pure-black use is credited to brands seeking luxury and authority",
+      },
+      {
+        start: 22.96,
+        end: 29.28,
+        label:
+          "The impact-versus-comfort trade-off resolves in favor of near black",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Dark surface study",
+        title: "Pure black behaves differently on screens",
+        body: "The blackest possible value maximizes contrast against light text, which can read as harsh over time. Slightly lifted blacks keep depth while easing the edge.",
+        visual: {
+          type: "comparison",
+          before: "Pure black surface under light text",
+          after: "Near-black surface under light text",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Harsh contrast",
+        title: "Maximum black can tax the eyes over long sessions",
+        body: "The strongest possible edge between text and background demands more of viewers the longer they read. Interfaces meant for extended use pay a comfort cost for it.",
+        visual: {
+          type: "layers",
+          items: [
+            "Pure black surface",
+            "Bright text layer",
+            "Harsh edge contrast",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Real-world reference",
+        title: "Nothing in nature is perfectly black",
+        body: "Physical surfaces and shadows always carry some color, which is why softened blacks tend to look more natural on screens. Mainstream consumer products lean on that softened range.",
+        visual: {
+          type: "rule",
+          statement: "If shadows hold color, so should your blacks",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Deliberate extremes",
+        title: "Save pure black for impact, use near black for comfort",
+        body: "Working surfaces benefit from lifted blacks, while brand-defining moments can exploit the punch of the pure value. The choice should be explicit for every dark surface.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Audit your darkest values",
+            "Lift working surfaces",
+            "Reserve pure black for brand moments",
+            "State the trade-off",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Black balance",
+        title: "Near black reads calm, pure black reads loud",
+        body: "Each direction buys something: comfort and refinement on one side, impact and authority on the other. Let the brand's priority, not habit, set the value.",
+        visual: {
+          type: "rule",
+          statement: "Comfort by default, impact by decision",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

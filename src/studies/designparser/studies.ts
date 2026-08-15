@@ -13674,6 +13674,123 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DSSQ2tvjSw1",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSSQ2tvjSw1/",
+      creator: "@designparser",
+      publishedAt: "2025-12-15",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Balance Color With the 60-30-10 Rule",
+    summary:
+      "A color-proportion study that assigns one dominant neutral share, a smaller secondary brand share, and a scarce accent kept for key actions, with the caveat that its fixed percentages and its big-brand examples are asserted rather than demonstrated.",
+    principles: [
+      "One neutral color should own most of a composition so the layout keeps calm, open space.",
+      "A secondary color at a smaller share can carry brand identity and support hierarchy without taking over.",
+      "An accent color steers attention exactly because it is scarce and tied to the few actions that matter most.",
+    ],
+    applications: [
+      "Split the palette into roughly six parts neutral, three parts secondary brand color, and one part accent before polishing individual screens.",
+      "Keep the accent color off decoration and spend it on primary calls to action and other critical interactions.",
+      "When a screen feels cluttered, measure how much area each color occupies and pull competing colors back into the dominant neutral field.",
+    ],
+    uncertainties: [
+      "The fixed 60, 30, and 10 percentages are given as a recipe with no cited study or measurement, so the split is an unverified heuristic rather than a proven optimum.",
+      "The claim that the named streaming and travel platforms follow this split is asserted without shown examples, and two absolutisms were softened: accent color was framed as best kept scarce rather than forbidden elsewhere, and skipping the rule was treated as a risk of clutter rather than a guarantee of amateur-looking work.",
+      "Frame check: the two available stills show an abstract gridded background and two blue blocks sized for the secondary and accent shares; the dominant neutral share and any real product examples could not be confirmed in the images.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 6.8,
+        label:
+          "Cluttered layouts are diagnosed and a 60-30-10 split is urged, name-checking major consumer apps",
+      },
+      {
+        start: 6.8,
+        end: 13.84,
+        label: "The dominant neutral share is introduced as calm, open space",
+      },
+      {
+        start: 14.56,
+        end: 29.04,
+        label:
+          "The secondary and accent shares are assigned hierarchy and action roles",
+      },
+      {
+        start: 29.04,
+        end: 35.92,
+        label:
+          "Skipping the split is blamed for wandering attention and an amateur feel",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Color proportion",
+        title: "A classic split gives every color a distinct job",
+        body: "The reel recommends dividing color into one large neutral majority, a mid-sized brand share, and a small accent, attributing the habit to well-known consumer apps.",
+        visual: {
+          type: "comparison",
+          before: "Many colors at equal weight",
+          after: "Unequal 60, 30, and 10 shares",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Chaotic palette",
+        title: "Without a dominant share, attention has no entry point",
+        body: "When colors compete at similar strength, the eye wanders and the work can read as untrained rather than intentional.",
+        visual: {
+          type: "layers",
+          items: [
+            "Competing hues",
+            "No dominant field",
+            "No marked focal action",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Unequal shares",
+        title: "Size each color share for the job it performs",
+        body: "The neutral majority keeps the field calm, the secondary share carries brand and hierarchy, and the scarce accent marks the most important actions.",
+        visual: {
+          type: "rule",
+          statement: "Neutral calms, secondary brands, accent directs",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Palette budget",
+        title: "Budget color in parts before polishing details",
+        body: "Assign the big share to a neutral base, give brand color the middle share, then spend the small accent only where you want a click or decision.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Block the neutral field",
+            "Layer brand color at the middle share",
+            "Spend the accent on key actions",
+            "Squint-test where the eye lands first",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Accent scarcity",
+        title: "The smallest share does the biggest attention job",
+        body: "An accent works because it is rare; spreading it across decoration erases the signal that guides people to act.",
+        visual: {
+          type: "rule",
+          statement: "Six parts calm, three parts brand, one part action",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

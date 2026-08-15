@@ -11274,6 +11274,118 @@ export const designparserStudies = validateStudies([
     ],
   },
   {
+    id: "DTHIOQLCM3W",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTHIOQLCM3W/",
+      creator: "@designparser",
+      publishedAt: "2026-01-05",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Size the Hit Area, Not the Icon",
+    summary:
+      "A touch-target study arguing that the invisible hit area rather than the visible icon decides tapping accuracy and needs a minimum size, with its threshold asserted without a cited source.",
+    principles: [
+      "Tapping accuracy is governed by the invisible hit area rather than the size of the visible icon.",
+      "A fingertip makes contact across a patch of the screen, so touch input behaves as an area rather than a point.",
+      "A control smaller than a stated minimum is a predictable source of tapping mistakes.",
+    ],
+    applications: [
+      "Set every tappable element's hit area to meet the platform minimum, extending it beyond the artwork when the artwork must stay small.",
+      "Audit touch interfaces by measuring hit areas instead of judging readiness from how large the icons look.",
+      "Trace failed taps during testing back to their hit areas and enlarge those regions before adjusting any visuals.",
+    ],
+    uncertainties: [
+      "The reel asserts that targets under 44 units fail and that most tap errors begin with undersized targets, but cites no study, guideline, or failure rate for either claim.",
+      "The absolute wording that undersized targets always fail was softened into a minimum-size guideline, since real accuracy also depends on spacing, placement, and device.",
+      "The opening grid scene showing a labeled small square target with an offset tap marker was frame-verified; its label read 32 units while the spoken threshold is 44 units, and no later scenes were available to inspect.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4,
+        label:
+          "Undersized targets are blamed for most tap errors and a 44-unit minimum is stated",
+      },
+      {
+        start: 4,
+        end: 8,
+        label:
+          "Touch is described as contact across an area, and hit areas are ranked above visible icons",
+      },
+      {
+        start: 8,
+        end: 11.35,
+        label:
+          "Invisible hit-area size is credited with controlling tapping accuracy as the reel closes",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Touch ergonomics",
+        title: "Tap targets are sized for fingers, not eyes",
+        body: "The reel opens on a small labeled square being missed by a nearby tap marker, framing undersized controls as the starting point of touch errors.",
+        visual: {
+          type: "comparison",
+          before: "Icon-sized hit area",
+          after: "Finger-sized hit area",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Invisible failure",
+        title: "A crisp icon can still be an easy target to miss",
+        body: "When the touchable region matches the drawn artwork, the interface honors what looks good over what fingers can reliably hit, so visual polish hides an interaction problem.",
+        visual: {
+          type: "layers",
+          items: [
+            "Visible icon",
+            "Invisible hit area",
+            "Fingertip contact patch",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Hit area first",
+        title: "The invisible region decides whether taps land",
+        body: "Accuracy follows the touchable area that the finger actually meets, and that region can be enlarged independently of the artwork the eye sees.",
+        visual: {
+          type: "rule",
+          statement: "Size the hit area, then draw the icon",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Target audit",
+        title: "Measure hit areas before polishing icons",
+        body: "Treat the minimum target size as a floor for every control, and verify it by measuring the invisible region rather than the glyph.",
+        visual: {
+          type: "sequence",
+          items: [
+            "List every tappable control",
+            "Measure each hit area",
+            "Raise undersized targets to the minimum",
+            "Retest tapping on device",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Tap rule",
+        title: "Design where the finger lands, not where the eye rests",
+        body: "Give fingers a region generous enough to hit on the first try, because viewers forgive plain icons far more readily than missed taps.",
+        visual: {
+          type: "rule",
+          statement: "Fingers touch areas, so size the area",
+        },
+      },
+    ],
+  },
+  {
     id: "DTJRlcpjRDL",
     locale: "en",
     source: {
@@ -11381,6 +11493,1036 @@ export const designparserStudies = validateStudies([
         visual: {
           type: "rule",
           statement: "Honest feedback for the measured wait",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTENv8nDVxp",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTENv8nDVxp/",
+      creator: "@designparser",
+      publishedAt: "2026-01-03",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Chunk Data to Respect Working Memory",
+    summary:
+      "A cognitive-load study of Miller's law that recommends grouping scattered dashboard data into chunks so working memory absorbs groups instead of counting values, while the seven-item capacity is quoted without a citation.",
+    principles: [
+      "Working memory holds only a small number of chunks at once, so information beyond that limit tends to be dropped.",
+      "Presenting many scattered values on one screen overloads memory, while grouping related values creates chunks that fit within it.",
+      "Chunked organization lets people absorb groups as units instead of counting individual data points.",
+    ],
+    applications: [
+      "Group related metrics into labeled clusters before adding another chart to a data screen.",
+      "Keep the number of top-level value groups on one screen small enough to grasp at a glance.",
+      "Review dashboards by asking whether a viewer can absorb each group as a unit rather than reading every number.",
+    ],
+    uncertainties: [
+      "The seven-chunk capacity is stated without citing Miller's original paper or any replication, and later memory research debates the exact number, so the figure is unverified.",
+      "The opening claim that viewers' brains simply ignore extra charts is framed as certain; the principles here treat the limit as a tendency that attention and expertise can shift.",
+      "The single frame showing a small declining line chart with an engagement axis and a dashed threshold line was frame-verified, but the contrasting grouped-dashboard example exists only in the narration.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5.2,
+        label:
+          "Miller's law is invoked with a seven-chunk working memory limit after two charts go unnoticed",
+      },
+      {
+        start: 5.84,
+        end: 10.16,
+        label:
+          "Passing the limit is said to cut processing, and scattered data is blamed for overload",
+      },
+      {
+        start: 10.16,
+        end: 14.88,
+        label:
+          "Grouped dashboards are credited with creating chunks that beat counting",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Cognitive limit",
+        title: "Working memory keeps only a few chunks at once",
+        body: "Invoking Miller's law, the reel claims attention silently drops whole charts once a screen asks memory to hold more than its chunk limit.",
+        visual: {
+          type: "comparison",
+          before: "A wall of separate values",
+          after: "A few labeled groups",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Scattered data",
+        title: "Loose numbers force viewers to count",
+        body: "When metrics sit ungrouped, working memory must track each value separately, and the reel says performance falls away past the limit.",
+        visual: {
+          type: "layers",
+          items: ["Many loose values", "No group structure", "Memory overload"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Chunking principle",
+        title: "Groups become the units memory actually holds",
+        body: "Chunking packages several values into one perceptual unit, letting a grouped dashboard be absorbed instead of counted.",
+        visual: {
+          type: "rule",
+          statement: "If the viewer must count, it is not chunked",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Dashboard grouping",
+        title: "Cluster metrics into labeled chunks",
+        body: "Organize the screen so related measures sit together under shared labels, keeping the number of top-level groups small enough to grasp at a glance.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Inventory the screen's values",
+            "Group by the question they answer",
+            "Label each group",
+            "Trim or fold orphan metrics",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Memory rule",
+        title: "Structure the screen so memory can hold it",
+        body: "The defensive move against overload is grouping, not shrinking text or thinning color, because structure changes what counts as one item.",
+        visual: {
+          type: "rule",
+          statement: "Group first so nobody has to count",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTBpHxkjRLt",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTBpHxkjRLt/",
+      creator: "@designparser",
+      publishedAt: "2026-01-02",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Grouping Rules Decide What Belongs Together",
+    summary:
+      "A Gestalt-perception study cataloging the grouping rules of proximity, similarity, common region, connectedness, continuity, closure, and figure-ground separation as the basis for predicting what viewers see as related, delivered as one-line definitions without demonstrations.",
+    principles: [
+      "Perception is rule-governed, so which elements read as related can be designed rather than left to chance.",
+      "Spatial closeness, shared appearance, and shared enclosure each create perceived groups among elements.",
+      "Connections and continuity link elements across distance, while viewers complete partial forms and separate figures from their background.",
+    ],
+    applications: [
+      "Place related controls close together and push unrelated ones apart so spacing matches the intended structure.",
+      "Reinforce belonging with matching appearance and enclosing containers where spacing alone is not enough.",
+      "Squint-test layouts for accidental groups formed by stray connectors or unintended alignment before shipping.",
+    ],
+    uncertainties: [
+      "The reel presents each rule as a fixed law of perception; the principles here describe them as strong tendencies that context, attention, and learned conventions can modify.",
+      "The opening grid of labeled principle rows was frame-verified, including proximity, similarity, common region, connectedness, continuity, closure, and figure-ground; the closing phrase was heard as 'Parched' and resolved contextually to the account's 'parsed' sign-off.",
+      "Each rule is compressed to a single spoken phrase with no worked example, so any visual demonstrations beyond the opening grid were not frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.36,
+        label:
+          "Perception is framed as rule-governed and proximity is credited with grouping meaning",
+      },
+      {
+        start: 3.36,
+        end: 7.36,
+        label:
+          "Similarity and shared regions are said to reinforce relation and belonging",
+      },
+      {
+        start: 7.36,
+        end: 11.04,
+        label:
+          "Connections are said to override distance while continuity guides the eye",
+      },
+      {
+        start: 11.04,
+        end: 14.56,
+        label: "Closure and figure-ground separation complete the rule set",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Gestalt catalog",
+        title: "Perception groups elements by predictable rules",
+        body: "The reel runs through a catalog of grouping rules, arguing that what viewers see as together is decided by spacing, appearance, enclosure, and connection.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Place elements close together",
+            "Match their appearance",
+            "Enclose them in a region",
+            "Connect them with lines",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Accidental groups",
+        title: "Unmanaged spacing creates groups nobody designed",
+        body: "Elements left at arbitrary distances or joined by stray connectors still form perceived groups, so the layout communicates relationships the designer never chose.",
+        visual: {
+          type: "layers",
+          items: [
+            "Arbitrary spacing",
+            "Stray connectors",
+            "Unintended grouping",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Grouping logic",
+        title: "Closeness, likeness, and enclosure define the groups",
+        body: "Proximity suggests a group, similarity reinforces it, and a shared region confirms belonging, while connections can bind items that distance alone would separate.",
+        visual: {
+          type: "rule",
+          statement: "Distance suggests, enclosure confirms",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Layout audit",
+        title: "Squint-test screens for unintended groups",
+        body: "Step back until labels blur and check whether the visible clusters match the intended structure, then adjust spacing, enclosure, and connectors until they do.",
+        visual: {
+          type: "comparison",
+          before: "Evenly scattered controls",
+          after: "Task-clustered controls",
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Perception rule",
+        title: "Design the grouping, not just the elements",
+        body: "Viewers perceive wholes before parts, so the relationships among elements deserve as much deliberate design as the elements themselves.",
+        visual: {
+          type: "rule",
+          statement: "Viewers see groups before they see items",
+        },
+      },
+    ],
+  },
+  {
+    id: "DS_KRfxiFKW",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DS_KRfxiFKW/",
+      creator: "@designparser",
+      publishedAt: "2026-01-01",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Seven Levers That Steer Interface Attention",
+    summary:
+      "A visual-fundamentals study listing seven controlling principles, from hierarchy and contrast through repetition and emphasis, as the levers that direct attention on an interface, offered as a rapid catalog without worked examples or cited evidence.",
+    principles: [
+      "Attention flow on an interface should be set deliberately through hierarchy and emphasis.",
+      "Visibility depends on contrast, and perceived order comes from alignment and balanced weight distribution.",
+      "Whitespace protects focus while repetition builds unity across the experience.",
+    ],
+    applications: [
+      "Establish a single primary focal point per screen before making any other styling decision.",
+      "Raise contrast where visibility matters most and distribute visual weight so no region of the layout feels lopsided.",
+      "Apply consistent alignment grids and repeated patterns, using whitespace to isolate what matters most.",
+    ],
+    uncertainties: [
+      "The reel claims exactly seven principles control interfaces but names no source, example, or counter-case for the count or the coverage, so the list is unverified.",
+      "The strong verb 'control' was softened to steering or shaping attention, since the narration does not show that applying the list guarantees a working interface.",
+      "The single frame listing the titled principles was frame-verified, but no worked interface examples were available, so the practical effect of each principle was not frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4.24,
+        label:
+          "Seven principles are said to control interfaces, with hierarchy directing attention and contrast creating visibility",
+      },
+      {
+        start: 4.24,
+        end: 9.76,
+        label:
+          "Balance, whitespace, and alignment are assigned their effects on weight, focus, and order",
+      },
+      {
+        start: 9.76,
+        end: 15.56,
+        label: "Repetition is tied to unity and emphasis to priority",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Design fundamentals",
+        title: "Seven principles steer how interfaces read",
+        body: "The reel lists hierarchy, contrast, balance, whitespace, alignment, repetition, and emphasis as the controls behind an interface's readability, one principle per beat.",
+        visual: {
+          type: "layers",
+          items: [
+            "Attention: hierarchy and emphasis",
+            "Visibility: contrast",
+            "Order: alignment and balance",
+            "Calm: whitespace and repetition",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Unstructured screen",
+        title: "Without hierarchy everything shouts at once",
+        body: "When no element ranks above another, contrast and emphasis get spent everywhere, leaving the viewer to guess where to look first.",
+        visual: {
+          type: "comparison",
+          before: "Every element styled equally",
+          after: "One clear focal point",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Attention first",
+        title: "Hierarchy chooses the winner, contrast makes it visible",
+        body: "Deciding what matters most and separating it visually does the work that balance, alignment, whitespace, repetition, and emphasis then support.",
+        visual: {
+          type: "rule",
+          statement: "Direct the eye first, then decorate",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Screen audit",
+        title: "Run one screen through all seven controls",
+        body: "Rank elements, push contrast where the top item needs it, align and balance the rest, protect it with whitespace, and repeat the system across screens.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Rank elements by importance",
+            "Add contrast to the top item",
+            "Align and balance the rest",
+            "Protect focus with whitespace",
+            "Repeat the system across screens",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Fundamentals rule",
+        title: "Attention is designed, never defaulted",
+        body: "The seven controls only help when a clear priority exists first, so decide the ranking before any styling decision.",
+        visual: {
+          type: "rule",
+          statement: "Decide the ranking before the styling",
+        },
+      },
+    ],
+  },
+  {
+    id: "DS6Q5tWiC6c",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DS6Q5tWiC6c/",
+      creator: "@designparser",
+      publishedAt: "2025-12-31",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Build Hierarchy in Grayscale Before Color",
+    summary:
+      "A layout-structure study arguing that stripping color exposes the real hierarchy, that a limited run of gray steps should carry it, and that accent color deserves only a small share of the canvas, though its numeric guidance is offered without cited sources.",
+    principles: [
+      "Grayscale is the structural skeleton of an interface, so a design should survive with color removed.",
+      "A gray scale is most usable as a chosen subset rather than every available step.",
+      "Accent color is a finishing dose, not the primary carrier of hierarchy.",
+    ],
+    applications: [
+      "Desaturate a layout periodically and repair any element that loses its place once color is gone.",
+      "Pick four to six steps from a 100 to 900 gray scale and design hierarchy with that subset alone.",
+      "Ration chromatic color to a small percentage of the composition and let grays handle readability and spacing.",
+    ],
+    uncertainties: [
+      "The numeric prescriptions, four to six gray steps and two to ten percent color, are stated without a cited study or source, so both figures are unverified.",
+      "The reel implies any interface collapses without structure checks; I softened this to a periodic audit practice since it presents no evidence about failure rates.",
+      "The opening title card telling viewers to remove all color was frame-verified, but the only generated scene image was that single still, so the gray scale, the tint options, and the percentage figure were not frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 2.56,
+        label:
+          "Removing all color is said to break the interface and expose its structure",
+      },
+      {
+        start: 2.56,
+        end: 7.68,
+        label:
+          "A 100 to 900 grayscale is proposed as the structure, using four to six steps",
+      },
+      {
+        start: 7.68,
+        end: 12.48,
+        label:
+          "Gray is credited with controlling hierarchy, readability, and spacing, pure or with accent",
+      },
+      {
+        start: 12.48,
+        end: 14.08,
+        label: "Color is rationed to two to ten percent of the composition",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Gray first",
+        title: "Color removal is proposed as a structure test",
+        body: "The account's method treats grayscale as the honest view of an interface: if the layout fails without hue, the hierarchy was never really there.",
+        visual: {
+          type: "comparison",
+          before: "Full-color layout hiding weak structure",
+          after: "Grayscale layout exposing the skeleton",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Hue overload",
+        title: "Color gets asked to do the structure's job",
+        body: "When contrast, order, and grouping all depend on hue, the interface reads fine right up until the color is unavailable or ignored.",
+        visual: {
+          type: "layers",
+          items: [
+            "Contrast by hue only",
+            "Order without a gray plan",
+            "Grouping that fades in grayscale",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Subset scale",
+        title:
+          "A limited gray run carries hierarchy better than the full scale",
+        body: "Choosing a handful of steps from the 100 to 900 range forces deliberate separation between levels instead of endless near-identical grays.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Start at a 100 to 900 scale",
+            "Keep four to six steps",
+            "Map each step to a hierarchy level",
+            "Check spacing and readability",
+          ],
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Color ration",
+        title: "Spend a small share of the canvas on accent color",
+        body: "Let grays do the quiet work of readability and spacing, then add pure or tinted accents in a deliberately small proportion so they stay loud.",
+        visual: {
+          type: "rule",
+          statement: "Two to ten percent color, the rest earned by gray",
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Gray skeleton",
+        title: "Structure that survives desaturation is real structure",
+        body: "An interface whose hierarchy holds in grayscale needs color only for emphasis, which is exactly what color is best at.",
+        visual: {
+          type: "rule",
+          statement: "Earn hierarchy in gray, spend color on emphasis",
+        },
+      },
+    ],
+  },
+  {
+    id: "DS8PMNeDc9f",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DS8PMNeDc9f/",
+      creator: "@designparser",
+      publishedAt: "2025-12-31",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Split Color Into Primitives and Semantics",
+    summary:
+      "A design-token study separating raw primitive colors from the semantic roles that reference them so one alias change propagates to every linked surface, though it presents Figma's two-tier setup as an ideal without covering governance or scale limits.",
+    principles: [
+      "Raw palette values and the roles they play belong in separate layers of the color system.",
+      "Components should consume semantic role names instead of pointing at raw palette values.",
+      "Centralized references allow one semantic edit to keep every linked surface consistent.",
+    ],
+    applications: [
+      "Build a numbered primitive scale, such as a blue series, and treat those values as untouchable raw material.",
+      "Alias purpose names like a primary button background to a primitive so value and intent stay decoupled.",
+      "When a brand color shifts, edit the semantic reference once and verify every dependent surface follows before minting new tokens.",
+    ],
+    uncertainties: [
+      "The claim that a single semantic edit propagates to every linked color immediately is asserted without a cited source or benchmark, so the immediacy is unverified.",
+      "The reel frames a two-tier model as complete; I softened it because mature systems often add component-level tokens and governance rules it never mentions.",
+      "The opening title card naming the two color systems was frame-verified, but the only generated scene image was that single still, so the button-token example and the live update were not frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 2.08,
+        label: "Figma's palette is said to run on two color systems",
+      },
+      {
+        start: 2.08,
+        end: 7.04,
+        label:
+          "Primitives are defined as raw values and semantics as references to them",
+      },
+      {
+        start: 7.04,
+        end: 10.64,
+        label:
+          "A primary button background is given as a semantic pointing to a named primitive",
+      },
+      {
+        start: 10.64,
+        end: 13.84,
+        label:
+          "Editing one semantic is claimed to update every linked color at once",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Token layers",
+        title: "Figma's palette is built on two tiers",
+        body: "The account's breakdown treats color as a two-part architecture: a numbered scale of raw values and a set of named references that point into it.",
+        visual: {
+          type: "comparison",
+          before: "One flat list of raw color values",
+          after: "Primitives referenced by semantic roles",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Fragile palettes",
+        title: "Direct color values make every change manual",
+        body: "When screens bind to raw values, updating a brand color means hunting down each usage, and nothing guarantees the replacements stay consistent.",
+        visual: {
+          type: "layers",
+          items: [
+            "Raw values scattered",
+            "No named intent",
+            "Manual find-and-replace",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Two layers",
+        title: "Primitives store values and semantics store intent",
+        body: "The primitive tier declares what the colors are, while the semantic tier declares what they are for, keeping appearance decisions separate from usage decisions.",
+        visual: {
+          type: "rule",
+          statement: "Name the job, not the raw value",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Token workflow",
+        title: "Bind components to roles, then edit the role",
+        body: "Point a button's background at a semantic token so that when the palette shifts, the reference is revised once and dependent surfaces follow.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Define the primitive scale",
+            "Alias semantic role names",
+            "Bind components to roles",
+            "Edit one role to update all",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Parsed color",
+        title: "References make a palette self-maintaining",
+        body: "A referenced system replaces guesswork with structure: values are declared once, and intent sits in a layer where it can change safely.",
+        visual: {
+          type: "rule",
+          statement: "Change the reference, not every value",
+        },
+      },
+    ],
+  },
+  {
+    id: "DS2505ujeUW",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DS2505ujeUW/",
+      creator: "@designparser",
+      publishedAt: "2025-12-29",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Match the Scan Pattern to the Content Load",
+    summary:
+      "A page-layout study recommending the Z-pattern for sparse, action-oriented pages, with logo and main action at the top right and proof plus a final action closing the bottom right, while reserving the F-pattern for text-heavy pages, though it presents the eye-movement claims without cited research.",
+    principles: [
+      "Layout should follow a known scanning path rather than hoping attention lands in the right places.",
+      "Sparse, action-oriented pages suit a diagonal Z path; dense reading pages suit an F-shaped sweep.",
+      "Key milestones along the scan deserve the corners of the composition.",
+    ],
+    applications: [
+      "Place the logo top left and the primary call to action top right on a low-content landing page.",
+      "Reserve the middle horizontal of the Z for proof, and close with the final action at the bottom right.",
+      "Choose the pattern by content density: audit whether the page is built for skimming to an action or for reading text.",
+    ],
+    uncertainties: [
+      "The assertion that the eye literally follows the Z is offered without a cited eye-tracking source, so the scanning claim is unverified.",
+      "The reel presents the two patterns as a complete rule set; I softened it to guidance because it gives no thresholds for when a page counts as low-content or text-heavy.",
+      "The opening title card recommending the Z-pattern for less content was frame-verified, but the only generated scene image was that single still, so the corner placement diagram and the F-pattern comparison were not frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5.72,
+        label:
+          "Low-content pages are matched to the Z-pattern with logo and main action on the top row",
+      },
+      {
+        start: 5.72,
+        end: 10.72,
+        label:
+          "Proof is placed mid-page and the final action at the bottom right of the Z",
+      },
+      {
+        start: 10.72,
+        end: 15.52,
+        label:
+          "The F-pattern is assigned to text-heavy pages and the Z-pattern to action pages",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Scan paths",
+        title: "Two patterns are offered for two kinds of pages",
+        body: "The account contrasts a diagonal scan for sparse pages built around an action with a horizontal sweep for pages dominated by text.",
+        visual: {
+          type: "comparison",
+          before: "F-pattern sweep across dense text",
+          after: "Z-pattern diagonal across sparse layout",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Random placement",
+        title: "Actions placed off the scan path get skipped",
+        body: "When a key button sits where attention does not naturally travel, the page depends on luck instead of layout to deliver the conversion.",
+        visual: {
+          type: "layers",
+          items: [
+            "Unanchored logo",
+            "Floating proof block",
+            "Orphaned final action",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Pattern choice",
+        title: "Pick the scan pattern by what the page is for",
+        body: "A page meant to be skimmed toward an action earns the Z path, while a page meant to be read earns the F shape.",
+        visual: {
+          type: "rule",
+          statement: "Z for action, F for reading",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Z layout",
+        title: "Anchor the four beats of the diagonal",
+        body: "On a sparse page, set the logo top left, the primary action top right, proof along the middle, and the closing action at the bottom right.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Logo top left",
+            "Main action top right",
+            "Proof across the middle",
+            "final action in the bottom-right corner",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Guided eye",
+        title: "Design the route before decorating the stops",
+        body: "Decide which scanning path the content density implies, then place each milestone where that path already delivers attention.",
+        visual: {
+          type: "rule",
+          statement: "Place priorities where the eye already lands",
+        },
+      },
+    ],
+  },
+  {
+    id: "DS0ULD5DQgV",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DS0ULD5DQgV/",
+      creator: "@designparser",
+      publishedAt: "2025-12-28",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Front-Load for F-Shaped Scanning",
+    summary:
+      "A page-scanning study teaching that visitors skim along an F-shaped path, give their first attention to the top left, and skip layouts where every element carries equal weight, so key content should be front-loaded — with the caveat that the eye-tracking claims are asserted without a cited source.",
+    principles: [
+      "Page layouts should be composed for scanning, because visitors tend to skim in quick passes rather than read word by word.",
+      "A layout that gives every element equal visual weight produces no fixation point, so nothing holds attention.",
+      "The earliest attention concentrates in the top-left region, so leading content decides whether the rest gets seen.",
+    ],
+    applications: [
+      "Place the primary message and keywords in the first lines of a section instead of burying them mid-page.",
+      "Arrange headings and leads along the top and left edges where the horizontal and vertical sweeps occur.",
+      "Break uniformly weighted layouts with deliberate size, weight, or color contrast so one element clearly dominates.",
+    ],
+    uncertainties: [
+      "The F-shaped path of two horizontal and one vertical sweep and the top-left attention claim are presented as settled eye-tracking findings with no study or source named, so they remain unverified.",
+      "The absolutist phrasing about users not reading was softened to a tendency to skim, since reading and scanning usually coexist and the reel cites no evidence for the absolute form.",
+      "The opening title card with a highlighted phrase about users not reading was frame-verified, but the single captured frame showed no F-pattern diagram or heat map, so those visuals were not frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5.28,
+        label:
+          "Scanning in an F-shaped path of two horizontal and one vertical sweep is described as the norm",
+      },
+      {
+        start: 5.28,
+        end: 8.88,
+        label:
+          "Eye-tracking heat maps are invoked to argue that uniform visual weight leaves nothing standing out",
+      },
+      {
+        start: 9.52,
+        end: 13.32,
+        label:
+          "Attention is placed at the top left and front-loading is prescribed as the remedy for being skipped",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Reading behavior",
+        title: "Most visitors scan instead of read",
+        body: "The reel opens by rejecting the imagined careful reader: real attention moves across a page in fast sweeps, so the layout itself has to carry the message.",
+        visual: {
+          type: "comparison",
+          before: "Assumed: line-by-line reading",
+          after: "Actual: F-shaped scanning sweeps",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Flat layouts",
+        title: "Equal weight makes everything invisible",
+        body: "When a page treats every block as equally important, attention spreads thin across it and no element earns a lasting fixation.",
+        visual: {
+          type: "layers",
+          items: [
+            "Uniform sizing everywhere",
+            "Attention spread thin",
+            "No element retained",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Scan path",
+        title: "The top left gets the first look",
+        body: "The F-shaped path begins with two horizontal sweeps near the top and one vertical run down the left side, making the upper left the most reliably seen space on the page.",
+        visual: {
+          type: "rule",
+          statement: "Two horizontal sweeps, then one vertical run",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Front-load content",
+        title: "Put the conclusion first",
+        body: "Front-load each section with its key point so a skimmer who only catches the top and the left edge still receives the core message.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Lead with the key point",
+            "Stack supporting points down the left",
+            "Add contrast so one element dominates",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Scanning rule",
+        title: "Design for the skimmer or be skipped",
+        body: "A page that rewards scanning gets its message across; one that assumes full reading loses visitors who never slow down.",
+        visual: {
+          type: "rule",
+          statement: "Front-load the message where the eyes land",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSyBj3QDbfl",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSyBj3QDbfl/",
+      creator: "@designparser",
+      publishedAt: "2025-12-27",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Bigger, Closer, Faster Targets",
+    summary:
+      "A target-sizing study teaching that acquisition time follows Fitts's Law of size and distance, so enlarging controls, anchoring menus to screen edges, and placing mobile actions in the thumb zone all speed use — with the caveat that the speed and error claims are asserted without a cited study.",
+    principles: [
+      "The time to reach a control depends on its size and its distance from the pointer, a relationship known as Fitts's Law.",
+      "Bigger and closer targets are acquired faster and mis-clicked less, which the reel compresses into bigger, closer, safer.",
+      "Screen edges and comfortable thumb reach amplify effective target size, since a pointer stops at an edge and a thumb owns the lower mobile region.",
+    ],
+    applications: [
+      "Enlarge primary actions and move them nearer the pointer's typical position before adding visual emphasis.",
+      "Anchor menu bars and edge controls to the physical screen edge so overshooting cannot miss.",
+      "Position mobile primary actions, such as floating action buttons, inside the natural thumb arc rather than at far corners.",
+    ],
+    uncertainties: [
+      "The law's spoken name was misrecognized and contextually resolved to Fitts's Law, and the spoken reference to floating action buttons was resolved from a shortened form; both resolutions shape how the claims are worded.",
+      "The claims that larger targets produce measurably faster clicks and fewer errors are asserted without a cited study, and the screen-edge effect was softened from a claim of infinite target size to effectively unbounded along the edge direction.",
+      "The opening phone mockup with the oversized button and the later generic large button were frame-verified, but the menu-bar and thumb-zone examples were not visible in the two captured frames.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4.88,
+        label:
+          "An oversized button prompts the question, and a reach-time law tied to size and distance is introduced",
+      },
+      {
+        start: 4.88,
+        end: 7.84,
+        label:
+          "A steering-wheel analogy compresses the law into bigger, closer, safer",
+      },
+      {
+        start: 8.48,
+        end: 12.88,
+        label:
+          "Large targets are credited with faster clicks and fewer errors, and screen-edge menus are cited",
+      },
+      {
+        start: 13.44,
+        end: 19.84,
+        label:
+          "Edge menus are described as unbounded targets, and thumb-zone placement is applied to mobile actions",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Target size",
+        title: "An oversized button is a decision, not a mistake",
+        body: "The reel opens on a phone screen whose back control is deliberately oversized and asks why, framing size as an ergonomic choice rather than a styling preference.",
+        visual: {
+          type: "comparison",
+          before: "Tiny far button: slow, missable",
+          after: "Large near target: quick, sure",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Missed clicks",
+        title: "Small distant controls tax every tap",
+        body: "When targets are small or far, each acquisition takes longer and fails more often, and that cost repeats on every interaction.",
+        visual: {
+          type: "layers",
+          items: [
+            "Undersized target",
+            "Long travel distance",
+            "Errors and retries",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Fitts's Law",
+        title: "Reach time follows size and distance",
+        body: "Modeled on physical controls like steering wheels, acquisition speed improves as a target grows or moves closer, and the reel applies that logic to screens.",
+        visual: {
+          type: "rule",
+          statement: "Bigger, closer, faster, safer",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Edge and thumb",
+        title: "Amplify targets with edges and thumb zones",
+        body: "Pin controls to screen edges where the pointer stops and cannot overshoot, and keep mobile actions inside the region a thumb reaches comfortably.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Enlarge the primary action",
+            "Dock menus to the screen edge",
+            "Place mobile actions in the thumb arc",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Sizing logic",
+        title: "Size targets by physics, not taste",
+        body: "Control size and placement should follow predictable movement behavior instead of visual preference, which is what separates reasoning from guessing.",
+        visual: {
+          type: "rule",
+          statement: "Size for the hand, not the eye",
+        },
+      },
+    ],
+  },
+  {
+    id: "DSyBpx9jeCH",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DSyBpx9jeCH/",
+      creator: "@designparser",
+      publishedAt: "2025-12-27",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Design for Habits Formed Elsewhere",
+    summary:
+      "An interface-familiarity study teaching that visitors bring interaction habits from the other products where they spend most of their time, so known patterns reduce cognitive load while novel navigation drives drop-offs — with the caveat that the time-share statistic is uncited and the no-explanation ideal is softened.",
+    principles: [
+      "Users arrive expecting a product to behave like the other products they already use, a convention known as Jakob's Law.",
+      "Time spent elsewhere trains habits, so unfamiliar navigation and logic force extra thinking that converts directly into drop-offs.",
+      "Reusing recognized patterns lowers cognitive load until an interface feels familiar rather than needing explanation.",
+    ],
+    applications: [
+      "Handle navigation, search, and checkout with established platform conventions before inventing custom alternatives.",
+      "Spend any novelty budget on differentiating features, not on re-teaching basic interactions.",
+      "Treat a need for instructions as a signal to replace a custom pattern with one users already recognize.",
+    ],
+    uncertainties: [
+      "The spoken percentage of time users spend on other products is asserted without a cited study, so the figure is unverified, and the law's misrecognized spoken name was contextually resolved to Jakob's Law.",
+      "The claim that good design explains nothing was softened, because feeling familiar reduces the need for explanation rather than eliminating it, and genuinely novel products still need onboarding.",
+      "The opening title card with a highlighted phrase about user expectations was frame-verified, but the single captured frame contained no product comparisons or interface examples, so the later claims were not frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.92,
+        label:
+          "The expectation that a site behaves like its peers is named as a design law",
+      },
+      {
+        start: 3.92,
+        end: 6.32,
+        label:
+          "A near-total share of time spent on other products is asserted as the source of those habits",
+      },
+      {
+        start: 6.32,
+        end: 11.44,
+        label:
+          "Unfamiliar navigation and logic are linked to extra mental effort and lost users",
+      },
+      {
+        start: 11.44,
+        end: 16.72,
+        label:
+          "Known patterns are prescribed to cut cognitive load until the interface feels familiar without explanation",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Familiarity law",
+        title: "Habits form on other people's products",
+        body: "The reel grounds itself in a UX law: visitors spend most of their product time elsewhere, so the habits they bring to your site were trained on other sites.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Habits trained on other products",
+            "Same habits applied to your product",
+            "Friction when they mismatch",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Novelty cost",
+        title: "New logic buys confusion, not delight",
+        body: "Unfamiliar navigation and new interaction logic make people think through basics they never chose to relearn, and every extra thought pushes more of them out.",
+        visual: {
+          type: "comparison",
+          before: "Known pattern: instant transfer",
+          after: "Novel logic: pause, decode, leave",
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Cognitive load",
+        title: "Known patterns do the remembering for you",
+        body: "When an interface matches stored patterns, users spend no effort decoding it; convention absorbs the thinking that a custom design would charge to the user.",
+        visual: {
+          type: "rule",
+          statement: "Familiarity is a feature, not laziness",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Convention first",
+        title: "Default to patterns users already know",
+        body: "Cover navigation, search, and checkout with established conventions, and reserve any departure from convention for the parts that genuinely differentiate the product.",
+        visual: {
+          type: "layers",
+          items: [
+            "Conventional navigation",
+            "Recognized controls",
+            "Familiar mental model",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Zero explanation",
+        title: "If you have to explain it, redesign it",
+        body: "The reel's closing ideal is an interface that needs no explanation because it matches what people already know; treat instruction copy as a symptom rather than a fix.",
+        visual: {
+          type: "rule",
+          statement: "Feels familiar, explains nothing",
         },
       },
     ],

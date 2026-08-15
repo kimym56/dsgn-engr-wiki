@@ -115,6 +115,7 @@ export function buildHyperframesComposition(study: DesignparserStudy): string {
 * { box-sizing: border-box; }
 html, body { width: 1920px; height: 1080px; margin: 0; overflow: hidden; }
 body { background: #101522; }
+.composition-root { position: absolute; inset: 0; width: 1920px; height: 1080px; }
 .scene { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; background: radial-gradient(circle at 84% 15%, #293246 0, #101522 42%); }
 .scene-content { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(620px, 1.1fr); gap: 112px; align-items: center; width: 100%; height: 100%; padding: 112px 136px; }
 .timeline-clock { display: none; }
@@ -145,11 +146,14 @@ h1 { max-width: 760px; margin: 0; font-size: 78px; line-height: 0.98; letter-spa
 </style>
 </head>
 <body>
+<main class="composition-root" id="${escapeHtml(study.id)}" data-composition-id="${escapeHtml(study.id)}" data-start="0" data-width="1920" data-height="1080" data-duration="${study.slides.length * SCENE_SECONDS}">
 ${scenes}
+</main>
 <script type="application/hyperframes-slideshow+json">${manifest}</script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
 <script>window.__timelines = window.__timelines || {};</script>
 ${timelines}
+<script src="https://cdn.jsdelivr.net/npm/@hyperframes/core@0.7.107/dist/hyperframe.runtime.iife.js"></script>
 </body>
 </html>`;
 }

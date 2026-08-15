@@ -191,6 +191,9 @@ describe("HyperFrames study compositions", () => {
     expect(html).toContain(
       "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js",
     );
+    expect(html).toContain(
+      "https://cdn.jsdelivr.net/npm/@hyperframes/core@0.7.107/dist/hyperframe.runtime.iife.js",
+    );
     expect(html).toContain('class="visual rule"');
     expect(html).toContain('class="visual comparison"');
     expect(html).toContain('class="visual sequence"');
@@ -198,6 +201,7 @@ describe("HyperFrames study compositions", () => {
     expect(html).toContain('id="C-example_1-slide-3-sequence-6"');
     expect(html).toContain('id="C-example_1-slide-4-layers-6"');
     expect(sceneWindows).toEqual([
+      ["C-example_1", "0", "24"],
       ["C-example_1-slide-1", "0", "6"],
       ["C-example_1-slide-2", "6", "6"],
       ["C-example_1-slide-3", "12", "6"],

@@ -10294,6 +10294,1097 @@ export const designparserStudies = validateStudies([
       },
     ],
   },
+  {
+    id: "DTgbgtsDWtG",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTgbgtsDWtG/",
+      creator: "@designparser",
+      publishedAt: "2026-01-14",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Make Links Findable and Predictive",
+    summary:
+      "A link-design study combining a persistent visual affordance, descriptive destination text, and complete interaction states so people can find links without relying on color and understand where each link will take them.",
+    principles: [
+      "Link styling should remain distinguishable without color perception or hover interaction.",
+      "A useful label predicts the destination or result instead of naming the gesture.",
+      "Default, hover, visited, focus, and active treatments should preserve recognition while communicating state.",
+    ],
+    applications: [
+      "Audit body links in grayscale and with keyboard navigation to confirm that color is not the only cue.",
+      "Replace generic phrases with labels that still make sense when read out of surrounding context.",
+      "Specify and test every supported link state without removing the visible focus indicator.",
+    ],
+    uncertainties: [
+      "An underline is a strong conventional affordance, but persistent underlining is not the only accessible treatment in every navigation or component context.",
+      "The five-state list does not explain how touch-only devices or previously visited sensitive destinations should be handled.",
+      "The opening text block was frame-verified, but its intended invisible-link example could not be distinguished independently in the still image.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 5.76,
+        label: "Underlining is proposed and color-only links are rejected",
+      },
+      {
+        start: 5.76,
+        end: 9.92,
+        label: "Generic and destination-predictive labels are contrasted",
+      },
+      {
+        start: 9.92,
+        end: 14.72,
+        label: "Five interaction states are enumerated",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Link affordance",
+        title: "A link should look interactive before hover",
+        body: "People need a durable cue that distinguishes navigation from surrounding prose across mouse, touch, keyboard, and color perception.",
+        visual: {
+          type: "comparison",
+          before: "Blue text with no other cue",
+          after: "Descriptive text with persistent affordance",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Invisible navigation",
+        title: "Color and 'click here' hide different parts of the decision",
+        body: "Color-only styling can hide clickability, while a generic label hides the destination even after the link is found.",
+        visual: {
+          type: "layers",
+          items: ["Weak affordance", "Generic wording", "Unknown destination"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Predictive link",
+        title: "Show both interaction and destination",
+        body: "A visible affordance answers whether text is actionable; a descriptive label answers what navigation will do.",
+        visual: {
+          type: "rule",
+          statement: "Affordance + destination label = predictable link",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "State audit",
+        title: "Design the whole link lifecycle",
+        body: "Check recognition and contrast in every state, with special attention to keyboard focus and visited-state privacy.",
+        visual: {
+          type: "sequence",
+          items: ["Default", "Hover", "Visited", "Focus", "Active"],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Link rule",
+        title:
+          "A successful link is findable and predictable before activation",
+        body: "Do not make people discover clickability by accident or infer a destination from nearby prose.",
+        visual: {
+          type: "rule",
+          statement: "Find it, understand it, then follow it",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTdj46ojXaO",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTdj46ojXaO/",
+      creator: "@designparser",
+      publishedAt: "2026-01-13",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Give Each Screen One Clear Primary Action",
+    summary:
+      "An action-hierarchy study distinguishing one committing primary action from secondary choices, placing the decision where the task is ready for it, and defining normal, hover, focus, active, and disabled states.",
+    principles: [
+      "A primary action should express the main commitment for the current task state.",
+      "Secondary actions remain available without competing visually with the main next step.",
+      "Placement and state styling communicate when an action becomes relevant and whether it is available.",
+    ],
+    applications: [
+      "Name the main commitment on each task screen and demote alternatives that are not equally important.",
+      "Place the action after the information required to make the decision rather than before it.",
+      "Define keyboard-visible focus and distinguish hover, active, and disabled states without relying on color alone.",
+    ],
+    uncertainties: [
+      "One primary action per screen is a hierarchy heuristic; complex tools can contain multiple coordinated work regions.",
+      "The statement that the primary action commits and the secondary action offers choice does not cover destructive, reversible, or multi-step actions.",
+      "Only the opening isolated primary button was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 7.04,
+        label: "One primary commitment is distinguished from secondary choice",
+      },
+      {
+        start: 7.04,
+        end: 12.08,
+        label: "Action placement is tied to the end of the decision flow",
+      },
+      {
+        start: 12.08,
+        end: 17.92,
+        label: "Five button states are enumerated",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Action hierarchy",
+        title: "The primary button should name the screen's commitment",
+        body: "One clearly prioritized next step reduces competition while secondary actions preserve legitimate alternatives.",
+        visual: {
+          type: "comparison",
+          before: "Three equal actions",
+          after: "One commitment plus two alternatives",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Competing next steps",
+        title: "Equal emphasis makes every choice look mandatory",
+        body: "When all actions carry primary styling, the interface stops explaining which choice advances the task.",
+        visual: {
+          type: "layers",
+          items: ["Main commitment", "Alternative path", "Cancel or defer"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Decision timing",
+        title: "Offer commitment after the information it depends on",
+        body: "Position reinforces hierarchy when the primary action follows the inputs or review needed to make a sound decision.",
+        visual: {
+          type: "rule",
+          statement:
+            "Required information → informed decision → primary action",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Action system",
+        title: "Define priority and state together",
+        body: "A clear action role still needs visible feedback across pointer, keyboard, press, and unavailable conditions.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name commitment",
+            "Rank alternatives",
+            "Place after inputs",
+            "Specify five states",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Action rule",
+        title: "Primary styling is a promise about the next consequential step",
+        body: "Use it once the task has one clear commitment, and let secondary styling carry the remaining choices.",
+        visual: {
+          type: "rule",
+          statement: "One task commitment receives primary emphasis",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTbW_Xdjd-0",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTbW_Xdjd-0/",
+      creator: "@designparser",
+      publishedAt: "2026-01-12",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Keep Links and Buttons Semantically Distinct",
+    summary:
+      "An interaction-semantics study reserving buttons for in-place actions and links for navigation, then combining one clear primary action, adequately sized targets, and destination-predictive link labels.",
+    principles: [
+      "A button changes the current interface or submits an action; a link moves to another resource or location.",
+      "Visual hierarchy should not erase native semantics, keyboard behavior, or expected browser affordances.",
+      "Target size and descriptive labels support accurate activation and informed navigation.",
+    ],
+    applications: [
+      "Audit controls by outcome: use a button for state change and a link for navigation.",
+      "Preserve native elements and behaviors instead of styling one semantic role to impersonate another.",
+      "Test target spacing and rewrite link labels so they predict their destination out of context.",
+    ],
+    uncertainties: [
+      "One primary button is a hierarchy heuristic rather than a universal limit.",
+      "The 44-pixel target is common touch guidance, but applicable accessibility requirements and input conditions vary.",
+      "The only generated scene image was blank, so none of the later control examples was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4.72,
+        label: "Buttons are assigned actions and links are assigned navigation",
+      },
+      {
+        start: 4.72,
+        end: 8.8,
+        label: "One primary action is proposed to reduce competition",
+      },
+      {
+        start: 8.8,
+        end: 12.4,
+        label: "A target-size heuristic is introduced",
+      },
+      {
+        start: 12.4,
+        end: 16.4,
+        label: "Link labels are required to predict their destinations",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Control semantics",
+        title: "Appearance should not disguise what a control does",
+        body: "Links and buttons can share visual weight without exchanging their navigation and action semantics.",
+        visual: {
+          type: "comparison",
+          before: "Link styled as submit action",
+          after: "Navigation link beside action button",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Role collision",
+        title: "One visual style can hide two different outcomes",
+        body: "When navigation and state change look and behave alike, keyboard and browser expectations become harder to predict.",
+        visual: {
+          type: "layers",
+          items: [
+            "Visual treatment",
+            "Native semantics",
+            "Expected outcome",
+            "Input behavior",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Outcome first",
+        title: "Choose the element from the result of activation",
+        body: "Navigation remains a link; submitting, toggling, opening, or changing state remains a button.",
+        visual: {
+          type: "rule",
+          statement: "New location = link; in-place action = button",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Control audit",
+        title: "Verify semantics, hierarchy, target, and label",
+        body: "A correct element still needs clear priority, adequate activation space, and wording that predicts its result.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name outcome",
+            "Choose native element",
+            "Set hierarchy",
+            "Test target and label",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Semantic rule",
+        title: "Let behavior, not decoration, decide between link and button",
+        body: "Style the hierarchy after choosing the element whose semantics match the control's real outcome.",
+        visual: {
+          type: "rule",
+          statement: "Correct behavior comes before visual resemblance",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTYzq7Ajfex",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTYzq7Ajfex/",
+      creator: "@designparser",
+      publishedAt: "2026-01-11",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Answer Form Questions Before Submission",
+    summary:
+      "A form-design study treating each field as a set of user questions about purpose, format, and requirement, then answering those questions with clear labels, appropriate formatting help, timely validation, and specific recovery guidance.",
+    principles: [
+      "A field should communicate what information is needed, whether it is required, and which formats are accepted.",
+      "Formatting assistance should reduce correction work without changing data unexpectedly.",
+      "Validation is useful when it is timely, specific, accessible, and does not interrupt incomplete input.",
+    ],
+    applications: [
+      "Write persistent labels and concise requirement or format guidance before relying on placeholders.",
+      "Use input types and formatting assistance that preserve what the person entered.",
+      "Associate errors with their fields, explain recovery, preserve progress, and announce updates accessibly.",
+    ],
+    uncertainties: [
+      "The claim that every field loses customers or imposes a mental tax is rhetorical and is not quantified.",
+      "Real-time validation can create noise or premature errors if it runs before input is complete.",
+      "The only generated scene image was blank, so the proposed form treatments were not frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 7.6,
+        label: "Fields are framed as questions about format and requirement",
+      },
+      {
+        start: 7.6,
+        end: 12.36,
+        label:
+          "Anticipation, formatting assistance, and clear labels are proposed",
+      },
+      {
+        start: 12.36,
+        end: 14.84,
+        label: "Error messages and real-time validation are recommended",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Form clarity",
+        title: "Every field creates a small information contract",
+        body: "The interface asks for data; in return it must explain purpose, requirement, accepted format, and recovery.",
+        visual: {
+          type: "layers",
+          items: [
+            "Field purpose",
+            "Requirement",
+            "Accepted format",
+            "Recovery path",
+          ],
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Hidden requirements",
+        title: "Unanswered questions surface as submission errors",
+        body: "A vague label and undisclosed format force people to discover the field's rules only after their attempt fails.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Guess format",
+            "Submit",
+            "Receive vague error",
+            "Repeat work",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Anticipatory guidance",
+        title: "Explain the rule at the point of input",
+        body: "Persistent labels and concise guidance prevent errors more reliably than correction messages alone.",
+        visual: {
+          type: "rule",
+          statement: "Label + requirement + format before submission",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Field flow",
+        title: "Support entry, validation, and recovery as one sequence",
+        body: "Preserve the person's data while providing formatting help and an accessible, field-specific route out of errors.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Explain input",
+            "Assist format",
+            "Validate at useful time",
+            "Preserve and recover",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Form rule",
+        title: "A field should reveal its rules before enforcing them",
+        body: "Make correct entry understandable up front and make every remaining error specific, recoverable, and accessible.",
+        visual: {
+          type: "rule",
+          statement: "Prevent surprise; preserve progress",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTV_ZbzjSFq",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTV_ZbzjSFq/",
+      creator: "@designparser",
+      publishedAt: "2026-01-10",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Add Anchors to Long Horizontal Scan Paths",
+    summary:
+      "A scan-path study comparing repeated horizontal markers with a more open layout, proposing that regular anchors can help readers keep their place across aligned content while recognizing that excess rules can add clutter.",
+    principles: [
+      "Repeated alignment anchors can help the eye track across related values or text at regular intervals.",
+      "Markers are useful when they clarify row correspondence, not merely because the layout has open space.",
+      "The right amount of structure depends on content density, reading direction, line length, and task.",
+    ],
+    applications: [
+      "Identify where readers must carry their position horizontally across columns or repeated rows.",
+      "Compare whitespace, subtle row markers, and stronger rules at the real density and width.",
+      "Remove separators that do not improve row tracking or group recognition.",
+    ],
+    uncertainties: [
+      "The source does not define the tested content, participants, or measurement behind the effort claim.",
+      "More horizontal markers can also create visual noise, especially when alignment and spacing already provide adequate anchors.",
+      "The opening A/B text-column comparison was frame-verified, but the later marker treatment was not independently captured.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4,
+        label: "Two scan-path options and horizontal markers are introduced",
+      },
+      {
+        start: 4,
+        end: 6,
+        label: "Regular markers are described as optical anchors",
+      },
+      {
+        start: 6,
+        end: 11,
+        label: "Fewer reference points are linked to greater tracking effort",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Scan path",
+        title: "A long horizontal read needs places to reorient",
+        body: "Regular anchors can help readers preserve row position when related content spans distance or multiple columns.",
+        visual: {
+          type: "comparison",
+          before: "Open rows across wide columns",
+          after: "Subtle recurring row anchors",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Tracking loss",
+        title: "A sparse layout can leave the eye without correspondence cues",
+        body: "When horizontal distance grows, whitespace alone may not show which values or passages belong on the same row.",
+        visual: {
+          type: "layers",
+          items: [
+            "Left entry point",
+            "Horizontal distance",
+            "Column change",
+            "Right-side value",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Measured structure",
+        title: "Use markers only where correspondence needs help",
+        body: "Alignment, spacing, or rules can each anchor a row; the lightest cue that preserves tracking is sufficient.",
+        visual: {
+          type: "rule",
+          statement: "Add structure until row correspondence is clear",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "A/B scan test",
+        title: "Compare anchors at production width and density",
+        body: "Ask readers to locate and compare values, then observe tracking errors rather than judging separator style alone.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Choose comparison task",
+            "Set real width",
+            "Vary anchor strength",
+            "Observe row errors",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Scan rule",
+        title: "The best marker is the lightest one that keeps the row intact",
+        body: "Provide enough reference to maintain position without turning every interval into a competing line.",
+        visual: {
+          type: "rule",
+          statement: "Preserve correspondence without adding a grid cage",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTTpgNsDWMr",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTTpgNsDWMr/",
+      creator: "@designparser",
+      publishedAt: "2026-01-09",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Use Negative Space to Reveal Structure",
+    summary:
+      "A layout study treating negative space as an active grouping and contrast tool that separates chunks, clarifies hierarchy, and prevents dense content from collapsing into one undifferentiated field.",
+    principles: [
+      "Space between elements communicates grouping, separation, and priority before detailed content is read.",
+      "Contrast can come from distance and density as well as color, size, and weight.",
+      "Useful negative space is relational: its amount depends on content, viewport, task, and neighboring intervals.",
+    ],
+    applications: [
+      "Group related content with smaller internal gaps and separate major sections with larger intervals.",
+      "Compare the page at scanning distance before tuning individual decorative details.",
+      "Test density across responsive widths so added space does not disconnect labels, controls, or related content.",
+    ],
+    uncertainties: [
+      "The claim that negative space reduces cognitive load is not accompanied by a task, audience, or measurement.",
+      "More empty area is not automatically clearer; excessive separation can weaken relationships and increase scrolling.",
+      "Only the opening focal-dot and contrast statement was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4,
+        label: "Contrast seeking and a cognitive-load claim are introduced",
+      },
+      {
+        start: 4,
+        end: 8,
+        label: "Chunking and pre-semantic contrast are proposed",
+      },
+      {
+        start: 8,
+        end: 12,
+        label: "Crowding is contrasted with structural negative space",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Negative space",
+        title: "Empty intervals are part of the information structure",
+        body: "Space determines which elements read as a chunk and where one region gives way to another.",
+        visual: {
+          type: "comparison",
+          before: "Equal gaps throughout",
+          after: "Tight groups, generous section breaks",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Density collapse",
+        title: "Crowding erases boundaries between ideas",
+        body: "When every interval is small, headings, content, and actions merge into a field with no obvious scanning order.",
+        visual: {
+          type: "layers",
+          items: [
+            "Heading",
+            "Content chunk",
+            "Action group",
+            "Section boundary",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Relational contrast",
+        title: "Use space changes to encode relationship changes",
+        body: "Smaller gaps bind related items; larger gaps mark a stronger boundary in the hierarchy.",
+        visual: {
+          type: "rule",
+          statement: "Closer means related; farther means a new group",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Spacing pass",
+        title: "Set groups before polishing components",
+        body: "Identify content relationships, assign internal and external gaps, then test the resulting scan path across widths.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Map relationships",
+            "Bind each chunk",
+            "Separate sections",
+            "Test responsive density",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Space rule",
+        title: "Negative space is useful when it makes a relationship legible",
+        body: "Judge an interval by the grouping and hierarchy it communicates, not by how empty the composition appears.",
+        visual: {
+          type: "rule",
+          statement: "Every gap should clarify a boundary or a bond",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTQcm3EDUSP",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTQcm3EDUSP/",
+      creator: "@designparser",
+      publishedAt: "2026-01-08",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Encode Grouping Through Proximity",
+    summary:
+      "A proximity study showing how smaller gaps can bind related items and larger gaps can separate groups, turning spacing variation into an explicit hierarchy instead of distributing every element evenly.",
+    principles: [
+      "People often interpret nearby elements as related before reading their details.",
+      "Internal gaps should be smaller than the gap that separates one group from the next.",
+      "Proximity works with alignment, containment, labels, and semantics rather than replacing them.",
+    ],
+    applications: [
+      "List the intended groups before assigning spacing values to individual elements.",
+      "Use a clear ratio between within-group and between-group gaps, then inspect it at responsive sizes.",
+      "Check that proximity does not accidentally bind unrelated controls or separate labels from their targets.",
+    ],
+    uncertainties: [
+      "Proximity can suggest a group but does not prove semantic relation or accessible reading order.",
+      "The spoken phrase 'very spacing' appears to mean 'vary spacing'; the draft uses the contextually supported wording.",
+      "The opening arrangement of blue circles and squares was frame-verified as two proximity groups.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 4,
+        label: "Two perceived groups are attributed to proximity",
+      },
+      {
+        start: 4,
+        end: 8,
+        label: "Small and equal gaps are contrasted",
+      },
+      {
+        start: 8,
+        end: 10,
+        label: "Spacing variation is proposed as a structural signal",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Gestalt proximity",
+        title: "Spacing can make two groups before labels do",
+        body: "The distance among elements creates an immediate hypothesis about which items belong together.",
+        visual: {
+          type: "comparison",
+          before: "Eight shapes with equal gaps",
+          after: "Two clusters with a larger divide",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Flat spacing",
+        title: "Equal gaps erase the boundary between groups",
+        body: "When every interval has the same strength, the layout cannot show whether items form pairs, sets, or separate sections.",
+        visual: {
+          type: "layers",
+          items: ["Item", "Within-group gap", "Group boundary", "Next group"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Gap hierarchy",
+        title: "Make the internal gap visibly smaller than the external gap",
+        body: "A consistent difference between those intervals turns proximity into a repeatable grouping signal.",
+        visual: {
+          type: "rule",
+          statement: "Within-group gap is smaller than between-group gap",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Grouping audit",
+        title: "Name the groups before choosing the numbers",
+        body: "Map semantics and reading order, assign a gap ratio, then test whether the intended clusters remain clear at each breakpoint.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Name groups",
+            "Set internal gap",
+            "Set larger boundary",
+            "Verify reading order",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Grouping rule",
+        title: "Use distance differences to make relationships visible",
+        body: "Spacing becomes structure when it consistently binds related items and separates unrelated sets.",
+        visual: {
+          type: "rule",
+          statement: "Bind inside; separate outside",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTOWZeljUhF",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTOWZeljUhF/",
+      creator: "@designparser",
+      publishedAt: "2026-01-07",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Match Typefaces by Perceived Scale",
+    summary:
+      "A typography study explaining why equal numeric font sizes can look unequal when x-heights differ, and recommending optical comparison of lowercase scale while also checking weight, width, line-height, and the actual role of each face.",
+    principles: [
+      "Numeric font size describes the em box, not the perceived size of lowercase letters.",
+      "X-height strongly influences apparent scale, but cap height, width, weight, and spacing also contribute.",
+      "Optical matching should be performed in the production roles and sizes rather than as an isolated specimen exercise.",
+    ],
+    applications: [
+      "Set shared lowercase and uppercase samples in both faces at the intended starting sizes.",
+      "Adjust size or role until the text blocks carry the intended visual relationship rather than identical numbers.",
+      "Recheck line-height, baseline alignment, density, and responsive behavior after optical adjustment.",
+    ],
+    uncertainties: [
+      "The statement that x-height dictates scale is too absolute; several typographic dimensions affect perceived size.",
+      "Ignoring numeric size entirely can create line-box and layout problems even when letters look aligned.",
+      "The opening Inter sample labeled 16 pixels was frame-verified; the contrasting face was not independently captured.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.52,
+        label: "Equal pixel sizes are contrasted and x-height is introduced",
+      },
+      {
+        start: 3.52,
+        end: 6.08,
+        label: "X-height is linked to apparent scale",
+      },
+      {
+        start: 6.8,
+        end: 8.88,
+        label: "Optical letter matching is prioritized over numeric equality",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Perceived type scale",
+        title: "Equal font-size values can produce unequal lowercase text",
+        body: "The em box stays numeric while each typeface distributes its visible letterforms differently inside it.",
+        visual: {
+          type: "comparison",
+          before: "16 px face with low x-height",
+          after: "16 px face with high x-height",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Numeric matching",
+        title: "Shared numbers can destabilize a mixed-type hierarchy",
+        body: "Two faces assigned the same size may carry different apparent scale, density, and line-box behavior.",
+        visual: {
+          type: "layers",
+          items: ["Em box", "X-height", "Cap height", "Stroke density"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Optical relationship",
+        title: "Match the role people see, then verify the metrics they do not",
+        body: "Use lowercase scale as a primary visual check without ignoring line-height, baselines, or layout dimensions.",
+        visual: {
+          type: "rule",
+          statement: "Perceived scale first; line-box consequences still count",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Typeface calibration",
+        title: "Compare shared text in its final hierarchy",
+        body: "Adjust the faces together, then validate headings, body copy, labels, and mixed lines rather than one word alone.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Set shared sample",
+            "Compare lowercase scale",
+            "Adjust role or size",
+            "Verify line metrics",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Scale rule",
+        title: "Font size is an input; perceived scale is the visual result",
+        body: "Coordinate both so mixed typefaces look intentionally related and still behave predictably in layout.",
+        visual: {
+          type: "rule",
+          statement: "Match visible letters, then check invisible boxes",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTLoF7GjT2V",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTLoF7GjT2V/",
+      creator: "@designparser",
+      publishedAt: "2026-01-06",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Reserve All Caps for Brief, Distinct Labels",
+    summary:
+      "A readability study cautioning against long all-capital passages because uniform uppercase texture can slow scanning, while retaining capitals for short labels where brevity, spacing, and context keep recognition clear.",
+    principles: [
+      "Mixed-case text provides ascender, descender, and word-shape variation that can support rapid scanning.",
+      "All capitals can work for short labels but become harder to sustain as word count and line length grow.",
+      "Case choice should be tested with the actual typeface, size, tracking, language, and reading task.",
+    ],
+    applications: [
+      "Convert long instructions, descriptions, and body passages to sentence or title case.",
+      "Keep uppercase labels concise and tune tracking without treating letter spacing as a complete readability fix.",
+      "Test acronyms, localization, assistive output, and reading speed with representative users.",
+    ],
+    uncertainties: [
+      "The claim that all capitals doubles reading time is not supported with study conditions and is not treated as a measured constant.",
+      "The word-outline explanation is a simplification of reading, which also uses letter features, context, familiarity, and language.",
+      "The opening mixed-case 'slowed down' example was frame-verified; the later uppercase comparison was not independently captured.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.2,
+        label: "A slowdown is attributed to all-capital text",
+      },
+      {
+        start: 3.2,
+        end: 7.2,
+        label: "Word outlines and uppercase uniformity are contrasted",
+      },
+      {
+        start: 7.2,
+        end: 10.88,
+        label: "A reading-time claim and short-label exception are proposed",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Case and scanning",
+        title: "Uppercase changes the texture of a passage",
+        body: "Removing mixed-case variation can make longer text blocks more uniform and more demanding to scan.",
+        visual: {
+          type: "comparison",
+          before: "READ THIS LONG INSTRUCTION",
+          after: "Read this long instruction",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Uniform texture",
+        title: "A display treatment becomes tiring when it carries body work",
+        body: "All capitals can flatten word-shape variation across sentences, paragraphs, and repeated interface guidance.",
+        visual: {
+          type: "layers",
+          items: [
+            "Uniform cap height",
+            "Long line",
+            "Repeated labels",
+            "Sustained reading",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Length boundary",
+        title: "Match case treatment to reading duration",
+        body: "Brief labels can support uppercase emphasis; sustained text benefits from the variation and familiarity of mixed case.",
+        visual: {
+          type: "rule",
+          statement:
+            "Short label may use caps; continuous reading uses mixed case",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Case audit",
+        title: "Find where emphasis has become a reading burden",
+        body: "Separate true labels from instructions and descriptions, then test the remaining uppercase tokens in context.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Classify text role",
+            "Convert long passages",
+            "Tune short labels",
+            "Test language and size",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Case rule",
+        title: "Use all caps as a brief signal, not a default reading voice",
+        body: "Reserve its uniform emphasis for compact labels and let mixed case carry longer meaning.",
+        visual: {
+          type: "rule",
+          statement:
+            "The longer the read, the stronger the case for mixed case",
+        },
+      },
+    ],
+  },
+  {
+    id: "DTJRlcpjRDL",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DTJRlcpjRDL/",
+      creator: "@designparser",
+      publishedAt: "2026-01-05",
+    },
+    processedAt: "2026-08-12",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Match Loading Feedback to Delay and Content",
+    summary:
+      "A loading-state study contrasting blank screens with structured feedback, recommending that indicators match expected delay and content shape while treating specific speed-perception and decision-time percentages as unverified context-dependent claims.",
+    principles: [
+      "A loading state should confirm that work is happening and preserve enough context to explain what is coming.",
+      "Skeletons are most useful for predictable content structures; spinners, retained content, or progress indicators fit different waits.",
+      "Loading feedback should avoid false precision, distracting motion, layout shift, and inaccessible announcements.",
+    ],
+    applications: [
+      "Measure actual wait distributions before choosing or delaying a loading indicator.",
+      "Use a skeleton only when its blocks meaningfully resemble the incoming content and preserve final dimensions.",
+      "Keep prior content when possible, expose determinate progress when known, and provide accessible status without repeated announcements.",
+    ],
+    uncertainties: [
+      "The 53-percent perceived-speed claim and three-second decision threshold are presented without study design or context.",
+      "Skeletons do not inherently improve perceived performance and can make short waits feel longer or imply inaccurate structure.",
+      "The opening phone with a blank loading surface and small spinner was frame-verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 1.6,
+        label: "Blank loading surfaces are described as feeling slow",
+      },
+      {
+        start: 1.6,
+        end: 6.88,
+        label: "Skeleton speed and decision-time claims are introduced",
+      },
+      {
+        start: 6.88,
+        end: 8.4,
+        label: "Loading feedback is matched to expected duration",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Loading feedback",
+        title: "A blank surface hides both progress and destination",
+        body: "Useful loading feedback confirms activity and preserves a model of the content or task that will replace it.",
+        visual: {
+          type: "comparison",
+          before: "Blank phone surface",
+          after: "Stable content-shaped placeholders",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Unexplained wait",
+        title: "One indicator cannot explain every delay",
+        body: "A spinner, skeleton, retained view, and progress bar communicate different knowledge about duration and incoming structure.",
+        visual: {
+          type: "layers",
+          items: [
+            "Expected delay",
+            "Known progress",
+            "Content predictability",
+            "Current context",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Feedback fit",
+        title: "Choose the state from what the system actually knows",
+        body: "Known progress can be reported; predictable layout can be reserved; uncertain short work may need only restrained activity feedback.",
+        visual: {
+          type: "rule",
+          statement:
+            "Delay + progress knowledge + content shape determine feedback",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Loading matrix",
+        title: "Measure the wait before designing its placeholder",
+        body: "Map real durations and content stability, then verify layout shift, motion, status semantics, and perceived continuity.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Measure duration",
+            "Classify content shape",
+            "Choose feedback",
+            "Verify continuity",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Loading rule",
+        title:
+          "Loading feedback should reveal only what the system can honestly promise",
+        body: "Preserve context, match the incoming structure when it is known, and avoid indicators that imply false progress or certainty.",
+        visual: {
+          type: "rule",
+          statement: "Honest feedback for the measured wait",
+        },
+      },
+    ],
+  },
 ]);
 
 export function getDesignparserStudy(id: string) {

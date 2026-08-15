@@ -85,6 +85,7 @@
 ### 작업 1: 재현 가능한 Next.js 및 품질 도구 스캐폴드
 
 **파일:**
+
 - 생성: `package.json`
 - 생성: `package-lock.json`
 - 생성: `.nvmrc`
@@ -99,6 +100,7 @@
 - 수정: `.gitignore`
 
 **인터페이스:**
+
 - 소비: `docs/decisions/0001-recommended-tech-stack.md`에서 허용되는 스택과 `docs/development-process.md`의 1단계 품질 게이트 요구 사항입니다.
 - 생성: `npm run dev`, `build`, `start`, `format`, `format:check`, `lint`, `typecheck`, `test`, `test:watch`, `test:e2e` 및 `check`; `@/*` 별칭; 이후 작업에서 사용되는 jsdom Vitest 환경.
 
@@ -345,6 +347,7 @@ git commit -m "build: scaffold phase one toolchain"
 ### 작업 2: 게시된 로캘 및 URL 계약
 
 **파일:**
+
 - 생성: `src/i18n/config.test.ts`
 - 생성: `src/i18n/config.ts`
 - 생성: `src/i18n/dictionaries/types.ts`
@@ -352,6 +355,7 @@ git commit -m "build: scaffold phase one toolchain"
 - 생성: `src/i18n/load-dictionary.ts`
 
 **인터페이스:**
+
 - 사용: Next.js `notFound()` 및 작업 1의 `@/*` 별칭.
 - 생성: 작업 3 및 4에 대한 `KnownLocale`, `PublishedLocale`, `RouteSegment`, `KNOWN_LOCALES`, `PUBLISHED_LOCALES`, `DEFAULT_LOCALE`, `isKnownLocale(value: string)`, `isPublishedLocale(value: string)`, `localePath(locale, segment)`, `Dictionary` 및 `loadDictionary(locale: string)`.
 
@@ -535,7 +539,8 @@ export const englishDictionary = {
   },
   emptyState: {
     references: "The first reviewed reference set is being prepared.",
-    explore: "Areas and collections will appear with the first reviewed references.",
+    explore:
+      "Areas and collections will appear with the first reviewed references.",
   },
   about: {
     heading: "How the library works",
@@ -548,7 +553,8 @@ export const englishDictionary = {
   notFound: {
     eyebrow: "404",
     title: "Page not found",
-    description: "This page does not exist or is not published in this language.",
+    description:
+      "This page does not exist or is not published in this language.",
     action: "Return home",
   },
 } satisfies Dictionary;
@@ -563,9 +569,7 @@ import type { Dictionary } from "@/i18n/dictionaries/types";
 
 const dictionaries = {
   en: async () =>
-    import("@/i18n/dictionaries/en").then(
-      (module) => module.englishDictionary,
-    ),
+    import("@/i18n/dictionaries/en").then((module) => module.englishDictionary),
 } satisfies Record<"en", () => Promise<Dictionary>>;
 
 export async function loadDictionary(locale: string): Promise<Dictionary> {
@@ -601,6 +605,7 @@ git commit -m "feat: establish locale route contract"
 ### 작업 3: 접근 가능한 4-라우트 애플리케이션 셸
 
 **파일:**
+
 - 생성: `src/components/site-header.test.tsx`
 - 생성: `src/components/site-header.tsx`
 - 생성: `src/components/site-footer.tsx`
@@ -614,6 +619,7 @@ git commit -m "feat: establish locale route contract"
 - 생성: `src/app/[lang]/[...rest]/page.tsx`
 
 **인터페이스:**
+
 - 태스크 2의 `PublishedLocale`, `PUBLISHED_LOCALES`, `isPublishedLocale()`, `localePath()`, `Dictionary`, `loadDictionary()`를 소모합니다.
 - 생성: `SiteHeader({ locale, navigationLabel, labels })`, `SiteFooter({ description })`, `/en`, `/en/references`, `/en/explore`, `/en/about` 및 작업 4 브라우저 확인을 위한 로케일 인식 복구 UI.
 
@@ -776,10 +782,7 @@ import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import {
-  PUBLISHED_LOCALES,
-  isPublishedLocale,
-} from "@/i18n/config";
+import { PUBLISHED_LOCALES, isPublishedLocale } from "@/i18n/config";
 import { loadDictionary } from "@/i18n/load-dictionary";
 import "../globals.css";
 
@@ -1297,10 +1300,12 @@ git commit -m "feat: add accessible locale-aware app shell"
 ### 작업 4: 브라우저 여정 및 자동화된 접근성
 
 **파일:**
+
 - 생성: `playwright.config.ts`
 - 생성: `e2e/foundation.spec.ts`
 
 **인터페이스:**
+
 - 소비: 작업 3의 리디렉션, 4개 경로, 건너뛰기 링크, 주요 랜드마크, 내비게이션 라벨, 찾을 수 없는 UI.
 - CI 업무에 적합한 `npm run test:e2e`, Chromium 데스크탑/모바일 커버리지, Axe 리포트를 제작합니다.
 
@@ -1412,7 +1417,9 @@ test("an unknown English route offers recovery", async ({ page }) => {
 });
 
 for (const route of ["/en", "/en/references", "/en/explore", "/en/about"]) {
-  test(`${route} has no detectable accessibility violations`, async ({ page }) => {
+  test(`${route} has no detectable accessibility violations`, async ({
+    page,
+  }) => {
     await page.goto(route);
 
     const results = await new AxeBuilder({ page }).analyze();
@@ -1476,10 +1483,12 @@ git commit -m "test: cover foundation browser journeys"
 ### 작업 5: 지속적인 통합, 설정 문서화 및 미리 보기 배포
 
 **파일:**
+
 - 생성: `.github/workflows/ci.yml`
 - 수정: `README.md`
 
 **인터페이스:**
+
 - 소비: 작업 1~4의 모든 명령과 테스트.
 - 생성: 풀 요청/푸시 품질 게이트, 문서화된 설정, 1단계 승인 준비가 된 Vercel 미리보기 URL.
 
@@ -1551,7 +1560,7 @@ Those capabilities begin with separately approved Phase 2 and Phase 3 plans.
 
 `## Next gate` 섹션을 다음으로 바꾸십시오.
 
-~~~~~마크다운
+````마크다운
 ## 지역 개발
 
 요구사항:
@@ -1681,3 +1690,4 @@ rg -n "kr|localStorage|middleware|proxy|database|auth|CMS|search" src e2e packag
 
 키 버전은 2026년 8월 5일에 공식 npm 레지스트리 메타데이터와 비교하여 확인되었습니다. Next.js 16.3.0에는 Node.js 20.9 이상이 필요합니다. Node 22.17.0은 작업공간에서 이미 사용 가능하고 Next.js, ESLint, Vitest 및 Playwright를 만족하므로 선택되었습니다. 기본 TypeScript 7 생태계가 정착되는 동안 선택한 Next.js 린트 툴체인에서 실행되는 버전을 유지하기 위해 최신 7.0 라인 대신 TypeScript 6.0.2가 선택되었습니다. 정확한 전이적 종속성은 `package-lock.json`에 의해 캡처된 상태로 유지됩니다.
 
+````

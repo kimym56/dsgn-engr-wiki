@@ -1,4 +1,6 @@
 .next
+.study-cache
+.superpowers
 coverage
 node_modules
 out

@@ -2,6 +2,120 @@ import { validateStudies } from "./model";
 
 export const designparserStudies = validateStudies([
   {
+    id: "Db-9Ty2jbe6",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/Db-9Ty2jbe6/",
+      creator: "@designparser",
+      publishedAt: "2026-08-13",
+    },
+    processedAt: "2026-08-16",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Familiarity Breeds Liking",
+    summary:
+      "A psychology-of-exposure study explaining how repetition alone can nudge preference through processing fluency, with the caveats that the cited pooled correlation is small and its underlying study is never named.",
+    principles: [
+      "Repeated exposure to a neutral stimulus can, by itself, nudge preference toward it without any persuasion or argument.",
+      "The proposed mechanism is processing fluency: the mind interprets the ease of recognizing a repeated thing as liking it.",
+      "Unfamiliarity acts as a penalty, so a single first exposure understates how something will be received once audiences have seen it repeatedly.",
+    ],
+    applications: [
+      "Expect early reactions to a new logo or interface to run colder than post-exposure reactions, and delay final judgment until viewers have seen it several times.",
+      "Expose test participants to a design more than once before collecting preference ratings, so fluency has a chance to build.",
+      "Plan repeated, spaced exposures for unfamiliar work rather than betting its success on a single debut impression.",
+    ],
+    uncertainties: [
+      "The pooled figure of 208 experiments with a correlation of 0.26 is presented without naming the underlying study or authors, so treat the number as unverified until traced to a source.",
+      "The reel's blanket statement that repetition alone shifts preference is softened here to a nudge, because a correlation of 0.26 describes a small effect and the fluency mechanism is asserted rather than demonstrated.",
+      "Only one still frame was available; it confirms two abstract shapes with the repeated one emphasized, but the exposure sequence unfolds over time and cannot be verified from a single image, and the closing tagline was resolved contextually from a speech-recognition misspelling.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 3.54,
+        label:
+          "A setup is posed with two unfamiliar shapes, one repeated many times",
+      },
+      {
+        start: 3.54,
+        end: 10.14,
+        label:
+          "Repetition alone is said to shift preference by increasing fluency that the mind reads as liking",
+      },
+      {
+        start: 10.14,
+        end: 17.36,
+        label:
+          "A pooled body of experiments is cited with a small correlation, and unfamiliar things are said to be judged less favorably",
+      },
+      {
+        start: 17.36,
+        end: 22.32,
+        label:
+          "The effect is named as mere exposure and the reel closes with the account sign-off",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Exposure effect",
+        title: "One shape, shown 25 times, gets liked more",
+        body: "The reel stages a choice between two unfamiliar shapes separated only by how often one was viewed, then names the resulting preference shift.",
+        visual: {
+          type: "comparison",
+          before: "Two equally strange shapes",
+          after: "The seen one feels better",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "First impressions",
+        title: "Unfamiliar designs start with a penalty",
+        body: "Audiences judge what they have never seen more harshly, so a single first exposure is a biased sample of how something will eventually be received.",
+        visual: {
+          type: "layers",
+          items: ["Novelty penalty", "No fluency yet", "Harsher judgment"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Fluency mechanism",
+        title: "Ease of processing gets read as liking",
+        body: "Each repeat makes a stimulus cheaper to process, and the mind mistakes that ease for affection, a small but measurable nudge.",
+        visual: {
+          type: "rule",
+          statement: "Fluency reads as liking",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Testing rhythm",
+        title: "Measure preference after repeated looks",
+        body: "Expose testers to the design several times before collecting ratings, and give unfamiliar work spaced repetition instead of a one-shot debut.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Introduce the design",
+            "Repeat across sessions",
+            "Let fluency build",
+            "Then collect preference",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Familiarity effect",
+        title: "Repetition quietly tips the scales",
+        body: "The exposure effect will not rescue weak work, but audiences do warm to what they keep seeing, so discount first-impression verdicts accordingly.",
+        visual: {
+          type: "rule",
+          statement: "First dislike may just be unfamiliarity",
+        },
+      },
+    ],
+  },
+  {
     id: "Db3O3K4DdYi",
     locale: "en",
     source: {
@@ -936,6 +1050,124 @@ export const designparserStudies = validateStudies([
     ],
   },
   {
+    id: "DavIo74DaTK",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DavIo74DaTK/",
+      creator: "@designparser",
+      publishedAt: "2026-07-13",
+    },
+    processedAt: "2026-08-16",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Halve the Sheet, Keep the Shape",
+    summary:
+      "A paper-format study showing how a single governing ratio near 1.4142 keeps the A-series self-similar when halved and lets derived facts be computed by arithmetic, though its historical dates and exact sheet weight are asserted without cited sources.",
+    principles: [
+      "A format family governed by one constant ratio keeps every derived size similar to its parent when halved or doubled.",
+      "Anchoring the master format to a fixed physical area makes dimensions and weight of every smaller format predictable by calculation.",
+      "Standardizing a geometric insight into a published spec is what turns neat math into interoperable practice across countries and print workflows.",
+    ],
+    applications: [
+      "Derive an entire size range by repeatedly halving one master sheet instead of specifying each size independently.",
+      "Tie the largest format in the system to an absolute physical quantity so all smaller formats inherit predictable dimensions.",
+      "Compute dependent properties such as sheet weight from area ratios and paper grade rather than measuring each item.",
+    ],
+    uncertainties: [
+      "The dates 1786, 1922, and 1975, the one-square-meter area of the master format, and the five-gram weight of a sheet at eighty-gram stock are all stated without citing a study or standard, so treat them as unverified.",
+      "The claim that only one ratio can preserve the shape is presented through a compressed derivation, and the exact-weight figure is softened here to a nominal calculation since manufacturing tolerances are never addressed.",
+      "Only one still frame was available; it confirms a grid-paper background with a labeled halved-sheet graphic, but the ratio equation, the timeline dates, and the weight example could not be visually verified.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 6.64,
+        label:
+          "A halved sheet is posed as keeping its shape and the ratio setup begins",
+      },
+      {
+        start: 6.64,
+        end: 14.4,
+        label:
+          "Solving for the preserved ratio yields 1.4142 with an origin date of 1786",
+      },
+      {
+        start: 14.96,
+        end: 22.24,
+        label:
+          "Standardization in 1922, international adoption in 1975, and the master format defined by area",
+      },
+      {
+        start: 22.24,
+        end: 28.64,
+        label:
+          "Sheet weight is computed from paper grade, closing with the account sign-off",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Paper geometry",
+        title: "A halved sheet should stay the same shape",
+        body: "The reel opens on a sheet cut down to half and asks which proportion lets a page keep its silhouette after the cut, framing paper size as a designed system rather than an accident.",
+        visual: {
+          type: "comparison",
+          before: "Arbitrary rectangle halves into a lopsided shape",
+          after: "Governed ratio halves into the same silhouette",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Ad hoc sizes",
+        title: "Sizes picked one by one break scaling and estimating",
+        body: "When each format is chosen independently, halving distorts proportions and quantities like sheet weight stop being computable from the format alone.",
+        visual: {
+          type: "layers",
+          items: [
+            "Independent size lists",
+            "Distortion on halving",
+            "Uncomputable side effects",
+          ],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Governing ratio",
+        title: "One constant keeps the whole family similar",
+        body: "Setting the long side to roughly 1.4142 times the short side means every halved or doubled sheet lands on the same proportion, so a single rule quietly governs every size in the series.",
+        visual: {
+          type: "rule",
+          statement: "Fix the ratio once; every size inherits it",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Format system",
+        title: "Anchor a master sheet and halve downward",
+        body: "Define the largest format by a fixed area, derive every smaller format by successive halving, and read properties such as weight straight from the area ratios.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Define master sheet by area",
+            "Halve to the next size",
+            "Repeat across the series",
+            "Read weight from area ratio",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "System constant",
+        title: "A well-chosen constant does the bookkeeping for you",
+        body: "The same proportion that survives cutting also makes area, and anything priced or weighed per area, predictable without measuring each piece.",
+        visual: {
+          type: "rule",
+          statement: "Choose constants that keep working downstream",
+        },
+      },
+    ],
+  },
+  {
     id: "Dak1dINjZlT",
     locale: "en",
     source: {
@@ -1040,6 +1272,119 @@ export const designparserStudies = validateStudies([
         visual: {
           type: "rule",
           statement: "Distance + angular target → character height",
+        },
+      },
+    ],
+  },
+  {
+    id: "DadHXpOKA2N",
+    locale: "en",
+    source: {
+      url: "https://www.instagram.com/reel/DadHXpOKA2N/",
+      creator: "@designparser",
+      publishedAt: "2026-07-06",
+    },
+    processedAt: "2026-08-16",
+    reviewedAt: "2026-08-16",
+    status: "reviewed",
+    title: "Wind Up Before You Reveal",
+    summary:
+      "A motion-design study of anticipation, in which a small opposing movement before each meaningful reveal directs attention and keeps transitions from feeling abrupt, though the claim about cognitive cost is asserted without a cited source.",
+    principles: [
+      "Effective motion separates preparation from revelation: a short wind-up beat precedes the payoff.",
+      "A small movement opposite to the coming action can direct the viewer's attention to the exact place the action will occur.",
+      "Signaling what is about to happen lets the audience expect the event, which reads as smoother than reacting to a surprise change.",
+    ],
+    applications: [
+      "Precede each meaningful reveal with a short beat of preparatory motion, such as a control compressing slightly ahead of its expansion.",
+      "Use a counter movement opposite to the main direction of travel to mark where the action will land.",
+      "Review animations with the wind-up removed to check whether the reveal still feels abrupt by comparison.",
+    ],
+    uncertainties: [
+      "The claim that motion without a preparatory beat is cognitively heavier is stated without citing any study or measurement, so the cognitive-cost wording is unverified.",
+      "The reel presents the counter movement as reliably capturing attention, softened here to a directional cue because no supporting evidence is offered.",
+      "Only one still frame was available; it confirms a static wind-up graphic with a compressing shape and label, but the actual counter movement is a time-based effect that a single image cannot verify.",
+    ],
+    evidence: [
+      {
+        start: 0,
+        end: 2.56,
+        label: "Animation is framed as preparation before revelation",
+      },
+      {
+        start: 2.56,
+        end: 6.48,
+        label:
+          "A counter movement is described as directing attention to the upcoming action",
+      },
+      {
+        start: 6.48,
+        end: 12.48,
+        label:
+          "Skipping the beat is said to feel abrupt and heavier, and a beat before reveals is prescribed",
+      },
+      {
+        start: 12.48,
+        end: 17.36,
+        label:
+          "Anticipation is characterized as a cue that precedes the action itself, ending with the sign-off",
+      },
+    ],
+    slides: [
+      {
+        kind: "source",
+        eyebrow: "Motion design",
+        title: "Good motion prepares before it reveals",
+        body: "The reel demonstrates a classic animation idea: the moment before the movement does the work of telling viewers where to look.",
+        visual: {
+          type: "comparison",
+          before: "Reveal lands cold",
+          after: "Wind-up cues the reveal",
+        },
+      },
+      {
+        kind: "problem",
+        eyebrow: "Cold reveals",
+        title: "Skipping the wind-up makes motion feel abrupt",
+        body: "When an element jumps straight to its changed state, the viewer gets no signal of where to look, so the change registers as sudden and effortful.",
+        visual: {
+          type: "layers",
+          items: ["No attention cue", "Sudden change", "Effortful reading"],
+        },
+      },
+      {
+        kind: "principle",
+        eyebrow: "Anticipation beat",
+        title: "Signal the action ahead of its arrival",
+        body: "A short preparatory beat, often a movement opposite to the coming one, marks the place and direction of the next event so the reveal is expected rather than surprising.",
+        visual: {
+          type: "rule",
+          statement: "Prepare, then reveal",
+        },
+      },
+      {
+        kind: "application",
+        eyebrow: "Beat planning",
+        title: "Give every significant reveal a wind-up",
+        body: "Give each significant state change a small wind-up, then test the result by deleting that beat and feeling the difference.",
+        visual: {
+          type: "sequence",
+          items: [
+            "Spot the meaningful reveal",
+            "Add an opposing wind-up beat",
+            "Run the reveal",
+            "Delete the beat to compare",
+          ],
+        },
+      },
+      {
+        kind: "takeaway",
+        eyebrow: "Attention first",
+        title: "Direct attention to where the action will land",
+        body: "Anticipation is attention management: one beat of setup buys the viewer's gaze so the payoff reads instantly.",
+        visual: {
+          type: "rule",
+          statement: "One beat of setup buys the reveal",
         },
       },
     ],

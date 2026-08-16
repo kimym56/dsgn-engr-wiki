@@ -284,6 +284,8 @@ export async function stageOutputExists(
   }
 }
 
+const WHISPER_OVERLAP_TOLERANCE_SECONDS = 0.001;
+
 export function normalizeWhisperTranscript(value: unknown): Transcript {
   if (!isObject(value)) throw new Error("transcript must be an object");
   if (value.language !== "en") throw new Error("language must be en");
@@ -299,13 +301,17 @@ export function normalizeWhisperTranscript(value: unknown): Transcript {
     if (end < start) {
       throw new Error(`segments.${index}.end is invalid`);
     }
+    let normalizedStart = start;
     if (index > 0 && start < previousEnd) {
-      throw new Error(`segments.${index} overlaps the previous segment`);
+      if (previousEnd - start > WHISPER_OVERLAP_TOLERANCE_SECONDS) {
+        throw new Error(`segments.${index} overlaps the previous segment`);
+      }
+      normalizedStart = previousEnd;
     }
-    previousEnd = end;
+    previousEnd = Math.max(end, normalizedStart);
     return {
-      start,
-      end,
+      start: normalizedStart,
+      end: Math.max(end, normalizedStart),
       text: requiredString(segment.text, `segments.${index}.text`),
     };
   });

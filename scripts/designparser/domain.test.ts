@@ -89,6 +89,22 @@ describe("Designparser extraction domain", () => {
     ).toThrow("overlaps the previous segment");
   });
 
+  it("clamps floating-point epsilon overlaps between adjacent Whisper segments", () => {
+    expect(
+      normalizeWhisperTranscript({
+        language: "en",
+        text: "First. Second.",
+        segments: [
+          { start: 0, end: 16.080000000000002, text: "First." },
+          { start: 16.08, end: 17.36, text: "Second." },
+        ],
+      }).segments,
+    ).toEqual([
+      { start: 0, end: 16.080000000000002, text: "First." },
+      { start: 16.080000000000002, end: 17.36, text: "Second." },
+    ]);
+  });
+
   it("rejects a completed downstream stage until its upstream stages complete", () => {
     const record = reconcileDiscovery(
       emptyManifest("2026-08-12T00:00:00.000Z"),

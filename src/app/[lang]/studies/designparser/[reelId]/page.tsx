@@ -5,6 +5,7 @@ import { DesignparserStudyDeck } from "@/components/designparser-study-deck";
 import {
   buildHyperframesComposition,
   buildSlideshowManifest,
+  isMotionPilotStudy,
 } from "@/studies/designparser/hyperframes";
 import {
   getDesignparserStudy,
@@ -105,6 +106,7 @@ export default async function DesignparserStudyPage(
           label={`${study.title} slides`}
           composition={composition}
           manifest={manifest}
+          replaySceneMotion={isMotionPilotStudy(study)}
         />
       </section>
     </article>

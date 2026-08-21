@@ -236,7 +236,7 @@ describe("Designparser CLI", () => {
       "download:newest",
       "audio:newest",
       "transcript:newest",
-      "frames:newest:0.32",
+      "frames:newest:0.05",
     ]);
     const manifest = await readManifest(manifestPath(root));
     expect(manifest.reels.newest.stages.frames.status).toBe("complete");
@@ -276,7 +276,7 @@ describe("Designparser CLI", () => {
     expect(recovered.calls).not.toContain("download:newest");
     expect(recovered.calls).not.toContain("audio:newest");
     expect(recovered.calls).toContain("transcript:newest");
-    expect(recovered.calls).toContain("frames:newest:0.32");
+    expect(recovered.calls).toContain("frames:newest:0.05");
     manifest = await readManifest(manifestPath(root));
     expect(manifest.reels.newest.stages.transcript.status).toBe("complete");
   });
@@ -396,7 +396,7 @@ describe("Designparser CLI", () => {
     expect(commandAdapters.calls).not.toContain("download:newest");
     expect(commandAdapters.calls).not.toContain("audio:newest");
     expect(commandAdapters.calls).not.toContain("transcript:newest");
-    expect(commandAdapters.calls).toContain("frames:newest:0.32");
+    expect(commandAdapters.calls).toContain("frames:newest:0.05");
     await expect(readManifest(manifestPath(root))).resolves.toMatchObject({
       reels: { newest: { stages: { draft: { status: "pending" } } } },
     });
@@ -448,7 +448,7 @@ describe("Designparser CLI", () => {
       "download:end:older",
       "audio:older",
       "transcript:older",
-      "frames:older:0.32",
+      "frames:older:0.05",
     ]);
   });
 

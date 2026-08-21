@@ -586,7 +586,7 @@ describe("Designparser command adapters", () => {
     await extractSceneFrames(reelDirectory, 0.32, async (command, args) => {
       calls.push({ command, args });
       await Promise.all(
-        ["000001.jpg", "000002.jpg", "000003.jpg"].map((name) =>
+        ["000001.jpg", "000002.jpg", "000003.jpg", "000004.jpg"].map((name) =>
           writeFile(path.join(reelDirectory, "frames", name), "frame"),
         ),
       );
@@ -597,6 +597,7 @@ describe("Designparser command adapters", () => {
           "[Parsed_showinfo_1] n:0 pts:0 pts_time:0",
           "[Parsed_showinfo_1] n:1 pts:375 pts_time:12.5",
           "[Parsed_showinfo_1] n:2 pts:930 pts_time:31",
+          "[Parsed_showinfo_1] n:3 pts:1207 pts_time:40.25",
         ].join("\n"),
       };
     });
@@ -624,6 +625,89 @@ describe("Designparser command adapters", () => {
       "000000.000.jpg",
       "000012.500.jpg",
       "000031.000.jpg",
+      "000040.250.jpg",
+    ]);
+  });
+
+  it("falls back to a fixed interval grid when scene detection is sparse", async () => {
+    const root = await mkdtemp(path.join(tmpdir(), "designparser-test-"));
+    const reelDirectory = path.join(root, reel.id);
+    const source = path.join(reelDirectory, "source.mp4");
+    const framePattern = path.join(reelDirectory, "frames", "%06d.jpg");
+    const calls: Array<{ command: string; args: readonly string[] }> = [];
+    await mkdir(reelDirectory);
+    await writeFile(source, "video");
+
+    await extractSceneFrames(reelDirectory, 0.05, async (command, args) => {
+      calls.push({ command, args });
+      const filter = args[args.length - 3];
+      if (filter?.startsWith("select")) {
+        await writeFile(
+          path.join(reelDirectory, "frames", "000001.jpg"),
+          "frame",
+        );
+        return {
+          code: 0,
+          stdout: "",
+          stderr: "[Parsed_showinfo_1] n:0 pts:0 pts_time:0",
+        };
+      }
+      await Promise.all(
+        ["000001.jpg", "000002.jpg", "000003.jpg"].map((name) =>
+          writeFile(path.join(reelDirectory, "frames", name), "frame"),
+        ),
+      );
+      return {
+        code: 0,
+        stdout: "",
+        stderr: [
+          "[Parsed_showinfo_1] n:0 pts:0 pts_time:0",
+          "[Parsed_showinfo_1] n:1 pts:60 pts_time:2",
+          "[Parsed_showinfo_1] n:2 pts:120 pts_time:4",
+        ].join("\n"),
+      };
+    });
+
+    expect(calls).toEqual([
+      {
+        command: "ffmpeg",
+        args: [
+          "-nostdin",
+          "-hide_banner",
+          "-loglevel",
+          "info",
+          "-y",
+          "-i",
+          source,
+          "-vf",
+          "select='eq(n,0)+gt(scene,0.05)',showinfo",
+          "-fps_mode",
+          "vfr",
+          framePattern,
+        ],
+      },
+      {
+        command: "ffmpeg",
+        args: [
+          "-nostdin",
+          "-hide_banner",
+          "-loglevel",
+          "info",
+          "-y",
+          "-i",
+          source,
+          "-vf",
+          "fps=1/2,showinfo",
+          "-fps_mode",
+          "vfr",
+          framePattern,
+        ],
+      },
+    ]);
+    expect(await readdir(path.join(reelDirectory, "frames"))).toEqual([
+      "000000.000.jpg",
+      "000002.000.jpg",
+      "000004.000.jpg",
     ]);
   });
 

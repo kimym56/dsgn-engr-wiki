@@ -447,6 +447,12 @@ function showinfoTimestamps(stderr: string) {
   return timestamps;
 }
 
+// Designparser reels are screen recordings with gradual transitions, so the
+// per-frame scene score often stays an order of magnitude below any usable
+// cut threshold. When detection is that sparse, sample a fixed grid instead.
+const SCENE_FRAME_MINIMUM = 4;
+const SCENE_FALLBACK_INTERVAL_SECONDS = 2;
+
 export async function extractSceneFrames(
   reelDirectory: string,
   threshold: number,
@@ -458,23 +464,36 @@ export async function extractSceneFrames(
   const source = reelPath(reelDirectory, "source.mp4");
   const frames = reelPath(reelDirectory, "frames");
   await requireFile(source, "source.mp4");
-  await rm(frames, { recursive: true, force: true });
-  await mkdir(frames);
-  const result = await runner("ffmpeg", [
-    "-nostdin",
-    "-hide_banner",
-    "-loglevel",
-    "info",
-    "-y",
-    "-i",
-    source,
-    "-vf",
+
+  const runFrameFilter = async (filter: string) => {
+    await rm(frames, { recursive: true, force: true });
+    await mkdir(frames);
+    const result = await runner("ffmpeg", [
+      "-nostdin",
+      "-hide_banner",
+      "-loglevel",
+      "info",
+      "-y",
+      "-i",
+      source,
+      "-vf",
+      filter,
+      "-fps_mode",
+      "vfr",
+      path.join(frames, "%06d.jpg"),
+    ]);
+    if (result.code !== 0) throw new Error("ffmpeg frame extraction failed");
+    return showinfoTimestamps(result.stderr);
+  };
+
+  let timestamps = await runFrameFilter(
     `select='eq(n,0)+gt(scene,${threshold})',showinfo`,
-    "-fps_mode",
-    "vfr",
-    path.join(frames, "%06d.jpg"),
-  ]);
-  if (result.code !== 0) throw new Error("ffmpeg frame extraction failed");
+  );
+  if (timestamps.length < SCENE_FRAME_MINIMUM) {
+    timestamps = await runFrameFilter(
+      `fps=1/${SCENE_FALLBACK_INTERVAL_SECONDS},showinfo`,
+    );
+  }
 
   const files = (await readdir(frames, { withFileTypes: true }))
     .filter(
@@ -483,7 +502,6 @@ export async function extractSceneFrames(
     )
     .map((file) => file.name)
     .sort();
-  const timestamps = showinfoTimestamps(result.stderr);
   if (timestamps.length !== files.length) {
     throw new Error("ffmpeg frame count does not match timestamps");
   }

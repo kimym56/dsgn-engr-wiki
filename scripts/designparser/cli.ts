@@ -373,7 +373,7 @@ async function extract(
           manifest,
           record.id,
           stage,
-          options.threshold ?? 0.32,
+          options.threshold ?? 0.05,
         ))
       ) {
         succeeded = false;

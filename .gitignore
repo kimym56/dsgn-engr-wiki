@@ -23,3 +23,8 @@ playwright-report/
 # TypeScript incremental state
 *.tsbuildinfo
 next-env.d.ts
+
+# Private Designparser study extraction
+.study-cache/
+cookies*.txt
+instagram-session*

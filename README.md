@@ -85,6 +85,35 @@ Open `http://localhost:3000`; the root redirects to `/en`.
 
 Run `npm run build` before `npm run test:e2e`. External link-health checks remain intentionally separate from these commands; run `npm run references:links` only as a manual editorial maintenance check.
 
+### Designparser study authoring
+
+Private extraction runs only on the maintainer's Mac. It requires a signed-in
+Chrome Instagram session plus these local commands:
+
+```bash
+brew install gallery-dl openai-whisper
+```
+
+FFmpeg is also required. Verify the environment without downloading media:
+
+```bash
+npm run study:designparser -- preflight
+npm run study:designparser -- discover
+npm run study:designparser -- extract --limit 1
+npm run study:designparser -- extract
+npm run study:designparser -- status
+npm run study:designparser -- validate-drafts
+```
+
+Extraction can take substantial time. Ctrl-C is safe after the current child
+process exits, and rerunning the command resumes from verified outputs.
+Successful extraction prepares private review material; it does not approve a
+study for wiki publication.
+
+All source media, transcripts, frames, and drafts stay under gitignored
+`.study-cache/`. Never export Chrome cookies into the repository. No study is
+added to the wiki until its English synthesis is reviewed and approved.
+
 ## Application routes
 
 - `/` redirects to `/en`

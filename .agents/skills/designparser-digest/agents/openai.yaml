@@ -1,0 +1,4 @@
+interface:
+  display_name: "Designparser Digest"
+  short_description: "Update Designparser reels and bilingual digests"
+  default_prompt: "Use $designparser-digest to fetch and process new Designparser content in one shot."

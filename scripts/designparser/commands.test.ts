@@ -123,7 +123,7 @@ describe("Designparser command adapters", () => {
               {
                 error: "HttpError",
                 message:
-                  "NameResolutionError: Failed to resolve https://www.instagram.com/private?token=secret",
+                  "NameResolutionError:\nFailed to resolve HTTP://www.instagram.com/private?token=secret sessionid=super-secret",
               },
             ],
           ]),
@@ -131,7 +131,7 @@ describe("Designparser command adapters", () => {
         }),
       ),
     ).rejects.toThrow(
-      "gallery-dl discovery error: HttpError: NameResolutionError: Failed to resolve [URL]",
+      /^gallery-dl discovery error: HttpError: NameResolutionError: Failed to resolve \[URL\] sessionid=\[REDACTED\]$/,
     );
     await expect(
       discoverReels(runner({ code: 0, stdout: "[]", stderr: "" })),

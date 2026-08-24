@@ -90,16 +90,27 @@ function hasInterruption(output: string) {
   return /login|challenge|not logged in|rate[\s-]*limit/i.test(output);
 }
 
+function sanitizedDiagnostic(value: unknown) {
+  if (typeof value !== "string") return "";
+  return value
+    .replace(/[\u0000-\u001f\u007f-\u009f]+/g, " ")
+    .replace(/\bhttps?:\/\/\S+/gi, "[URL]")
+    .replace(
+      /\b(cookie|cookies|session(?:id)?|csrftoken|token|auth(?:orization)?|password|passwd|secret)\s*[:=]\s*[^\s,;]+/gi,
+      "$1=[REDACTED]",
+    )
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function embeddedDiscoveryError(messages: unknown[]) {
   for (const message of messages) {
     if (!Array.isArray(message) || message[0] !== -1 || !isObject(message[1]))
       continue;
     const payload = message[1];
-    const name = typeof payload.error === "string" ? payload.error.trim() : "";
-    const detail =
-      typeof payload.message === "string"
-        ? payload.message.trim().replace(/https?:\/\/\S+/g, "[URL]")
-        : "";
+    const rawName = sanitizedDiagnostic(payload.error);
+    const name = /^[A-Za-z][A-Za-z0-9_.-]{0,63}$/.test(rawName) ? rawName : "";
+    const detail = sanitizedDiagnostic(payload.message);
     const cause = [name, detail].filter(Boolean).join(": ").slice(0, 240);
     return cause
       ? `gallery-dl discovery error: ${cause}`

@@ -43,7 +43,7 @@ await expect(
           {
             error: "HttpError",
             message:
-              "NameResolutionError: Failed to resolve https://www.instagram.com/private?token=secret",
+              "NameResolutionError:\nFailed to resolve HTTP://www.instagram.com/private?token=secret sessionid=super-secret",
           },
         ],
       ]),
@@ -51,7 +51,7 @@ await expect(
     }),
   ),
 ).rejects.toThrow(
-  "gallery-dl discovery error: HttpError: NameResolutionError: Failed to resolve [URL]",
+  /^gallery-dl discovery error: HttpError: NameResolutionError: Failed to resolve \[URL\] sessionid=\[REDACTED\]$/,
 );
 ```
 
@@ -67,19 +67,30 @@ Expected: FAIL because the adapter currently reports `gallery-dl discovery found
 
 - [ ] **Step 3: Implement bounded embedded-error reporting**
 
-Add this helper near `hasInterruption`:
+Add these helpers near `hasInterruption`:
 
 ```ts
+function sanitizedDiagnostic(value: unknown) {
+  if (typeof value !== "string") return "";
+  return value
+    .replace(/[\u0000-\u001f\u007f-\u009f]+/g, " ")
+    .replace(/\bhttps?:\/\/\S+/gi, "[URL]")
+    .replace(
+      /\b(cookie|cookies|session(?:id)?|csrftoken|token|auth(?:orization)?|password|passwd|secret)\s*[:=]\s*[^\s,;]+/gi,
+      "$1=[REDACTED]",
+    )
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function embeddedDiscoveryError(messages: unknown[]) {
   for (const message of messages) {
     if (!Array.isArray(message) || message[0] !== -1 || !isObject(message[1]))
       continue;
     const payload = message[1];
-    const name = typeof payload.error === "string" ? payload.error.trim() : "";
-    const detail =
-      typeof payload.message === "string"
-        ? payload.message.trim().replace(/https?:\/\/\S+/g, "[URL]")
-        : "";
+    const rawName = sanitizedDiagnostic(payload.error);
+    const name = /^[A-Za-z][A-Za-z0-9_.-]{0,63}$/.test(rawName) ? rawName : "";
+    const detail = sanitizedDiagnostic(payload.message);
     const cause = [name, detail].filter(Boolean).join(": ").slice(0, 240);
     return cause
       ? `gallery-dl discovery error: ${cause}`
@@ -109,7 +120,7 @@ Expected: all commands pass.
 
 - [ ] **Step 5: Run the complete digest workflow with network access**
 
-Run `npm run study:designparser:update -- prepare` using Node 22.17.0 and approved network access. If preparation succeeds, follow `.agents/skills/designparser-digest/SKILL.md` exactly through pending analysis and `finalize`; otherwise stop without editing either digest.
+From the main worktree containing the ignored private `.study-cache/designparser/reels-digest.md` and `.study-cache/designparser/reels-digest-ko.md` files, run `npm run study:designparser:update -- prepare` using Node 22.17.0 and network access. If preparation succeeds, follow `.agents/skills/designparser-digest/SKILL.md` exactly through pending analysis and `finalize`; otherwise stop without editing either digest.
 
 - [ ] **Step 6: Commit the implementation**
 

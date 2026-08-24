@@ -45,7 +45,7 @@ await expect(
           {
             error: "HttpError",
             message:
-              "NameResolutionError: Failed to resolve https://www.instagram.com/private?token=secret",
+              "NameResolutionError:\nFailed to resolve HTTP://www.instagram.com/private?token=secret sessionid=super-secret",
           },
         ],
       ]),
@@ -53,7 +53,7 @@ await expect(
     }),
   ),
 ).rejects.toThrow(
-  "gallery-dl discovery error: HttpError: NameResolutionError: Failed to resolve [URL]",
+  /^gallery-dl discovery error: HttpError: NameResolutionError: Failed to resolve \[URL\] sessionid=\[REDACTED\]$/,
 );
 ```
 
@@ -72,16 +72,27 @@ nvm exec 22.17.0 npm test -- scripts/designparser/commands.test.ts
 `hasInterruption` 근처에 다음 헬퍼를 추가하세요.
 
 ```ts
+function sanitizedDiagnostic(value: unknown) {
+  if (typeof value !== "string") return "";
+  return value
+    .replace(/[\u0000-\u001f\u007f-\u009f]+/g, " ")
+    .replace(/\bhttps?:\/\/\S+/gi, "[URL]")
+    .replace(
+      /\b(cookie|cookies|session(?:id)?|csrftoken|token|auth(?:orization)?|password|passwd|secret)\s*[:=]\s*[^\s,;]+/gi,
+      "$1=[REDACTED]",
+    )
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function embeddedDiscoveryError(messages: unknown[]) {
   for (const message of messages) {
     if (!Array.isArray(message) || message[0] !== -1 || !isObject(message[1]))
       continue;
     const payload = message[1];
-    const name = typeof payload.error === "string" ? payload.error.trim() : "";
-    const detail =
-      typeof payload.message === "string"
-        ? payload.message.trim().replace(/https?:\/\/\S+/g, "[URL]")
-        : "";
+    const rawName = sanitizedDiagnostic(payload.error);
+    const name = /^[A-Za-z][A-Za-z0-9_.-]{0,63}$/.test(rawName) ? rawName : "";
+    const detail = sanitizedDiagnostic(payload.message);
     const cause = [name, detail].filter(Boolean).join(": ").slice(0, 240);
     return cause
       ? `gallery-dl discovery error: ${cause}`
@@ -111,7 +122,7 @@ nvm exec 22.17.0 npm run format:check -- scripts/designparser/commands.ts script
 
 - [ ] **단계 5: 네트워크 액세스로 전체 다이제스트 워크플로 실행**
 
-Node 22.17.0 및 승인된 네트워크 액세스를 사용하여 `npm run study:designparser:update -- prepare`를 실행하세요. 준비에 성공하면 대기 중인 분석 및 `finalize`까지 `.agents/skills/designparser-digest/SKILL.md`를 정확히 따르세요. 그렇지 않으면 어느 다이제스트도 편집하지 말고 중단하세요.
+무시되는 비공개 `.study-cache/designparser/reels-digest.md` 및 `.study-cache/designparser/reels-digest-ko.md` 파일이 있는 메인 작업 트리에서 Node 22.17.0 및 네트워크 액세스를 사용하여 `npm run study:designparser:update -- prepare`를 실행하세요. 준비에 성공하면 대기 중인 분석 및 `finalize`까지 `.agents/skills/designparser-digest/SKILL.md`를 정확히 따르세요. 그렇지 않으면 어느 다이제스트도 편집하지 말고 중단하세요.
 
 - [ ] **단계 6: 구현 커밋**
 

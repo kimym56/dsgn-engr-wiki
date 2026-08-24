@@ -43,7 +43,7 @@ await expect(
           {
             error: "HttpError",
             message:
-              "NameResolutionError:\nFailed to resolve HTTP://www.instagram.com/private?token=secret sessionid=super-secret",
+              "NameResolutionError:\nCookie: sessionid=one; ig_did=two\nAuthorization: Bearer bearer-secret\nFailed to resolve HTTP://www.instagram.com/private?token=secret sessionid=super-secret",
           },
         ],
       ]),
@@ -51,7 +51,7 @@ await expect(
     }),
   ),
 ).rejects.toThrow(
-  /^gallery-dl discovery error: HttpError: NameResolutionError: Failed to resolve \[URL\] sessionid=\[REDACTED\]$/,
+  /^gallery-dl discovery error: HttpError: NameResolutionError: Cookie=\[REDACTED\] Authorization=\[REDACTED\] Failed to resolve \[URL\] sessionid=\[REDACTED\]$/,
 );
 ```
 
@@ -73,6 +73,10 @@ Add these helpers near `hasInterruption`:
 function sanitizedDiagnostic(value: unknown) {
   if (typeof value !== "string") return "";
   return value
+    .replace(
+      /\b(set-cookie|cookie|authorization)\s*[:=][^\r\n]*/gi,
+      "$1=[REDACTED]",
+    )
     .replace(/[\u0000-\u001f\u007f-\u009f]+/g, " ")
     .replace(/\bhttps?:\/\/\S+/gi, "[URL]")
     .replace(

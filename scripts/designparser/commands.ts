@@ -93,6 +93,10 @@ function hasInterruption(output: string) {
 function sanitizedDiagnostic(value: unknown) {
   if (typeof value !== "string") return "";
   return value
+    .replace(
+      /\b(set-cookie|cookie|authorization)\s*[:=][^\r\n]*/gi,
+      "$1=[REDACTED]",
+    )
     .replace(/[\u0000-\u001f\u007f-\u009f]+/g, " ")
     .replace(/\bhttps?:\/\/\S+/gi, "[URL]")
     .replace(

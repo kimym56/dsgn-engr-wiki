@@ -114,6 +114,26 @@ describe("Designparser command adapters", () => {
       ),
     ).rejects.toThrow("gallery-dl discovery was interrupted");
     await expect(
+      discoverReels(
+        runner({
+          code: 0,
+          stdout: JSON.stringify([
+            [
+              -1,
+              {
+                error: "HttpError",
+                message:
+                  "NameResolutionError: Failed to resolve https://www.instagram.com/private?token=secret",
+              },
+            ],
+          ]),
+          stderr: "",
+        }),
+      ),
+    ).rejects.toThrow(
+      "gallery-dl discovery error: HttpError: NameResolutionError: Failed to resolve [URL]",
+    );
+    await expect(
       discoverReels(runner({ code: 0, stdout: "[]", stderr: "" })),
     ).rejects.toThrow("gallery-dl discovery found no reels");
   });

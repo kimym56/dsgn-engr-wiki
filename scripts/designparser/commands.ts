@@ -90,6 +90,23 @@ function hasInterruption(output: string) {
   return /login|challenge|not logged in|rate[\s-]*limit/i.test(output);
 }
 
+function embeddedDiscoveryError(messages: unknown[]) {
+  for (const message of messages) {
+    if (!Array.isArray(message) || message[0] !== -1 || !isObject(message[1]))
+      continue;
+    const payload = message[1];
+    const name = typeof payload.error === "string" ? payload.error.trim() : "";
+    const detail =
+      typeof payload.message === "string"
+        ? payload.message.trim().replace(/https?:\/\/\S+/g, "[URL]")
+        : "";
+    const cause = [name, detail].filter(Boolean).join(": ").slice(0, 240);
+    return cause
+      ? `gallery-dl discovery error: ${cause}`
+      : "gallery-dl discovery error";
+  }
+}
+
 const discoveryArgs = [
   "--cookies-from-browser",
   "chrome/.instagram.com",
@@ -120,6 +137,8 @@ export async function discoverReels(
   if (!Array.isArray(messages)) {
     throw new Error("gallery-dl discovery output is invalid");
   }
+  const embeddedError = embeddedDiscoveryError(messages);
+  if (embeddedError) throw new Error(embeddedError);
 
   const reels = new Map<string, DiscoveredReel>();
   for (const message of messages) {

@@ -1,0 +1,119 @@
+# Gallery-dl Discovery Errors Implementation Plan
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Report embedded gallery-dl discovery failures accurately while preserving valid reel discovery and genuine empty-result handling.
+
+**Architecture:** Extend the existing `discoverReels` adapter at the JSON trust boundary. Inspect type-`-1` messages before reel normalization, sanitize and bound the diagnostic, and keep all existing type-`3` collection behavior unchanged.
+
+**Tech Stack:** TypeScript, Node.js 22.17.0, Vitest 4.1.10
+
+## Global Constraints
+
+- Do not add dependencies, retries, alternate scrapers, or sandbox-bypass behavior.
+- Do not expose media URLs, signed query strings, or cookie data in errors.
+- Preserve nonzero-exit, interruption, malformed-output, and genuinely-empty-result behavior.
+
+---
+
+### Task 1: Detect Embedded Discovery Errors
+
+**Files:**
+
+- Modify: `scripts/designparser/commands.ts:114-163`
+- Test: `scripts/designparser/commands.test.ts:103-122`
+
+**Interfaces:**
+
+- Consumes: parsed gallery-dl messages returned by `JSON.parse(result.stdout)`.
+- Produces: existing `discoverReels(runner?: CommandRunner): Promise<DiscoveredReel[]>`, now rejecting type-`-1` gallery-dl responses with a concise diagnostic.
+
+- [ ] **Step 1: Write the failing regression test**
+
+Add this assertion to the malformed, challenged, and empty response test before the empty-array assertion:
+
+```ts
+await expect(
+  discoverReels(
+    runner({
+      code: 0,
+      stdout: JSON.stringify([
+        [
+          -1,
+          {
+            error: "HttpError",
+            message:
+              "NameResolutionError: Failed to resolve https://www.instagram.com/private?token=secret",
+          },
+        ],
+      ]),
+      stderr: "",
+    }),
+  ),
+).rejects.toThrow(
+  "gallery-dl discovery error: HttpError: NameResolutionError: Failed to resolve [URL]",
+);
+```
+
+- [ ] **Step 2: Run the focused test and verify it fails**
+
+Run:
+
+```bash
+nvm exec 22.17.0 npm test -- scripts/designparser/commands.test.ts
+```
+
+Expected: FAIL because the adapter currently reports `gallery-dl discovery found no reels`.
+
+- [ ] **Step 3: Implement bounded embedded-error reporting**
+
+Add this helper near `hasInterruption`:
+
+```ts
+function embeddedDiscoveryError(messages: unknown[]) {
+  for (const message of messages) {
+    if (!Array.isArray(message) || message[0] !== -1 || !isObject(message[1]))
+      continue;
+    const payload = message[1];
+    const name = typeof payload.error === "string" ? payload.error.trim() : "";
+    const detail =
+      typeof payload.message === "string"
+        ? payload.message.trim().replace(/https?:\/\/\S+/g, "[URL]")
+        : "";
+    const cause = [name, detail].filter(Boolean).join(": ").slice(0, 240);
+    return cause
+      ? `gallery-dl discovery error: ${cause}`
+      : "gallery-dl discovery error";
+  }
+}
+```
+
+After validating that `messages` is an array and before collecting reels, add:
+
+```ts
+const embeddedError = embeddedDiscoveryError(messages);
+if (embeddedError) throw new Error(embeddedError);
+```
+
+- [ ] **Step 4: Run focused and repository verification**
+
+Run:
+
+```bash
+nvm exec 22.17.0 npm test -- scripts/designparser/commands.test.ts
+nvm exec 22.17.0 npm run typecheck
+nvm exec 22.17.0 npm run format:check -- scripts/designparser/commands.ts scripts/designparser/commands.test.ts
+```
+
+Expected: all commands pass.
+
+- [ ] **Step 5: Run the complete digest workflow with network access**
+
+Run `npm run study:designparser:update -- prepare` using Node 22.17.0 and approved network access. If preparation succeeds, follow `.agents/skills/designparser-digest/SKILL.md` exactly through pending analysis and `finalize`; otherwise stop without editing either digest.
+
+- [ ] **Step 6: Commit the implementation**
+
+```bash
+git add scripts/designparser/commands.ts scripts/designparser/commands.test.ts docs/superpowers/plans/2026-08-25-gallery-dl-discovery-errors.md docs/ko/superpowers/plans/2026-08-25-gallery-dl-discovery-errors.md
+git commit -m "fix: report gallery discovery errors"
+```
